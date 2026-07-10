@@ -2,7 +2,8 @@
 
 ## Repository Scope
 - Put backend work under `backend/`; `frontend/` exists but is currently empty.
-- Repo-local OpenCode skills live in `.agents/skills` and are wired by `opencode.json`. Use `domain-modeling` for domain terminology changes and `database-schema-designer` for schema/EF modeling work.
+- Repo-local OpenCode skills live in `.agents/skills` and are wired by `opencode.json`. Use `domain-modeling` for domain terminology changes, `database-schema-designer` for schema/EF modeling work, `aspnet-core` for ASP.NET Core host/DI/middleware/auth/configuration guidance, `dotnet-webapi` for Web API endpoints/HTTP semantics/OpenAPI/error handling, and `find-skills` to search for additional repo-local skills.
+- The GitHub repo is named `calendar_manager`. If the local folder still appears as `calendar_manager_dotnet`, that is only a local directory name; Git remote/tracking is already updated.
 
 ## Backend Shape
 - The backend solution is `backend/Calendar.slnx` and targets `.NET 10`.
@@ -37,4 +38,9 @@
 - Use the local EF tool from `backend/dotnet-tools.json` (`dotnet tool run dotnet-ef`), not a globally installed `dotnet ef`, to avoid version mismatches.
 
 ## Git Workflow
+- Remote `origin` is `https://github.com/AlvR64/calendar_manager.git`; default branch is `main`.
+- Current feature work is on `feature/calendar-backend-foundation` unless Git says otherwise.
+- GitHub CLI is authenticated as `AlvR64`; if `gh` is not on PATH in a fresh shell, use `C:\Program Files\GitHub CLI\gh.exe`.
+- After making changes, create a commit for those changes; every commit must be pushed immediately afterward.
 - When creating a commit, push the branch immediately afterward if a remote is configured; if no remote exists, report that push is blocked by missing remote configuration.
+- Do not create a PR unless explicitly requested.
