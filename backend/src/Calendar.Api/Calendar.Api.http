@@ -1,6 +1,23 @@
-@Calendar.Api_HostAddress = http://localhost:5167
+@baseUrl = http://localhost:5167
 
-GET {{Calendar.Api_HostAddress}}/weatherforecast/
+### Health check
+GET {{baseUrl}}/health
 Accept: application/json
+
+###
+
+### Register business with initial admin
+POST {{baseUrl}}/api/auth/register-business
+Content-Type: application/json
+
+{
+  "businessName": "Barberia Centro",
+  "businessSlug": "barberia-centro",
+  "timeZoneId": "Europe/Madrid",
+  "currencyCode": "EUR",
+  "adminEmail": "admin@barberia-centro.test",
+  "adminPassword": "ChangeMe123!",
+  "adminDisplayName": "Admin Centro"
+}
 
 ###
