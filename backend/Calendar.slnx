@@ -5,4 +5,7 @@
     <Project Path="src/Calendar.Domain/Calendar.Domain.csproj" />
     <Project Path="src/Calendar.Infrastructure/Calendar.Infrastructure.csproj" />
   </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Calendar.Api.Tests/Calendar.Api.Tests.csproj" />
+  </Folder>
 </Solution>

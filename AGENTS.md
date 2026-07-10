@@ -9,7 +9,7 @@
 - The backend solution is `backend/Calendar.slnx` and targets `.NET 10`.
 - Projects are layered as `Calendar.Api`, `Calendar.Application`, `Calendar.Domain`, and `Calendar.Infrastructure` under `backend/src/`.
 - Keep domain entities in `Calendar.Domain/Entities`; EF Core mapping belongs in `Calendar.Infrastructure/Persistence/Configurations`.
-- `Calendar.Api/Program.cs` only wires infrastructure and exposes `GET /health` for now; there are no controllers yet.
+- `Calendar.Api/Program.cs` wires application/infrastructure services, maps controllers, and exposes `GET /health`.
 - `Calendar.Infrastructure.DependencyInjection.AddInfrastructure` requires `ConnectionStrings:DefaultConnection` and registers `CalendarDbContext` with SQL Server.
 
 ## Domain Decisions Already Made
@@ -34,7 +34,8 @@
 - Focused health check after running the API: request `GET http://localhost:5167/health` unless launch settings change.
 
 ## Verification Notes
-- There are no test projects or CI workflows yet; use `dotnet build` plus EF migration/database-update checks for backend validation.
+- After new tasks or code modifications, add or update relevant tests in the appropriate test project.
+- Use `dotnet test` plus `dotnet build` for backend validation; add EF migration/database-update checks when EF mappings/entities change.
 - Use the local EF tool from `backend/dotnet-tools.json` (`dotnet tool run dotnet-ef`), not a globally installed `dotnet ef`, to avoid version mismatches.
 
 ## Git Workflow
