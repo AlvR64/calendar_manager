@@ -21,3 +21,17 @@ Content-Type: application/json
 }
 
 ###
+
+### Register customer
+POST {{baseUrl}}/api/auth/register-customer
+Content-Type: application/json
+
+{
+  "email": "customer@example.test",
+  "password": "ChangeMe123!",
+  "firstName": "Carlos",
+  "lastName": "Garcia",
+  "phoneNumber": "+34600111222"
+}
+
+###

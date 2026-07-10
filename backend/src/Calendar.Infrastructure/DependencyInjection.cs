@@ -20,6 +20,7 @@ public static class DependencyInjection
 
         services.AddScoped<IAdminRepository, AdminRepository>();
         services.AddScoped<IBusinessRepository, BusinessRepository>();
+        services.AddScoped<ICustomerRepository, CustomerRepository>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddSingleton<IPasswordHashingService, Pbkdf2PasswordHashingService>();
 
