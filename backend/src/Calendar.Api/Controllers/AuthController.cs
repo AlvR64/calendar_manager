@@ -1,5 +1,7 @@
 using Calendar.Api.Contracts.Auth;
 using Calendar.Application.Abstractions.Messaging;
+using Calendar.Application.Auth.LoginAdmin;
+using Calendar.Application.Auth.LoginCustomer;
 using Calendar.Application.Auth.RegisterBusiness;
 using Calendar.Application.Auth.RegisterCustomer;
 using Microsoft.AspNetCore.Mvc;
@@ -9,9 +11,73 @@ namespace Calendar.Api.Controllers;
 [ApiController]
 [Route("api/auth")]
 public sealed class AuthController(
+    ICommandHandler<LoginAdminCommand, LoginAdminResult> loginAdminHandler,
+    ICommandHandler<LoginCustomerCommand, LoginCustomerResult> loginCustomerHandler,
     ICommandHandler<RegisterBusinessCommand, RegisterBusinessResult> registerBusinessHandler,
     ICommandHandler<RegisterCustomerCommand, RegisterCustomerResult> registerCustomerHandler) : ControllerBase
 {
+    [HttpPost("admin/login")]
+    [ProducesResponseType<LoginAdminResponse>(StatusCodes.Status200OK)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status403Forbidden)]
+    public async Task<ActionResult<LoginAdminResponse>> LoginAdmin(
+        LoginAdminRequest request,
+        CancellationToken cancellationToken)
+    {
+        var command = new LoginAdminCommand(request.Email, request.Password);
+        var result = await loginAdminHandler.HandleAsync(command, cancellationToken);
+
+        if (!result.Succeeded)
+        {
+            return ToActionResult(result.Error);
+        }
+
+        var response = new LoginAdminResponse(
+            result.AccessToken!,
+            result.TokenType!,
+            result.ExpiresAtUtc!.Value,
+            new LoginAdminUserResponse(
+                "Admin",
+                result.AdminId!.Value,
+                result.BusinessId!.Value,
+                result.Email!,
+                result.DisplayName!));
+
+        return Ok(response);
+    }
+
+    [HttpPost("customer/login")]
+    [ProducesResponseType<LoginCustomerResponse>(StatusCodes.Status200OK)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status403Forbidden)]
+    public async Task<ActionResult<LoginCustomerResponse>> LoginCustomer(
+        LoginCustomerRequest request,
+        CancellationToken cancellationToken)
+    {
+        var command = new LoginCustomerCommand(request.Email, request.Password);
+        var result = await loginCustomerHandler.HandleAsync(command, cancellationToken);
+
+        if (!result.Succeeded)
+        {
+            return ToActionResult(result.Error);
+        }
+
+        var response = new LoginCustomerResponse(
+            result.AccessToken!,
+            result.TokenType!,
+            result.ExpiresAtUtc!.Value,
+            new LoginCustomerUserResponse(
+                "Customer",
+                result.CustomerId!.Value,
+                result.Email!,
+                result.FirstName!,
+                result.LastName));
+
+        return Ok(response);
+    }
+
     [HttpPost("register-business")]
     [ProducesResponseType<RegisterBusinessResponse>(StatusCodes.Status201Created)]
     [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest)]
@@ -120,5 +186,35 @@ public sealed class AuthController(
             Detail = "The customer could not be registered because of a conflict.",
             Instance = HttpContext.Request.Path
         }
+    };
+
+    private ActionResult ToActionResult(LoginAdminError error) => error switch
+    {
+        LoginAdminError.InvalidCredentials => Unauthorized(CreateUnauthorizedProblemDetails()),
+        LoginAdminError.AccountInactive => StatusCode(StatusCodes.Status403Forbidden, CreateForbiddenProblemDetails()),
+        _ => StatusCode(StatusCodes.Status401Unauthorized, CreateUnauthorizedProblemDetails())
+    };
+
+    private ActionResult ToActionResult(LoginCustomerError error) => error switch
+    {
+        LoginCustomerError.InvalidCredentials => Unauthorized(CreateUnauthorizedProblemDetails()),
+        LoginCustomerError.AccountInactive => StatusCode(StatusCodes.Status403Forbidden, CreateForbiddenProblemDetails()),
+        _ => StatusCode(StatusCodes.Status401Unauthorized, CreateUnauthorizedProblemDetails())
+    };
+
+    private ProblemDetails CreateUnauthorizedProblemDetails() => new()
+    {
+        Status = StatusCodes.Status401Unauthorized,
+        Title = "Invalid credentials.",
+        Detail = "The provided email or password is invalid.",
+        Instance = HttpContext.Request.Path
+    };
+
+    private ProblemDetails CreateForbiddenProblemDetails() => new()
+    {
+        Status = StatusCodes.Status403Forbidden,
+        Title = "Account inactive.",
+        Detail = "The account is inactive.",
+        Instance = HttpContext.Request.Path
     };
 }

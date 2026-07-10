@@ -6,6 +6,28 @@ Accept: application/json
 
 ###
 
+### Login admin
+POST {{baseUrl}}/api/auth/admin/login
+Content-Type: application/json
+
+{
+  "email": "admin@barberia-centro.test",
+  "password": "ChangeMe123!"
+}
+
+###
+
+### Login customer
+POST {{baseUrl}}/api/auth/customer/login
+Content-Type: application/json
+
+{
+  "email": "customer@example.test",
+  "password": "ChangeMe123!"
+}
+
+###
+
 ### Register business with initial admin
 POST {{baseUrl}}/api/auth/register-business
 Content-Type: application/json

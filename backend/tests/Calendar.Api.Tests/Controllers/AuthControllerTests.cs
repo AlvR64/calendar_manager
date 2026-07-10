@@ -1,6 +1,8 @@
 using Calendar.Api.Contracts.Auth;
 using Calendar.Api.Controllers;
 using Calendar.Application.Abstractions.Messaging;
+using Calendar.Application.Auth.LoginAdmin;
+using Calendar.Application.Auth.LoginCustomer;
 using Calendar.Application.Auth.RegisterBusiness;
 using Calendar.Application.Auth.RegisterCustomer;
 using Microsoft.AspNetCore.Http;
@@ -10,6 +12,96 @@ namespace Calendar.Api.Tests.Controllers;
 
 public sealed class AuthControllerTests
 {
+    [Fact]
+    public async Task LoginAdmin_WhenCredentialsAreValid_ReturnsOkResponse()
+    {
+        var adminId = Guid.NewGuid();
+        var businessId = Guid.NewGuid();
+        var expiresAtUtc = DateTimeOffset.UtcNow.AddMinutes(60);
+        var handler = new StubLoginAdminHandler(LoginAdminResult.Success(
+            "admin-token",
+            "Bearer",
+            expiresAtUtc,
+            adminId,
+            businessId,
+            "admin@barberia-centro.test",
+            "Admin Centro"));
+        var controller = CreateController(handler);
+
+        var result = await controller.LoginAdmin(CreateLoginAdminRequest(), CancellationToken.None);
+
+        var okResult = Assert.IsType<OkObjectResult>(result.Result);
+        var response = Assert.IsType<LoginAdminResponse>(okResult.Value);
+        Assert.Equal("admin-token", response.AccessToken);
+        Assert.Equal("Bearer", response.TokenType);
+        Assert.Equal(expiresAtUtc, response.ExpiresAtUtc);
+        Assert.Equal("Admin", response.User.Type);
+        Assert.Equal(adminId, response.User.Id);
+        Assert.Equal(businessId, response.User.BusinessId);
+        Assert.Equal("admin@barberia-centro.test", response.User.Email);
+        Assert.Equal("Admin Centro", response.User.DisplayName);
+    }
+
+    [Fact]
+    public async Task LoginAdmin_WhenCredentialsAreInvalid_ReturnsUnauthorizedProblemDetails()
+    {
+        var handler = new StubLoginAdminHandler(LoginAdminResult.Failure(LoginAdminError.InvalidCredentials));
+        var controller = CreateController(handler);
+
+        var result = await controller.LoginAdmin(CreateLoginAdminRequest(), CancellationToken.None);
+
+        var unauthorizedResult = Assert.IsType<UnauthorizedObjectResult>(result.Result);
+        var problemDetails = Assert.IsType<ProblemDetails>(unauthorizedResult.Value);
+        Assert.Equal(StatusCodes.Status401Unauthorized, problemDetails.Status);
+        Assert.Equal("Invalid credentials.", problemDetails.Title);
+        Assert.Equal("/api/auth/admin/login", problemDetails.Instance);
+    }
+
+    [Fact]
+    public async Task LoginCustomer_WhenCredentialsAreValid_ReturnsOkResponse()
+    {
+        var customerId = Guid.NewGuid();
+        var expiresAtUtc = DateTimeOffset.UtcNow.AddMinutes(60);
+        var handler = new StubLoginCustomerHandler(LoginCustomerResult.Success(
+            "customer-token",
+            "Bearer",
+            expiresAtUtc,
+            customerId,
+            "customer@example.test",
+            "Carlos",
+            "Garcia"));
+        var controller = CreateController(handler);
+
+        var result = await controller.LoginCustomer(CreateLoginCustomerRequest(), CancellationToken.None);
+
+        var okResult = Assert.IsType<OkObjectResult>(result.Result);
+        var response = Assert.IsType<LoginCustomerResponse>(okResult.Value);
+        Assert.Equal("customer-token", response.AccessToken);
+        Assert.Equal("Bearer", response.TokenType);
+        Assert.Equal(expiresAtUtc, response.ExpiresAtUtc);
+        Assert.Equal("Customer", response.User.Type);
+        Assert.Equal(customerId, response.User.Id);
+        Assert.Equal("customer@example.test", response.User.Email);
+        Assert.Equal("Carlos", response.User.FirstName);
+        Assert.Equal("Garcia", response.User.LastName);
+    }
+
+    [Fact]
+    public async Task LoginCustomer_WhenAccountIsInactive_ReturnsForbiddenProblemDetails()
+    {
+        var handler = new StubLoginCustomerHandler(LoginCustomerResult.Failure(LoginCustomerError.AccountInactive));
+        var controller = CreateController(handler);
+
+        var result = await controller.LoginCustomer(CreateLoginCustomerRequest(), CancellationToken.None);
+
+        var objectResult = Assert.IsType<ObjectResult>(result.Result);
+        Assert.Equal(StatusCodes.Status403Forbidden, objectResult.StatusCode);
+        var problemDetails = Assert.IsType<ProblemDetails>(objectResult.Value);
+        Assert.Equal(StatusCodes.Status403Forbidden, problemDetails.Status);
+        Assert.Equal("Account inactive.", problemDetails.Title);
+        Assert.Equal("/api/auth/customer/login", problemDetails.Instance);
+    }
+
     [Fact]
     public async Task RegisterBusiness_WhenRegistrationSucceeds_ReturnsCreatedResponse()
     {
@@ -25,7 +117,7 @@ public sealed class AuthControllerTests
                 createdAtUtc));
         var controller = CreateController(handler);
 
-        var result = await controller.RegisterBusiness(CreateRequest(), CancellationToken.None);
+        var result = await controller.RegisterBusiness(CreateRegisterBusinessRequest(), CancellationToken.None);
 
         var createdResult = Assert.IsType<CreatedResult>(result.Result);
         Assert.Equal($"/api/businesses/{businessId}", createdResult.Location);
@@ -45,7 +137,7 @@ public sealed class AuthControllerTests
             RegisterBusinessResult.Failure(RegisterBusinessError.BusinessSlugAlreadyExists));
         var controller = CreateController(handler);
 
-        var result = await controller.RegisterBusiness(CreateRequest(), CancellationToken.None);
+        var result = await controller.RegisterBusiness(CreateRegisterBusinessRequest(), CancellationToken.None);
 
         var conflictResult = Assert.IsType<ConflictObjectResult>(result.Result);
         var problemDetails = Assert.IsType<ProblemDetails>(conflictResult.Value);
@@ -64,7 +156,7 @@ public sealed class AuthControllerTests
             "admin@barberia-centro.test",
             DateTimeOffset.UtcNow));
         var controller = CreateController(handler);
-        var request = CreateRequest();
+        var request = CreateRegisterBusinessRequest();
         using var cancellationTokenSource = new CancellationTokenSource();
 
         await controller.RegisterBusiness(request, cancellationTokenSource.Token);
@@ -95,7 +187,7 @@ public sealed class AuthControllerTests
                 createdAtUtc));
         var controller = CreateController(handler);
 
-        var result = await controller.RegisterCustomer(CreateCustomerRequest(), CancellationToken.None);
+        var result = await controller.RegisterCustomer(CreateRegisterCustomerRequest(), CancellationToken.None);
 
         var createdResult = Assert.IsType<CreatedResult>(result.Result);
         Assert.Equal($"/api/customers/{customerId}", createdResult.Location);
@@ -116,7 +208,7 @@ public sealed class AuthControllerTests
             RegisterCustomerResult.Failure(RegisterCustomerError.CustomerEmailAlreadyExists));
         var controller = CreateController(handler);
 
-        var result = await controller.RegisterCustomer(CreateCustomerRequest(), CancellationToken.None);
+        var result = await controller.RegisterCustomer(CreateRegisterCustomerRequest(), CancellationToken.None);
 
         var conflictResult = Assert.IsType<ConflictObjectResult>(result.Result);
         var problemDetails = Assert.IsType<ProblemDetails>(conflictResult.Value);
@@ -136,7 +228,7 @@ public sealed class AuthControllerTests
             "+34600111222",
             DateTimeOffset.UtcNow));
         var controller = CreateController(handler);
-        var request = CreateCustomerRequest();
+        var request = CreateRegisterCustomerRequest();
         using var cancellationTokenSource = new CancellationTokenSource();
 
         await controller.RegisterCustomer(request, cancellationTokenSource.Token);
@@ -150,16 +242,24 @@ public sealed class AuthControllerTests
         Assert.Equal(cancellationTokenSource.Token, handler.CancellationToken);
     }
 
+    private static AuthController CreateController(StubLoginAdminHandler handler) =>
+        CreateController(handler, CreateDefaultLoginCustomerHandler(), CreateDefaultRegisterBusinessHandler(), CreateDefaultRegisterCustomerHandler(), "/api/auth/admin/login");
+
+    private static AuthController CreateController(StubLoginCustomerHandler handler) =>
+        CreateController(CreateDefaultLoginAdminHandler(), handler, CreateDefaultRegisterBusinessHandler(), CreateDefaultRegisterCustomerHandler(), "/api/auth/customer/login");
+
     private static AuthController CreateController(StubRegisterBusinessHandler handler) =>
-        CreateController(handler, CreateDefaultCustomerHandler(), "/api/auth/register-business");
+        CreateController(CreateDefaultLoginAdminHandler(), CreateDefaultLoginCustomerHandler(), handler, CreateDefaultRegisterCustomerHandler(), "/api/auth/register-business");
 
     private static AuthController CreateController(StubRegisterCustomerHandler handler) =>
-        CreateController(CreateDefaultBusinessHandler(), handler, "/api/auth/register-customer");
+        CreateController(CreateDefaultLoginAdminHandler(), CreateDefaultLoginCustomerHandler(), CreateDefaultRegisterBusinessHandler(), handler, "/api/auth/register-customer");
 
     private static AuthController CreateController(
-        StubRegisterBusinessHandler businessHandler,
-        StubRegisterCustomerHandler customerHandler,
-        string requestPath) => new(businessHandler, customerHandler)
+        StubLoginAdminHandler loginAdminHandler,
+        StubLoginCustomerHandler loginCustomerHandler,
+        StubRegisterBusinessHandler registerBusinessHandler,
+        StubRegisterCustomerHandler registerCustomerHandler,
+        string requestPath) => new(loginAdminHandler, loginCustomerHandler, registerBusinessHandler, registerCustomerHandler)
     {
         ControllerContext = new ControllerContext
         {
@@ -173,7 +273,19 @@ public sealed class AuthControllerTests
         }
     };
 
-    private static RegisterBusinessRequest CreateRequest() => new()
+    private static LoginAdminRequest CreateLoginAdminRequest() => new()
+    {
+        Email = "admin@barberia-centro.test",
+        Password = "ChangeMe123!"
+    };
+
+    private static LoginCustomerRequest CreateLoginCustomerRequest() => new()
+    {
+        Email = "customer@example.test",
+        Password = "ChangeMe123!"
+    };
+
+    private static RegisterBusinessRequest CreateRegisterBusinessRequest() => new()
     {
         BusinessName = "Barberia Centro",
         BusinessSlug = "barberia-centro",
@@ -184,7 +296,7 @@ public sealed class AuthControllerTests
         AdminDisplayName = "Admin Centro"
     };
 
-    private static RegisterCustomerRequest CreateCustomerRequest() => new()
+    private static RegisterCustomerRequest CreateRegisterCustomerRequest() => new()
     {
         Email = "customer@example.test",
         Password = "ChangeMe123!",
@@ -193,20 +305,52 @@ public sealed class AuthControllerTests
         PhoneNumber = "+34600111222"
     };
 
-    private static StubRegisterBusinessHandler CreateDefaultBusinessHandler() => new(RegisterBusinessResult.Success(
+    private static StubLoginAdminHandler CreateDefaultLoginAdminHandler() => new(LoginAdminResult.Success(
+        "admin-token",
+        "Bearer",
+        DateTimeOffset.UtcNow.AddMinutes(60),
+        Guid.NewGuid(),
+        Guid.NewGuid(),
+        "admin@barberia-centro.test",
+        "Admin Centro"));
+
+    private static StubLoginCustomerHandler CreateDefaultLoginCustomerHandler() => new(LoginCustomerResult.Success(
+        "customer-token",
+        "Bearer",
+        DateTimeOffset.UtcNow.AddMinutes(60),
+        Guid.NewGuid(),
+        "customer@example.test",
+        "Carlos",
+        "Garcia"));
+
+    private static StubRegisterBusinessHandler CreateDefaultRegisterBusinessHandler() => new(RegisterBusinessResult.Success(
         Guid.NewGuid(),
         "barberia-centro",
         Guid.NewGuid(),
         "admin@barberia-centro.test",
         DateTimeOffset.UtcNow));
 
-    private static StubRegisterCustomerHandler CreateDefaultCustomerHandler() => new(RegisterCustomerResult.Success(
+    private static StubRegisterCustomerHandler CreateDefaultRegisterCustomerHandler() => new(RegisterCustomerResult.Success(
         Guid.NewGuid(),
         "customer@example.test",
         "Carlos",
         "Garcia",
         "+34600111222",
         DateTimeOffset.UtcNow));
+
+    private sealed class StubLoginAdminHandler(LoginAdminResult result)
+        : ICommandHandler<LoginAdminCommand, LoginAdminResult>
+    {
+        public Task<LoginAdminResult> HandleAsync(LoginAdminCommand command, CancellationToken cancellationToken) =>
+            Task.FromResult(result);
+    }
+
+    private sealed class StubLoginCustomerHandler(LoginCustomerResult result)
+        : ICommandHandler<LoginCustomerCommand, LoginCustomerResult>
+    {
+        public Task<LoginCustomerResult> HandleAsync(LoginCustomerCommand command, CancellationToken cancellationToken) =>
+            Task.FromResult(result);
+    }
 
     private sealed class StubRegisterBusinessHandler(RegisterBusinessResult result)
         : ICommandHandler<RegisterBusinessCommand, RegisterBusinessResult>

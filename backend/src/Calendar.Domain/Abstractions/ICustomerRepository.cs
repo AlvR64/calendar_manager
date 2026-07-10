@@ -6,5 +6,7 @@ public interface ICustomerRepository
 {
     Task<bool> ExistsByNormalizedEmailAsync(string normalizedEmail, CancellationToken cancellationToken);
 
+    Task<Customer?> GetByNormalizedEmailAsync(string normalizedEmail, CancellationToken cancellationToken);
+
     void Add(Customer customer);
 }
