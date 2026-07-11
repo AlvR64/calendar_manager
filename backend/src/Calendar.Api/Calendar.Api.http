@@ -1,5 +1,7 @@
 @baseUrl = http://localhost:5167
 @adminAccessToken = paste-admin-access-token-here
+@serviceId = paste-service-id-here
+@staffMemberId = paste-staff-member-id-here
 
 ### Health check
 GET {{baseUrl}}/health
@@ -34,6 +36,18 @@ Content-Type: application/json
   "bio": "Especialista en cortes y color",
   "sortOrder": 0
 }
+
+###
+
+### Assign service to staff member
+POST {{baseUrl}}/api/staff-members/{{staffMemberId}}/services/{{serviceId}}
+Authorization: Bearer {{adminAccessToken}}
+
+###
+
+### Assign staff member to service
+POST {{baseUrl}}/api/services/{{serviceId}}/staff-members/{{staffMemberId}}
+Authorization: Bearer {{adminAccessToken}}
 
 ###
 

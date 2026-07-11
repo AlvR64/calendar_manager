@@ -1,8 +1,10 @@
 using System.Security.Claims;
+using Calendar.Api.Contracts.StaffMemberServices;
 using Calendar.Api.Contracts.Services;
 using Calendar.Api.Controllers;
 using Calendar.Application.Abstractions.Messaging;
 using Calendar.Application.Services.CreateService;
+using Calendar.Application.StaffMemberServices.AssignStaffMemberService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -133,9 +135,160 @@ public sealed class ServicesControllerTests
         problemDetails.Instance.Should().Be("/api/services");
     }
 
+    [Fact]
+    public async Task AssignStaffMemberToService_WhenAssignmentSucceeds_ReturnsCreatedResponse()
+    {
+        var businessId = Guid.NewGuid();
+        var serviceId = Guid.NewGuid();
+        var staffMemberId = Guid.NewGuid();
+        var createdAtUtc = DateTimeOffset.UtcNow;
+        var handler = new StubAssignStaffMemberServiceHandler(AssignStaffMemberServiceResult.Success(
+            staffMemberId,
+            serviceId,
+            true,
+            createdAtUtc));
+        var controller = CreateController(handler, businessId.ToString(), $"/api/services/{serviceId}/staff-members/{staffMemberId}");
+
+        var result = await controller.AssignStaffMemberToService(serviceId, staffMemberId, CancellationToken.None);
+
+        var objectResult = result.Result.Should().BeOfType<ObjectResult>().Subject;
+        objectResult.StatusCode.Should().Be(StatusCodes.Status201Created);
+        var response = objectResult.Value.Should().BeOfType<StaffMemberServiceAssignmentResponse>().Subject;
+        response.StaffMemberId.Should().Be(staffMemberId);
+        response.ServiceId.Should().Be(serviceId);
+        response.IsActive.Should().BeTrue();
+        response.CreatedAtUtc.Should().Be(createdAtUtc);
+    }
+
+    [Fact]
+    public async Task AssignStaffMemberToService_UsesBusinessIdFromAdminToken()
+    {
+        var businessId = Guid.NewGuid();
+        var serviceId = Guid.NewGuid();
+        var staffMemberId = Guid.NewGuid();
+        var handler = new StubAssignStaffMemberServiceHandler(AssignStaffMemberServiceResult.Success(
+            staffMemberId,
+            serviceId,
+            true,
+            DateTimeOffset.UtcNow));
+        var controller = CreateController(handler, businessId.ToString(), $"/api/services/{serviceId}/staff-members/{staffMemberId}");
+        using var cancellationTokenSource = new CancellationTokenSource();
+
+        await controller.AssignStaffMemberToService(serviceId, staffMemberId, cancellationTokenSource.Token);
+
+        handler.Command.Should().NotBeNull();
+        handler.Command!.BusinessId.Should().Be(businessId);
+        handler.Command.StaffMemberId.Should().Be(staffMemberId);
+        handler.Command.ServiceId.Should().Be(serviceId);
+        handler.CancellationToken.Should().Be(cancellationTokenSource.Token);
+    }
+
+    [Fact]
+    public async Task AssignStaffMemberToService_WhenBusinessClaimIsMissing_ReturnsForbid()
+    {
+        var serviceId = Guid.NewGuid();
+        var staffMemberId = Guid.NewGuid();
+        var handler = new StubAssignStaffMemberServiceHandler(AssignStaffMemberServiceResult.Success(
+            staffMemberId,
+            serviceId,
+            true,
+            DateTimeOffset.UtcNow));
+        var controller = CreateController(handler, businessIdClaimValue: null, $"/api/services/{serviceId}/staff-members/{staffMemberId}");
+
+        var result = await controller.AssignStaffMemberToService(serviceId, staffMemberId, CancellationToken.None);
+
+        result.Result.Should().BeOfType<ForbidResult>();
+        handler.Command.Should().BeNull();
+    }
+
+    [Fact]
+    public async Task AssignStaffMemberToService_WhenBusinessClaimIsInvalid_ReturnsForbid()
+    {
+        var serviceId = Guid.NewGuid();
+        var staffMemberId = Guid.NewGuid();
+        var handler = new StubAssignStaffMemberServiceHandler(AssignStaffMemberServiceResult.Success(
+            staffMemberId,
+            serviceId,
+            true,
+            DateTimeOffset.UtcNow));
+        var controller = CreateController(handler, "not-a-guid", $"/api/services/{serviceId}/staff-members/{staffMemberId}");
+
+        var result = await controller.AssignStaffMemberToService(serviceId, staffMemberId, CancellationToken.None);
+
+        result.Result.Should().BeOfType<ForbidResult>();
+        handler.Command.Should().BeNull();
+    }
+
+    [Fact]
+    public async Task AssignStaffMemberToService_WhenStaffMemberDoesNotExist_ReturnsNotFoundProblemDetails()
+    {
+        var serviceId = Guid.NewGuid();
+        var staffMemberId = Guid.NewGuid();
+        var handler = new StubAssignStaffMemberServiceHandler(
+            AssignStaffMemberServiceResult.Failure(AssignStaffMemberServiceError.StaffMemberNotFound));
+        var controller = CreateController(handler, Guid.NewGuid().ToString(), $"/api/services/{serviceId}/staff-members/{staffMemberId}");
+
+        var result = await controller.AssignStaffMemberToService(serviceId, staffMemberId, CancellationToken.None);
+
+        var notFoundResult = result.Result.Should().BeOfType<NotFoundObjectResult>().Subject;
+        var problemDetails = notFoundResult.Value.Should().BeOfType<ProblemDetails>().Subject;
+        problemDetails.Status.Should().Be(StatusCodes.Status404NotFound);
+        problemDetails.Title.Should().Be("Staff member not found.");
+        problemDetails.Instance.Should().Be($"/api/services/{serviceId}/staff-members/{staffMemberId}");
+    }
+
+    [Fact]
+    public async Task AssignStaffMemberToService_WhenServiceDoesNotExist_ReturnsNotFoundProblemDetails()
+    {
+        var serviceId = Guid.NewGuid();
+        var staffMemberId = Guid.NewGuid();
+        var handler = new StubAssignStaffMemberServiceHandler(
+            AssignStaffMemberServiceResult.Failure(AssignStaffMemberServiceError.ServiceNotFound));
+        var controller = CreateController(handler, Guid.NewGuid().ToString(), $"/api/services/{serviceId}/staff-members/{staffMemberId}");
+
+        var result = await controller.AssignStaffMemberToService(serviceId, staffMemberId, CancellationToken.None);
+
+        var notFoundResult = result.Result.Should().BeOfType<NotFoundObjectResult>().Subject;
+        var problemDetails = notFoundResult.Value.Should().BeOfType<ProblemDetails>().Subject;
+        problemDetails.Status.Should().Be(StatusCodes.Status404NotFound);
+        problemDetails.Title.Should().Be("Service not found.");
+        problemDetails.Instance.Should().Be($"/api/services/{serviceId}/staff-members/{staffMemberId}");
+    }
+
+    [Fact]
+    public async Task AssignStaffMemberToService_WhenAssignmentAlreadyExists_ReturnsConflictProblemDetails()
+    {
+        var serviceId = Guid.NewGuid();
+        var staffMemberId = Guid.NewGuid();
+        var handler = new StubAssignStaffMemberServiceHandler(
+            AssignStaffMemberServiceResult.Failure(AssignStaffMemberServiceError.AssignmentAlreadyExists));
+        var controller = CreateController(handler, Guid.NewGuid().ToString(), $"/api/services/{serviceId}/staff-members/{staffMemberId}");
+
+        var result = await controller.AssignStaffMemberToService(serviceId, staffMemberId, CancellationToken.None);
+
+        var conflictResult = result.Result.Should().BeOfType<ConflictObjectResult>().Subject;
+        var problemDetails = conflictResult.Value.Should().BeOfType<ProblemDetails>().Subject;
+        problemDetails.Status.Should().Be(StatusCodes.Status409Conflict);
+        problemDetails.Title.Should().Be("Staff member service assignment already exists.");
+        problemDetails.Instance.Should().Be($"/api/services/{serviceId}/staff-members/{staffMemberId}");
+    }
+
     private static ServicesController CreateController(
         StubCreateServiceHandler handler,
-        string? businessIdClaimValue)
+        string? businessIdClaimValue) =>
+        CreateController(handler, CreateDefaultAssignStaffMemberServiceHandler(), businessIdClaimValue, "/api/services");
+
+    private static ServicesController CreateController(
+        StubAssignStaffMemberServiceHandler handler,
+        string? businessIdClaimValue,
+        string requestPath) =>
+        CreateController(CreateDefaultCreateServiceHandler(), handler, businessIdClaimValue, requestPath);
+
+    private static ServicesController CreateController(
+        StubCreateServiceHandler createServiceHandler,
+        StubAssignStaffMemberServiceHandler assignStaffMemberServiceHandler,
+        string? businessIdClaimValue,
+        string requestPath)
     {
         var claims = new List<Claim>();
         if (businessIdClaimValue is not null)
@@ -143,7 +296,7 @@ public sealed class ServicesControllerTests
             claims.Add(new Claim("business_id", businessIdClaimValue));
         }
 
-        return new ServicesController(handler)
+        return new ServicesController(createServiceHandler, assignStaffMemberServiceHandler)
         {
             ControllerContext = new ControllerContext
             {
@@ -152,7 +305,7 @@ public sealed class ServicesControllerTests
                     User = new ClaimsPrincipal(new ClaimsIdentity(claims, "TestAuth")),
                     Request =
                     {
-                        Path = "/api/services"
+                        Path = requestPath
                     }
                 }
             }
@@ -168,6 +321,23 @@ public sealed class ServicesControllerTests
         SortOrder = 0
     };
 
+    private static StubCreateServiceHandler CreateDefaultCreateServiceHandler() => new(CreateServiceResult.Success(
+        Guid.NewGuid(),
+        Guid.NewGuid(),
+        "Corte de pelo",
+        "Corte clasico o moderno",
+        30,
+        18.00m,
+        true,
+        0,
+        DateTimeOffset.UtcNow));
+
+    private static StubAssignStaffMemberServiceHandler CreateDefaultAssignStaffMemberServiceHandler() => new(AssignStaffMemberServiceResult.Success(
+        Guid.NewGuid(),
+        Guid.NewGuid(),
+        true,
+        DateTimeOffset.UtcNow));
+
     private sealed class StubCreateServiceHandler(CreateServiceResult result)
         : ICommandHandler<CreateServiceCommand, CreateServiceResult>
     {
@@ -177,6 +347,24 @@ public sealed class ServicesControllerTests
 
         public Task<CreateServiceResult> HandleAsync(
             CreateServiceCommand command,
+            CancellationToken cancellationToken)
+        {
+            Command = command;
+            CancellationToken = cancellationToken;
+
+            return Task.FromResult(result);
+        }
+    }
+
+    private sealed class StubAssignStaffMemberServiceHandler(AssignStaffMemberServiceResult result)
+        : ICommandHandler<AssignStaffMemberServiceCommand, AssignStaffMemberServiceResult>
+    {
+        public AssignStaffMemberServiceCommand? Command { get; private set; }
+
+        public CancellationToken CancellationToken { get; private set; }
+
+        public Task<AssignStaffMemberServiceResult> HandleAsync(
+            AssignStaffMemberServiceCommand command,
             CancellationToken cancellationToken)
         {
             Command = command;
