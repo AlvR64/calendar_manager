@@ -30,16 +30,16 @@ public sealed class AuthControllerTests
 
         var result = await controller.LoginAdmin(CreateLoginAdminRequest(), CancellationToken.None);
 
-        var okResult = Assert.IsType<OkObjectResult>(result.Result);
-        var response = Assert.IsType<LoginAdminResponse>(okResult.Value);
-        Assert.Equal("admin-token", response.AccessToken);
-        Assert.Equal("Bearer", response.TokenType);
-        Assert.Equal(expiresAtUtc, response.ExpiresAtUtc);
-        Assert.Equal("Admin", response.User.Type);
-        Assert.Equal(adminId, response.User.Id);
-        Assert.Equal(businessId, response.User.BusinessId);
-        Assert.Equal("admin@barberia-centro.test", response.User.Email);
-        Assert.Equal("Admin Centro", response.User.DisplayName);
+        var okResult = result.Result.Should().BeOfType<OkObjectResult>().Subject;
+        var response = okResult.Value.Should().BeOfType<LoginAdminResponse>().Subject;
+        response.AccessToken.Should().Be("admin-token");
+        response.TokenType.Should().Be("Bearer");
+        response.ExpiresAtUtc.Should().Be(expiresAtUtc);
+        response.User.Type.Should().Be("Admin");
+        response.User.Id.Should().Be(adminId);
+        response.User.BusinessId.Should().Be(businessId);
+        response.User.Email.Should().Be("admin@barberia-centro.test");
+        response.User.DisplayName.Should().Be("Admin Centro");
     }
 
     [Fact]
@@ -50,11 +50,11 @@ public sealed class AuthControllerTests
 
         var result = await controller.LoginAdmin(CreateLoginAdminRequest(), CancellationToken.None);
 
-        var unauthorizedResult = Assert.IsType<UnauthorizedObjectResult>(result.Result);
-        var problemDetails = Assert.IsType<ProblemDetails>(unauthorizedResult.Value);
-        Assert.Equal(StatusCodes.Status401Unauthorized, problemDetails.Status);
-        Assert.Equal("Invalid credentials.", problemDetails.Title);
-        Assert.Equal("/api/auth/admin/login", problemDetails.Instance);
+        var unauthorizedResult = result.Result.Should().BeOfType<UnauthorizedObjectResult>().Subject;
+        var problemDetails = unauthorizedResult.Value.Should().BeOfType<ProblemDetails>().Subject;
+        problemDetails.Status.Should().Be(StatusCodes.Status401Unauthorized);
+        problemDetails.Title.Should().Be("Invalid credentials.");
+        problemDetails.Instance.Should().Be("/api/auth/admin/login");
     }
 
     [Fact]
@@ -74,16 +74,16 @@ public sealed class AuthControllerTests
 
         var result = await controller.LoginCustomer(CreateLoginCustomerRequest(), CancellationToken.None);
 
-        var okResult = Assert.IsType<OkObjectResult>(result.Result);
-        var response = Assert.IsType<LoginCustomerResponse>(okResult.Value);
-        Assert.Equal("customer-token", response.AccessToken);
-        Assert.Equal("Bearer", response.TokenType);
-        Assert.Equal(expiresAtUtc, response.ExpiresAtUtc);
-        Assert.Equal("Customer", response.User.Type);
-        Assert.Equal(customerId, response.User.Id);
-        Assert.Equal("customer@example.test", response.User.Email);
-        Assert.Equal("Carlos", response.User.FirstName);
-        Assert.Equal("Garcia", response.User.LastName);
+        var okResult = result.Result.Should().BeOfType<OkObjectResult>().Subject;
+        var response = okResult.Value.Should().BeOfType<LoginCustomerResponse>().Subject;
+        response.AccessToken.Should().Be("customer-token");
+        response.TokenType.Should().Be("Bearer");
+        response.ExpiresAtUtc.Should().Be(expiresAtUtc);
+        response.User.Type.Should().Be("Customer");
+        response.User.Id.Should().Be(customerId);
+        response.User.Email.Should().Be("customer@example.test");
+        response.User.FirstName.Should().Be("Carlos");
+        response.User.LastName.Should().Be("Garcia");
     }
 
     [Fact]
@@ -94,12 +94,12 @@ public sealed class AuthControllerTests
 
         var result = await controller.LoginCustomer(CreateLoginCustomerRequest(), CancellationToken.None);
 
-        var objectResult = Assert.IsType<ObjectResult>(result.Result);
-        Assert.Equal(StatusCodes.Status403Forbidden, objectResult.StatusCode);
-        var problemDetails = Assert.IsType<ProblemDetails>(objectResult.Value);
-        Assert.Equal(StatusCodes.Status403Forbidden, problemDetails.Status);
-        Assert.Equal("Account inactive.", problemDetails.Title);
-        Assert.Equal("/api/auth/customer/login", problemDetails.Instance);
+        var objectResult = result.Result.Should().BeOfType<ObjectResult>().Subject;
+        objectResult.StatusCode.Should().Be(StatusCodes.Status403Forbidden);
+        var problemDetails = objectResult.Value.Should().BeOfType<ProblemDetails>().Subject;
+        problemDetails.Status.Should().Be(StatusCodes.Status403Forbidden);
+        problemDetails.Title.Should().Be("Account inactive.");
+        problemDetails.Instance.Should().Be("/api/auth/customer/login");
     }
 
     [Fact]
@@ -119,15 +119,15 @@ public sealed class AuthControllerTests
 
         var result = await controller.RegisterBusiness(CreateRegisterBusinessRequest(), CancellationToken.None);
 
-        var createdResult = Assert.IsType<CreatedResult>(result.Result);
-        Assert.Equal($"/api/businesses/{businessId}", createdResult.Location);
+        var createdResult = result.Result.Should().BeOfType<CreatedResult>().Subject;
+        createdResult.Location.Should().Be($"/api/businesses/{businessId}");
 
-        var response = Assert.IsType<RegisterBusinessResponse>(createdResult.Value);
-        Assert.Equal(businessId, response.BusinessId);
-        Assert.Equal("barberia-centro", response.BusinessSlug);
-        Assert.Equal(adminId, response.AdminId);
-        Assert.Equal("admin@barberia-centro.test", response.AdminEmail);
-        Assert.Equal(createdAtUtc, response.CreatedAtUtc);
+        var response = createdResult.Value.Should().BeOfType<RegisterBusinessResponse>().Subject;
+        response.BusinessId.Should().Be(businessId);
+        response.BusinessSlug.Should().Be("barberia-centro");
+        response.AdminId.Should().Be(adminId);
+        response.AdminEmail.Should().Be("admin@barberia-centro.test");
+        response.CreatedAtUtc.Should().Be(createdAtUtc);
     }
 
     [Fact]
@@ -139,11 +139,11 @@ public sealed class AuthControllerTests
 
         var result = await controller.RegisterBusiness(CreateRegisterBusinessRequest(), CancellationToken.None);
 
-        var conflictResult = Assert.IsType<ConflictObjectResult>(result.Result);
-        var problemDetails = Assert.IsType<ProblemDetails>(conflictResult.Value);
-        Assert.Equal(StatusCodes.Status409Conflict, problemDetails.Status);
-        Assert.Equal("Business slug already exists.", problemDetails.Title);
-        Assert.Equal("/api/auth/register-business", problemDetails.Instance);
+        var conflictResult = result.Result.Should().BeOfType<ConflictObjectResult>().Subject;
+        var problemDetails = conflictResult.Value.Should().BeOfType<ProblemDetails>().Subject;
+        problemDetails.Status.Should().Be(StatusCodes.Status409Conflict);
+        problemDetails.Title.Should().Be("Business slug already exists.");
+        problemDetails.Instance.Should().Be("/api/auth/register-business");
     }
 
     [Fact]
@@ -161,15 +161,15 @@ public sealed class AuthControllerTests
 
         await controller.RegisterBusiness(request, cancellationTokenSource.Token);
 
-        Assert.NotNull(handler.Command);
-        Assert.Equal(request.BusinessName, handler.Command.BusinessName);
-        Assert.Equal(request.BusinessSlug, handler.Command.BusinessSlug);
-        Assert.Equal(request.TimeZoneId, handler.Command.TimeZoneId);
-        Assert.Equal(request.CurrencyCode, handler.Command.CurrencyCode);
-        Assert.Equal(request.AdminEmail, handler.Command.AdminEmail);
-        Assert.Equal(request.AdminPassword, handler.Command.AdminPassword);
-        Assert.Equal(request.AdminDisplayName, handler.Command.AdminDisplayName);
-        Assert.Equal(cancellationTokenSource.Token, handler.CancellationToken);
+        handler.Command.Should().NotBeNull();
+        handler.Command!.BusinessName.Should().Be(request.BusinessName);
+        handler.Command.BusinessSlug.Should().Be(request.BusinessSlug);
+        handler.Command.TimeZoneId.Should().Be(request.TimeZoneId);
+        handler.Command.CurrencyCode.Should().Be(request.CurrencyCode);
+        handler.Command.AdminEmail.Should().Be(request.AdminEmail);
+        handler.Command.AdminPassword.Should().Be(request.AdminPassword);
+        handler.Command.AdminDisplayName.Should().Be(request.AdminDisplayName);
+        handler.CancellationToken.Should().Be(cancellationTokenSource.Token);
     }
 
     [Fact]
@@ -189,16 +189,16 @@ public sealed class AuthControllerTests
 
         var result = await controller.RegisterCustomer(CreateRegisterCustomerRequest(), CancellationToken.None);
 
-        var createdResult = Assert.IsType<CreatedResult>(result.Result);
-        Assert.Equal($"/api/customers/{customerId}", createdResult.Location);
+        var createdResult = result.Result.Should().BeOfType<CreatedResult>().Subject;
+        createdResult.Location.Should().Be($"/api/customers/{customerId}");
 
-        var response = Assert.IsType<RegisterCustomerResponse>(createdResult.Value);
-        Assert.Equal(customerId, response.CustomerId);
-        Assert.Equal("customer@example.test", response.Email);
-        Assert.Equal("Carlos", response.FirstName);
-        Assert.Equal("Garcia", response.LastName);
-        Assert.Equal("+34600111222", response.PhoneNumber);
-        Assert.Equal(createdAtUtc, response.CreatedAtUtc);
+        var response = createdResult.Value.Should().BeOfType<RegisterCustomerResponse>().Subject;
+        response.CustomerId.Should().Be(customerId);
+        response.Email.Should().Be("customer@example.test");
+        response.FirstName.Should().Be("Carlos");
+        response.LastName.Should().Be("Garcia");
+        response.PhoneNumber.Should().Be("+34600111222");
+        response.CreatedAtUtc.Should().Be(createdAtUtc);
     }
 
     [Fact]
@@ -210,11 +210,11 @@ public sealed class AuthControllerTests
 
         var result = await controller.RegisterCustomer(CreateRegisterCustomerRequest(), CancellationToken.None);
 
-        var conflictResult = Assert.IsType<ConflictObjectResult>(result.Result);
-        var problemDetails = Assert.IsType<ProblemDetails>(conflictResult.Value);
-        Assert.Equal(StatusCodes.Status409Conflict, problemDetails.Status);
-        Assert.Equal("Customer email already exists.", problemDetails.Title);
-        Assert.Equal("/api/auth/register-customer", problemDetails.Instance);
+        var conflictResult = result.Result.Should().BeOfType<ConflictObjectResult>().Subject;
+        var problemDetails = conflictResult.Value.Should().BeOfType<ProblemDetails>().Subject;
+        problemDetails.Status.Should().Be(StatusCodes.Status409Conflict);
+        problemDetails.Title.Should().Be("Customer email already exists.");
+        problemDetails.Instance.Should().Be("/api/auth/register-customer");
     }
 
     [Fact]
@@ -233,13 +233,13 @@ public sealed class AuthControllerTests
 
         await controller.RegisterCustomer(request, cancellationTokenSource.Token);
 
-        Assert.NotNull(handler.Command);
-        Assert.Equal(request.Email, handler.Command.Email);
-        Assert.Equal(request.Password, handler.Command.Password);
-        Assert.Equal(request.FirstName, handler.Command.FirstName);
-        Assert.Equal(request.LastName, handler.Command.LastName);
-        Assert.Equal(request.PhoneNumber, handler.Command.PhoneNumber);
-        Assert.Equal(cancellationTokenSource.Token, handler.CancellationToken);
+        handler.Command.Should().NotBeNull();
+        handler.Command!.Email.Should().Be(request.Email);
+        handler.Command.Password.Should().Be(request.Password);
+        handler.Command.FirstName.Should().Be(request.FirstName);
+        handler.Command.LastName.Should().Be(request.LastName);
+        handler.Command.PhoneNumber.Should().Be(request.PhoneNumber);
+        handler.CancellationToken.Should().Be(cancellationTokenSource.Token);
     }
 
     private static AuthController CreateController(StubLoginAdminHandler handler) =>

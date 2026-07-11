@@ -30,19 +30,19 @@ public sealed class StaffMembersControllerTests
 
         var result = await controller.CreateStaffMember(CreateRequest(), CancellationToken.None);
 
-        var createdResult = Assert.IsType<CreatedResult>(result.Result);
-        Assert.Equal($"/api/staff-members/{staffMemberId}", createdResult.Location);
+        var createdResult = result.Result.Should().BeOfType<CreatedResult>().Subject;
+        createdResult.Location.Should().Be($"/api/staff-members/{staffMemberId}");
 
-        var response = Assert.IsType<StaffMemberResponse>(createdResult.Value);
-        Assert.Equal(staffMemberId, response.Id);
-        Assert.Equal(businessId, response.BusinessId);
-        Assert.Equal("Laura Martinez", response.DisplayName);
-        Assert.Equal("laura@example.test", response.Email);
-        Assert.Equal("+34600999888", response.PhoneNumber);
-        Assert.Equal("Especialista en cortes y color", response.Bio);
-        Assert.True(response.IsActive);
-        Assert.Equal(0, response.SortOrder);
-        Assert.Equal(createdAtUtc, response.CreatedAtUtc);
+        var response = createdResult.Value.Should().BeOfType<StaffMemberResponse>().Subject;
+        response.Id.Should().Be(staffMemberId);
+        response.BusinessId.Should().Be(businessId);
+        response.DisplayName.Should().Be("Laura Martinez");
+        response.Email.Should().Be("laura@example.test");
+        response.PhoneNumber.Should().Be("+34600999888");
+        response.Bio.Should().Be("Especialista en cortes y color");
+        response.IsActive.Should().BeTrue();
+        response.SortOrder.Should().Be(0);
+        response.CreatedAtUtc.Should().Be(createdAtUtc);
     }
 
     [Fact]
@@ -65,14 +65,14 @@ public sealed class StaffMembersControllerTests
 
         await controller.CreateStaffMember(request, cancellationTokenSource.Token);
 
-        Assert.NotNull(handler.Command);
-        Assert.Equal(businessId, handler.Command.BusinessId);
-        Assert.Equal(request.DisplayName, handler.Command.DisplayName);
-        Assert.Equal(request.Email, handler.Command.Email);
-        Assert.Equal(request.PhoneNumber, handler.Command.PhoneNumber);
-        Assert.Equal(request.Bio, handler.Command.Bio);
-        Assert.Equal(request.SortOrder, handler.Command.SortOrder);
-        Assert.Equal(cancellationTokenSource.Token, handler.CancellationToken);
+        handler.Command.Should().NotBeNull();
+        handler.Command!.BusinessId.Should().Be(businessId);
+        handler.Command.DisplayName.Should().Be(request.DisplayName);
+        handler.Command.Email.Should().Be(request.Email);
+        handler.Command.PhoneNumber.Should().Be(request.PhoneNumber);
+        handler.Command.Bio.Should().Be(request.Bio);
+        handler.Command.SortOrder.Should().Be(request.SortOrder);
+        handler.CancellationToken.Should().Be(cancellationTokenSource.Token);
     }
 
     [Fact]
@@ -92,8 +92,8 @@ public sealed class StaffMembersControllerTests
 
         var result = await controller.CreateStaffMember(CreateRequest(), CancellationToken.None);
 
-        Assert.IsType<ForbidResult>(result.Result);
-        Assert.Null(handler.Command);
+        result.Result.Should().BeOfType<ForbidResult>();
+        handler.Command.Should().BeNull();
     }
 
     [Fact]
@@ -113,8 +113,8 @@ public sealed class StaffMembersControllerTests
 
         var result = await controller.CreateStaffMember(CreateRequest(), CancellationToken.None);
 
-        Assert.IsType<ForbidResult>(result.Result);
-        Assert.Null(handler.Command);
+        result.Result.Should().BeOfType<ForbidResult>();
+        handler.Command.Should().BeNull();
     }
 
     [Fact]
@@ -126,11 +126,11 @@ public sealed class StaffMembersControllerTests
 
         var result = await controller.CreateStaffMember(CreateRequest(), CancellationToken.None);
 
-        var notFoundResult = Assert.IsType<NotFoundObjectResult>(result.Result);
-        var problemDetails = Assert.IsType<ProblemDetails>(notFoundResult.Value);
-        Assert.Equal(StatusCodes.Status404NotFound, problemDetails.Status);
-        Assert.Equal("Business not found.", problemDetails.Title);
-        Assert.Equal("/api/staff-members", problemDetails.Instance);
+        var notFoundResult = result.Result.Should().BeOfType<NotFoundObjectResult>().Subject;
+        var problemDetails = notFoundResult.Value.Should().BeOfType<ProblemDetails>().Subject;
+        problemDetails.Status.Should().Be(StatusCodes.Status404NotFound);
+        problemDetails.Title.Should().Be("Business not found.");
+        problemDetails.Instance.Should().Be("/api/staff-members");
     }
 
     private static StaffMembersController CreateController(

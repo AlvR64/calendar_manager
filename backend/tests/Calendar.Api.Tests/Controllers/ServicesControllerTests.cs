@@ -30,19 +30,19 @@ public sealed class ServicesControllerTests
 
         var result = await controller.CreateService(CreateRequest(), CancellationToken.None);
 
-        var createdResult = Assert.IsType<CreatedResult>(result.Result);
-        Assert.Equal($"/api/services/{serviceId}", createdResult.Location);
+        var createdResult = result.Result.Should().BeOfType<CreatedResult>().Subject;
+        createdResult.Location.Should().Be($"/api/services/{serviceId}");
 
-        var response = Assert.IsType<ServiceResponse>(createdResult.Value);
-        Assert.Equal(serviceId, response.Id);
-        Assert.Equal(businessId, response.BusinessId);
-        Assert.Equal("Corte de pelo", response.Name);
-        Assert.Equal("Corte clasico o moderno", response.Description);
-        Assert.Equal(30, response.DurationMinutes);
-        Assert.Equal(18.00m, response.PriceAmount);
-        Assert.True(response.IsActive);
-        Assert.Equal(0, response.SortOrder);
-        Assert.Equal(createdAtUtc, response.CreatedAtUtc);
+        var response = createdResult.Value.Should().BeOfType<ServiceResponse>().Subject;
+        response.Id.Should().Be(serviceId);
+        response.BusinessId.Should().Be(businessId);
+        response.Name.Should().Be("Corte de pelo");
+        response.Description.Should().Be("Corte clasico o moderno");
+        response.DurationMinutes.Should().Be(30);
+        response.PriceAmount.Should().Be(18.00m);
+        response.IsActive.Should().BeTrue();
+        response.SortOrder.Should().Be(0);
+        response.CreatedAtUtc.Should().Be(createdAtUtc);
     }
 
     [Fact]
@@ -65,14 +65,14 @@ public sealed class ServicesControllerTests
 
         await controller.CreateService(request, cancellationTokenSource.Token);
 
-        Assert.NotNull(handler.Command);
-        Assert.Equal(businessId, handler.Command.BusinessId);
-        Assert.Equal(request.Name, handler.Command.Name);
-        Assert.Equal(request.Description, handler.Command.Description);
-        Assert.Equal(request.DurationMinutes, handler.Command.DurationMinutes);
-        Assert.Equal(request.PriceAmount, handler.Command.PriceAmount);
-        Assert.Equal(request.SortOrder, handler.Command.SortOrder);
-        Assert.Equal(cancellationTokenSource.Token, handler.CancellationToken);
+        handler.Command.Should().NotBeNull();
+        handler.Command!.BusinessId.Should().Be(businessId);
+        handler.Command.Name.Should().Be(request.Name);
+        handler.Command.Description.Should().Be(request.Description);
+        handler.Command.DurationMinutes.Should().Be(request.DurationMinutes);
+        handler.Command.PriceAmount.Should().Be(request.PriceAmount);
+        handler.Command.SortOrder.Should().Be(request.SortOrder);
+        handler.CancellationToken.Should().Be(cancellationTokenSource.Token);
     }
 
     [Fact]
@@ -92,8 +92,8 @@ public sealed class ServicesControllerTests
 
         var result = await controller.CreateService(CreateRequest(), CancellationToken.None);
 
-        Assert.IsType<ForbidResult>(result.Result);
-        Assert.Null(handler.Command);
+        result.Result.Should().BeOfType<ForbidResult>();
+        handler.Command.Should().BeNull();
     }
 
     [Fact]
@@ -113,8 +113,8 @@ public sealed class ServicesControllerTests
 
         var result = await controller.CreateService(CreateRequest(), CancellationToken.None);
 
-        Assert.IsType<ForbidResult>(result.Result);
-        Assert.Null(handler.Command);
+        result.Result.Should().BeOfType<ForbidResult>();
+        handler.Command.Should().BeNull();
     }
 
     [Fact]
@@ -126,11 +126,11 @@ public sealed class ServicesControllerTests
 
         var result = await controller.CreateService(CreateRequest(), CancellationToken.None);
 
-        var notFoundResult = Assert.IsType<NotFoundObjectResult>(result.Result);
-        var problemDetails = Assert.IsType<ProblemDetails>(notFoundResult.Value);
-        Assert.Equal(StatusCodes.Status404NotFound, problemDetails.Status);
-        Assert.Equal("Business not found.", problemDetails.Title);
-        Assert.Equal("/api/services", problemDetails.Instance);
+        var notFoundResult = result.Result.Should().BeOfType<NotFoundObjectResult>().Subject;
+        var problemDetails = notFoundResult.Value.Should().BeOfType<ProblemDetails>().Subject;
+        problemDetails.Status.Should().Be(StatusCodes.Status404NotFound);
+        problemDetails.Title.Should().Be("Business not found.");
+        problemDetails.Instance.Should().Be("/api/services");
     }
 
     private static ServicesController CreateController(

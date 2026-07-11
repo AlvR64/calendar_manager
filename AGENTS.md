@@ -35,6 +35,7 @@
 
 ## Verification Notes
 - After new tasks or code modifications, add or update relevant tests in the appropriate test project.
+- Use FluentAssertions for test assertions in .NET test projects.
 - Use `dotnet test` plus `dotnet build` for backend validation; add EF migration/database-update checks when EF mappings/entities change.
 - Use the local EF tool from `backend/dotnet-tools.json` (`dotnet tool run dotnet-ef`), not a globally installed `dotnet ef`, to avoid version mismatches.
 
