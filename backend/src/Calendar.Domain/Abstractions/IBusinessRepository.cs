@@ -4,6 +4,8 @@ namespace Calendar.Domain.Abstractions;
 
 public interface IBusinessRepository
 {
+    Task<bool> ExistsByIdAsync(Guid id, CancellationToken cancellationToken);
+
     Task<bool> ExistsBySlugAsync(string slug, CancellationToken cancellationToken);
 
     void Add(Business business);

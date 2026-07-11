@@ -1,8 +1,24 @@
 @baseUrl = http://localhost:5167
+@adminAccessToken = paste-admin-access-token-here
 
 ### Health check
 GET {{baseUrl}}/health
 Accept: application/json
+
+###
+
+### Create staff member
+POST {{baseUrl}}/api/staff-members
+Authorization: Bearer {{adminAccessToken}}
+Content-Type: application/json
+
+{
+  "displayName": "Laura Martinez",
+  "email": "laura@example.test",
+  "phoneNumber": "+34600999888",
+  "bio": "Especialista en cortes y color",
+  "sortOrder": 0
+}
 
 ###
 

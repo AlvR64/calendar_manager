@@ -6,6 +6,9 @@ namespace Calendar.Infrastructure.Persistence.Repositories;
 
 public sealed class BusinessRepository(CalendarDbContext dbContext) : IBusinessRepository
 {
+    public Task<bool> ExistsByIdAsync(Guid id, CancellationToken cancellationToken) =>
+        dbContext.Businesses.AnyAsync(business => business.Id == id, cancellationToken);
+
     public Task<bool> ExistsBySlugAsync(string slug, CancellationToken cancellationToken) =>
         dbContext.Businesses.AnyAsync(business => business.Slug == slug, cancellationToken);
 
