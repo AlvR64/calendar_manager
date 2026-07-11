@@ -7,6 +7,21 @@ Accept: application/json
 
 ###
 
+### Create service
+POST {{baseUrl}}/api/services
+Authorization: Bearer {{adminAccessToken}}
+Content-Type: application/json
+
+{
+  "name": "Corte de pelo",
+  "description": "Corte clasico o moderno",
+  "durationMinutes": 30,
+  "priceAmount": 18.00,
+  "sortOrder": 0
+}
+
+###
+
 ### Create staff member
 POST {{baseUrl}}/api/staff-members
 Authorization: Bearer {{adminAccessToken}}
