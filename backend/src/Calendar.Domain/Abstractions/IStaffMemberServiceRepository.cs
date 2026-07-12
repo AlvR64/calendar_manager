@@ -6,7 +6,13 @@ public interface IStaffMemberServiceRepository
 {
     Task<bool> ExistsAsync(Guid staffMemberId, Guid serviceId, CancellationToken cancellationToken);
 
+    Task<StaffMemberService?> GetByIdsForUpdateAsync(Guid staffMemberId, Guid serviceId, CancellationToken cancellationToken);
+
+    Task<bool> HasAppointmentsAsync(Guid staffMemberId, Guid serviceId, CancellationToken cancellationToken);
+
     Task<IReadOnlyList<StaffMemberService>> ListActiveByBusinessIdAsync(Guid businessId, CancellationToken cancellationToken);
 
     void Add(StaffMemberService staffMemberService);
+
+    void Remove(StaffMemberService staffMemberService);
 }

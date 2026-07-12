@@ -4,6 +4,8 @@ using Calendar.Api.Contracts.StaffMembers;
 using Calendar.Api.Controllers;
 using Calendar.Application.Abstractions.Messaging;
 using Calendar.Application.StaffMemberServices.AssignStaffMemberService;
+using Calendar.Application.StaffMemberServices.UnassignStaffMemberService;
+using Calendar.Application.StaffMemberServices.UpdateStaffMemberServiceActiveState;
 using Calendar.Application.StaffMembers;
 using Calendar.Application.StaffMembers.CreateStaffMember;
 using Calendar.Application.StaffMembers.DeleteStaffMember;
@@ -777,6 +779,220 @@ public sealed class StaffMembersControllerTests
         problemDetails.Instance.Should().Be($"/api/staff-members/{staffMemberId}/services/{serviceId}");
     }
 
+    [Fact]
+    public async Task UpdateStaffMemberServiceActiveState_WhenAssignmentExists_ReturnsOkResponse()
+    {
+        var businessId = Guid.NewGuid();
+        var staffMemberId = Guid.NewGuid();
+        var serviceId = Guid.NewGuid();
+        var createdAtUtc = DateTimeOffset.UtcNow;
+        var handler = new StubCommandHandler<UpdateStaffMemberServiceActiveStateCommand, UpdateStaffMemberServiceActiveStateResult>(
+            UpdateStaffMemberServiceActiveStateResult.Success(staffMemberId, serviceId, false, createdAtUtc));
+        var controller = CreateController(handler, businessId.ToString(), $"/api/staff-members/{staffMemberId}/services/{serviceId}/active-state");
+
+        var result = await controller.UpdateStaffMemberServiceActiveState(
+            staffMemberId,
+            serviceId,
+            new UpdateStaffMemberServiceActiveStateRequest { IsActive = false },
+            CancellationToken.None);
+
+        var okResult = result.Result.Should().BeOfType<OkObjectResult>().Subject;
+        var response = okResult.Value.Should().BeOfType<StaffMemberServiceAssignmentResponse>().Subject;
+        response.StaffMemberId.Should().Be(staffMemberId);
+        response.ServiceId.Should().Be(serviceId);
+        response.IsActive.Should().BeFalse();
+        response.CreatedAtUtc.Should().Be(createdAtUtc);
+    }
+
+    [Fact]
+    public async Task UpdateStaffMemberServiceActiveState_UsesBusinessIdFromAdminToken()
+    {
+        var businessId = Guid.NewGuid();
+        var staffMemberId = Guid.NewGuid();
+        var serviceId = Guid.NewGuid();
+        var handler = new StubCommandHandler<UpdateStaffMemberServiceActiveStateCommand, UpdateStaffMemberServiceActiveStateResult>(
+            UpdateStaffMemberServiceActiveStateResult.Success(staffMemberId, serviceId, false, DateTimeOffset.UtcNow));
+        var controller = CreateController(handler, businessId.ToString(), $"/api/staff-members/{staffMemberId}/services/{serviceId}/active-state");
+        using var cancellationTokenSource = new CancellationTokenSource();
+
+        await controller.UpdateStaffMemberServiceActiveState(
+            staffMemberId,
+            serviceId,
+            new UpdateStaffMemberServiceActiveStateRequest { IsActive = false },
+            cancellationTokenSource.Token);
+
+        handler.Command.Should().Be(new UpdateStaffMemberServiceActiveStateCommand(businessId, staffMemberId, serviceId, false));
+        handler.CancellationToken.Should().Be(cancellationTokenSource.Token);
+    }
+
+    [Fact]
+    public async Task UpdateStaffMemberServiceActiveState_WhenBusinessClaimIsMissing_ReturnsForbid()
+    {
+        var staffMemberId = Guid.NewGuid();
+        var serviceId = Guid.NewGuid();
+        var handler = new StubCommandHandler<UpdateStaffMemberServiceActiveStateCommand, UpdateStaffMemberServiceActiveStateResult>(
+            UpdateStaffMemberServiceActiveStateResult.Success(staffMemberId, serviceId, true, DateTimeOffset.UtcNow));
+        var controller = CreateController(handler, businessIdClaimValue: null, $"/api/staff-members/{staffMemberId}/services/{serviceId}/active-state");
+
+        var result = await controller.UpdateStaffMemberServiceActiveState(
+            staffMemberId,
+            serviceId,
+            new UpdateStaffMemberServiceActiveStateRequest { IsActive = true },
+            CancellationToken.None);
+
+        result.Result.Should().BeOfType<ForbidResult>();
+        handler.Command.Should().BeNull();
+    }
+
+    [Fact]
+    public async Task UpdateStaffMemberServiceActiveState_WhenBusinessClaimIsInvalid_ReturnsForbid()
+    {
+        var staffMemberId = Guid.NewGuid();
+        var serviceId = Guid.NewGuid();
+        var handler = new StubCommandHandler<UpdateStaffMemberServiceActiveStateCommand, UpdateStaffMemberServiceActiveStateResult>(
+            UpdateStaffMemberServiceActiveStateResult.Success(staffMemberId, serviceId, true, DateTimeOffset.UtcNow));
+        var controller = CreateController(handler, "not-a-guid", $"/api/staff-members/{staffMemberId}/services/{serviceId}/active-state");
+
+        var result = await controller.UpdateStaffMemberServiceActiveState(
+            staffMemberId,
+            serviceId,
+            new UpdateStaffMemberServiceActiveStateRequest { IsActive = true },
+            CancellationToken.None);
+
+        result.Result.Should().BeOfType<ForbidResult>();
+        handler.Command.Should().BeNull();
+    }
+
+    [Theory]
+    [InlineData(UpdateStaffMemberServiceActiveStateError.StaffMemberNotFound, "Staff member not found.")]
+    [InlineData(UpdateStaffMemberServiceActiveStateError.ServiceNotFound, "Service not found.")]
+    [InlineData(UpdateStaffMemberServiceActiveStateError.AssignmentNotFound, "Staff member service assignment not found.")]
+    public async Task UpdateStaffMemberServiceActiveState_WhenDependencyDoesNotExist_ReturnsNotFoundProblemDetails(
+        UpdateStaffMemberServiceActiveStateError error,
+        string expectedTitle)
+    {
+        var staffMemberId = Guid.NewGuid();
+        var serviceId = Guid.NewGuid();
+        var handler = new StubCommandHandler<UpdateStaffMemberServiceActiveStateCommand, UpdateStaffMemberServiceActiveStateResult>(
+            UpdateStaffMemberServiceActiveStateResult.Failure(error));
+        var controller = CreateController(handler, Guid.NewGuid().ToString(), $"/api/staff-members/{staffMemberId}/services/{serviceId}/active-state");
+
+        var result = await controller.UpdateStaffMemberServiceActiveState(
+            staffMemberId,
+            serviceId,
+            new UpdateStaffMemberServiceActiveStateRequest { IsActive = false },
+            CancellationToken.None);
+
+        var notFoundResult = result.Result.Should().BeOfType<NotFoundObjectResult>().Subject;
+        var problemDetails = notFoundResult.Value.Should().BeOfType<ProblemDetails>().Subject;
+        problemDetails.Status.Should().Be(StatusCodes.Status404NotFound);
+        problemDetails.Title.Should().Be(expectedTitle);
+        problemDetails.Instance.Should().Be($"/api/staff-members/{staffMemberId}/services/{serviceId}/active-state");
+    }
+
+    [Fact]
+    public async Task UnassignServiceFromStaffMember_WhenAssignmentCanBeDeleted_ReturnsNoContent()
+    {
+        var staffMemberId = Guid.NewGuid();
+        var serviceId = Guid.NewGuid();
+        var handler = new StubCommandHandler<UnassignStaffMemberServiceCommand, UnassignStaffMemberServiceResult>(
+            UnassignStaffMemberServiceResult.Success());
+        var controller = CreateController(handler, Guid.NewGuid().ToString(), $"/api/staff-members/{staffMemberId}/services/{serviceId}");
+
+        var result = await controller.UnassignServiceFromStaffMember(staffMemberId, serviceId, CancellationToken.None);
+
+        result.Should().BeOfType<NoContentResult>();
+    }
+
+    [Fact]
+    public async Task UnassignServiceFromStaffMember_UsesBusinessIdFromAdminToken()
+    {
+        var businessId = Guid.NewGuid();
+        var staffMemberId = Guid.NewGuid();
+        var serviceId = Guid.NewGuid();
+        var handler = new StubCommandHandler<UnassignStaffMemberServiceCommand, UnassignStaffMemberServiceResult>(
+            UnassignStaffMemberServiceResult.Success());
+        var controller = CreateController(handler, businessId.ToString(), $"/api/staff-members/{staffMemberId}/services/{serviceId}");
+        using var cancellationTokenSource = new CancellationTokenSource();
+
+        await controller.UnassignServiceFromStaffMember(staffMemberId, serviceId, cancellationTokenSource.Token);
+
+        handler.Command.Should().Be(new UnassignStaffMemberServiceCommand(businessId, staffMemberId, serviceId));
+        handler.CancellationToken.Should().Be(cancellationTokenSource.Token);
+    }
+
+    [Fact]
+    public async Task UnassignServiceFromStaffMember_WhenBusinessClaimIsMissing_ReturnsForbid()
+    {
+        var staffMemberId = Guid.NewGuid();
+        var serviceId = Guid.NewGuid();
+        var handler = new StubCommandHandler<UnassignStaffMemberServiceCommand, UnassignStaffMemberServiceResult>(
+            UnassignStaffMemberServiceResult.Success());
+        var controller = CreateController(handler, businessIdClaimValue: null, $"/api/staff-members/{staffMemberId}/services/{serviceId}");
+
+        var result = await controller.UnassignServiceFromStaffMember(staffMemberId, serviceId, CancellationToken.None);
+
+        result.Should().BeOfType<ForbidResult>();
+        handler.Command.Should().BeNull();
+    }
+
+    [Fact]
+    public async Task UnassignServiceFromStaffMember_WhenBusinessClaimIsInvalid_ReturnsForbid()
+    {
+        var staffMemberId = Guid.NewGuid();
+        var serviceId = Guid.NewGuid();
+        var handler = new StubCommandHandler<UnassignStaffMemberServiceCommand, UnassignStaffMemberServiceResult>(
+            UnassignStaffMemberServiceResult.Success());
+        var controller = CreateController(handler, "not-a-guid", $"/api/staff-members/{staffMemberId}/services/{serviceId}");
+
+        var result = await controller.UnassignServiceFromStaffMember(staffMemberId, serviceId, CancellationToken.None);
+
+        result.Should().BeOfType<ForbidResult>();
+        handler.Command.Should().BeNull();
+    }
+
+    [Theory]
+    [InlineData(UnassignStaffMemberServiceError.StaffMemberNotFound, "Staff member not found.")]
+    [InlineData(UnassignStaffMemberServiceError.ServiceNotFound, "Service not found.")]
+    [InlineData(UnassignStaffMemberServiceError.AssignmentNotFound, "Staff member service assignment not found.")]
+    public async Task UnassignServiceFromStaffMember_WhenDependencyDoesNotExist_ReturnsNotFoundProblemDetails(
+        UnassignStaffMemberServiceError error,
+        string expectedTitle)
+    {
+        var staffMemberId = Guid.NewGuid();
+        var serviceId = Guid.NewGuid();
+        var handler = new StubCommandHandler<UnassignStaffMemberServiceCommand, UnassignStaffMemberServiceResult>(
+            UnassignStaffMemberServiceResult.Failure(error));
+        var controller = CreateController(handler, Guid.NewGuid().ToString(), $"/api/staff-members/{staffMemberId}/services/{serviceId}");
+
+        var result = await controller.UnassignServiceFromStaffMember(staffMemberId, serviceId, CancellationToken.None);
+
+        var notFoundResult = result.Should().BeOfType<NotFoundObjectResult>().Subject;
+        var problemDetails = notFoundResult.Value.Should().BeOfType<ProblemDetails>().Subject;
+        problemDetails.Status.Should().Be(StatusCodes.Status404NotFound);
+        problemDetails.Title.Should().Be(expectedTitle);
+        problemDetails.Instance.Should().Be($"/api/staff-members/{staffMemberId}/services/{serviceId}");
+    }
+
+    [Fact]
+    public async Task UnassignServiceFromStaffMember_WhenAssignmentHasAppointments_ReturnsConflictProblemDetails()
+    {
+        var staffMemberId = Guid.NewGuid();
+        var serviceId = Guid.NewGuid();
+        var handler = new StubCommandHandler<UnassignStaffMemberServiceCommand, UnassignStaffMemberServiceResult>(
+            UnassignStaffMemberServiceResult.Failure(UnassignStaffMemberServiceError.AssignmentHasAppointments));
+        var controller = CreateController(handler, Guid.NewGuid().ToString(), $"/api/staff-members/{staffMemberId}/services/{serviceId}");
+
+        var result = await controller.UnassignServiceFromStaffMember(staffMemberId, serviceId, CancellationToken.None);
+
+        var conflictResult = result.Should().BeOfType<ConflictObjectResult>().Subject;
+        var problemDetails = conflictResult.Value.Should().BeOfType<ProblemDetails>().Subject;
+        problemDetails.Status.Should().Be(StatusCodes.Status409Conflict);
+        problemDetails.Title.Should().Be("Staff member service assignment has appointments.");
+        problemDetails.Detail.Should().Be("The staff member service assignment cannot be deleted because it has appointments. Deactivate it instead.");
+        problemDetails.Instance.Should().Be($"/api/staff-members/{staffMemberId}/services/{serviceId}");
+    }
+
     private static StaffMembersController CreateController(
         StubCreateStaffMemberHandler handler,
         string? businessIdClaimValue) =>
@@ -786,6 +1002,8 @@ public sealed class StaffMembersControllerTests
             CreateDefaultUpdateStaffMemberActiveStateHandler(),
             CreateDefaultDeleteStaffMemberHandler(),
             CreateDefaultAssignStaffMemberServiceHandler(),
+            CreateDefaultUnassignStaffMemberServiceHandler(),
+            CreateDefaultUpdateStaffMemberServiceActiveStateHandler(),
             CreateDefaultListAdminStaffMembersHandler(),
             CreateDefaultGetAdminStaffMemberHandler(),
             businessIdClaimValue,
@@ -801,6 +1019,8 @@ public sealed class StaffMembersControllerTests
             CreateDefaultUpdateStaffMemberActiveStateHandler(),
             CreateDefaultDeleteStaffMemberHandler(),
             handler,
+            CreateDefaultUnassignStaffMemberServiceHandler(),
+            CreateDefaultUpdateStaffMemberServiceActiveStateHandler(),
             CreateDefaultListAdminStaffMembersHandler(),
             CreateDefaultGetAdminStaffMemberHandler(),
             businessIdClaimValue,
@@ -816,6 +1036,8 @@ public sealed class StaffMembersControllerTests
             CreateDefaultUpdateStaffMemberActiveStateHandler(),
             CreateDefaultDeleteStaffMemberHandler(),
             CreateDefaultAssignStaffMemberServiceHandler(),
+            CreateDefaultUnassignStaffMemberServiceHandler(),
+            CreateDefaultUpdateStaffMemberServiceActiveStateHandler(),
             handler,
             CreateDefaultGetAdminStaffMemberHandler(),
             businessIdClaimValue,
@@ -831,6 +1053,8 @@ public sealed class StaffMembersControllerTests
             CreateDefaultUpdateStaffMemberActiveStateHandler(),
             CreateDefaultDeleteStaffMemberHandler(),
             CreateDefaultAssignStaffMemberServiceHandler(),
+            CreateDefaultUnassignStaffMemberServiceHandler(),
+            CreateDefaultUpdateStaffMemberServiceActiveStateHandler(),
             CreateDefaultListAdminStaffMembersHandler(),
             handler,
             businessIdClaimValue,
@@ -846,6 +1070,8 @@ public sealed class StaffMembersControllerTests
             CreateDefaultUpdateStaffMemberActiveStateHandler(),
             CreateDefaultDeleteStaffMemberHandler(),
             CreateDefaultAssignStaffMemberServiceHandler(),
+            CreateDefaultUnassignStaffMemberServiceHandler(),
+            CreateDefaultUpdateStaffMemberServiceActiveStateHandler(),
             CreateDefaultListAdminStaffMembersHandler(),
             CreateDefaultGetAdminStaffMemberHandler(),
             businessIdClaimValue,
@@ -861,6 +1087,8 @@ public sealed class StaffMembersControllerTests
             handler,
             CreateDefaultDeleteStaffMemberHandler(),
             CreateDefaultAssignStaffMemberServiceHandler(),
+            CreateDefaultUnassignStaffMemberServiceHandler(),
+            CreateDefaultUpdateStaffMemberServiceActiveStateHandler(),
             CreateDefaultListAdminStaffMembersHandler(),
             CreateDefaultGetAdminStaffMemberHandler(),
             businessIdClaimValue,
@@ -876,6 +1104,42 @@ public sealed class StaffMembersControllerTests
             CreateDefaultUpdateStaffMemberActiveStateHandler(),
             handler,
             CreateDefaultAssignStaffMemberServiceHandler(),
+            CreateDefaultUnassignStaffMemberServiceHandler(),
+            CreateDefaultUpdateStaffMemberServiceActiveStateHandler(),
+            CreateDefaultListAdminStaffMembersHandler(),
+            CreateDefaultGetAdminStaffMemberHandler(),
+            businessIdClaimValue,
+            requestPath);
+
+    private static StaffMembersController CreateController(
+        StubCommandHandler<UnassignStaffMemberServiceCommand, UnassignStaffMemberServiceResult> handler,
+        string? businessIdClaimValue,
+        string requestPath) =>
+        CreateController(
+            CreateDefaultCreateStaffMemberHandler(),
+            CreateDefaultUpdateStaffMemberHandler(),
+            CreateDefaultUpdateStaffMemberActiveStateHandler(),
+            CreateDefaultDeleteStaffMemberHandler(),
+            CreateDefaultAssignStaffMemberServiceHandler(),
+            handler,
+            CreateDefaultUpdateStaffMemberServiceActiveStateHandler(),
+            CreateDefaultListAdminStaffMembersHandler(),
+            CreateDefaultGetAdminStaffMemberHandler(),
+            businessIdClaimValue,
+            requestPath);
+
+    private static StaffMembersController CreateController(
+        StubCommandHandler<UpdateStaffMemberServiceActiveStateCommand, UpdateStaffMemberServiceActiveStateResult> handler,
+        string? businessIdClaimValue,
+        string requestPath) =>
+        CreateController(
+            CreateDefaultCreateStaffMemberHandler(),
+            CreateDefaultUpdateStaffMemberHandler(),
+            CreateDefaultUpdateStaffMemberActiveStateHandler(),
+            CreateDefaultDeleteStaffMemberHandler(),
+            CreateDefaultAssignStaffMemberServiceHandler(),
+            CreateDefaultUnassignStaffMemberServiceHandler(),
+            handler,
             CreateDefaultListAdminStaffMembersHandler(),
             CreateDefaultGetAdminStaffMemberHandler(),
             businessIdClaimValue,
@@ -887,6 +1151,8 @@ public sealed class StaffMembersControllerTests
         StubCommandHandler<UpdateStaffMemberActiveStateCommand, UpdateStaffMemberActiveStateResult> updateStaffMemberActiveStateHandler,
         StubCommandHandler<DeleteStaffMemberCommand, DeleteStaffMemberResult> deleteStaffMemberHandler,
         StubAssignStaffMemberServiceHandler assignStaffMemberServiceHandler,
+        StubCommandHandler<UnassignStaffMemberServiceCommand, UnassignStaffMemberServiceResult> unassignStaffMemberServiceHandler,
+        StubCommandHandler<UpdateStaffMemberServiceActiveStateCommand, UpdateStaffMemberServiceActiveStateResult> updateStaffMemberServiceActiveStateHandler,
         StubQueryHandler<ListAdminStaffMembersQuery, ListAdminStaffMembersResult> listAdminStaffMembersHandler,
         StubQueryHandler<GetAdminStaffMemberQuery, GetAdminStaffMemberResult> getAdminStaffMemberHandler,
         string? businessIdClaimValue,
@@ -904,6 +1170,8 @@ public sealed class StaffMembersControllerTests
             updateStaffMemberActiveStateHandler,
             deleteStaffMemberHandler,
             assignStaffMemberServiceHandler,
+            unassignStaffMemberServiceHandler,
+            updateStaffMemberServiceActiveStateHandler,
             listAdminStaffMembersHandler,
             getAdminStaffMemberHandler)
         {
@@ -966,6 +1234,17 @@ public sealed class StaffMembersControllerTests
         Guid.NewGuid(),
         true,
         DateTimeOffset.UtcNow));
+
+    private static StubCommandHandler<UnassignStaffMemberServiceCommand, UnassignStaffMemberServiceResult> CreateDefaultUnassignStaffMemberServiceHandler() => new(
+        UnassignStaffMemberServiceResult.Success());
+
+    private static StubCommandHandler<UpdateStaffMemberServiceActiveStateCommand, UpdateStaffMemberServiceActiveStateResult> CreateDefaultUpdateStaffMemberServiceActiveStateHandler()
+    {
+        var staffMemberId = Guid.NewGuid();
+        var serviceId = Guid.NewGuid();
+        return new StubCommandHandler<UpdateStaffMemberServiceActiveStateCommand, UpdateStaffMemberServiceActiveStateResult>(
+            UpdateStaffMemberServiceActiveStateResult.Success(staffMemberId, serviceId, true, DateTimeOffset.UtcNow));
+    }
 
     private static StubCommandHandler<UpdateStaffMemberCommand, UpdateStaffMemberResult> CreateDefaultUpdateStaffMemberHandler()
     {

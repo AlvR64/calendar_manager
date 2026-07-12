@@ -12,6 +12,18 @@ public sealed class StaffMemberServiceRepository(CalendarDbContext dbContext) : 
                 && staffMemberService.ServiceId == serviceId,
             cancellationToken);
 
+    public Task<StaffMemberService?> GetByIdsForUpdateAsync(Guid staffMemberId, Guid serviceId, CancellationToken cancellationToken) =>
+        dbContext.StaffMemberServices.FirstOrDefaultAsync(
+            staffMemberService => staffMemberService.StaffMemberId == staffMemberId
+                && staffMemberService.ServiceId == serviceId,
+            cancellationToken);
+
+    public Task<bool> HasAppointmentsAsync(Guid staffMemberId, Guid serviceId, CancellationToken cancellationToken) =>
+        dbContext.Appointments.AnyAsync(
+            appointment => appointment.StaffMemberId == staffMemberId
+                && appointment.ServiceId == serviceId,
+            cancellationToken);
+
     public async Task<IReadOnlyList<StaffMemberService>> ListActiveByBusinessIdAsync(Guid businessId, CancellationToken cancellationToken) =>
         await dbContext.StaffMemberServices
             .AsNoTracking()
@@ -25,4 +37,6 @@ public sealed class StaffMemberServiceRepository(CalendarDbContext dbContext) : 
             .ToListAsync(cancellationToken);
 
     public void Add(StaffMemberService staffMemberService) => dbContext.StaffMemberServices.Add(staffMemberService);
+
+    public void Remove(StaffMemberService staffMemberService) => dbContext.StaffMemberServices.Remove(staffMemberService);
 }

@@ -46,8 +46,8 @@ Legend:
 | --- | --- | --- | --- |
 | 4.1 | Asignar service a staff member desde la ruta de staff. | [x] | [ ] |
 | 4.2 | Asignar staff member a service desde la ruta de service. | [x] | [ ] |
-| 4.3 | Desasignar service de staff member. | [ ] | [ ] |
-| 4.4 | Activar/desactivar una asignacion staff-service sin borrarla. | [ ] | [ ] |
+| 4.3 | Desasignar service de staff member. | [x] | [ ] |
+| 4.4 | Activar/desactivar una asignacion staff-service sin borrarla. | [x] | [ ] |
 | 4.5 | Listar services asignados a un staff member. | [ ] | [x] |
 | 4.6 | Listar staff members asignados a un service. | [ ] | [x] |
 | 4.7 | Configurar duracion custom por staff-service si un staff tarda distinto en el mismo service. | [ ] | [ ] |

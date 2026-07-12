@@ -203,6 +203,23 @@ Authorization: Bearer {{adminAccessToken}}
 
 ###
 
+### Deactivate staff member service assignment
+PUT {{baseUrl}}/api/staff-members/{{staffMemberId}}/services/{{serviceId}}/active-state
+Authorization: Bearer {{adminAccessToken}}
+Content-Type: application/json
+
+{
+  "isActive": false
+}
+
+###
+
+### Unassign service from staff member
+DELETE {{baseUrl}}/api/staff-members/{{staffMemberId}}/services/{{serviceId}}
+Authorization: Bearer {{adminAccessToken}}
+
+###
+
 ### Assign staff member to service
 POST {{baseUrl}}/api/services/{{serviceId}}/staff-members/{{staffMemberId}}
 Authorization: Bearer {{adminAccessToken}}

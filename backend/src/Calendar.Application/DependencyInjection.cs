@@ -12,6 +12,8 @@ using Calendar.Application.Services.DeleteService;
 using Calendar.Application.Services.UpdateService;
 using Calendar.Application.Services.UpdateServiceActiveState;
 using Calendar.Application.StaffMemberServices.AssignStaffMemberService;
+using Calendar.Application.StaffMemberServices.UnassignStaffMemberService;
+using Calendar.Application.StaffMemberServices.UpdateStaffMemberServiceActiveState;
 using Calendar.Application.StaffMembers;
 using Calendar.Application.StaffMembers.CreateStaffMember;
 using Calendar.Application.StaffMembers.DeleteStaffMember;
@@ -38,6 +40,8 @@ public static class DependencyInjection
         services.AddScoped<ICommandHandler<UpdateStaffMemberActiveStateCommand, UpdateStaffMemberActiveStateResult>, UpdateStaffMemberActiveStateCommandHandler>();
         services.AddScoped<ICommandHandler<DeleteStaffMemberCommand, DeleteStaffMemberResult>, DeleteStaffMemberCommandHandler>();
         services.AddScoped<ICommandHandler<AssignStaffMemberServiceCommand, AssignStaffMemberServiceResult>, AssignStaffMemberServiceCommandHandler>();
+        services.AddScoped<ICommandHandler<UnassignStaffMemberServiceCommand, UnassignStaffMemberServiceResult>, UnassignStaffMemberServiceCommandHandler>();
+        services.AddScoped<ICommandHandler<UpdateStaffMemberServiceActiveStateCommand, UpdateStaffMemberServiceActiveStateResult>, UpdateStaffMemberServiceActiveStateCommandHandler>();
         services.AddScoped<ICommandHandler<UpdateBusinessDetailsCommand, UpdateBusinessDetailsResult>, UpdateBusinessDetailsCommandHandler>();
         services.AddScoped<ICommandHandler<UpdateBusinessBookingWindowCommand, UpdateBusinessBookingWindowResult>, UpdateBusinessBookingWindowCommandHandler>();
         services.AddScoped<IQueryHandler<GetBusinessByIdQuery, BusinessDetails?>, PublicBusinessQueryHandler>();

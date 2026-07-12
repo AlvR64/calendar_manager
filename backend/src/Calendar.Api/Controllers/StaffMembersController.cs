@@ -3,6 +3,8 @@ using Calendar.Api.Contracts.StaffMemberServices;
 using Calendar.Api.Contracts.StaffMembers;
 using Calendar.Application.Abstractions.Messaging;
 using Calendar.Application.StaffMemberServices.AssignStaffMemberService;
+using Calendar.Application.StaffMemberServices.UnassignStaffMemberService;
+using Calendar.Application.StaffMemberServices.UpdateStaffMemberServiceActiveState;
 using Calendar.Application.StaffMembers;
 using Calendar.Application.StaffMembers.CreateStaffMember;
 using Calendar.Application.StaffMembers.DeleteStaffMember;
@@ -22,6 +24,8 @@ public sealed class StaffMembersController(
     ICommandHandler<UpdateStaffMemberActiveStateCommand, UpdateStaffMemberActiveStateResult> updateStaffMemberActiveStateHandler,
     ICommandHandler<DeleteStaffMemberCommand, DeleteStaffMemberResult> deleteStaffMemberHandler,
     ICommandHandler<AssignStaffMemberServiceCommand, AssignStaffMemberServiceResult> assignStaffMemberServiceHandler,
+    ICommandHandler<UnassignStaffMemberServiceCommand, UnassignStaffMemberServiceResult> unassignStaffMemberServiceHandler,
+    ICommandHandler<UpdateStaffMemberServiceActiveStateCommand, UpdateStaffMemberServiceActiveStateResult> updateStaffMemberServiceActiveStateHandler,
     IQueryHandler<ListAdminStaffMembersQuery, ListAdminStaffMembersResult> listAdminStaffMembersHandler,
     IQueryHandler<GetAdminStaffMemberQuery, GetAdminStaffMemberResult> getAdminStaffMemberHandler) : ControllerBase
 {
@@ -266,6 +270,85 @@ public sealed class StaffMembersController(
         return StatusCode(StatusCodes.Status201Created, response);
     }
 
+    [HttpPut("{staffMemberId:guid}/services/{serviceId:guid}/active-state")]
+    [ProducesResponseType<StaffMemberServiceAssignmentResponse>(StatusCodes.Status200OK)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<StaffMemberServiceAssignmentResponse>> UpdateStaffMemberServiceActiveState(
+        Guid staffMemberId,
+        Guid serviceId,
+        UpdateStaffMemberServiceActiveStateRequest request,
+        CancellationToken cancellationToken)
+    {
+        if (!TryGetBusinessId(out var businessId))
+        {
+            return Forbid();
+        }
+
+        var command = new UpdateStaffMemberServiceActiveStateCommand(
+            businessId,
+            staffMemberId,
+            serviceId,
+            request.IsActive);
+
+        var result = await updateStaffMemberServiceActiveStateHandler.HandleAsync(command, cancellationToken);
+        if (!result.Succeeded)
+        {
+            return result.Error switch
+            {
+                UpdateStaffMemberServiceActiveStateError.StaffMemberNotFound => NotFound(CreateStaffMemberNotFoundProblemDetails()),
+                UpdateStaffMemberServiceActiveStateError.ServiceNotFound => NotFound(CreateServiceNotFoundProblemDetails()),
+                UpdateStaffMemberServiceActiveStateError.AssignmentNotFound => NotFound(CreateAssignmentNotFoundProblemDetails()),
+                _ => BadRequest()
+            };
+        }
+
+        var response = new StaffMemberServiceAssignmentResponse(
+            result.StaffMemberId!.Value,
+            result.ServiceId!.Value,
+            result.IsActive!.Value,
+            result.CreatedAtUtc!.Value);
+
+        return Ok(response);
+    }
+
+    [HttpDelete("{staffMemberId:guid}/services/{serviceId:guid}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status409Conflict)]
+    public async Task<IActionResult> UnassignServiceFromStaffMember(
+        Guid staffMemberId,
+        Guid serviceId,
+        CancellationToken cancellationToken)
+    {
+        if (!TryGetBusinessId(out var businessId))
+        {
+            return Forbid();
+        }
+
+        var result = await unassignStaffMemberServiceHandler.HandleAsync(
+            new UnassignStaffMemberServiceCommand(businessId, staffMemberId, serviceId),
+            cancellationToken);
+
+        if (!result.Succeeded)
+        {
+            return result.Error switch
+            {
+                UnassignStaffMemberServiceError.StaffMemberNotFound => NotFound(CreateStaffMemberNotFoundProblemDetails()),
+                UnassignStaffMemberServiceError.ServiceNotFound => NotFound(CreateServiceNotFoundProblemDetails()),
+                UnassignStaffMemberServiceError.AssignmentNotFound => NotFound(CreateAssignmentNotFoundProblemDetails()),
+                UnassignStaffMemberServiceError.AssignmentHasAppointments => Conflict(CreateAssignmentHasAppointmentsProblemDetails()),
+                _ => BadRequest()
+            };
+        }
+
+        return NoContent();
+    }
+
     private bool TryGetBusinessId(out Guid businessId)
     {
         var businessIdValue = User.FindFirstValue("business_id");
@@ -301,6 +384,22 @@ public sealed class StaffMembersController(
         Status = StatusCodes.Status409Conflict,
         Title = "Staff member service assignment already exists.",
         Detail = "The staff member is already assigned to this service.",
+        Instance = HttpContext.Request.Path
+    };
+
+    private ProblemDetails CreateAssignmentNotFoundProblemDetails() => new()
+    {
+        Status = StatusCodes.Status404NotFound,
+        Title = "Staff member service assignment not found.",
+        Detail = "The staff member is not assigned to this service.",
+        Instance = HttpContext.Request.Path
+    };
+
+    private ProblemDetails CreateAssignmentHasAppointmentsProblemDetails() => new()
+    {
+        Status = StatusCodes.Status409Conflict,
+        Title = "Staff member service assignment has appointments.",
+        Detail = "The staff member service assignment cannot be deleted because it has appointments. Deactivate it instead.",
         Instance = HttpContext.Request.Path
     };
 
