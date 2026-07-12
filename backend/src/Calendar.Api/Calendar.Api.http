@@ -70,6 +70,38 @@ Authorization: Bearer {{adminAccessToken}}
 
 ###
 
+### Update staff member
+PUT {{baseUrl}}/api/staff-members/{{staffMemberId}}
+Authorization: Bearer {{adminAccessToken}}
+Content-Type: application/json
+
+{
+  "displayName": "Laura Martinez",
+  "email": "laura@example.test",
+  "phoneNumber": "+34600999888",
+  "bio": "Especialista en cortes y color",
+  "sortOrder": 1
+}
+
+###
+
+### Deactivate staff member
+PUT {{baseUrl}}/api/staff-members/{{staffMemberId}}/active-state
+Authorization: Bearer {{adminAccessToken}}
+Content-Type: application/json
+
+{
+  "isActive": false
+}
+
+###
+
+### Delete staff member
+DELETE {{baseUrl}}/api/staff-members/{{staffMemberId}}
+Authorization: Bearer {{adminAccessToken}}
+
+###
+
 ### Update current business details
 PUT {{baseUrl}}/api/businesses/current
 Authorization: Bearer {{adminAccessToken}}

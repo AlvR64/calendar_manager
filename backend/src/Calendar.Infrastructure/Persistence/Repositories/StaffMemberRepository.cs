@@ -26,6 +26,12 @@ public sealed class StaffMemberRepository(CalendarDbContext dbContext) : IStaffM
                 staffMember => staffMember.Id == id && staffMember.BusinessId == businessId,
                 cancellationToken);
 
+    public Task<StaffMember?> GetByIdAndBusinessIdForUpdateAsync(Guid id, Guid businessId, CancellationToken cancellationToken) =>
+        dbContext.StaffMembers
+            .FirstOrDefaultAsync(
+                staffMember => staffMember.Id == id && staffMember.BusinessId == businessId,
+                cancellationToken);
+
     public async Task<IReadOnlyList<StaffMember>> ListActiveByBusinessIdAsync(Guid businessId, CancellationToken cancellationToken) =>
         await dbContext.StaffMembers
             .AsNoTracking()
@@ -44,5 +50,12 @@ public sealed class StaffMemberRepository(CalendarDbContext dbContext) : IStaffM
                     && staffMember.Business.IsActive,
                 cancellationToken);
 
+    public Task<bool> HasAppointmentsAsync(Guid id, CancellationToken cancellationToken) =>
+        dbContext.Appointments.AnyAsync(
+            appointment => appointment.StaffMemberId == id,
+            cancellationToken);
+
     public void Add(StaffMember staffMember) => dbContext.StaffMembers.Add(staffMember);
+
+    public void Remove(StaffMember staffMember) => dbContext.StaffMembers.Remove(staffMember);
 }
