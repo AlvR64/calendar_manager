@@ -8,6 +8,11 @@ public interface IStaffMemberAvailabilityExceptionRepository
         Guid staffMemberId,
         CancellationToken cancellationToken);
 
+    Task<IReadOnlyList<StaffMemberAvailabilityException>> ListByStaffMemberIdsAndDateAsync(
+        IReadOnlyCollection<Guid> staffMemberIds,
+        DateOnly localDate,
+        CancellationToken cancellationToken);
+
     Task<StaffMemberAvailabilityException?> GetByIdAndStaffMemberIdForUpdateAsync(
         Guid id,
         Guid staffMemberId,

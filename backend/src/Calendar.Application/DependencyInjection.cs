@@ -3,6 +3,7 @@ using Calendar.Application.Auth.LoginAdmin;
 using Calendar.Application.Auth.LoginCustomer;
 using Calendar.Application.Auth.RegisterBusiness;
 using Calendar.Application.Auth.RegisterCustomer;
+using Calendar.Application.Availability;
 using Calendar.Application.Businesses;
 using Calendar.Application.Businesses.UpdateBusinessBookingWindow;
 using Calendar.Application.Businesses.UpdateBusinessDetails;
@@ -41,6 +42,7 @@ public static class DependencyInjection
         services.AddScoped<ICommandHandler<LoginCustomerCommand, LoginCustomerResult>, LoginCustomerCommandHandler>();
         services.AddScoped<ICommandHandler<RegisterBusinessCommand, RegisterBusinessResult>, RegisterBusinessCommandHandler>();
         services.AddScoped<ICommandHandler<RegisterCustomerCommand, RegisterCustomerResult>, RegisterCustomerCommandHandler>();
+        services.AddScoped<IQueryHandler<ListAvailableSlotsQuery, ListAvailableSlotsResult>, ListAvailableSlotsQueryHandler>();
         services.AddScoped<ICommandHandler<CreateServiceCommand, CreateServiceResult>, CreateServiceCommandHandler>();
         services.AddScoped<ICommandHandler<UpdateServiceCommand, UpdateServiceResult>, UpdateServiceCommandHandler>();
         services.AddScoped<ICommandHandler<UpdateServiceActiveStateCommand, UpdateServiceActiveStateResult>, UpdateServiceActiveStateCommandHandler>();

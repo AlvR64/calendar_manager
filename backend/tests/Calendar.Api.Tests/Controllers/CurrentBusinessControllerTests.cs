@@ -105,6 +105,22 @@ public sealed class CurrentBusinessControllerTests
     }
 
     [Fact]
+    public async Task UpdateBusinessDetails_WhenTimeZoneIdIsInvalid_ReturnsBadRequestProblemDetails()
+    {
+        var handler = new StubUpdateBusinessDetailsHandler(
+            UpdateBusinessDetailsResult.Failure(UpdateBusinessDetailsError.InvalidTimeZoneId));
+        var controller = CreateController(handler, Guid.NewGuid().ToString(), "/api/businesses/current");
+
+        var result = await controller.UpdateBusinessDetails(CreateUpdateBusinessDetailsRequest(), CancellationToken.None);
+
+        var badRequestResult = result.Result.Should().BeOfType<BadRequestObjectResult>().Subject;
+        var problemDetails = badRequestResult.Value.Should().BeOfType<ProblemDetails>().Subject;
+        problemDetails.Status.Should().Be(StatusCodes.Status400BadRequest);
+        problemDetails.Title.Should().Be("Invalid time zone.");
+        problemDetails.Instance.Should().Be("/api/businesses/current");
+    }
+
+    [Fact]
     public async Task UpdateBusinessBookingWindow_WhenRequestIsValid_ReturnsOkResponse()
     {
         var businessId = Guid.NewGuid();

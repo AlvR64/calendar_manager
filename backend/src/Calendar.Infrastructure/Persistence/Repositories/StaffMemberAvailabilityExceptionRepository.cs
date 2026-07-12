@@ -16,6 +16,18 @@ public sealed class StaffMemberAvailabilityExceptionRepository(CalendarDbContext
             .ThenBy(exception => exception.StartTime)
             .ToListAsync(cancellationToken);
 
+    public async Task<IReadOnlyList<StaffMemberAvailabilityException>> ListByStaffMemberIdsAndDateAsync(
+        IReadOnlyCollection<Guid> staffMemberIds,
+        DateOnly localDate,
+        CancellationToken cancellationToken) =>
+        await dbContext.StaffMemberAvailabilityExceptions
+            .AsNoTracking()
+            .Where(exception => staffMemberIds.Contains(exception.StaffMemberId)
+                && exception.LocalDate == localDate)
+            .OrderBy(exception => exception.StaffMemberId)
+            .ThenBy(exception => exception.StartTime)
+            .ToListAsync(cancellationToken);
+
     public Task<StaffMemberAvailabilityException?> GetByIdAndStaffMemberIdForUpdateAsync(
         Guid id,
         Guid staffMemberId,

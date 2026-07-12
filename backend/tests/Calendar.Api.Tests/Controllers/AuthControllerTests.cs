@@ -147,6 +147,22 @@ public sealed class AuthControllerTests
     }
 
     [Fact]
+    public async Task RegisterBusiness_WhenTimeZoneIdIsInvalid_ReturnsBadRequestProblemDetails()
+    {
+        var handler = new StubRegisterBusinessHandler(
+            RegisterBusinessResult.Failure(RegisterBusinessError.InvalidTimeZoneId));
+        var controller = CreateController(handler);
+
+        var result = await controller.RegisterBusiness(CreateRegisterBusinessRequest(), CancellationToken.None);
+
+        var badRequestResult = result.Result.Should().BeOfType<BadRequestObjectResult>().Subject;
+        var problemDetails = badRequestResult.Value.Should().BeOfType<ProblemDetails>().Subject;
+        problemDetails.Status.Should().Be(StatusCodes.Status400BadRequest);
+        problemDetails.Title.Should().Be("Invalid time zone.");
+        problemDetails.Instance.Should().Be("/api/auth/register-business");
+    }
+
+    [Fact]
     public async Task RegisterBusiness_MapsRequestToCommand()
     {
         var handler = new StubRegisterBusinessHandler(RegisterBusinessResult.Success(

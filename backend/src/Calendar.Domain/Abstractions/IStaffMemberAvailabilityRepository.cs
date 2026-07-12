@@ -6,6 +6,11 @@ public interface IStaffMemberAvailabilityRepository
 {
     Task<IReadOnlyList<StaffMemberAvailability>> ListByStaffMemberIdAsync(Guid staffMemberId, CancellationToken cancellationToken);
 
+    Task<IReadOnlyList<StaffMemberAvailability>> ListActiveByStaffMemberIdsAndDayAsync(
+        IReadOnlyCollection<Guid> staffMemberIds,
+        DayOfWeek dayOfWeek,
+        CancellationToken cancellationToken);
+
     Task<StaffMemberAvailability?> GetByIdAndStaffMemberIdForUpdateAsync(
         Guid id,
         Guid staffMemberId,

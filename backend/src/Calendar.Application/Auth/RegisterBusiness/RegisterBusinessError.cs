@@ -4,5 +4,6 @@ public enum RegisterBusinessError
 {
     None = 0,
     BusinessSlugAlreadyExists = 1,
-    AdminEmailAlreadyExists = 2
+    AdminEmailAlreadyExists = 2,
+    InvalidTimeZoneId = 3
 }

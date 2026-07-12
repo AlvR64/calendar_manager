@@ -6,6 +6,7 @@
 @staffMemberId = paste-staff-member-id-here
 @availabilityId = paste-availability-id-here
 @availabilityExceptionId = paste-availability-exception-id-here
+@slotDate = 2026-07-20
 
 ### Health check
 GET {{baseUrl}}/health
@@ -35,6 +36,16 @@ GET {{baseUrl}}/api/businesses/{{businessId}}/services
 
 ### Get business service
 GET {{baseUrl}}/api/businesses/{{businessId}}/services/{{serviceId}}
+
+###
+
+### List service available slots
+GET {{baseUrl}}/api/businesses/{{businessId}}/services/{{serviceId}}/available-slots?date={{slotDate}}
+
+###
+
+### List service available slots for staff member
+GET {{baseUrl}}/api/businesses/{{businessId}}/services/{{serviceId}}/staff-members/{{staffMemberId}}/available-slots?date={{slotDate}}
 
 ###
 

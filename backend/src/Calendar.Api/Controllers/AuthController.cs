@@ -99,7 +99,11 @@ public sealed class AuthController(
 
         if (!result.Succeeded)
         {
-            return Conflict(CreateConflictProblemDetails(result.Error));
+            return result.Error switch
+            {
+                RegisterBusinessError.InvalidTimeZoneId => BadRequest(CreateInvalidTimeZoneProblemDetails()),
+                _ => Conflict(CreateConflictProblemDetails(result.Error))
+            };
         }
 
         var response = new RegisterBusinessResponse(
@@ -168,6 +172,14 @@ public sealed class AuthController(
             Detail = "The business could not be registered because of a conflict.",
             Instance = HttpContext.Request.Path
         }
+    };
+
+    private ProblemDetails CreateInvalidTimeZoneProblemDetails() => new()
+    {
+        Status = StatusCodes.Status400BadRequest,
+        Title = "Invalid time zone.",
+        Detail = "The time zone id must be a valid IANA time zone id.",
+        Instance = HttpContext.Request.Path
     };
 
     private ProblemDetails CreateConflictProblemDetails(RegisterCustomerError error) => error switch

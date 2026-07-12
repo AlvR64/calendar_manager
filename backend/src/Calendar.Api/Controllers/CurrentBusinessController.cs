@@ -51,6 +51,7 @@ public sealed class CurrentBusinessController(
             return result.Error switch
             {
                 UpdateBusinessDetailsError.BusinessNotFound => NotFound(CreateBusinessNotFoundProblemDetails()),
+                UpdateBusinessDetailsError.InvalidTimeZoneId => BadRequest(CreateInvalidTimeZoneProblemDetails()),
                 _ => BadRequest()
             };
         }
@@ -116,6 +117,14 @@ public sealed class CurrentBusinessController(
         Status = StatusCodes.Status404NotFound,
         Title = "Business not found.",
         Detail = "The business associated with the current admin account was not found.",
+        Instance = HttpContext.Request.Path
+    };
+
+    private ProblemDetails CreateInvalidTimeZoneProblemDetails() => new()
+    {
+        Status = StatusCodes.Status400BadRequest,
+        Title = "Invalid time zone.",
+        Detail = "The time zone id must be a valid IANA time zone id.",
         Instance = HttpContext.Request.Path
     };
 }

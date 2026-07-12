@@ -8,6 +8,7 @@ public sealed class RegisterBusinessCommandHandler(
     IBusinessRepository businessRepository,
     IAdminRepository adminRepository,
     IPasswordHashingService passwordHashingService,
+    ITimeZoneProvider timeZoneProvider,
     IUnitOfWork unitOfWork) : ICommandHandler<RegisterBusinessCommand, RegisterBusinessResult>
 {
     public async Task<RegisterBusinessResult> HandleAsync(
@@ -16,6 +17,12 @@ public sealed class RegisterBusinessCommandHandler(
     {
         var businessSlug = NormalizeSlug(command.BusinessSlug);
         var normalizedAdminEmail = NormalizeEmail(command.AdminEmail);
+        var timeZoneId = command.TimeZoneId.Trim();
+
+        if (!timeZoneProvider.TryGetIanaTimeZoneInfo(timeZoneId, out _))
+        {
+            return RegisterBusinessResult.Failure(RegisterBusinessError.InvalidTimeZoneId);
+        }
 
         if (await businessRepository.ExistsBySlugAsync(businessSlug, cancellationToken))
         {
@@ -37,7 +44,7 @@ public sealed class RegisterBusinessCommandHandler(
             Id = businessId,
             Name = command.BusinessName.Trim(),
             Slug = businessSlug,
-            TimeZoneId = command.TimeZoneId.Trim(),
+            TimeZoneId = timeZoneId,
             CurrencyCode = command.CurrencyCode.Trim().ToUpperInvariant(),
             IsActive = true,
             CreatedAtUtc = now

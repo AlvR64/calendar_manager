@@ -1,5 +1,6 @@
 using Calendar.Api.Contracts.Businesses;
 using Calendar.Application.Abstractions.Messaging;
+using Calendar.Application.Availability;
 using Calendar.Application.Businesses;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +16,7 @@ public sealed class BusinessesController(
     IQueryHandler<GetBusinessProfileBySlugQuery, BusinessProfileDetails?> getBusinessProfileBySlugHandler,
     IQueryHandler<ListBusinessServicesQuery, ListBusinessServicesResult> listBusinessServicesHandler,
     IQueryHandler<GetBusinessServiceQuery, BusinessServiceDetails?> getBusinessServiceHandler,
+    IQueryHandler<ListAvailableSlotsQuery, ListAvailableSlotsResult> listAvailableSlotsHandler,
     IQueryHandler<ListBusinessStaffMembersQuery, ListBusinessStaffMembersResult> listBusinessStaffMembersHandler,
     IQueryHandler<GetBusinessStaffMemberQuery, BusinessStaffMemberDetails?> getBusinessStaffMemberHandler) : ControllerBase
 {
@@ -76,6 +78,41 @@ public sealed class BusinessesController(
         return service is null ? NotFound(CreateServiceNotFoundProblemDetails()) : Ok(MapService(service));
     }
 
+    [HttpGet("{businessId:guid}/services/{serviceId:guid}/available-slots")]
+    [ProducesResponseType<IReadOnlyList<AvailableSlotResponse>>(StatusCodes.Status200OK)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<IReadOnlyList<AvailableSlotResponse>>> ListAvailableSlots(
+        Guid businessId,
+        Guid serviceId,
+        [FromQuery] DateOnly date,
+        CancellationToken cancellationToken)
+    {
+        var result = await listAvailableSlotsHandler.HandleAsync(
+            new ListAvailableSlotsQuery(businessId, serviceId, StaffMemberId: null, date),
+            cancellationToken);
+
+        return ToAvailableSlotsActionResult(result);
+    }
+
+    [HttpGet("{businessId:guid}/services/{serviceId:guid}/staff-members/{staffMemberId:guid}/available-slots")]
+    [ProducesResponseType<IReadOnlyList<AvailableSlotResponse>>(StatusCodes.Status200OK)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<IReadOnlyList<AvailableSlotResponse>>> ListStaffMemberAvailableSlots(
+        Guid businessId,
+        Guid serviceId,
+        Guid staffMemberId,
+        [FromQuery] DateOnly date,
+        CancellationToken cancellationToken)
+    {
+        var result = await listAvailableSlotsHandler.HandleAsync(
+            new ListAvailableSlotsQuery(businessId, serviceId, staffMemberId, date),
+            cancellationToken);
+
+        return ToAvailableSlotsActionResult(result);
+    }
+
     [HttpGet("{businessId:guid}/staff-members")]
     [ProducesResponseType<IReadOnlyList<BusinessStaffMemberResponse>>(StatusCodes.Status200OK)]
     [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
@@ -128,6 +165,49 @@ public sealed class BusinessesController(
         Instance = HttpContext.Request.Path
     };
 
+    private ProblemDetails CreateAssignmentNotFoundProblemDetails() => new()
+    {
+        Status = StatusCodes.Status404NotFound,
+        Title = "Staff member service assignment not found.",
+        Detail = "The staff member is not assigned to this service for this business or the assignment is not active.",
+        Instance = HttpContext.Request.Path
+    };
+
+    private ProblemDetails CreateInvalidAvailabilityDateProblemDetails() => new()
+    {
+        Status = StatusCodes.Status400BadRequest,
+        Title = "Invalid availability date.",
+        Detail = "The availability date must be within the business booking window.",
+        Instance = HttpContext.Request.Path
+    };
+
+    private ProblemDetails CreateInvalidBusinessTimeZoneProblemDetails() => new()
+    {
+        Status = StatusCodes.Status400BadRequest,
+        Title = "Invalid business time zone.",
+        Detail = "The business time zone id must be a valid IANA time zone id.",
+        Instance = HttpContext.Request.Path
+    };
+
+    private ActionResult<IReadOnlyList<AvailableSlotResponse>> ToAvailableSlotsActionResult(ListAvailableSlotsResult result)
+    {
+        if (result.Succeeded)
+        {
+            return Ok(result.Slots.Select(MapSlot).ToList());
+        }
+
+        return result.Error switch
+        {
+            ListAvailableSlotsError.BusinessNotFound => NotFound(CreateBusinessNotFoundProblemDetails()),
+            ListAvailableSlotsError.ServiceNotFound => NotFound(CreateServiceNotFoundProblemDetails()),
+            ListAvailableSlotsError.StaffMemberNotFound => NotFound(CreateStaffMemberNotFoundProblemDetails()),
+            ListAvailableSlotsError.StaffMemberServiceAssignmentNotFound => NotFound(CreateAssignmentNotFoundProblemDetails()),
+            ListAvailableSlotsError.InvalidDate => BadRequest(CreateInvalidAvailabilityDateProblemDetails()),
+            ListAvailableSlotsError.InvalidBusinessTimeZone => BadRequest(CreateInvalidBusinessTimeZoneProblemDetails()),
+            _ => BadRequest()
+        };
+    }
+
     private static BusinessProfileResponse MapProfile(BusinessProfileDetails profile) => new(
         MapBusiness(profile.Business),
         profile.Services.Select(MapService).ToList(),
@@ -164,6 +244,14 @@ public sealed class BusinessesController(
         staffMember.DisplayName,
         staffMember.Bio,
         staffMember.SortOrder);
+
+    private static AvailableSlotResponse MapSlot(AvailableSlotDetails slot) => new(
+        slot.StaffMemberId,
+        slot.LocalDate,
+        slot.StartTime,
+        slot.EndTime,
+        slot.StartAtUtc,
+        slot.EndAtUtc);
 
     private static BusinessStaffMemberServiceAssignmentResponse MapAssignment(
         BusinessStaffMemberServiceAssignmentDetails assignment) => new(

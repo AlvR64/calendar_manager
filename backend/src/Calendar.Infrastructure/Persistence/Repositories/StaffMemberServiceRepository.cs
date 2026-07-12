@@ -12,6 +12,15 @@ public sealed class StaffMemberServiceRepository(CalendarDbContext dbContext) : 
                 && staffMemberService.ServiceId == serviceId,
             cancellationToken);
 
+    public Task<bool> ExistsActiveAsync(Guid staffMemberId, Guid serviceId, CancellationToken cancellationToken) =>
+        dbContext.StaffMemberServices.AnyAsync(
+            staffMemberService => staffMemberService.StaffMemberId == staffMemberId
+                && staffMemberService.ServiceId == serviceId
+                && staffMemberService.IsActive
+                && staffMemberService.StaffMember.IsActive
+                && staffMemberService.Service.IsActive,
+            cancellationToken);
+
     public Task<StaffMemberService?> GetByIdsForUpdateAsync(Guid staffMemberId, Guid serviceId, CancellationToken cancellationToken) =>
         dbContext.StaffMemberServices.FirstOrDefaultAsync(
             staffMemberService => staffMemberService.StaffMemberId == staffMemberId
@@ -34,6 +43,22 @@ public sealed class StaffMemberServiceRepository(CalendarDbContext dbContext) : 
                 && staffMemberService.Service.IsActive)
             .OrderBy(staffMemberService => staffMemberService.StaffMember.SortOrder)
             .ThenBy(staffMemberService => staffMemberService.Service.SortOrder)
+            .ToListAsync(cancellationToken);
+
+    public async Task<IReadOnlyList<StaffMemberService>> ListActiveByBusinessIdAndServiceIdAsync(
+        Guid businessId,
+        Guid serviceId,
+        CancellationToken cancellationToken) =>
+        await dbContext.StaffMemberServices
+            .AsNoTracking()
+            .Where(staffMemberService => staffMemberService.ServiceId == serviceId
+                && staffMemberService.IsActive
+                && staffMemberService.StaffMember.BusinessId == businessId
+                && staffMemberService.StaffMember.IsActive
+                && staffMemberService.Service.BusinessId == businessId
+                && staffMemberService.Service.IsActive)
+            .OrderBy(staffMemberService => staffMemberService.StaffMember.SortOrder)
+            .ThenBy(staffMemberService => staffMemberService.StaffMember.DisplayName)
             .ToListAsync(cancellationToken);
 
     public void Add(StaffMemberService staffMemberService) => dbContext.StaffMemberServices.Add(staffMemberService);

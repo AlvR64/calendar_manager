@@ -5,6 +5,7 @@ namespace Calendar.Application.Businesses.UpdateBusinessDetails;
 
 public sealed class UpdateBusinessDetailsCommandHandler(
     IBusinessRepository businessRepository,
+    ITimeZoneProvider timeZoneProvider,
     IUnitOfWork unitOfWork) : ICommandHandler<UpdateBusinessDetailsCommand, UpdateBusinessDetailsResult>
 {
     public async Task<UpdateBusinessDetailsResult> HandleAsync(
@@ -17,6 +18,12 @@ public sealed class UpdateBusinessDetailsCommandHandler(
             return UpdateBusinessDetailsResult.Failure(UpdateBusinessDetailsError.BusinessNotFound);
         }
 
+        var timeZoneId = command.TimeZoneId.Trim();
+        if (!timeZoneProvider.TryGetIanaTimeZoneInfo(timeZoneId, out _))
+        {
+            return UpdateBusinessDetailsResult.Failure(UpdateBusinessDetailsError.InvalidTimeZoneId);
+        }
+
         business.Name = command.Name.Trim();
         business.Description = NormalizeOptionalText(command.Description);
         business.ContactEmail = NormalizeOptionalText(command.ContactEmail);
@@ -27,7 +34,7 @@ public sealed class UpdateBusinessDetailsCommandHandler(
         business.City = NormalizeOptionalText(command.City);
         business.PostalCode = NormalizeOptionalText(command.PostalCode);
         business.CountryCode = NormalizeOptionalText(command.CountryCode)?.ToUpperInvariant();
-        business.TimeZoneId = command.TimeZoneId.Trim();
+        business.TimeZoneId = timeZoneId;
         business.CurrencyCode = command.CurrencyCode.Trim().ToUpperInvariant();
         business.UpdatedAtUtc = DateTimeOffset.UtcNow;
 

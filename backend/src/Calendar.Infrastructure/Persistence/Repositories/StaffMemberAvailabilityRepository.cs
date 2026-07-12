@@ -16,6 +16,19 @@ public sealed class StaffMemberAvailabilityRepository(CalendarDbContext dbContex
             .ThenBy(availability => availability.StartTime)
             .ToListAsync(cancellationToken);
 
+    public async Task<IReadOnlyList<StaffMemberAvailability>> ListActiveByStaffMemberIdsAndDayAsync(
+        IReadOnlyCollection<Guid> staffMemberIds,
+        DayOfWeek dayOfWeek,
+        CancellationToken cancellationToken) =>
+        await dbContext.StaffMemberAvailabilities
+            .AsNoTracking()
+            .Where(availability => staffMemberIds.Contains(availability.StaffMemberId)
+                && availability.DayOfWeek == dayOfWeek
+                && availability.IsActive)
+            .OrderBy(availability => availability.StaffMemberId)
+            .ThenBy(availability => availability.StartTime)
+            .ToListAsync(cancellationToken);
+
     public Task<StaffMemberAvailability?> GetByIdAndStaffMemberIdForUpdateAsync(
         Guid id,
         Guid staffMemberId,

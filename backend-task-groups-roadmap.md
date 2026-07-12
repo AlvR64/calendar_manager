@@ -65,8 +65,8 @@ Legend:
 | 5.6 | Listar excepciones de disponibilidad de un staff member. | [x] | [ ] |
 | 5.7 | Actualizar excepcion de disponibilidad. | [x] | [ ] |
 | 5.8 | Eliminar excepcion de disponibilidad. | [x] | [ ] |
-| 5.9 | Calcular slots disponibles para business + service + fecha. | [ ] | [ ] |
-| 5.10 | Calcular slots disponibles para business + service + staff member + fecha. | [ ] | [ ] |
+| 5.9 | Calcular slots disponibles para business + service + fecha. | [x] | [ ] |
+| 5.10 | Calcular slots disponibles para business + service + staff member + fecha. | [x] | [ ] |
 | 5.11 | Validar que un appointment caiga dentro de disponibilidad y fuera de excepciones. | [ ] | [ ] |
 | 5.12 | Validar que un appointment no solape con otro appointment activo. | [ ] | [ ] |
 

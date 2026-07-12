@@ -2,6 +2,7 @@ using Calendar.Domain.Abstractions;
 using Calendar.Infrastructure.Persistence;
 using Calendar.Infrastructure.Persistence.Repositories;
 using Calendar.Infrastructure.Security;
+using Calendar.Infrastructure.TimeZones;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -27,6 +28,7 @@ public static class DependencyInjection
             .ValidateOnStart();
 
         services.AddScoped<IAdminRepository, AdminRepository>();
+        services.AddScoped<IAppointmentRepository, AppointmentRepository>();
         services.AddScoped<IBusinessRepository, BusinessRepository>();
         services.AddScoped<ICustomerRepository, CustomerRepository>();
         services.AddScoped<IServiceRepository, ServiceRepository>();
@@ -37,6 +39,7 @@ public static class DependencyInjection
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddSingleton<IAccessTokenService, JwtAccessTokenService>();
         services.AddSingleton<IPasswordHashingService, Pbkdf2PasswordHashingService>();
+        services.AddSingleton<ITimeZoneProvider, IanaTimeZoneProvider>();
 
         return services;
     }

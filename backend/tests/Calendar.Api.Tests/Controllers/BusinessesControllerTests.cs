@@ -1,6 +1,7 @@
 using Calendar.Api.Contracts.Businesses;
 using Calendar.Api.Controllers;
 using Calendar.Application.Abstractions.Messaging;
+using Calendar.Application.Availability;
 using Calendar.Application.Businesses;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -142,6 +143,83 @@ public sealed class BusinessesControllerTests
     }
 
     [Fact]
+    public async Task ListAvailableSlots_WhenSlotsExist_ReturnsOkResponse()
+    {
+        var businessId = Guid.NewGuid();
+        var serviceId = Guid.NewGuid();
+        var staffMemberId = Guid.NewGuid();
+        var localDate = new DateOnly(2026, 7, 20);
+        var slot = CreateAvailableSlot(staffMemberId, localDate);
+        var handler = new StubQueryHandler<ListAvailableSlotsQuery, ListAvailableSlotsResult>(
+            ListAvailableSlotsResult.Success([slot]));
+        var controller = CreateController(
+            listAvailableSlotsHandler: handler,
+            requestPath: $"/api/businesses/{businessId}/services/{serviceId}/available-slots");
+
+        var result = await controller.ListAvailableSlots(businessId, serviceId, localDate, CancellationToken.None);
+
+        var okResult = result.Result.Should().BeOfType<OkObjectResult>().Subject;
+        var response = okResult.Value.Should().BeOfType<List<AvailableSlotResponse>>().Subject;
+        response.Should().ContainSingle();
+        response[0].StaffMemberId.Should().Be(staffMemberId);
+        response[0].LocalDate.Should().Be(localDate);
+        handler.Query.Should().Be(new ListAvailableSlotsQuery(businessId, serviceId, StaffMemberId: null, localDate));
+    }
+
+    [Fact]
+    public async Task ListStaffMemberAvailableSlots_WhenSlotsExist_ReturnsOkResponse()
+    {
+        var businessId = Guid.NewGuid();
+        var serviceId = Guid.NewGuid();
+        var staffMemberId = Guid.NewGuid();
+        var localDate = new DateOnly(2026, 7, 20);
+        var slot = CreateAvailableSlot(staffMemberId, localDate);
+        var handler = new StubQueryHandler<ListAvailableSlotsQuery, ListAvailableSlotsResult>(
+            ListAvailableSlotsResult.Success([slot]));
+        var controller = CreateController(
+            listAvailableSlotsHandler: handler,
+            requestPath: $"/api/businesses/{businessId}/services/{serviceId}/staff-members/{staffMemberId}/available-slots");
+
+        var result = await controller.ListStaffMemberAvailableSlots(businessId, serviceId, staffMemberId, localDate, CancellationToken.None);
+
+        var okResult = result.Result.Should().BeOfType<OkObjectResult>().Subject;
+        var response = okResult.Value.Should().BeOfType<List<AvailableSlotResponse>>().Subject;
+        response.Should().ContainSingle();
+        response[0].StaffMemberId.Should().Be(staffMemberId);
+        handler.Query.Should().Be(new ListAvailableSlotsQuery(businessId, serviceId, staffMemberId, localDate));
+    }
+
+    [Theory]
+    [InlineData(ListAvailableSlotsError.BusinessNotFound, typeof(NotFoundObjectResult), "Business not found.")]
+    [InlineData(ListAvailableSlotsError.ServiceNotFound, typeof(NotFoundObjectResult), "Service not found.")]
+    [InlineData(ListAvailableSlotsError.StaffMemberNotFound, typeof(NotFoundObjectResult), "Staff member not found.")]
+    [InlineData(ListAvailableSlotsError.StaffMemberServiceAssignmentNotFound, typeof(NotFoundObjectResult), "Staff member service assignment not found.")]
+    [InlineData(ListAvailableSlotsError.InvalidDate, typeof(BadRequestObjectResult), "Invalid availability date.")]
+    [InlineData(ListAvailableSlotsError.InvalidBusinessTimeZone, typeof(BadRequestObjectResult), "Invalid business time zone.")]
+    public async Task ListAvailableSlots_WhenHandlerFails_ReturnsProblemDetails(
+        ListAvailableSlotsError error,
+        Type expectedResultType,
+        string expectedTitle)
+    {
+        var businessId = Guid.NewGuid();
+        var serviceId = Guid.NewGuid();
+        var localDate = new DateOnly(2026, 7, 20);
+        var handler = new StubQueryHandler<ListAvailableSlotsQuery, ListAvailableSlotsResult>(
+            ListAvailableSlotsResult.Failure(error));
+        var controller = CreateController(
+            listAvailableSlotsHandler: handler,
+            requestPath: $"/api/businesses/{businessId}/services/{serviceId}/available-slots");
+
+        var result = await controller.ListAvailableSlots(businessId, serviceId, localDate, CancellationToken.None);
+
+        result.Result.Should().BeOfType(expectedResultType);
+        var objectResult = result.Result.Should().BeAssignableTo<ObjectResult>().Subject;
+        var problemDetails = objectResult.Value.Should().BeOfType<ProblemDetails>().Subject;
+        problemDetails.Title.Should().Be(expectedTitle);
+        problemDetails.Instance.Should().Be($"/api/businesses/{businessId}/services/{serviceId}/available-slots");
+    }
+
+    [Fact]
     public async Task ListBusinessStaffMembers_WhenBusinessExists_ReturnsOkResponse()
     {
         var businessId = Guid.NewGuid();
@@ -198,6 +276,7 @@ public sealed class BusinessesControllerTests
         StubQueryHandler<GetBusinessProfileBySlugQuery, BusinessProfileDetails?>? getBusinessProfileBySlugHandler = null,
         StubQueryHandler<ListBusinessServicesQuery, ListBusinessServicesResult>? listBusinessServicesHandler = null,
         StubQueryHandler<GetBusinessServiceQuery, BusinessServiceDetails?>? getBusinessServiceHandler = null,
+        StubQueryHandler<ListAvailableSlotsQuery, ListAvailableSlotsResult>? listAvailableSlotsHandler = null,
         StubQueryHandler<ListBusinessStaffMembersQuery, ListBusinessStaffMembersResult>? listBusinessStaffMembersHandler = null,
         StubQueryHandler<GetBusinessStaffMemberQuery, BusinessStaffMemberDetails?>? getBusinessStaffMemberHandler = null,
         string requestPath = "/api/businesses") => new(
@@ -206,6 +285,7 @@ public sealed class BusinessesControllerTests
             getBusinessProfileBySlugHandler ?? new StubQueryHandler<GetBusinessProfileBySlugQuery, BusinessProfileDetails?>(CreateBusinessProfileDetails()),
             listBusinessServicesHandler ?? new StubQueryHandler<ListBusinessServicesQuery, ListBusinessServicesResult>(ListBusinessServicesResult.Success([])),
             getBusinessServiceHandler ?? new StubQueryHandler<GetBusinessServiceQuery, BusinessServiceDetails?>(CreateServiceDetails()),
+            listAvailableSlotsHandler ?? new StubQueryHandler<ListAvailableSlotsQuery, ListAvailableSlotsResult>(ListAvailableSlotsResult.Success([])),
             listBusinessStaffMembersHandler ?? new StubQueryHandler<ListBusinessStaffMembersQuery, ListBusinessStaffMembersResult>(ListBusinessStaffMembersResult.Success([])),
             getBusinessStaffMemberHandler ?? new StubQueryHandler<GetBusinessStaffMemberQuery, BusinessStaffMemberDetails?>(CreateStaffMemberDetails()))
     {
@@ -263,6 +343,14 @@ public sealed class BusinessesControllerTests
         "Laura Martinez",
         "Especialista en cortes y color",
         0);
+
+    private static AvailableSlotDetails CreateAvailableSlot(Guid staffMemberId, DateOnly localDate) => new(
+        staffMemberId,
+        localDate,
+        new TimeOnly(10, 0),
+        new TimeOnly(10, 30),
+        new DateTimeOffset(2026, 7, 20, 8, 0, 0, TimeSpan.Zero),
+        new DateTimeOffset(2026, 7, 20, 8, 30, 0, TimeSpan.Zero));
 
     private sealed class StubQueryHandler<TQuery, TResult>(TResult result) : IQueryHandler<TQuery, TResult>
         where TQuery : IQuery<TResult>
