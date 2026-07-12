@@ -1,10 +1,10 @@
-namespace Calendar.Api.Contracts.Businesses;
+using Calendar.Application.Abstractions.Messaging;
 
-/// <summary>Represents the public business information.</summary>
-public sealed record BusinessResponse(
-    Guid Id,
+namespace Calendar.Application.Businesses.UpdateBusinessDetails;
+
+public sealed record UpdateBusinessDetailsCommand(
+    Guid BusinessId,
     string Name,
-    string Slug,
     string? Description,
     string? ContactEmail,
     string? ContactPhoneNumber,
@@ -15,5 +15,4 @@ public sealed record BusinessResponse(
     string? PostalCode,
     string? CountryCode,
     string TimeZoneId,
-    string CurrencyCode,
-    int MaxAdvanceBookingDays);
+    string CurrencyCode) : ICommand<UpdateBusinessDetailsResult>;

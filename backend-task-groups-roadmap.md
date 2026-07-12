@@ -11,12 +11,12 @@ Legend:
 | ID | Caso de uso | Hecho | Postpuesto |
 | --- | --- | --- | --- |
 | 1.1 | Registrar business con su admin inicial. | [x] | [ ] |
-| 1.2 | Actualizar datos publicos del business: nombre, descripcion, contacto, web, direccion, timezone, moneda. | [ ] | [ ] |
-| 1.3 | Activar/desactivar business desde admin. | [ ] | [ ] |
-| 1.4 | Configurar politica de cancelacion del business. | [ ] | [ ] |
+| 1.2 | Actualizar datos publicos del business: nombre, descripcion, contacto, web, direccion, timezone, moneda. | [x] | [ ] |
+| 1.3 | Activar/desactivar business desde admin. | [ ] | [x] |
+| 1.4 | Configurar politica de cancelacion del business. | [ ] | [x] |
 | 1.5 | Configurar antelacion minima para reservar. | [ ] | [ ] |
-| 1.6 | Configurar ventana maxima de reserva: por ejemplo hasta 30/60/90 dias. | [ ] | [ ] |
-| 1.7 | Configurar buffer antes/despues de appointments. | [ ] | [ ] |
+| 1.6 | Configurar ventana maxima de reserva: por ejemplo hasta 30/60/90 dias. | [x] | [ ] |
+| 1.7 | Configurar buffer antes/despues de appointments. | [ ] | [x] |
 
 ## 2. Services
 

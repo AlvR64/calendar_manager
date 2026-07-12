@@ -8,7 +8,10 @@ public sealed class BusinessConfiguration : IEntityTypeConfiguration<Business>
 {
     public void Configure(EntityTypeBuilder<Business> builder)
     {
-        builder.ToTable("Businesses");
+        builder.ToTable("Businesses", table =>
+        {
+            table.HasCheckConstraint("CK_Businesses_MaxAdvanceBookingDays_Range", "[MaxAdvanceBookingDays] BETWEEN 1 AND 365");
+        });
 
         builder.HasKey(business => business.Id);
 
@@ -25,6 +28,7 @@ public sealed class BusinessConfiguration : IEntityTypeConfiguration<Business>
         builder.Property(business => business.CountryCode).HasMaxLength(2);
         builder.Property(business => business.TimeZoneId).HasMaxLength(100).IsRequired();
         builder.Property(business => business.CurrencyCode).HasMaxLength(3).IsRequired();
+        builder.Property(business => business.MaxAdvanceBookingDays).HasDefaultValue(60);
         builder.Property(business => business.IsActive).HasDefaultValue(true);
 
         builder.HasIndex(business => business.Slug).IsUnique();

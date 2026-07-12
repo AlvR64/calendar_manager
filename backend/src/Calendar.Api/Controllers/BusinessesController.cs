@@ -148,7 +148,8 @@ public sealed class BusinessesController(
         business.PostalCode,
         business.CountryCode,
         business.TimeZoneId,
-        business.CurrencyCode);
+        business.CurrencyCode,
+        business.MaxAdvanceBookingDays);
 
     private static BusinessServiceResponse MapService(BusinessServiceDetails service) => new(
         service.Id,

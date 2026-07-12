@@ -46,6 +46,39 @@ GET {{baseUrl}}/api/businesses/{{businessId}}/staff-members/{{staffMemberId}}
 
 ###
 
+### Update current business details
+PUT {{baseUrl}}/api/businesses/current
+Authorization: Bearer {{adminAccessToken}}
+Content-Type: application/json
+
+{
+  "name": "Barberia Centro",
+  "description": "Barberia clasica en Madrid",
+  "contactEmail": "contacto@barberia-centro.test",
+  "contactPhoneNumber": "+34910000000",
+  "websiteUrl": "https://barberia-centro.test",
+  "addressLine1": "Calle Mayor 1",
+  "addressLine2": null,
+  "city": "Madrid",
+  "postalCode": "28013",
+  "countryCode": "ES",
+  "timeZoneId": "Europe/Madrid",
+  "currencyCode": "EUR"
+}
+
+###
+
+### Update current business booking window
+PUT {{baseUrl}}/api/businesses/current/booking-window
+Authorization: Bearer {{adminAccessToken}}
+Content-Type: application/json
+
+{
+  "maxAdvanceBookingDays": 60
+}
+
+###
+
 ### Create service
 POST {{baseUrl}}/api/services
 Authorization: Bearer {{adminAccessToken}}

@@ -27,5 +27,8 @@ public sealed class BusinessRepository(CalendarDbContext dbContext) : IBusinessR
             .AsNoTracking()
             .FirstOrDefaultAsync(business => business.Slug == slug && business.IsActive, cancellationToken);
 
+    public Task<Business?> GetByIdAsync(Guid id, CancellationToken cancellationToken) =>
+        dbContext.Businesses.FirstOrDefaultAsync(business => business.Id == id, cancellationToken);
+
     public void Add(Business business) => dbContext.Businesses.Add(business);
 }

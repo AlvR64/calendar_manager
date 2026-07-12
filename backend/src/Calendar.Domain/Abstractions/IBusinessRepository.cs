@@ -14,5 +14,7 @@ public interface IBusinessRepository
 
     Task<Business?> GetActiveBySlugAsync(string slug, CancellationToken cancellationToken);
 
+    Task<Business?> GetByIdAsync(Guid id, CancellationToken cancellationToken);
+
     void Add(Business business);
 }

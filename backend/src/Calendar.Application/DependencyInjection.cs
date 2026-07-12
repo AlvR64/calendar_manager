@@ -4,6 +4,8 @@ using Calendar.Application.Auth.LoginCustomer;
 using Calendar.Application.Auth.RegisterBusiness;
 using Calendar.Application.Auth.RegisterCustomer;
 using Calendar.Application.Businesses;
+using Calendar.Application.Businesses.UpdateBusinessBookingWindow;
+using Calendar.Application.Businesses.UpdateBusinessDetails;
 using Calendar.Application.Services.CreateService;
 using Calendar.Application.StaffMemberServices.AssignStaffMemberService;
 using Calendar.Application.StaffMembers.CreateStaffMember;
@@ -22,6 +24,8 @@ public static class DependencyInjection
         services.AddScoped<ICommandHandler<CreateServiceCommand, CreateServiceResult>, CreateServiceCommandHandler>();
         services.AddScoped<ICommandHandler<CreateStaffMemberCommand, CreateStaffMemberResult>, CreateStaffMemberCommandHandler>();
         services.AddScoped<ICommandHandler<AssignStaffMemberServiceCommand, AssignStaffMemberServiceResult>, AssignStaffMemberServiceCommandHandler>();
+        services.AddScoped<ICommandHandler<UpdateBusinessDetailsCommand, UpdateBusinessDetailsResult>, UpdateBusinessDetailsCommandHandler>();
+        services.AddScoped<ICommandHandler<UpdateBusinessBookingWindowCommand, UpdateBusinessBookingWindowResult>, UpdateBusinessBookingWindowCommandHandler>();
         services.AddScoped<IQueryHandler<GetBusinessByIdQuery, BusinessDetails?>, PublicBusinessQueryHandler>();
         services.AddScoped<IQueryHandler<GetBusinessProfileByIdQuery, BusinessProfileDetails?>, PublicBusinessQueryHandler>();
         services.AddScoped<IQueryHandler<GetBusinessProfileBySlugQuery, BusinessProfileDetails?>, PublicBusinessQueryHandler>();

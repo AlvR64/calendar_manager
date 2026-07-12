@@ -16,6 +16,7 @@ public sealed class Business
     public string? CountryCode { get; set; }
     public string TimeZoneId { get; set; } = string.Empty;
     public string CurrencyCode { get; set; } = string.Empty;
+    public int MaxAdvanceBookingDays { get; set; } = 60;
     public bool IsActive { get; set; } = true;
     public DateTimeOffset CreatedAtUtc { get; set; }
     public DateTimeOffset? UpdatedAtUtc { get; set; }

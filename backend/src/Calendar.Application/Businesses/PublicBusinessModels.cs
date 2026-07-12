@@ -14,7 +14,8 @@ public sealed record BusinessDetails(
     string? PostalCode,
     string? CountryCode,
     string TimeZoneId,
-    string CurrencyCode);
+    string CurrencyCode,
+    int MaxAdvanceBookingDays);
 
 public sealed record BusinessServiceDetails(
     Guid Id,

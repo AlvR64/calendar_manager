@@ -120,7 +120,8 @@ public sealed class PublicBusinessQueryHandler(
         business.PostalCode,
         business.CountryCode,
         business.TimeZoneId,
-        business.CurrencyCode);
+        business.CurrencyCode,
+        business.MaxAdvanceBookingDays);
 
     private static BusinessServiceDetails MapService(Service service) => new(
         service.Id,

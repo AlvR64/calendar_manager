@@ -25,6 +25,7 @@ public sealed class BusinessesControllerTests
         response.Slug.Should().Be("barberia-centro-madrid");
         response.TimeZoneId.Should().Be("Europe/Madrid");
         response.CurrencyCode.Should().Be("EUR");
+        response.MaxAdvanceBookingDays.Should().Be(60);
     }
 
     [Fact]
@@ -246,7 +247,8 @@ public sealed class BusinessesControllerTests
         "28013",
         "ES",
         "Europe/Madrid",
-        "EUR");
+        "EUR",
+        60);
 
     private static BusinessServiceDetails CreateServiceDetails() => new(
         Guid.NewGuid(),
