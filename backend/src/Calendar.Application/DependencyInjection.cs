@@ -6,6 +6,7 @@ using Calendar.Application.Auth.RegisterCustomer;
 using Calendar.Application.Businesses;
 using Calendar.Application.Businesses.UpdateBusinessBookingWindow;
 using Calendar.Application.Businesses.UpdateBusinessDetails;
+using Calendar.Application.Services;
 using Calendar.Application.Services.CreateService;
 using Calendar.Application.StaffMemberServices.AssignStaffMemberService;
 using Calendar.Application.StaffMembers.CreateStaffMember;
@@ -33,6 +34,8 @@ public static class DependencyInjection
         services.AddScoped<IQueryHandler<GetBusinessServiceQuery, BusinessServiceDetails?>, PublicBusinessQueryHandler>();
         services.AddScoped<IQueryHandler<ListBusinessStaffMembersQuery, ListBusinessStaffMembersResult>, PublicBusinessQueryHandler>();
         services.AddScoped<IQueryHandler<GetBusinessStaffMemberQuery, BusinessStaffMemberDetails?>, PublicBusinessQueryHandler>();
+        services.AddScoped<IQueryHandler<ListAdminServicesQuery, ListAdminServicesResult>, AdminServiceQueryHandler>();
+        services.AddScoped<IQueryHandler<GetAdminServiceQuery, GetAdminServiceResult>, AdminServiceQueryHandler>();
 
         return services;
     }

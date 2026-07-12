@@ -23,8 +23,8 @@ Legend:
 | ID | Caso de uso | Hecho | Postpuesto |
 | --- | --- | --- | --- |
 | 2.1 | Crear service para el business del admin autenticado. | [x] | [ ] |
-| 2.2 | Listar services del business para admin, incluyendo inactivos. | [ ] | [ ] |
-| 2.3 | Obtener service por id para admin, incluyendo inactivos. | [ ] | [ ] |
+| 2.2 | Listar services del business para admin, incluyendo inactivos. | [x] | [ ] |
+| 2.3 | Obtener service por id para admin, incluyendo inactivos. | [x] | [ ] |
 | 2.4 | Actualizar service: nombre, descripcion, duracion, precio, orden, activo/inactivo. | [ ] | [ ] |
 | 2.5 | Desactivar/eliminar service. | [ ] | [ ] |
 | 2.6 | Anadir imagenes de services. | [ ] | [x] |

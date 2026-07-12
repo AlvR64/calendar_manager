@@ -11,6 +11,21 @@ public sealed class ServiceRepository(CalendarDbContext dbContext) : IServiceRep
             service => service.Id == id && service.BusinessId == businessId,
             cancellationToken);
 
+    public async Task<IReadOnlyList<Service>> ListByBusinessIdAsync(Guid businessId, CancellationToken cancellationToken) =>
+        await dbContext.Services
+            .AsNoTracking()
+            .Where(service => service.BusinessId == businessId)
+            .OrderBy(service => service.SortOrder)
+            .ThenBy(service => service.Name)
+            .ToListAsync(cancellationToken);
+
+    public Task<Service?> GetByIdAndBusinessIdAsync(Guid id, Guid businessId, CancellationToken cancellationToken) =>
+        dbContext.Services
+            .AsNoTracking()
+            .FirstOrDefaultAsync(
+                service => service.Id == id && service.BusinessId == businessId,
+                cancellationToken);
+
     public async Task<IReadOnlyList<Service>> ListActiveByBusinessIdAsync(Guid businessId, CancellationToken cancellationToken) =>
         await dbContext.Services
             .AsNoTracking()

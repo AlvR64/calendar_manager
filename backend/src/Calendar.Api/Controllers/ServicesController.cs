@@ -2,6 +2,7 @@ using System.Security.Claims;
 using Calendar.Api.Contracts.StaffMemberServices;
 using Calendar.Api.Contracts.Services;
 using Calendar.Application.Abstractions.Messaging;
+using Calendar.Application.Services;
 using Calendar.Application.Services.CreateService;
 using Calendar.Application.StaffMemberServices.AssignStaffMemberService;
 using Microsoft.AspNetCore.Authorization;
@@ -14,8 +15,59 @@ namespace Calendar.Api.Controllers;
 [Route("api/services")]
 public sealed class ServicesController(
     ICommandHandler<CreateServiceCommand, CreateServiceResult> createServiceHandler,
-    ICommandHandler<AssignStaffMemberServiceCommand, AssignStaffMemberServiceResult> assignStaffMemberServiceHandler) : ControllerBase
+    ICommandHandler<AssignStaffMemberServiceCommand, AssignStaffMemberServiceResult> assignStaffMemberServiceHandler,
+    IQueryHandler<ListAdminServicesQuery, ListAdminServicesResult> listAdminServicesHandler,
+    IQueryHandler<GetAdminServiceQuery, GetAdminServiceResult> getAdminServiceHandler) : ControllerBase
 {
+    [HttpGet]
+    [ProducesResponseType<IReadOnlyList<ServiceResponse>>(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<IReadOnlyList<ServiceResponse>>> ListServices(CancellationToken cancellationToken)
+    {
+        if (!TryGetBusinessId(out var businessId))
+        {
+            return Forbid();
+        }
+
+        var result = await listAdminServicesHandler.HandleAsync(new ListAdminServicesQuery(businessId), cancellationToken);
+        if (!result.BusinessFound)
+        {
+            return NotFound(CreateBusinessNotFoundProblemDetails());
+        }
+
+        return Ok(result.Services.Select(MapService).ToList());
+    }
+
+    [HttpGet("{serviceId:guid}")]
+    [ProducesResponseType<ServiceResponse>(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<ServiceResponse>> GetService(
+        Guid serviceId,
+        CancellationToken cancellationToken)
+    {
+        if (!TryGetBusinessId(out var businessId))
+        {
+            return Forbid();
+        }
+
+        var result = await getAdminServiceHandler.HandleAsync(new GetAdminServiceQuery(businessId, serviceId), cancellationToken);
+        if (!result.Succeeded)
+        {
+            return result.Error switch
+            {
+                GetAdminServiceError.BusinessNotFound => NotFound(CreateBusinessNotFoundProblemDetails()),
+                GetAdminServiceError.ServiceNotFound => NotFound(CreateServiceNotFoundProblemDetails()),
+                _ => BadRequest()
+            };
+        }
+
+        return Ok(MapService(result.Service!));
+    }
+
     [HttpPost]
     [ProducesResponseType<ServiceResponse>(StatusCodes.Status201Created)]
     [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest)]
@@ -142,4 +194,15 @@ public sealed class ServicesController(
         Detail = "The staff member is already assigned to this service.",
         Instance = HttpContext.Request.Path
     };
+
+    private static ServiceResponse MapService(AdminServiceDetails service) => new(
+        service.Id,
+        service.BusinessId,
+        service.Name,
+        service.Description,
+        service.DurationMinutes,
+        service.PriceAmount,
+        service.IsActive,
+        service.SortOrder,
+        service.CreatedAtUtc);
 }

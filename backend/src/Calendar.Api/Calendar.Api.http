@@ -46,6 +46,18 @@ GET {{baseUrl}}/api/businesses/{{businessId}}/staff-members/{{staffMemberId}}
 
 ###
 
+### List admin services
+GET {{baseUrl}}/api/services
+Authorization: Bearer {{adminAccessToken}}
+
+###
+
+### Get admin service
+GET {{baseUrl}}/api/services/{{serviceId}}
+Authorization: Bearer {{adminAccessToken}}
+
+###
+
 ### Update current business details
 PUT {{baseUrl}}/api/businesses/current
 Authorization: Bearer {{adminAccessToken}}

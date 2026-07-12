@@ -3,6 +3,7 @@ using Calendar.Api.Contracts.StaffMemberServices;
 using Calendar.Api.Contracts.Services;
 using Calendar.Api.Controllers;
 using Calendar.Application.Abstractions.Messaging;
+using Calendar.Application.Services;
 using Calendar.Application.Services.CreateService;
 using Calendar.Application.StaffMemberServices.AssignStaffMemberService;
 using Microsoft.AspNetCore.Http;
@@ -133,6 +134,218 @@ public sealed class ServicesControllerTests
         problemDetails.Status.Should().Be(StatusCodes.Status404NotFound);
         problemDetails.Title.Should().Be("Business not found.");
         problemDetails.Instance.Should().Be("/api/services");
+    }
+
+    [Fact]
+    public async Task ListServices_WhenBusinessExists_ReturnsOkResponse()
+    {
+        var businessId = Guid.NewGuid();
+        var serviceId = Guid.NewGuid();
+        var createdAtUtc = DateTimeOffset.UtcNow;
+        var handler = new StubQueryHandler<ListAdminServicesQuery, ListAdminServicesResult>(
+            ListAdminServicesResult.Success([
+                new AdminServiceDetails(
+                    serviceId,
+                    businessId,
+                    "Corte de pelo",
+                    "Corte clasico o moderno",
+                    30,
+                    18.00m,
+                    false,
+                    0,
+                    createdAtUtc)
+            ]));
+        var controller = CreateController(handler, businessId.ToString(), "/api/services");
+
+        var result = await controller.ListServices(CancellationToken.None);
+
+        var okResult = result.Result.Should().BeOfType<OkObjectResult>().Subject;
+        var response = okResult.Value.Should().BeOfType<List<ServiceResponse>>().Subject;
+        response.Should().ContainSingle();
+        response[0].Id.Should().Be(serviceId);
+        response[0].BusinessId.Should().Be(businessId);
+        response[0].Name.Should().Be("Corte de pelo");
+        response[0].IsActive.Should().BeFalse();
+        response[0].CreatedAtUtc.Should().Be(createdAtUtc);
+    }
+
+    [Fact]
+    public async Task ListServices_WhenBusinessHasNoServices_ReturnsOkResponseWithEmptyList()
+    {
+        var handler = new StubQueryHandler<ListAdminServicesQuery, ListAdminServicesResult>(
+            ListAdminServicesResult.Success([]));
+        var controller = CreateController(handler, Guid.NewGuid().ToString(), "/api/services");
+
+        var result = await controller.ListServices(CancellationToken.None);
+
+        var okResult = result.Result.Should().BeOfType<OkObjectResult>().Subject;
+        var response = okResult.Value.Should().BeOfType<List<ServiceResponse>>().Subject;
+        response.Should().BeEmpty();
+    }
+
+    [Fact]
+    public async Task ListServices_UsesBusinessIdFromAdminToken()
+    {
+        var businessId = Guid.NewGuid();
+        var handler = new StubQueryHandler<ListAdminServicesQuery, ListAdminServicesResult>(
+            ListAdminServicesResult.Success([]));
+        var controller = CreateController(handler, businessId.ToString(), "/api/services");
+        using var cancellationTokenSource = new CancellationTokenSource();
+
+        await controller.ListServices(cancellationTokenSource.Token);
+
+        handler.Query.Should().Be(new ListAdminServicesQuery(businessId));
+        handler.CancellationToken.Should().Be(cancellationTokenSource.Token);
+    }
+
+    [Fact]
+    public async Task ListServices_WhenBusinessClaimIsMissing_ReturnsForbid()
+    {
+        var handler = new StubQueryHandler<ListAdminServicesQuery, ListAdminServicesResult>(
+            ListAdminServicesResult.Success([]));
+        var controller = CreateController(handler, businessIdClaimValue: null, "/api/services");
+
+        var result = await controller.ListServices(CancellationToken.None);
+
+        result.Result.Should().BeOfType<ForbidResult>();
+        handler.Query.Should().BeNull();
+    }
+
+    [Fact]
+    public async Task ListServices_WhenBusinessClaimIsInvalid_ReturnsForbid()
+    {
+        var handler = new StubQueryHandler<ListAdminServicesQuery, ListAdminServicesResult>(
+            ListAdminServicesResult.Success([]));
+        var controller = CreateController(handler, "not-a-guid", "/api/services");
+
+        var result = await controller.ListServices(CancellationToken.None);
+
+        result.Result.Should().BeOfType<ForbidResult>();
+        handler.Query.Should().BeNull();
+    }
+
+    [Fact]
+    public async Task ListServices_WhenBusinessDoesNotExist_ReturnsNotFoundProblemDetails()
+    {
+        var handler = new StubQueryHandler<ListAdminServicesQuery, ListAdminServicesResult>(
+            ListAdminServicesResult.NotFound());
+        var controller = CreateController(handler, Guid.NewGuid().ToString(), "/api/services");
+
+        var result = await controller.ListServices(CancellationToken.None);
+
+        var notFoundResult = result.Result.Should().BeOfType<NotFoundObjectResult>().Subject;
+        var problemDetails = notFoundResult.Value.Should().BeOfType<ProblemDetails>().Subject;
+        problemDetails.Status.Should().Be(StatusCodes.Status404NotFound);
+        problemDetails.Title.Should().Be("Business not found.");
+        problemDetails.Instance.Should().Be("/api/services");
+    }
+
+    [Fact]
+    public async Task GetService_WhenServiceExists_ReturnsOkResponse()
+    {
+        var businessId = Guid.NewGuid();
+        var serviceId = Guid.NewGuid();
+        var createdAtUtc = DateTimeOffset.UtcNow;
+        var handler = new StubQueryHandler<GetAdminServiceQuery, GetAdminServiceResult>(
+            GetAdminServiceResult.Success(new AdminServiceDetails(
+                serviceId,
+                businessId,
+                "Corte de pelo",
+                "Corte clasico o moderno",
+                30,
+                18.00m,
+                false,
+                0,
+                createdAtUtc)));
+        var controller = CreateController(handler, businessId.ToString(), $"/api/services/{serviceId}");
+
+        var result = await controller.GetService(serviceId, CancellationToken.None);
+
+        var okResult = result.Result.Should().BeOfType<OkObjectResult>().Subject;
+        var response = okResult.Value.Should().BeOfType<ServiceResponse>().Subject;
+        response.Id.Should().Be(serviceId);
+        response.BusinessId.Should().Be(businessId);
+        response.Name.Should().Be("Corte de pelo");
+        response.IsActive.Should().BeFalse();
+        response.CreatedAtUtc.Should().Be(createdAtUtc);
+    }
+
+    [Fact]
+    public async Task GetService_UsesBusinessIdFromAdminToken()
+    {
+        var businessId = Guid.NewGuid();
+        var serviceId = Guid.NewGuid();
+        var handler = new StubQueryHandler<GetAdminServiceQuery, GetAdminServiceResult>(
+            GetAdminServiceResult.Success(CreateAdminServiceDetails(businessId, serviceId)));
+        var controller = CreateController(handler, businessId.ToString(), $"/api/services/{serviceId}");
+        using var cancellationTokenSource = new CancellationTokenSource();
+
+        await controller.GetService(serviceId, cancellationTokenSource.Token);
+
+        handler.Query.Should().Be(new GetAdminServiceQuery(businessId, serviceId));
+        handler.CancellationToken.Should().Be(cancellationTokenSource.Token);
+    }
+
+    [Fact]
+    public async Task GetService_WhenBusinessClaimIsMissing_ReturnsForbid()
+    {
+        var serviceId = Guid.NewGuid();
+        var handler = new StubQueryHandler<GetAdminServiceQuery, GetAdminServiceResult>(
+            GetAdminServiceResult.Success(CreateAdminServiceDetails(Guid.NewGuid(), serviceId)));
+        var controller = CreateController(handler, businessIdClaimValue: null, $"/api/services/{serviceId}");
+
+        var result = await controller.GetService(serviceId, CancellationToken.None);
+
+        result.Result.Should().BeOfType<ForbidResult>();
+        handler.Query.Should().BeNull();
+    }
+
+    [Fact]
+    public async Task GetService_WhenBusinessClaimIsInvalid_ReturnsForbid()
+    {
+        var serviceId = Guid.NewGuid();
+        var handler = new StubQueryHandler<GetAdminServiceQuery, GetAdminServiceResult>(
+            GetAdminServiceResult.Success(CreateAdminServiceDetails(Guid.NewGuid(), serviceId)));
+        var controller = CreateController(handler, "not-a-guid", $"/api/services/{serviceId}");
+
+        var result = await controller.GetService(serviceId, CancellationToken.None);
+
+        result.Result.Should().BeOfType<ForbidResult>();
+        handler.Query.Should().BeNull();
+    }
+
+    [Fact]
+    public async Task GetService_WhenBusinessDoesNotExist_ReturnsNotFoundProblemDetails()
+    {
+        var serviceId = Guid.NewGuid();
+        var handler = new StubQueryHandler<GetAdminServiceQuery, GetAdminServiceResult>(
+            GetAdminServiceResult.Failure(GetAdminServiceError.BusinessNotFound));
+        var controller = CreateController(handler, Guid.NewGuid().ToString(), $"/api/services/{serviceId}");
+
+        var result = await controller.GetService(serviceId, CancellationToken.None);
+
+        var notFoundResult = result.Result.Should().BeOfType<NotFoundObjectResult>().Subject;
+        var problemDetails = notFoundResult.Value.Should().BeOfType<ProblemDetails>().Subject;
+        problemDetails.Status.Should().Be(StatusCodes.Status404NotFound);
+        problemDetails.Title.Should().Be("Business not found.");
+        problemDetails.Instance.Should().Be($"/api/services/{serviceId}");
+    }
+
+    [Fact]
+    public async Task GetService_WhenServiceDoesNotExist_ReturnsNotFoundProblemDetails()
+    {
+        var serviceId = Guid.NewGuid();
+        var handler = new StubQueryHandler<GetAdminServiceQuery, GetAdminServiceResult>(
+            GetAdminServiceResult.Failure(GetAdminServiceError.ServiceNotFound));
+        var controller = CreateController(handler, Guid.NewGuid().ToString(), $"/api/services/{serviceId}");
+
+        var result = await controller.GetService(serviceId, CancellationToken.None);
+
+        var notFoundResult = result.Result.Should().BeOfType<NotFoundObjectResult>().Subject;
+        var problemDetails = notFoundResult.Value.Should().BeOfType<ProblemDetails>().Subject;
+        problemDetails.Status.Should().Be(StatusCodes.Status404NotFound);
+        problemDetails.Title.Should().Be("Service not found.");
+        problemDetails.Instance.Should().Be($"/api/services/{serviceId}");
     }
 
     [Fact]
@@ -276,17 +489,55 @@ public sealed class ServicesControllerTests
     private static ServicesController CreateController(
         StubCreateServiceHandler handler,
         string? businessIdClaimValue) =>
-        CreateController(handler, CreateDefaultAssignStaffMemberServiceHandler(), businessIdClaimValue, "/api/services");
+        CreateController(
+            handler,
+            CreateDefaultAssignStaffMemberServiceHandler(),
+            CreateDefaultListAdminServicesHandler(),
+            CreateDefaultGetAdminServiceHandler(),
+            businessIdClaimValue,
+            "/api/services");
 
     private static ServicesController CreateController(
         StubAssignStaffMemberServiceHandler handler,
         string? businessIdClaimValue,
         string requestPath) =>
-        CreateController(CreateDefaultCreateServiceHandler(), handler, businessIdClaimValue, requestPath);
+        CreateController(
+            CreateDefaultCreateServiceHandler(),
+            handler,
+            CreateDefaultListAdminServicesHandler(),
+            CreateDefaultGetAdminServiceHandler(),
+            businessIdClaimValue,
+            requestPath);
+
+    private static ServicesController CreateController(
+        StubQueryHandler<ListAdminServicesQuery, ListAdminServicesResult> handler,
+        string? businessIdClaimValue,
+        string requestPath) =>
+        CreateController(
+            CreateDefaultCreateServiceHandler(),
+            CreateDefaultAssignStaffMemberServiceHandler(),
+            handler,
+            CreateDefaultGetAdminServiceHandler(),
+            businessIdClaimValue,
+            requestPath);
+
+    private static ServicesController CreateController(
+        StubQueryHandler<GetAdminServiceQuery, GetAdminServiceResult> handler,
+        string? businessIdClaimValue,
+        string requestPath) =>
+        CreateController(
+            CreateDefaultCreateServiceHandler(),
+            CreateDefaultAssignStaffMemberServiceHandler(),
+            CreateDefaultListAdminServicesHandler(),
+            handler,
+            businessIdClaimValue,
+            requestPath);
 
     private static ServicesController CreateController(
         StubCreateServiceHandler createServiceHandler,
         StubAssignStaffMemberServiceHandler assignStaffMemberServiceHandler,
+        StubQueryHandler<ListAdminServicesQuery, ListAdminServicesResult> listAdminServicesHandler,
+        StubQueryHandler<GetAdminServiceQuery, GetAdminServiceResult> getAdminServiceHandler,
         string? businessIdClaimValue,
         string requestPath)
     {
@@ -296,7 +547,11 @@ public sealed class ServicesControllerTests
             claims.Add(new Claim("business_id", businessIdClaimValue));
         }
 
-        return new ServicesController(createServiceHandler, assignStaffMemberServiceHandler)
+        return new ServicesController(
+            createServiceHandler,
+            assignStaffMemberServiceHandler,
+            listAdminServicesHandler,
+            getAdminServiceHandler)
         {
             ControllerContext = new ControllerContext
             {
@@ -321,6 +576,17 @@ public sealed class ServicesControllerTests
         SortOrder = 0
     };
 
+    private static AdminServiceDetails CreateAdminServiceDetails(Guid businessId, Guid serviceId) => new(
+        serviceId,
+        businessId,
+        "Corte de pelo",
+        "Corte clasico o moderno",
+        30,
+        18.00m,
+        true,
+        0,
+        DateTimeOffset.UtcNow);
+
     private static StubCreateServiceHandler CreateDefaultCreateServiceHandler() => new(CreateServiceResult.Success(
         Guid.NewGuid(),
         Guid.NewGuid(),
@@ -337,6 +603,17 @@ public sealed class ServicesControllerTests
         Guid.NewGuid(),
         true,
         DateTimeOffset.UtcNow));
+
+    private static StubQueryHandler<ListAdminServicesQuery, ListAdminServicesResult> CreateDefaultListAdminServicesHandler() => new(
+        ListAdminServicesResult.Success([]));
+
+    private static StubQueryHandler<GetAdminServiceQuery, GetAdminServiceResult> CreateDefaultGetAdminServiceHandler()
+    {
+        var businessId = Guid.NewGuid();
+        var serviceId = Guid.NewGuid();
+        return new StubQueryHandler<GetAdminServiceQuery, GetAdminServiceResult>(
+            GetAdminServiceResult.Success(CreateAdminServiceDetails(businessId, serviceId)));
+    }
 
     private sealed class StubCreateServiceHandler(CreateServiceResult result)
         : ICommandHandler<CreateServiceCommand, CreateServiceResult>
@@ -368,6 +645,22 @@ public sealed class ServicesControllerTests
             CancellationToken cancellationToken)
         {
             Command = command;
+            CancellationToken = cancellationToken;
+
+            return Task.FromResult(result);
+        }
+    }
+
+    private sealed class StubQueryHandler<TQuery, TResult>(TResult result) : IQueryHandler<TQuery, TResult>
+        where TQuery : IQuery<TResult>
+    {
+        public TQuery? Query { get; private set; }
+
+        public CancellationToken CancellationToken { get; private set; }
+
+        public Task<TResult> HandleAsync(TQuery query, CancellationToken cancellationToken)
+        {
+            Query = query;
             CancellationToken = cancellationToken;
 
             return Task.FromResult(result);
