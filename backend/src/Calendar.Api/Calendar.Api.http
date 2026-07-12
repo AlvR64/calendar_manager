@@ -1,11 +1,48 @@
 @baseUrl = http://localhost:5167
 @adminAccessToken = paste-admin-access-token-here
+@businessId = paste-business-id-here
+@businessSlug = barberia-centro-madrid
 @serviceId = paste-service-id-here
 @staffMemberId = paste-staff-member-id-here
 
 ### Health check
 GET {{baseUrl}}/health
 Accept: application/json
+
+###
+
+### Get business by ID
+GET {{baseUrl}}/api/businesses/{{businessId}}
+
+###
+
+### Get business profile by ID
+GET {{baseUrl}}/api/businesses/{{businessId}}/profile
+
+###
+
+### Get business profile by slug
+GET {{baseUrl}}/api/businesses/by-slug/{{businessSlug}}/profile
+
+###
+
+### List business services
+GET {{baseUrl}}/api/businesses/{{businessId}}/services
+
+###
+
+### Get business service
+GET {{baseUrl}}/api/businesses/{{businessId}}/services/{{serviceId}}
+
+###
+
+### List business staff members
+GET {{baseUrl}}/api/businesses/{{businessId}}/staff-members
+
+###
+
+### Get business staff member
+GET {{baseUrl}}/api/businesses/{{businessId}}/staff-members/{{staffMemberId}}
 
 ###
 
