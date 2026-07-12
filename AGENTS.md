@@ -4,6 +4,7 @@
 - Put backend work under `backend/`; `frontend/` exists but is currently empty.
 - Repo-local OpenCode skills live in `.agents/skills` and are wired by `opencode.json`. Use `domain-modeling` for domain terminology changes, `database-schema-designer` for schema/EF modeling work, `aspnet-core` for ASP.NET Core host/DI/middleware/auth/configuration guidance, `dotnet-webapi` for Web API endpoints/HTTP semantics/OpenAPI/error handling, and `find-skills` to search for additional repo-local skills.
 - The GitHub repo is named `calendar_manager`. If the local folder still appears as `calendar_manager_dotnet`, that is only a local directory name; Git remote/tracking is already updated.
+- `backend-task-groups-roadmap.md` is the temporary backend task roadmap; use its group/use-case IDs when the user references them, and expect the file to be removed once those tasks are finished.
 
 ## Backend Shape
 - The backend solution is `backend/Calendar.slnx` and targets `.NET 10`.
