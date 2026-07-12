@@ -50,9 +50,8 @@ Legend:
 | 4.4 | Activar/desactivar una asignacion staff-service sin borrarla. | [x] | [ ] |
 | 4.5 | Listar services asignados a un staff member. | [ ] | [x] |
 | 4.6 | Listar staff members asignados a un service. | [ ] | [x] |
-| 4.7 | Configurar duracion custom por staff-service si un staff tarda distinto en el mismo service. | [ ] | [ ] |
-| 4.8 | Configurar precio custom por staff-service si aplica. | [ ] | [ ] |
-| 4.9 | Validar que un appointment solo pueda reservarse si el staff member realiza el service. | [ ] | [ ] |
+| 4.7 | Configurar duracion custom por staff-service si un staff tarda distinto en el mismo service. | [ ] | [x] |
+| 4.8 | Configurar precio custom por staff-service si aplica. | [ ] | [x] |
 
 ## 5. Disponibilidad Y Horarios
 
