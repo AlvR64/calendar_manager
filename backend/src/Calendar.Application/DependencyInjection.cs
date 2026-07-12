@@ -16,6 +16,9 @@ using Calendar.Application.StaffMemberAvailabilities.CreateStaffMemberAvailabili
 using Calendar.Application.StaffMemberAvailabilities.DeleteStaffMemberAvailability;
 using Calendar.Application.StaffMemberAvailabilities.ListStaffMemberAvailabilities;
 using Calendar.Application.StaffMemberAvailabilities.UpdateStaffMemberAvailability;
+using Calendar.Application.StaffMemberAvailabilityExceptions;
+using Calendar.Application.StaffMemberAvailabilityExceptions.CreateStaffMemberAvailabilityException;
+using Calendar.Application.StaffMemberAvailabilityExceptions.ListStaffMemberAvailabilityExceptions;
 using Calendar.Application.StaffMemberServices.AssignStaffMemberService;
 using Calendar.Application.StaffMemberServices.UnassignStaffMemberService;
 using Calendar.Application.StaffMemberServices.UpdateStaffMemberServiceActiveState;
@@ -51,6 +54,8 @@ public static class DependencyInjection
         services.AddScoped<IQueryHandler<ListStaffMemberAvailabilitiesQuery, ListStaffMemberAvailabilitiesResult>, ListStaffMemberAvailabilitiesQueryHandler>();
         services.AddScoped<ICommandHandler<UpdateStaffMemberAvailabilityCommand, UpdateStaffMemberAvailabilityResult>, UpdateStaffMemberAvailabilityCommandHandler>();
         services.AddScoped<ICommandHandler<DeleteStaffMemberAvailabilityCommand, DeleteStaffMemberAvailabilityResult>, DeleteStaffMemberAvailabilityCommandHandler>();
+        services.AddScoped<ICommandHandler<CreateStaffMemberAvailabilityExceptionCommand, CreateStaffMemberAvailabilityExceptionResult>, CreateStaffMemberAvailabilityExceptionCommandHandler>();
+        services.AddScoped<IQueryHandler<ListStaffMemberAvailabilityExceptionsQuery, ListStaffMemberAvailabilityExceptionsResult>, ListStaffMemberAvailabilityExceptionsQueryHandler>();
         services.AddScoped<ICommandHandler<UpdateBusinessDetailsCommand, UpdateBusinessDetailsResult>, UpdateBusinessDetailsCommandHandler>();
         services.AddScoped<ICommandHandler<UpdateBusinessBookingWindowCommand, UpdateBusinessBookingWindowResult>, UpdateBusinessBookingWindowCommandHandler>();
         services.AddScoped<IQueryHandler<GetBusinessByIdQuery, BusinessDetails?>, PublicBusinessQueryHandler>();

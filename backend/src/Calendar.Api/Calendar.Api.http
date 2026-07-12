@@ -109,6 +109,42 @@ Authorization: Bearer {{adminAccessToken}}
 
 ###
 
+### List staff member availability exceptions
+GET {{baseUrl}}/api/staff-members/{{staffMemberId}}/availability-exceptions
+Authorization: Bearer {{adminAccessToken}}
+
+###
+
+### Create staff member availability exception - special hours
+POST {{baseUrl}}/api/staff-members/{{staffMemberId}}/availability-exceptions
+Authorization: Bearer {{adminAccessToken}}
+Content-Type: application/json
+
+{
+  "localDate": "2026-07-20",
+  "isClosed": false,
+  "startTime": "10:00:00",
+  "endTime": "14:00:00",
+  "reason": "Horario especial"
+}
+
+###
+
+### Create staff member availability exception - closed day
+POST {{baseUrl}}/api/staff-members/{{staffMemberId}}/availability-exceptions
+Authorization: Bearer {{adminAccessToken}}
+Content-Type: application/json
+
+{
+  "localDate": "2026-07-21",
+  "isClosed": true,
+  "startTime": null,
+  "endTime": null,
+  "reason": "Vacaciones"
+}
+
+###
+
 ### Update staff member
 PUT {{baseUrl}}/api/staff-members/{{staffMemberId}}
 Authorization: Bearer {{adminAccessToken}}

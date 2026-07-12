@@ -8,6 +8,9 @@ using Calendar.Application.StaffMemberAvailabilities.CreateStaffMemberAvailabili
 using Calendar.Application.StaffMemberAvailabilities.DeleteStaffMemberAvailability;
 using Calendar.Application.StaffMemberAvailabilities.ListStaffMemberAvailabilities;
 using Calendar.Application.StaffMemberAvailabilities.UpdateStaffMemberAvailability;
+using Calendar.Application.StaffMemberAvailabilityExceptions;
+using Calendar.Application.StaffMemberAvailabilityExceptions.CreateStaffMemberAvailabilityException;
+using Calendar.Application.StaffMemberAvailabilityExceptions.ListStaffMemberAvailabilityExceptions;
 using Calendar.Application.StaffMemberServices.AssignStaffMemberService;
 using Calendar.Application.StaffMemberServices.UnassignStaffMemberService;
 using Calendar.Application.StaffMemberServices.UpdateStaffMemberServiceActiveState;
@@ -496,6 +499,147 @@ public sealed class StaffMembersControllerTests
         var problemDetails = notFoundResult.Value.Should().BeOfType<ProblemDetails>().Subject;
         problemDetails.Title.Should().Be("Staff member not found.");
         problemDetails.Instance.Should().Be($"/api/staff-members/{staffMemberId}/availability");
+    }
+
+    [Fact]
+    public async Task CreateStaffMemberAvailabilityException_WhenRequestIsValid_ReturnsCreatedResponse()
+    {
+        var staffMemberId = Guid.NewGuid();
+        var exceptionId = Guid.NewGuid();
+        var createdAtUtc = DateTimeOffset.UtcNow;
+        var handler = new StubCommandHandler<CreateStaffMemberAvailabilityExceptionCommand, CreateStaffMemberAvailabilityExceptionResult>(
+            CreateStaffMemberAvailabilityExceptionResult.Success(CreateAvailabilityExceptionDetails(exceptionId, staffMemberId, createdAtUtc)));
+        var controller = CreateController(handler, Guid.NewGuid().ToString(), $"/api/staff-members/{staffMemberId}/availability-exceptions");
+
+        var result = await controller.CreateStaffMemberAvailabilityException(staffMemberId, CreateAvailabilityExceptionRequest(), CancellationToken.None);
+
+        var createdResult = result.Result.Should().BeOfType<CreatedResult>().Subject;
+        createdResult.Location.Should().Be($"/api/staff-members/{staffMemberId}/availability-exceptions/{exceptionId}");
+        var response = createdResult.Value.Should().BeOfType<StaffMemberAvailabilityExceptionResponse>().Subject;
+        response.Id.Should().Be(exceptionId);
+        response.StaffMemberId.Should().Be(staffMemberId);
+        response.LocalDate.Should().Be(new DateOnly(2026, 7, 20));
+        response.IsClosed.Should().BeFalse();
+        response.StartTime.Should().Be(new TimeOnly(10, 0));
+        response.EndTime.Should().Be(new TimeOnly(14, 0));
+        response.Reason.Should().Be("Horario especial");
+        response.CreatedAtUtc.Should().Be(createdAtUtc);
+    }
+
+    [Fact]
+    public async Task CreateStaffMemberAvailabilityException_UsesBusinessIdFromAdminToken()
+    {
+        var businessId = Guid.NewGuid();
+        var staffMemberId = Guid.NewGuid();
+        var handler = new StubCommandHandler<CreateStaffMemberAvailabilityExceptionCommand, CreateStaffMemberAvailabilityExceptionResult>(
+            CreateStaffMemberAvailabilityExceptionResult.Success(CreateAvailabilityExceptionDetails(Guid.NewGuid(), staffMemberId, DateTimeOffset.UtcNow)));
+        var controller = CreateController(handler, businessId.ToString(), $"/api/staff-members/{staffMemberId}/availability-exceptions");
+        var request = CreateAvailabilityExceptionRequest();
+        using var cancellationTokenSource = new CancellationTokenSource();
+
+        await controller.CreateStaffMemberAvailabilityException(staffMemberId, request, cancellationTokenSource.Token);
+
+        handler.Command.Should().Be(new CreateStaffMemberAvailabilityExceptionCommand(
+            businessId,
+            staffMemberId,
+            request.LocalDate,
+            request.IsClosed,
+            request.StartTime,
+            request.EndTime,
+            request.Reason));
+        handler.CancellationToken.Should().Be(cancellationTokenSource.Token);
+    }
+
+    [Fact]
+    public async Task CreateStaffMemberAvailabilityException_WhenBusinessClaimIsMissing_ReturnsForbid()
+    {
+        var staffMemberId = Guid.NewGuid();
+        var handler = new StubCommandHandler<CreateStaffMemberAvailabilityExceptionCommand, CreateStaffMemberAvailabilityExceptionResult>(
+            CreateStaffMemberAvailabilityExceptionResult.Success(CreateAvailabilityExceptionDetails(Guid.NewGuid(), staffMemberId, DateTimeOffset.UtcNow)));
+        var controller = CreateController(handler, businessIdClaimValue: null, $"/api/staff-members/{staffMemberId}/availability-exceptions");
+
+        var result = await controller.CreateStaffMemberAvailabilityException(staffMemberId, CreateAvailabilityExceptionRequest(), CancellationToken.None);
+
+        result.Result.Should().BeOfType<ForbidResult>();
+        handler.Command.Should().BeNull();
+    }
+
+    [Theory]
+    [InlineData(CreateStaffMemberAvailabilityExceptionError.StaffMemberNotFound, typeof(NotFoundObjectResult), "Staff member not found.")]
+    [InlineData(CreateStaffMemberAvailabilityExceptionError.InvalidClosedException, typeof(BadRequestObjectResult), "Invalid closed availability exception.")]
+    [InlineData(CreateStaffMemberAvailabilityExceptionError.InvalidTimeRange, typeof(BadRequestObjectResult), "Invalid availability exception time range.")]
+    [InlineData(CreateStaffMemberAvailabilityExceptionError.ReasonTooLong, typeof(BadRequestObjectResult), "Availability exception reason is too long.")]
+    [InlineData(CreateStaffMemberAvailabilityExceptionError.AvailabilityExceptionAlreadyExists, typeof(ConflictObjectResult), "Staff member availability exception already exists for this date.")]
+    [InlineData(CreateStaffMemberAvailabilityExceptionError.AvailabilityExceptionOverlaps, typeof(ConflictObjectResult), "Staff member availability exception overlaps.")]
+    public async Task CreateStaffMemberAvailabilityException_WhenHandlerFails_ReturnsProblemDetails(
+        CreateStaffMemberAvailabilityExceptionError error,
+        Type expectedResultType,
+        string expectedTitle)
+    {
+        var staffMemberId = Guid.NewGuid();
+        var handler = new StubCommandHandler<CreateStaffMemberAvailabilityExceptionCommand, CreateStaffMemberAvailabilityExceptionResult>(
+            CreateStaffMemberAvailabilityExceptionResult.Failure(error));
+        var controller = CreateController(handler, Guid.NewGuid().ToString(), $"/api/staff-members/{staffMemberId}/availability-exceptions");
+
+        var result = await controller.CreateStaffMemberAvailabilityException(staffMemberId, CreateAvailabilityExceptionRequest(), CancellationToken.None);
+
+        result.Result.Should().BeOfType(expectedResultType);
+        var objectResult = result.Result.Should().BeAssignableTo<ObjectResult>().Subject;
+        var problemDetails = objectResult.Value.Should().BeOfType<ProblemDetails>().Subject;
+        problemDetails.Title.Should().Be(expectedTitle);
+        problemDetails.Instance.Should().Be($"/api/staff-members/{staffMemberId}/availability-exceptions");
+    }
+
+    [Fact]
+    public async Task ListStaffMemberAvailabilityExceptions_WhenStaffMemberExists_ReturnsOkResponse()
+    {
+        var staffMemberId = Guid.NewGuid();
+        var exceptionId = Guid.NewGuid();
+        var createdAtUtc = DateTimeOffset.UtcNow;
+        var handler = new StubQueryHandler<ListStaffMemberAvailabilityExceptionsQuery, ListStaffMemberAvailabilityExceptionsResult>(
+            ListStaffMemberAvailabilityExceptionsResult.Success([CreateAvailabilityExceptionDetails(exceptionId, staffMemberId, createdAtUtc)]));
+        var controller = CreateController(handler, Guid.NewGuid().ToString(), $"/api/staff-members/{staffMemberId}/availability-exceptions");
+
+        var result = await controller.ListStaffMemberAvailabilityExceptions(staffMemberId, CancellationToken.None);
+
+        var okResult = result.Result.Should().BeOfType<OkObjectResult>().Subject;
+        var response = okResult.Value.Should().BeOfType<List<StaffMemberAvailabilityExceptionResponse>>().Subject;
+        response.Should().ContainSingle();
+        response[0].Id.Should().Be(exceptionId);
+        response[0].StaffMemberId.Should().Be(staffMemberId);
+        response[0].CreatedAtUtc.Should().Be(createdAtUtc);
+    }
+
+    [Fact]
+    public async Task ListStaffMemberAvailabilityExceptions_UsesBusinessIdFromAdminToken()
+    {
+        var businessId = Guid.NewGuid();
+        var staffMemberId = Guid.NewGuid();
+        var handler = new StubQueryHandler<ListStaffMemberAvailabilityExceptionsQuery, ListStaffMemberAvailabilityExceptionsResult>(
+            ListStaffMemberAvailabilityExceptionsResult.Success([]));
+        var controller = CreateController(handler, businessId.ToString(), $"/api/staff-members/{staffMemberId}/availability-exceptions");
+        using var cancellationTokenSource = new CancellationTokenSource();
+
+        await controller.ListStaffMemberAvailabilityExceptions(staffMemberId, cancellationTokenSource.Token);
+
+        handler.Query.Should().Be(new ListStaffMemberAvailabilityExceptionsQuery(businessId, staffMemberId));
+        handler.CancellationToken.Should().Be(cancellationTokenSource.Token);
+    }
+
+    [Fact]
+    public async Task ListStaffMemberAvailabilityExceptions_WhenStaffMemberDoesNotExist_ReturnsNotFoundProblemDetails()
+    {
+        var staffMemberId = Guid.NewGuid();
+        var handler = new StubQueryHandler<ListStaffMemberAvailabilityExceptionsQuery, ListStaffMemberAvailabilityExceptionsResult>(
+            ListStaffMemberAvailabilityExceptionsResult.Failure(ListStaffMemberAvailabilityExceptionsError.StaffMemberNotFound));
+        var controller = CreateController(handler, Guid.NewGuid().ToString(), $"/api/staff-members/{staffMemberId}/availability-exceptions");
+
+        var result = await controller.ListStaffMemberAvailabilityExceptions(staffMemberId, CancellationToken.None);
+
+        var notFoundResult = result.Result.Should().BeOfType<NotFoundObjectResult>().Subject;
+        var problemDetails = notFoundResult.Value.Should().BeOfType<ProblemDetails>().Subject;
+        problemDetails.Title.Should().Be("Staff member not found.");
+        problemDetails.Instance.Should().Be($"/api/staff-members/{staffMemberId}/availability-exceptions");
     }
 
     [Fact]
@@ -1277,6 +1421,8 @@ public sealed class StaffMembersControllerTests
             CreateDefaultListStaffMemberAvailabilitiesHandler(),
             CreateDefaultUpdateStaffMemberAvailabilityHandler(),
             CreateDefaultDeleteStaffMemberAvailabilityHandler(),
+            CreateDefaultCreateStaffMemberAvailabilityExceptionHandler(),
+            CreateDefaultListStaffMemberAvailabilityExceptionsHandler(),
             CreateDefaultListAdminStaffMembersHandler(),
             CreateDefaultGetAdminStaffMemberHandler(),
             businessIdClaimValue,
@@ -1298,6 +1444,8 @@ public sealed class StaffMembersControllerTests
             CreateDefaultListStaffMemberAvailabilitiesHandler(),
             CreateDefaultUpdateStaffMemberAvailabilityHandler(),
             CreateDefaultDeleteStaffMemberAvailabilityHandler(),
+            CreateDefaultCreateStaffMemberAvailabilityExceptionHandler(),
+            CreateDefaultListStaffMemberAvailabilityExceptionsHandler(),
             CreateDefaultListAdminStaffMembersHandler(),
             CreateDefaultGetAdminStaffMemberHandler(),
             businessIdClaimValue,
@@ -1319,6 +1467,8 @@ public sealed class StaffMembersControllerTests
             CreateDefaultListStaffMemberAvailabilitiesHandler(),
             CreateDefaultUpdateStaffMemberAvailabilityHandler(),
             CreateDefaultDeleteStaffMemberAvailabilityHandler(),
+            CreateDefaultCreateStaffMemberAvailabilityExceptionHandler(),
+            CreateDefaultListStaffMemberAvailabilityExceptionsHandler(),
             handler,
             CreateDefaultGetAdminStaffMemberHandler(),
             businessIdClaimValue,
@@ -1340,6 +1490,8 @@ public sealed class StaffMembersControllerTests
             CreateDefaultListStaffMemberAvailabilitiesHandler(),
             CreateDefaultUpdateStaffMemberAvailabilityHandler(),
             CreateDefaultDeleteStaffMemberAvailabilityHandler(),
+            CreateDefaultCreateStaffMemberAvailabilityExceptionHandler(),
+            CreateDefaultListStaffMemberAvailabilityExceptionsHandler(),
             CreateDefaultListAdminStaffMembersHandler(),
             handler,
             businessIdClaimValue,
@@ -1361,6 +1513,8 @@ public sealed class StaffMembersControllerTests
             CreateDefaultListStaffMemberAvailabilitiesHandler(),
             CreateDefaultUpdateStaffMemberAvailabilityHandler(),
             CreateDefaultDeleteStaffMemberAvailabilityHandler(),
+            CreateDefaultCreateStaffMemberAvailabilityExceptionHandler(),
+            CreateDefaultListStaffMemberAvailabilityExceptionsHandler(),
             CreateDefaultListAdminStaffMembersHandler(),
             CreateDefaultGetAdminStaffMemberHandler(),
             businessIdClaimValue,
@@ -1382,6 +1536,8 @@ public sealed class StaffMembersControllerTests
             CreateDefaultListStaffMemberAvailabilitiesHandler(),
             CreateDefaultUpdateStaffMemberAvailabilityHandler(),
             CreateDefaultDeleteStaffMemberAvailabilityHandler(),
+            CreateDefaultCreateStaffMemberAvailabilityExceptionHandler(),
+            CreateDefaultListStaffMemberAvailabilityExceptionsHandler(),
             CreateDefaultListAdminStaffMembersHandler(),
             CreateDefaultGetAdminStaffMemberHandler(),
             businessIdClaimValue,
@@ -1403,6 +1559,8 @@ public sealed class StaffMembersControllerTests
             CreateDefaultListStaffMemberAvailabilitiesHandler(),
             CreateDefaultUpdateStaffMemberAvailabilityHandler(),
             CreateDefaultDeleteStaffMemberAvailabilityHandler(),
+            CreateDefaultCreateStaffMemberAvailabilityExceptionHandler(),
+            CreateDefaultListStaffMemberAvailabilityExceptionsHandler(),
             CreateDefaultListAdminStaffMembersHandler(),
             CreateDefaultGetAdminStaffMemberHandler(),
             businessIdClaimValue,
@@ -1424,6 +1582,8 @@ public sealed class StaffMembersControllerTests
             CreateDefaultListStaffMemberAvailabilitiesHandler(),
             CreateDefaultUpdateStaffMemberAvailabilityHandler(),
             CreateDefaultDeleteStaffMemberAvailabilityHandler(),
+            CreateDefaultCreateStaffMemberAvailabilityExceptionHandler(),
+            CreateDefaultListStaffMemberAvailabilityExceptionsHandler(),
             CreateDefaultListAdminStaffMembersHandler(),
             CreateDefaultGetAdminStaffMemberHandler(),
             businessIdClaimValue,
@@ -1445,6 +1605,8 @@ public sealed class StaffMembersControllerTests
             CreateDefaultListStaffMemberAvailabilitiesHandler(),
             CreateDefaultUpdateStaffMemberAvailabilityHandler(),
             CreateDefaultDeleteStaffMemberAvailabilityHandler(),
+            CreateDefaultCreateStaffMemberAvailabilityExceptionHandler(),
+            CreateDefaultListStaffMemberAvailabilityExceptionsHandler(),
             CreateDefaultListAdminStaffMembersHandler(),
             CreateDefaultGetAdminStaffMemberHandler(),
             businessIdClaimValue,
@@ -1466,6 +1628,8 @@ public sealed class StaffMembersControllerTests
             CreateDefaultListStaffMemberAvailabilitiesHandler(),
             CreateDefaultUpdateStaffMemberAvailabilityHandler(),
             CreateDefaultDeleteStaffMemberAvailabilityHandler(),
+            CreateDefaultCreateStaffMemberAvailabilityExceptionHandler(),
+            CreateDefaultListStaffMemberAvailabilityExceptionsHandler(),
             CreateDefaultListAdminStaffMembersHandler(),
             CreateDefaultGetAdminStaffMemberHandler(),
             businessIdClaimValue,
@@ -1487,6 +1651,8 @@ public sealed class StaffMembersControllerTests
             handler,
             CreateDefaultUpdateStaffMemberAvailabilityHandler(),
             CreateDefaultDeleteStaffMemberAvailabilityHandler(),
+            CreateDefaultCreateStaffMemberAvailabilityExceptionHandler(),
+            CreateDefaultListStaffMemberAvailabilityExceptionsHandler(),
             CreateDefaultListAdminStaffMembersHandler(),
             CreateDefaultGetAdminStaffMemberHandler(),
             businessIdClaimValue,
@@ -1508,6 +1674,8 @@ public sealed class StaffMembersControllerTests
             CreateDefaultListStaffMemberAvailabilitiesHandler(),
             handler,
             CreateDefaultDeleteStaffMemberAvailabilityHandler(),
+            CreateDefaultCreateStaffMemberAvailabilityExceptionHandler(),
+            CreateDefaultListStaffMemberAvailabilityExceptionsHandler(),
             CreateDefaultListAdminStaffMembersHandler(),
             CreateDefaultGetAdminStaffMemberHandler(),
             businessIdClaimValue,
@@ -1529,6 +1697,54 @@ public sealed class StaffMembersControllerTests
             CreateDefaultListStaffMemberAvailabilitiesHandler(),
             CreateDefaultUpdateStaffMemberAvailabilityHandler(),
             handler,
+            CreateDefaultCreateStaffMemberAvailabilityExceptionHandler(),
+            CreateDefaultListStaffMemberAvailabilityExceptionsHandler(),
+            CreateDefaultListAdminStaffMembersHandler(),
+            CreateDefaultGetAdminStaffMemberHandler(),
+            businessIdClaimValue,
+            requestPath);
+
+    private static StaffMembersController CreateController(
+        StubCommandHandler<CreateStaffMemberAvailabilityExceptionCommand, CreateStaffMemberAvailabilityExceptionResult> handler,
+        string? businessIdClaimValue,
+        string requestPath) =>
+        CreateController(
+            CreateDefaultCreateStaffMemberHandler(),
+            CreateDefaultUpdateStaffMemberHandler(),
+            CreateDefaultUpdateStaffMemberActiveStateHandler(),
+            CreateDefaultDeleteStaffMemberHandler(),
+            CreateDefaultAssignStaffMemberServiceHandler(),
+            CreateDefaultUnassignStaffMemberServiceHandler(),
+            CreateDefaultUpdateStaffMemberServiceActiveStateHandler(),
+            CreateDefaultCreateStaffMemberAvailabilityHandler(),
+            CreateDefaultListStaffMemberAvailabilitiesHandler(),
+            CreateDefaultUpdateStaffMemberAvailabilityHandler(),
+            CreateDefaultDeleteStaffMemberAvailabilityHandler(),
+            handler,
+            CreateDefaultListStaffMemberAvailabilityExceptionsHandler(),
+            CreateDefaultListAdminStaffMembersHandler(),
+            CreateDefaultGetAdminStaffMemberHandler(),
+            businessIdClaimValue,
+            requestPath);
+
+    private static StaffMembersController CreateController(
+        StubQueryHandler<ListStaffMemberAvailabilityExceptionsQuery, ListStaffMemberAvailabilityExceptionsResult> handler,
+        string? businessIdClaimValue,
+        string requestPath) =>
+        CreateController(
+            CreateDefaultCreateStaffMemberHandler(),
+            CreateDefaultUpdateStaffMemberHandler(),
+            CreateDefaultUpdateStaffMemberActiveStateHandler(),
+            CreateDefaultDeleteStaffMemberHandler(),
+            CreateDefaultAssignStaffMemberServiceHandler(),
+            CreateDefaultUnassignStaffMemberServiceHandler(),
+            CreateDefaultUpdateStaffMemberServiceActiveStateHandler(),
+            CreateDefaultCreateStaffMemberAvailabilityHandler(),
+            CreateDefaultListStaffMemberAvailabilitiesHandler(),
+            CreateDefaultUpdateStaffMemberAvailabilityHandler(),
+            CreateDefaultDeleteStaffMemberAvailabilityHandler(),
+            CreateDefaultCreateStaffMemberAvailabilityExceptionHandler(),
+            handler,
             CreateDefaultListAdminStaffMembersHandler(),
             CreateDefaultGetAdminStaffMemberHandler(),
             businessIdClaimValue,
@@ -1546,6 +1762,8 @@ public sealed class StaffMembersControllerTests
         StubQueryHandler<ListStaffMemberAvailabilitiesQuery, ListStaffMemberAvailabilitiesResult> listStaffMemberAvailabilitiesHandler,
         StubCommandHandler<UpdateStaffMemberAvailabilityCommand, UpdateStaffMemberAvailabilityResult> updateStaffMemberAvailabilityHandler,
         StubCommandHandler<DeleteStaffMemberAvailabilityCommand, DeleteStaffMemberAvailabilityResult> deleteStaffMemberAvailabilityHandler,
+        StubCommandHandler<CreateStaffMemberAvailabilityExceptionCommand, CreateStaffMemberAvailabilityExceptionResult> createStaffMemberAvailabilityExceptionHandler,
+        StubQueryHandler<ListStaffMemberAvailabilityExceptionsQuery, ListStaffMemberAvailabilityExceptionsResult> listStaffMemberAvailabilityExceptionsHandler,
         StubQueryHandler<ListAdminStaffMembersQuery, ListAdminStaffMembersResult> listAdminStaffMembersHandler,
         StubQueryHandler<GetAdminStaffMemberQuery, GetAdminStaffMemberResult> getAdminStaffMemberHandler,
         string? businessIdClaimValue,
@@ -1569,6 +1787,8 @@ public sealed class StaffMembersControllerTests
             listStaffMemberAvailabilitiesHandler,
             updateStaffMemberAvailabilityHandler,
             deleteStaffMemberAvailabilityHandler,
+            createStaffMemberAvailabilityExceptionHandler,
+            listStaffMemberAvailabilityExceptionsHandler,
             listAdminStaffMembersHandler,
             getAdminStaffMemberHandler)
         {
@@ -1618,6 +1838,15 @@ public sealed class StaffMembersControllerTests
         EndTime = new TimeOnly(14, 0)
     };
 
+    private static CreateStaffMemberAvailabilityExceptionRequest CreateAvailabilityExceptionRequest() => new()
+    {
+        LocalDate = new DateOnly(2026, 7, 20),
+        IsClosed = false,
+        StartTime = new TimeOnly(10, 0),
+        EndTime = new TimeOnly(14, 0),
+        Reason = "Horario especial"
+    };
+
     private static StaffMemberAvailabilityDetails CreateAvailabilityDetails(
         Guid availabilityId,
         Guid staffMemberId,
@@ -1628,6 +1857,19 @@ public sealed class StaffMembersControllerTests
             new TimeOnly(9, 0),
             new TimeOnly(13, 0),
             true,
+            createdAtUtc);
+
+    private static StaffMemberAvailabilityExceptionDetails CreateAvailabilityExceptionDetails(
+        Guid exceptionId,
+        Guid staffMemberId,
+        DateTimeOffset createdAtUtc) => new(
+            exceptionId,
+            staffMemberId,
+            new DateOnly(2026, 7, 20),
+            false,
+            new TimeOnly(10, 0),
+            new TimeOnly(14, 0),
+            "Horario especial",
             createdAtUtc);
 
     private static AdminStaffMemberDetails CreateAdminStaffMemberDetails(Guid businessId, Guid staffMemberId) => new(
@@ -1688,6 +1930,16 @@ public sealed class StaffMembersControllerTests
 
     private static StubCommandHandler<DeleteStaffMemberAvailabilityCommand, DeleteStaffMemberAvailabilityResult> CreateDefaultDeleteStaffMemberAvailabilityHandler() => new(
         DeleteStaffMemberAvailabilityResult.Success());
+
+    private static StubCommandHandler<CreateStaffMemberAvailabilityExceptionCommand, CreateStaffMemberAvailabilityExceptionResult> CreateDefaultCreateStaffMemberAvailabilityExceptionHandler()
+    {
+        var staffMemberId = Guid.NewGuid();
+        return new StubCommandHandler<CreateStaffMemberAvailabilityExceptionCommand, CreateStaffMemberAvailabilityExceptionResult>(
+            CreateStaffMemberAvailabilityExceptionResult.Success(CreateAvailabilityExceptionDetails(Guid.NewGuid(), staffMemberId, DateTimeOffset.UtcNow)));
+    }
+
+    private static StubQueryHandler<ListStaffMemberAvailabilityExceptionsQuery, ListStaffMemberAvailabilityExceptionsResult> CreateDefaultListStaffMemberAvailabilityExceptionsHandler() => new(
+        ListStaffMemberAvailabilityExceptionsResult.Success([]));
 
     private static StubCommandHandler<UpdateStaffMemberCommand, UpdateStaffMemberResult> CreateDefaultUpdateStaffMemberHandler()
     {

@@ -7,6 +7,9 @@ using Calendar.Application.StaffMemberAvailabilities.CreateStaffMemberAvailabili
 using Calendar.Application.StaffMemberAvailabilities.DeleteStaffMemberAvailability;
 using Calendar.Application.StaffMemberAvailabilities.ListStaffMemberAvailabilities;
 using Calendar.Application.StaffMemberAvailabilities.UpdateStaffMemberAvailability;
+using Calendar.Application.StaffMemberAvailabilityExceptions;
+using Calendar.Application.StaffMemberAvailabilityExceptions.CreateStaffMemberAvailabilityException;
+using Calendar.Application.StaffMemberAvailabilityExceptions.ListStaffMemberAvailabilityExceptions;
 using Calendar.Application.StaffMemberServices.AssignStaffMemberService;
 using Calendar.Application.StaffMemberServices.UnassignStaffMemberService;
 using Calendar.Application.StaffMemberServices.UpdateStaffMemberServiceActiveState;
@@ -35,6 +38,8 @@ public sealed class StaffMembersController(
     IQueryHandler<ListStaffMemberAvailabilitiesQuery, ListStaffMemberAvailabilitiesResult> listStaffMemberAvailabilitiesHandler,
     ICommandHandler<UpdateStaffMemberAvailabilityCommand, UpdateStaffMemberAvailabilityResult> updateStaffMemberAvailabilityHandler,
     ICommandHandler<DeleteStaffMemberAvailabilityCommand, DeleteStaffMemberAvailabilityResult> deleteStaffMemberAvailabilityHandler,
+    ICommandHandler<CreateStaffMemberAvailabilityExceptionCommand, CreateStaffMemberAvailabilityExceptionResult> createStaffMemberAvailabilityExceptionHandler,
+    IQueryHandler<ListStaffMemberAvailabilityExceptionsQuery, ListStaffMemberAvailabilityExceptionsResult> listStaffMemberAvailabilityExceptionsHandler,
     IQueryHandler<ListAdminStaffMembersQuery, ListAdminStaffMembersResult> listAdminStaffMembersHandler,
     IQueryHandler<GetAdminStaffMemberQuery, GetAdminStaffMemberResult> getAdminStaffMemberHandler) : ControllerBase
 {
@@ -307,6 +312,81 @@ public sealed class StaffMembersController(
 
         var response = MapAvailability(result.Availability!);
         return Created($"/api/staff-members/{staffMemberId}/availability/{response.Id}", response);
+    }
+
+    [HttpGet("{staffMemberId:guid}/availability-exceptions")]
+    [ProducesResponseType<IReadOnlyList<StaffMemberAvailabilityExceptionResponse>>(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<IReadOnlyList<StaffMemberAvailabilityExceptionResponse>>> ListStaffMemberAvailabilityExceptions(
+        Guid staffMemberId,
+        CancellationToken cancellationToken)
+    {
+        if (!TryGetBusinessId(out var businessId))
+        {
+            return Forbid();
+        }
+
+        var result = await listStaffMemberAvailabilityExceptionsHandler.HandleAsync(
+            new ListStaffMemberAvailabilityExceptionsQuery(businessId, staffMemberId),
+            cancellationToken);
+
+        if (!result.Succeeded)
+        {
+            return result.Error switch
+            {
+                ListStaffMemberAvailabilityExceptionsError.StaffMemberNotFound => NotFound(CreateStaffMemberNotFoundProblemDetails()),
+                _ => BadRequest()
+            };
+        }
+
+        return Ok(result.Exceptions.Select(MapAvailabilityException).ToList());
+    }
+
+    [HttpPost("{staffMemberId:guid}/availability-exceptions")]
+    [ProducesResponseType<StaffMemberAvailabilityExceptionResponse>(StatusCodes.Status201Created)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status409Conflict)]
+    public async Task<ActionResult<StaffMemberAvailabilityExceptionResponse>> CreateStaffMemberAvailabilityException(
+        Guid staffMemberId,
+        CreateStaffMemberAvailabilityExceptionRequest request,
+        CancellationToken cancellationToken)
+    {
+        if (!TryGetBusinessId(out var businessId))
+        {
+            return Forbid();
+        }
+
+        var command = new CreateStaffMemberAvailabilityExceptionCommand(
+            businessId,
+            staffMemberId,
+            request.LocalDate,
+            request.IsClosed,
+            request.StartTime,
+            request.EndTime,
+            request.Reason);
+
+        var result = await createStaffMemberAvailabilityExceptionHandler.HandleAsync(command, cancellationToken);
+        if (!result.Succeeded)
+        {
+            return result.Error switch
+            {
+                CreateStaffMemberAvailabilityExceptionError.StaffMemberNotFound => NotFound(CreateStaffMemberNotFoundProblemDetails()),
+                CreateStaffMemberAvailabilityExceptionError.InvalidClosedException => BadRequest(CreateInvalidClosedAvailabilityExceptionProblemDetails()),
+                CreateStaffMemberAvailabilityExceptionError.InvalidTimeRange => BadRequest(CreateInvalidAvailabilityExceptionTimeRangeProblemDetails()),
+                CreateStaffMemberAvailabilityExceptionError.ReasonTooLong => BadRequest(CreateAvailabilityExceptionReasonTooLongProblemDetails()),
+                CreateStaffMemberAvailabilityExceptionError.AvailabilityExceptionAlreadyExists => Conflict(CreateAvailabilityExceptionAlreadyExistsProblemDetails()),
+                CreateStaffMemberAvailabilityExceptionError.AvailabilityExceptionOverlaps => Conflict(CreateAvailabilityExceptionOverlapsProblemDetails()),
+                _ => BadRequest()
+            };
+        }
+
+        var response = MapAvailabilityException(result.Exception!);
+        return Created($"/api/staff-members/{staffMemberId}/availability-exceptions/{response.Id}", response);
     }
 
     [HttpPut("{staffMemberId:guid}/availability/{availabilityId:guid}")]
@@ -598,6 +678,46 @@ public sealed class StaffMembersController(
         Instance = HttpContext.Request.Path
     };
 
+    private ProblemDetails CreateInvalidClosedAvailabilityExceptionProblemDetails() => new()
+    {
+        Status = StatusCodes.Status400BadRequest,
+        Title = "Invalid closed availability exception.",
+        Detail = "A closed availability exception must not include a start or end time.",
+        Instance = HttpContext.Request.Path
+    };
+
+    private ProblemDetails CreateInvalidAvailabilityExceptionTimeRangeProblemDetails() => new()
+    {
+        Status = StatusCodes.Status400BadRequest,
+        Title = "Invalid availability exception time range.",
+        Detail = "An open availability exception must include an end time after the start time.",
+        Instance = HttpContext.Request.Path
+    };
+
+    private ProblemDetails CreateAvailabilityExceptionReasonTooLongProblemDetails() => new()
+    {
+        Status = StatusCodes.Status400BadRequest,
+        Title = "Availability exception reason is too long.",
+        Detail = "The availability exception reason must be 250 characters or fewer.",
+        Instance = HttpContext.Request.Path
+    };
+
+    private ProblemDetails CreateAvailabilityExceptionAlreadyExistsProblemDetails() => new()
+    {
+        Status = StatusCodes.Status409Conflict,
+        Title = "Staff member availability exception already exists for this date.",
+        Detail = "The staff member already has an availability exception for this date that conflicts with the requested exception.",
+        Instance = HttpContext.Request.Path
+    };
+
+    private ProblemDetails CreateAvailabilityExceptionOverlapsProblemDetails() => new()
+    {
+        Status = StatusCodes.Status409Conflict,
+        Title = "Staff member availability exception overlaps.",
+        Detail = "The availability exception overlaps with an existing open exception for this staff member and date.",
+        Instance = HttpContext.Request.Path
+    };
+
     private static StaffMemberResponse MapStaffMember(AdminStaffMemberDetails staffMember) => new(
         staffMember.Id,
         staffMember.BusinessId,
@@ -617,4 +737,14 @@ public sealed class StaffMembersController(
         availability.EndTime,
         availability.IsActive,
         availability.CreatedAtUtc);
+
+    private static StaffMemberAvailabilityExceptionResponse MapAvailabilityException(StaffMemberAvailabilityExceptionDetails exception) => new(
+        exception.Id,
+        exception.StaffMemberId,
+        exception.LocalDate,
+        exception.IsClosed,
+        exception.StartTime,
+        exception.EndTime,
+        exception.Reason,
+        exception.CreatedAtUtc);
 }
