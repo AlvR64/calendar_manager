@@ -2,6 +2,11 @@ using System.Security.Claims;
 using Calendar.Api.Contracts.StaffMemberServices;
 using Calendar.Api.Contracts.StaffMembers;
 using Calendar.Application.Abstractions.Messaging;
+using Calendar.Application.StaffMemberAvailabilities;
+using Calendar.Application.StaffMemberAvailabilities.CreateStaffMemberAvailability;
+using Calendar.Application.StaffMemberAvailabilities.DeleteStaffMemberAvailability;
+using Calendar.Application.StaffMemberAvailabilities.ListStaffMemberAvailabilities;
+using Calendar.Application.StaffMemberAvailabilities.UpdateStaffMemberAvailability;
 using Calendar.Application.StaffMemberServices.AssignStaffMemberService;
 using Calendar.Application.StaffMemberServices.UnassignStaffMemberService;
 using Calendar.Application.StaffMemberServices.UpdateStaffMemberServiceActiveState;
@@ -26,6 +31,10 @@ public sealed class StaffMembersController(
     ICommandHandler<AssignStaffMemberServiceCommand, AssignStaffMemberServiceResult> assignStaffMemberServiceHandler,
     ICommandHandler<UnassignStaffMemberServiceCommand, UnassignStaffMemberServiceResult> unassignStaffMemberServiceHandler,
     ICommandHandler<UpdateStaffMemberServiceActiveStateCommand, UpdateStaffMemberServiceActiveStateResult> updateStaffMemberServiceActiveStateHandler,
+    ICommandHandler<CreateStaffMemberAvailabilityCommand, CreateStaffMemberAvailabilityResult> createStaffMemberAvailabilityHandler,
+    IQueryHandler<ListStaffMemberAvailabilitiesQuery, ListStaffMemberAvailabilitiesResult> listStaffMemberAvailabilitiesHandler,
+    ICommandHandler<UpdateStaffMemberAvailabilityCommand, UpdateStaffMemberAvailabilityResult> updateStaffMemberAvailabilityHandler,
+    ICommandHandler<DeleteStaffMemberAvailabilityCommand, DeleteStaffMemberAvailabilityResult> deleteStaffMemberAvailabilityHandler,
     IQueryHandler<ListAdminStaffMembersQuery, ListAdminStaffMembersResult> listAdminStaffMembersHandler,
     IQueryHandler<GetAdminStaffMemberQuery, GetAdminStaffMemberResult> getAdminStaffMemberHandler) : ControllerBase
 {
@@ -229,6 +238,152 @@ public sealed class StaffMembersController(
         return Created($"/api/staff-members/{response.Id}", response);
     }
 
+    [HttpGet("{staffMemberId:guid}/availability")]
+    [ProducesResponseType<IReadOnlyList<StaffMemberAvailabilityResponse>>(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<IReadOnlyList<StaffMemberAvailabilityResponse>>> ListStaffMemberAvailabilities(
+        Guid staffMemberId,
+        CancellationToken cancellationToken)
+    {
+        if (!TryGetBusinessId(out var businessId))
+        {
+            return Forbid();
+        }
+
+        var result = await listStaffMemberAvailabilitiesHandler.HandleAsync(
+            new ListStaffMemberAvailabilitiesQuery(businessId, staffMemberId),
+            cancellationToken);
+
+        if (!result.Succeeded)
+        {
+            return result.Error switch
+            {
+                ListStaffMemberAvailabilitiesError.StaffMemberNotFound => NotFound(CreateStaffMemberNotFoundProblemDetails()),
+                _ => BadRequest()
+            };
+        }
+
+        return Ok(result.Availabilities.Select(MapAvailability).ToList());
+    }
+
+    [HttpPost("{staffMemberId:guid}/availability")]
+    [ProducesResponseType<StaffMemberAvailabilityResponse>(StatusCodes.Status201Created)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status409Conflict)]
+    public async Task<ActionResult<StaffMemberAvailabilityResponse>> CreateStaffMemberAvailability(
+        Guid staffMemberId,
+        CreateStaffMemberAvailabilityRequest request,
+        CancellationToken cancellationToken)
+    {
+        if (!TryGetBusinessId(out var businessId))
+        {
+            return Forbid();
+        }
+
+        var command = new CreateStaffMemberAvailabilityCommand(
+            businessId,
+            staffMemberId,
+            request.DayOfWeek,
+            request.StartTime,
+            request.EndTime);
+
+        var result = await createStaffMemberAvailabilityHandler.HandleAsync(command, cancellationToken);
+        if (!result.Succeeded)
+        {
+            return result.Error switch
+            {
+                CreateStaffMemberAvailabilityError.StaffMemberNotFound => NotFound(CreateStaffMemberNotFoundProblemDetails()),
+                CreateStaffMemberAvailabilityError.InvalidDayOfWeek => BadRequest(CreateInvalidAvailabilityDayOfWeekProblemDetails()),
+                CreateStaffMemberAvailabilityError.InvalidTimeRange => BadRequest(CreateInvalidAvailabilityTimeRangeProblemDetails()),
+                CreateStaffMemberAvailabilityError.AvailabilityOverlaps => Conflict(CreateAvailabilityOverlapsProblemDetails()),
+                _ => BadRequest()
+            };
+        }
+
+        var response = MapAvailability(result.Availability!);
+        return Created($"/api/staff-members/{staffMemberId}/availability/{response.Id}", response);
+    }
+
+    [HttpPut("{staffMemberId:guid}/availability/{availabilityId:guid}")]
+    [ProducesResponseType<StaffMemberAvailabilityResponse>(StatusCodes.Status200OK)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status409Conflict)]
+    public async Task<ActionResult<StaffMemberAvailabilityResponse>> UpdateStaffMemberAvailability(
+        Guid staffMemberId,
+        Guid availabilityId,
+        UpdateStaffMemberAvailabilityRequest request,
+        CancellationToken cancellationToken)
+    {
+        if (!TryGetBusinessId(out var businessId))
+        {
+            return Forbid();
+        }
+
+        var command = new UpdateStaffMemberAvailabilityCommand(
+            businessId,
+            staffMemberId,
+            availabilityId,
+            request.DayOfWeek,
+            request.StartTime,
+            request.EndTime);
+
+        var result = await updateStaffMemberAvailabilityHandler.HandleAsync(command, cancellationToken);
+        if (!result.Succeeded)
+        {
+            return result.Error switch
+            {
+                UpdateStaffMemberAvailabilityError.StaffMemberNotFound => NotFound(CreateStaffMemberNotFoundProblemDetails()),
+                UpdateStaffMemberAvailabilityError.AvailabilityNotFound => NotFound(CreateAvailabilityNotFoundProblemDetails()),
+                UpdateStaffMemberAvailabilityError.InvalidDayOfWeek => BadRequest(CreateInvalidAvailabilityDayOfWeekProblemDetails()),
+                UpdateStaffMemberAvailabilityError.InvalidTimeRange => BadRequest(CreateInvalidAvailabilityTimeRangeProblemDetails()),
+                UpdateStaffMemberAvailabilityError.AvailabilityOverlaps => Conflict(CreateAvailabilityOverlapsProblemDetails()),
+                _ => BadRequest()
+            };
+        }
+
+        return Ok(MapAvailability(result.Availability!));
+    }
+
+    [HttpDelete("{staffMemberId:guid}/availability/{availabilityId:guid}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
+    public async Task<IActionResult> DeleteStaffMemberAvailability(
+        Guid staffMemberId,
+        Guid availabilityId,
+        CancellationToken cancellationToken)
+    {
+        if (!TryGetBusinessId(out var businessId))
+        {
+            return Forbid();
+        }
+
+        var result = await deleteStaffMemberAvailabilityHandler.HandleAsync(
+            new DeleteStaffMemberAvailabilityCommand(businessId, staffMemberId, availabilityId),
+            cancellationToken);
+
+        if (!result.Succeeded)
+        {
+            return result.Error switch
+            {
+                DeleteStaffMemberAvailabilityError.StaffMemberNotFound => NotFound(CreateStaffMemberNotFoundProblemDetails()),
+                DeleteStaffMemberAvailabilityError.AvailabilityNotFound => NotFound(CreateAvailabilityNotFoundProblemDetails()),
+                _ => BadRequest()
+            };
+        }
+
+        return NoContent();
+    }
+
     [HttpPost("{staffMemberId:guid}/services/{serviceId:guid}")]
     [ProducesResponseType<StaffMemberServiceAssignmentResponse>(StatusCodes.Status201Created)]
     [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest)]
@@ -411,6 +566,38 @@ public sealed class StaffMembersController(
         Instance = HttpContext.Request.Path
     };
 
+    private ProblemDetails CreateAvailabilityNotFoundProblemDetails() => new()
+    {
+        Status = StatusCodes.Status404NotFound,
+        Title = "Staff member availability not found.",
+        Detail = "The availability block was not found for this staff member.",
+        Instance = HttpContext.Request.Path
+    };
+
+    private ProblemDetails CreateInvalidAvailabilityDayOfWeekProblemDetails() => new()
+    {
+        Status = StatusCodes.Status400BadRequest,
+        Title = "Invalid availability day of week.",
+        Detail = "The availability day of week must be between 0 and 6.",
+        Instance = HttpContext.Request.Path
+    };
+
+    private ProblemDetails CreateInvalidAvailabilityTimeRangeProblemDetails() => new()
+    {
+        Status = StatusCodes.Status400BadRequest,
+        Title = "Invalid availability time range.",
+        Detail = "The availability end time must be after the start time.",
+        Instance = HttpContext.Request.Path
+    };
+
+    private ProblemDetails CreateAvailabilityOverlapsProblemDetails() => new()
+    {
+        Status = StatusCodes.Status409Conflict,
+        Title = "Staff member availability overlaps.",
+        Detail = "The availability block overlaps with an existing block for this staff member and day.",
+        Instance = HttpContext.Request.Path
+    };
+
     private static StaffMemberResponse MapStaffMember(AdminStaffMemberDetails staffMember) => new(
         staffMember.Id,
         staffMember.BusinessId,
@@ -421,4 +608,13 @@ public sealed class StaffMembersController(
         staffMember.IsActive,
         staffMember.SortOrder,
         staffMember.CreatedAtUtc);
+
+    private static StaffMemberAvailabilityResponse MapAvailability(StaffMemberAvailabilityDetails availability) => new(
+        availability.Id,
+        availability.StaffMemberId,
+        availability.DayOfWeek,
+        availability.StartTime,
+        availability.EndTime,
+        availability.IsActive,
+        availability.CreatedAtUtc);
 }

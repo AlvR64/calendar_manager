@@ -4,6 +4,7 @@
 @businessSlug = barberia-centro-madrid
 @serviceId = paste-service-id-here
 @staffMemberId = paste-staff-member-id-here
+@availabilityId = paste-availability-id-here
 
 ### Health check
 GET {{baseUrl}}/health
@@ -66,6 +67,44 @@ Authorization: Bearer {{adminAccessToken}}
 
 ### Get admin staff member
 GET {{baseUrl}}/api/staff-members/{{staffMemberId}}
+Authorization: Bearer {{adminAccessToken}}
+
+###
+
+### List staff member weekly availability
+GET {{baseUrl}}/api/staff-members/{{staffMemberId}}/availability
+Authorization: Bearer {{adminAccessToken}}
+
+###
+
+### Create staff member availability block
+POST {{baseUrl}}/api/staff-members/{{staffMemberId}}/availability
+Authorization: Bearer {{adminAccessToken}}
+Content-Type: application/json
+
+{
+  "dayOfWeek": 1,
+  "startTime": "09:00:00",
+  "endTime": "13:00:00"
+}
+
+###
+
+### Update staff member availability block
+PUT {{baseUrl}}/api/staff-members/{{staffMemberId}}/availability/{{availabilityId}}
+Authorization: Bearer {{adminAccessToken}}
+Content-Type: application/json
+
+{
+  "dayOfWeek": 1,
+  "startTime": "10:00:00",
+  "endTime": "14:00:00"
+}
+
+###
+
+### Delete staff member availability block
+DELETE {{baseUrl}}/api/staff-members/{{staffMemberId}}/availability/{{availabilityId}}
 Authorization: Bearer {{adminAccessToken}}
 
 ###

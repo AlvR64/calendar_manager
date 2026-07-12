@@ -31,6 +31,7 @@ public static class DependencyInjection
         services.AddScoped<ICustomerRepository, CustomerRepository>();
         services.AddScoped<IServiceRepository, ServiceRepository>();
         services.AddScoped<IStaffMemberRepository, StaffMemberRepository>();
+        services.AddScoped<IStaffMemberAvailabilityRepository, StaffMemberAvailabilityRepository>();
         services.AddScoped<IStaffMemberServiceRepository, StaffMemberServiceRepository>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddSingleton<IAccessTokenService, JwtAccessTokenService>();

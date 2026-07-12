@@ -57,10 +57,10 @@ Legend:
 
 | ID | Caso de uso | Hecho | Postpuesto |
 | --- | --- | --- | --- |
-| 5.1 | Crear disponibilidad semanal de un staff member. | [ ] | [ ] |
-| 5.2 | Listar disponibilidad semanal de un staff member. | [ ] | [ ] |
-| 5.3 | Actualizar disponibilidad semanal de un staff member. | [ ] | [ ] |
-| 5.4 | Eliminar bloque de disponibilidad semanal. | [ ] | [ ] |
+| 5.1 | Crear disponibilidad semanal de un staff member. | [x] | [ ] |
+| 5.2 | Listar disponibilidad semanal de un staff member. | [x] | [ ] |
+| 5.3 | Actualizar disponibilidad semanal de un staff member. | [x] | [ ] |
+| 5.4 | Eliminar bloque de disponibilidad semanal. | [x] | [ ] |
 | 5.5 | Crear excepcion de disponibilidad por fecha concreta: vacaciones, ausencia, horario especial. | [ ] | [ ] |
 | 5.6 | Listar excepciones de disponibilidad de un staff member. | [ ] | [ ] |
 | 5.7 | Actualizar excepcion de disponibilidad. | [ ] | [ ] |
