@@ -5,6 +5,7 @@
 @serviceId = paste-service-id-here
 @staffMemberId = paste-staff-member-id-here
 @availabilityId = paste-availability-id-here
+@availabilityExceptionId = paste-availability-exception-id-here
 
 ### Health check
 GET {{baseUrl}}/health
@@ -142,6 +143,27 @@ Content-Type: application/json
   "endTime": null,
   "reason": "Vacaciones"
 }
+
+###
+
+### Update staff member availability exception
+PUT {{baseUrl}}/api/staff-members/{{staffMemberId}}/availability-exceptions/{{availabilityExceptionId}}
+Authorization: Bearer {{adminAccessToken}}
+Content-Type: application/json
+
+{
+  "localDate": "2026-07-20",
+  "isClosed": false,
+  "startTime": "11:00:00",
+  "endTime": "15:00:00",
+  "reason": "Horario especial actualizado"
+}
+
+###
+
+### Delete staff member availability exception
+DELETE {{baseUrl}}/api/staff-members/{{staffMemberId}}/availability-exceptions/{{availabilityExceptionId}}
+Authorization: Bearer {{adminAccessToken}}
 
 ###
 

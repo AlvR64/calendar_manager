@@ -8,14 +8,21 @@ public interface IStaffMemberAvailabilityExceptionRepository
         Guid staffMemberId,
         CancellationToken cancellationToken);
 
+    Task<StaffMemberAvailabilityException?> GetByIdAndStaffMemberIdForUpdateAsync(
+        Guid id,
+        Guid staffMemberId,
+        CancellationToken cancellationToken);
+
     Task<bool> HasAnyExceptionForDateAsync(
         Guid staffMemberId,
         DateOnly localDate,
+        Guid? excludedExceptionId,
         CancellationToken cancellationToken);
 
     Task<bool> HasClosedExceptionAsync(
         Guid staffMemberId,
         DateOnly localDate,
+        Guid? excludedExceptionId,
         CancellationToken cancellationToken);
 
     Task<bool> OverlapsAsync(
@@ -23,7 +30,10 @@ public interface IStaffMemberAvailabilityExceptionRepository
         DateOnly localDate,
         TimeOnly startTime,
         TimeOnly endTime,
+        Guid? excludedExceptionId,
         CancellationToken cancellationToken);
 
     void Add(StaffMemberAvailabilityException exception);
+
+    void Remove(StaffMemberAvailabilityException exception);
 }

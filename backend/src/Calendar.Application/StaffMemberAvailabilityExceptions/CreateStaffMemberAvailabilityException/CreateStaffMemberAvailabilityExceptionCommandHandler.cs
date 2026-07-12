@@ -33,7 +33,7 @@ public sealed class CreateStaffMemberAvailabilityExceptionCommandHandler(
                 return CreateStaffMemberAvailabilityExceptionResult.Failure(CreateStaffMemberAvailabilityExceptionError.InvalidClosedException);
             }
 
-            if (await availabilityExceptionRepository.HasAnyExceptionForDateAsync(command.StaffMemberId, command.LocalDate, cancellationToken))
+            if (await availabilityExceptionRepository.HasAnyExceptionForDateAsync(command.StaffMemberId, command.LocalDate, excludedExceptionId: null, cancellationToken))
             {
                 return CreateStaffMemberAvailabilityExceptionResult.Failure(CreateStaffMemberAvailabilityExceptionError.AvailabilityExceptionAlreadyExists);
             }
@@ -45,7 +45,7 @@ public sealed class CreateStaffMemberAvailabilityExceptionCommandHandler(
                 return CreateStaffMemberAvailabilityExceptionResult.Failure(CreateStaffMemberAvailabilityExceptionError.InvalidTimeRange);
             }
 
-            if (await availabilityExceptionRepository.HasClosedExceptionAsync(command.StaffMemberId, command.LocalDate, cancellationToken))
+            if (await availabilityExceptionRepository.HasClosedExceptionAsync(command.StaffMemberId, command.LocalDate, excludedExceptionId: null, cancellationToken))
             {
                 return CreateStaffMemberAvailabilityExceptionResult.Failure(CreateStaffMemberAvailabilityExceptionError.AvailabilityExceptionAlreadyExists);
             }
@@ -55,6 +55,7 @@ public sealed class CreateStaffMemberAvailabilityExceptionCommandHandler(
                     command.LocalDate,
                     command.StartTime.Value,
                     command.EndTime.Value,
+                    excludedExceptionId: null,
                     cancellationToken))
             {
                 return CreateStaffMemberAvailabilityExceptionResult.Failure(CreateStaffMemberAvailabilityExceptionError.AvailabilityExceptionOverlaps);

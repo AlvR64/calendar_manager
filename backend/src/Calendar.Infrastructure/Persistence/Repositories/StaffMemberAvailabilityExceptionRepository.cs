@@ -16,22 +16,35 @@ public sealed class StaffMemberAvailabilityExceptionRepository(CalendarDbContext
             .ThenBy(exception => exception.StartTime)
             .ToListAsync(cancellationToken);
 
+    public Task<StaffMemberAvailabilityException?> GetByIdAndStaffMemberIdForUpdateAsync(
+        Guid id,
+        Guid staffMemberId,
+        CancellationToken cancellationToken) =>
+        dbContext.StaffMemberAvailabilityExceptions.FirstOrDefaultAsync(
+            exception => exception.Id == id && exception.StaffMemberId == staffMemberId,
+            cancellationToken);
+
     public Task<bool> HasAnyExceptionForDateAsync(
         Guid staffMemberId,
         DateOnly localDate,
+        Guid? excludedExceptionId,
         CancellationToken cancellationToken) =>
         dbContext.StaffMemberAvailabilityExceptions.AnyAsync(
-            exception => exception.StaffMemberId == staffMemberId && exception.LocalDate == localDate,
+            exception => exception.StaffMemberId == staffMemberId
+                && exception.LocalDate == localDate
+                && (!excludedExceptionId.HasValue || exception.Id != excludedExceptionId.Value),
             cancellationToken);
 
     public Task<bool> HasClosedExceptionAsync(
         Guid staffMemberId,
         DateOnly localDate,
+        Guid? excludedExceptionId,
         CancellationToken cancellationToken) =>
         dbContext.StaffMemberAvailabilityExceptions.AnyAsync(
             exception => exception.StaffMemberId == staffMemberId
                 && exception.LocalDate == localDate
-                && exception.IsClosed,
+                && exception.IsClosed
+                && (!excludedExceptionId.HasValue || exception.Id != excludedExceptionId.Value),
             cancellationToken);
 
     public Task<bool> OverlapsAsync(
@@ -39,10 +52,12 @@ public sealed class StaffMemberAvailabilityExceptionRepository(CalendarDbContext
         DateOnly localDate,
         TimeOnly startTime,
         TimeOnly endTime,
+        Guid? excludedExceptionId,
         CancellationToken cancellationToken) =>
         dbContext.StaffMemberAvailabilityExceptions.AnyAsync(
             exception => exception.StaffMemberId == staffMemberId
                 && exception.LocalDate == localDate
+                && (!excludedExceptionId.HasValue || exception.Id != excludedExceptionId.Value)
                 && !exception.IsClosed
                 && exception.StartTime.HasValue
                 && exception.EndTime.HasValue
@@ -51,4 +66,6 @@ public sealed class StaffMemberAvailabilityExceptionRepository(CalendarDbContext
             cancellationToken);
 
     public void Add(StaffMemberAvailabilityException exception) => dbContext.StaffMemberAvailabilityExceptions.Add(exception);
+
+    public void Remove(StaffMemberAvailabilityException exception) => dbContext.StaffMemberAvailabilityExceptions.Remove(exception);
 }
