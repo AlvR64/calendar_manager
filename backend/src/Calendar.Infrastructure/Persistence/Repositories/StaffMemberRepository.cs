@@ -11,6 +11,21 @@ public sealed class StaffMemberRepository(CalendarDbContext dbContext) : IStaffM
             staffMember => staffMember.Id == id && staffMember.BusinessId == businessId,
             cancellationToken);
 
+    public async Task<IReadOnlyList<StaffMember>> ListByBusinessIdAsync(Guid businessId, CancellationToken cancellationToken) =>
+        await dbContext.StaffMembers
+            .AsNoTracking()
+            .Where(staffMember => staffMember.BusinessId == businessId)
+            .OrderBy(staffMember => staffMember.SortOrder)
+            .ThenBy(staffMember => staffMember.DisplayName)
+            .ToListAsync(cancellationToken);
+
+    public Task<StaffMember?> GetByIdAndBusinessIdAsync(Guid id, Guid businessId, CancellationToken cancellationToken) =>
+        dbContext.StaffMembers
+            .AsNoTracking()
+            .FirstOrDefaultAsync(
+                staffMember => staffMember.Id == id && staffMember.BusinessId == businessId,
+                cancellationToken);
+
     public async Task<IReadOnlyList<StaffMember>> ListActiveByBusinessIdAsync(Guid businessId, CancellationToken cancellationToken) =>
         await dbContext.StaffMembers
             .AsNoTracking()

@@ -34,8 +34,8 @@ Legend:
 | ID | Caso de uso | Hecho | Postpuesto |
 | --- | --- | --- | --- |
 | 3.1 | Crear staff member para el business del admin autenticado. | [x] | [ ] |
-| 3.2 | Listar staff members del business para admin, incluyendo inactivos. | [ ] | [ ] |
-| 3.3 | Obtener staff member por id para admin, incluyendo inactivos. | [ ] | [ ] |
+| 3.2 | Listar staff members del business para admin, incluyendo inactivos. | [x] | [ ] |
+| 3.3 | Obtener staff member por id para admin, incluyendo inactivos. | [x] | [ ] |
 | 3.4 | Actualizar staff member: nombre, email, telefono, bio, orden, activo/inactivo. | [ ] | [ ] |
 | 3.5 | Desactivar/eliminar staff member. | [ ] | [ ] |
 | 3.6 | Anadir avatar/foto de staff member. | [ ] | [x] |

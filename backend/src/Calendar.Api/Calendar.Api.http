@@ -58,6 +58,18 @@ Authorization: Bearer {{adminAccessToken}}
 
 ###
 
+### List admin staff members
+GET {{baseUrl}}/api/staff-members
+Authorization: Bearer {{adminAccessToken}}
+
+###
+
+### Get admin staff member
+GET {{baseUrl}}/api/staff-members/{{staffMemberId}}
+Authorization: Bearer {{adminAccessToken}}
+
+###
+
 ### Update current business details
 PUT {{baseUrl}}/api/businesses/current
 Authorization: Bearer {{adminAccessToken}}

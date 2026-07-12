@@ -12,6 +12,7 @@ using Calendar.Application.Services.DeleteService;
 using Calendar.Application.Services.UpdateService;
 using Calendar.Application.Services.UpdateServiceActiveState;
 using Calendar.Application.StaffMemberServices.AssignStaffMemberService;
+using Calendar.Application.StaffMembers;
 using Calendar.Application.StaffMembers.CreateStaffMember;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -42,6 +43,8 @@ public static class DependencyInjection
         services.AddScoped<IQueryHandler<GetBusinessStaffMemberQuery, BusinessStaffMemberDetails?>, PublicBusinessQueryHandler>();
         services.AddScoped<IQueryHandler<ListAdminServicesQuery, ListAdminServicesResult>, AdminServiceQueryHandler>();
         services.AddScoped<IQueryHandler<GetAdminServiceQuery, GetAdminServiceResult>, AdminServiceQueryHandler>();
+        services.AddScoped<IQueryHandler<ListAdminStaffMembersQuery, ListAdminStaffMembersResult>, AdminStaffMemberQueryHandler>();
+        services.AddScoped<IQueryHandler<GetAdminStaffMemberQuery, GetAdminStaffMemberResult>, AdminStaffMemberQueryHandler>();
 
         return services;
     }

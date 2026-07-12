@@ -3,6 +3,7 @@ using Calendar.Api.Contracts.StaffMemberServices;
 using Calendar.Api.Contracts.StaffMembers;
 using Calendar.Application.Abstractions.Messaging;
 using Calendar.Application.StaffMemberServices.AssignStaffMemberService;
+using Calendar.Application.StaffMembers;
 using Calendar.Application.StaffMembers.CreateStaffMember;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -14,8 +15,62 @@ namespace Calendar.Api.Controllers;
 [Route("api/staff-members")]
 public sealed class StaffMembersController(
     ICommandHandler<CreateStaffMemberCommand, CreateStaffMemberResult> createStaffMemberHandler,
-    ICommandHandler<AssignStaffMemberServiceCommand, AssignStaffMemberServiceResult> assignStaffMemberServiceHandler) : ControllerBase
+    ICommandHandler<AssignStaffMemberServiceCommand, AssignStaffMemberServiceResult> assignStaffMemberServiceHandler,
+    IQueryHandler<ListAdminStaffMembersQuery, ListAdminStaffMembersResult> listAdminStaffMembersHandler,
+    IQueryHandler<GetAdminStaffMemberQuery, GetAdminStaffMemberResult> getAdminStaffMemberHandler) : ControllerBase
 {
+    [HttpGet]
+    [ProducesResponseType<IReadOnlyList<StaffMemberResponse>>(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<IReadOnlyList<StaffMemberResponse>>> ListStaffMembers(CancellationToken cancellationToken)
+    {
+        if (!TryGetBusinessId(out var businessId))
+        {
+            return Forbid();
+        }
+
+        var result = await listAdminStaffMembersHandler.HandleAsync(new ListAdminStaffMembersQuery(businessId), cancellationToken);
+        if (!result.BusinessFound)
+        {
+            return NotFound(CreateBusinessNotFoundProblemDetails());
+        }
+
+        return Ok(result.StaffMembers.Select(MapStaffMember).ToList());
+    }
+
+    [HttpGet("{staffMemberId:guid}")]
+    [ProducesResponseType<StaffMemberResponse>(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<StaffMemberResponse>> GetStaffMember(
+        Guid staffMemberId,
+        CancellationToken cancellationToken)
+    {
+        if (!TryGetBusinessId(out var businessId))
+        {
+            return Forbid();
+        }
+
+        var result = await getAdminStaffMemberHandler.HandleAsync(
+            new GetAdminStaffMemberQuery(businessId, staffMemberId),
+            cancellationToken);
+
+        if (!result.Succeeded)
+        {
+            return result.Error switch
+            {
+                GetAdminStaffMemberError.BusinessNotFound => NotFound(CreateBusinessNotFoundProblemDetails()),
+                GetAdminStaffMemberError.StaffMemberNotFound => NotFound(CreateStaffMemberNotFoundProblemDetails()),
+                _ => BadRequest()
+            };
+        }
+
+        return Ok(MapStaffMember(result.StaffMember!));
+    }
+
     [HttpPost]
     [ProducesResponseType<StaffMemberResponse>(StatusCodes.Status201Created)]
     [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest)]
@@ -142,4 +197,15 @@ public sealed class StaffMembersController(
         Detail = "The staff member is already assigned to this service.",
         Instance = HttpContext.Request.Path
     };
+
+    private static StaffMemberResponse MapStaffMember(AdminStaffMemberDetails staffMember) => new(
+        staffMember.Id,
+        staffMember.BusinessId,
+        staffMember.DisplayName,
+        staffMember.Email,
+        staffMember.PhoneNumber,
+        staffMember.Bio,
+        staffMember.IsActive,
+        staffMember.SortOrder,
+        staffMember.CreatedAtUtc);
 }
