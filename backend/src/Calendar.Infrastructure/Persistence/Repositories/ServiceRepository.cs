@@ -26,6 +26,12 @@ public sealed class ServiceRepository(CalendarDbContext dbContext) : IServiceRep
                 service => service.Id == id && service.BusinessId == businessId,
                 cancellationToken);
 
+    public Task<Service?> GetByIdAndBusinessIdForUpdateAsync(Guid id, Guid businessId, CancellationToken cancellationToken) =>
+        dbContext.Services
+            .FirstOrDefaultAsync(
+                service => service.Id == id && service.BusinessId == businessId,
+                cancellationToken);
+
     public async Task<IReadOnlyList<Service>> ListActiveByBusinessIdAsync(Guid businessId, CancellationToken cancellationToken) =>
         await dbContext.Services
             .AsNoTracking()
@@ -44,5 +50,12 @@ public sealed class ServiceRepository(CalendarDbContext dbContext) : IServiceRep
                     && service.Business.IsActive,
                 cancellationToken);
 
+    public Task<bool> HasAppointmentsAsync(Guid id, CancellationToken cancellationToken) =>
+        dbContext.Appointments.AnyAsync(
+            appointment => appointment.ServiceId == id,
+            cancellationToken);
+
     public void Add(Service service) => dbContext.Services.Add(service);
+
+    public void Remove(Service service) => dbContext.Services.Remove(service);
 }

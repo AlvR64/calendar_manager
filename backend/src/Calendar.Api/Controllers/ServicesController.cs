@@ -4,6 +4,9 @@ using Calendar.Api.Contracts.Services;
 using Calendar.Application.Abstractions.Messaging;
 using Calendar.Application.Services;
 using Calendar.Application.Services.CreateService;
+using Calendar.Application.Services.DeleteService;
+using Calendar.Application.Services.UpdateService;
+using Calendar.Application.Services.UpdateServiceActiveState;
 using Calendar.Application.StaffMemberServices.AssignStaffMemberService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -15,6 +18,9 @@ namespace Calendar.Api.Controllers;
 [Route("api/services")]
 public sealed class ServicesController(
     ICommandHandler<CreateServiceCommand, CreateServiceResult> createServiceHandler,
+    ICommandHandler<UpdateServiceCommand, UpdateServiceResult> updateServiceHandler,
+    ICommandHandler<UpdateServiceActiveStateCommand, UpdateServiceActiveStateResult> updateServiceActiveStateHandler,
+    ICommandHandler<DeleteServiceCommand, DeleteServiceResult> deleteServiceHandler,
     ICommandHandler<AssignStaffMemberServiceCommand, AssignStaffMemberServiceResult> assignStaffMemberServiceHandler,
     IQueryHandler<ListAdminServicesQuery, ListAdminServicesResult> listAdminServicesHandler,
     IQueryHandler<GetAdminServiceQuery, GetAdminServiceResult> getAdminServiceHandler) : ControllerBase
@@ -116,6 +122,106 @@ public sealed class ServicesController(
         return Created($"/api/services/{response.Id}", response);
     }
 
+    [HttpPut("{serviceId:guid}")]
+    [ProducesResponseType<ServiceResponse>(StatusCodes.Status200OK)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<ServiceResponse>> UpdateService(
+        Guid serviceId,
+        UpdateServiceRequest request,
+        CancellationToken cancellationToken)
+    {
+        if (!TryGetBusinessId(out var businessId))
+        {
+            return Forbid();
+        }
+
+        var command = new UpdateServiceCommand(
+            businessId,
+            serviceId,
+            request.Name,
+            request.Description,
+            request.DurationMinutes,
+            request.PriceAmount,
+            request.SortOrder);
+
+        var result = await updateServiceHandler.HandleAsync(command, cancellationToken);
+        if (!result.Succeeded)
+        {
+            return result.Error switch
+            {
+                UpdateServiceError.ServiceNotFound => NotFound(CreateServiceNotFoundProblemDetails()),
+                _ => BadRequest()
+            };
+        }
+
+        return Ok(MapService(result.Service!));
+    }
+
+    [HttpPut("{serviceId:guid}/active-state")]
+    [ProducesResponseType<ServiceResponse>(StatusCodes.Status200OK)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<ServiceResponse>> UpdateServiceActiveState(
+        Guid serviceId,
+        UpdateServiceActiveStateRequest request,
+        CancellationToken cancellationToken)
+    {
+        if (!TryGetBusinessId(out var businessId))
+        {
+            return Forbid();
+        }
+
+        var result = await updateServiceActiveStateHandler.HandleAsync(
+            new UpdateServiceActiveStateCommand(businessId, serviceId, request.IsActive),
+            cancellationToken);
+
+        if (!result.Succeeded)
+        {
+            return result.Error switch
+            {
+                UpdateServiceActiveStateError.ServiceNotFound => NotFound(CreateServiceNotFoundProblemDetails()),
+                _ => BadRequest()
+            };
+        }
+
+        return Ok(MapService(result.Service!));
+    }
+
+    [HttpDelete("{serviceId:guid}")]
+    [ProducesResponseType(StatusCodes.Status204NoContent)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status409Conflict)]
+    public async Task<IActionResult> DeleteService(Guid serviceId, CancellationToken cancellationToken)
+    {
+        if (!TryGetBusinessId(out var businessId))
+        {
+            return Forbid();
+        }
+
+        var result = await deleteServiceHandler.HandleAsync(
+            new DeleteServiceCommand(businessId, serviceId),
+            cancellationToken);
+
+        if (!result.Succeeded)
+        {
+            return result.Error switch
+            {
+                DeleteServiceError.ServiceNotFound => NotFound(CreateServiceNotFoundProblemDetails()),
+                DeleteServiceError.ServiceHasAppointments => Conflict(CreateServiceHasAppointmentsProblemDetails()),
+                _ => BadRequest()
+            };
+        }
+
+        return NoContent();
+    }
+
     [HttpPost("{serviceId:guid}/staff-members/{staffMemberId:guid}")]
     [ProducesResponseType<StaffMemberServiceAssignmentResponse>(StatusCodes.Status201Created)]
     [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest)]
@@ -192,6 +298,14 @@ public sealed class ServicesController(
         Status = StatusCodes.Status409Conflict,
         Title = "Staff member service assignment already exists.",
         Detail = "The staff member is already assigned to this service.",
+        Instance = HttpContext.Request.Path
+    };
+
+    private ProblemDetails CreateServiceHasAppointmentsProblemDetails() => new()
+    {
+        Status = StatusCodes.Status409Conflict,
+        Title = "Service has appointments.",
+        Detail = "The service cannot be deleted because it has appointments. Deactivate it instead.",
         Instance = HttpContext.Request.Path
     };
 

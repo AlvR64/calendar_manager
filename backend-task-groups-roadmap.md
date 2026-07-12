@@ -25,8 +25,8 @@ Legend:
 | 2.1 | Crear service para el business del admin autenticado. | [x] | [ ] |
 | 2.2 | Listar services del business para admin, incluyendo inactivos. | [x] | [ ] |
 | 2.3 | Obtener service por id para admin, incluyendo inactivos. | [x] | [ ] |
-| 2.4 | Actualizar service: nombre, descripcion, duracion, precio, orden, activo/inactivo. | [ ] | [ ] |
-| 2.5 | Desactivar/eliminar service. | [ ] | [ ] |
+| 2.4 | Actualizar service: nombre, descripcion, duracion, precio, orden. | [x] | [ ] |
+| 2.5 | Desactivar/eliminar service. | [x] | [ ] |
 | 2.6 | Anadir imagenes de services. | [ ] | [x] |
 
 ## 3. Staff Members
