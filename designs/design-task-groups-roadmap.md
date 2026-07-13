@@ -20,11 +20,11 @@ Legend:
 
 | ID | Diseno | Hecho | Postpuesto |
 | --- | --- | --- | --- |
-| 2.1 | Disenar perfil publico de business. | [ ] | [ ] |
-| 2.2 | Disenar lista de services activos de un business. | [ ] | [ ] |
-| 2.3 | Disenar detalle publico de service activo. | [ ] | [ ] |
-| 2.4 | Disenar lista de staff members activos de un business. | [ ] | [ ] |
-| 2.5 | Disenar detalle publico de staff member activo. | [ ] | [ ] |
+| 2.1 | Disenar perfil publico de business. | [x] | [ ] |
+| 2.2 | Disenar lista de services activos de un business. | [x] | [ ] |
+| 2.3 | Disenar detalle publico de service activo. | [x] | [ ] |
+| 2.4 | Disenar lista de staff members activos de un business. | [x] | [ ] |
+| 2.5 | Disenar detalle publico de staff member activo. | [x] | [ ] |
 | 2.6 | Disenar flujo publico de seleccion de appointment: service, staff member opcional, fecha y slot. | [ ] | [ ] |
 | 2.7 | Disenar estados de slots disponibles: loading, vacio, error y fuera de ventana de reserva. | [ ] | [ ] |
 
@@ -33,54 +33,54 @@ Legend:
 | ID | Diseno | Hecho | Postpuesto |
 | --- | --- | --- | --- |
 | 3.1 | Disenar shell/layout base del business admin: sidebar, topbar y navegacion. | [x] | [ ] |
-| 3.2 | Disenar settings de business: datos publicos, contacto, direccion, timezone y moneda. | [ ] | [ ] |
-| 3.3 | Disenar configuracion de ventana maxima de reserva. | [ ] | [ ] |
+| 3.2 | Disenar settings de business: datos publicos, contacto, direccion, timezone y moneda. | [x] | [ ] |
+| 3.3 | Disenar configuracion de ventana maxima de reserva. | [x] | [ ] |
 
 ## 4. Business Admin Services
 
 | ID | Diseno | Hecho | Postpuesto |
 | --- | --- | --- | --- |
-| 4.1 | Disenar listado admin de services, incluyendo activos e inactivos. | [ ] | [ ] |
-| 4.2 | Disenar crear service. | [ ] | [ ] |
-| 4.3 | Disenar editar service. | [ ] | [ ] |
-| 4.4 | Disenar activar/desactivar service. | [ ] | [ ] |
-| 4.5 | Disenar eliminar service y conflicto si tiene appointments. | [ ] | [ ] |
-| 4.6 | Disenar empty state de services. | [ ] | [ ] |
+| 4.1 | Disenar listado admin de services, incluyendo activos e inactivos. | [x] | [ ] |
+| 4.2 | Disenar crear service. | [x] | [ ] |
+| 4.3 | Disenar editar service. | [x] | [ ] |
+| 4.4 | Disenar activar/desactivar service. | [x] | [ ] |
+| 4.5 | Disenar eliminar service y conflicto si tiene appointments. | [x] | [ ] |
+| 4.6 | Disenar empty state de services. | [x] | [ ] |
 
 ## 5. Business Admin Staff Members
 
 | ID | Diseno | Hecho | Postpuesto |
 | --- | --- | --- | --- |
-| 5.1 | Disenar listado admin de staff members, incluyendo activos e inactivos. | [ ] | [ ] |
-| 5.2 | Disenar crear staff member. | [ ] | [ ] |
-| 5.3 | Disenar editar staff member. | [ ] | [ ] |
-| 5.4 | Disenar activar/desactivar staff member. | [ ] | [ ] |
-| 5.5 | Disenar eliminar staff member y conflicto si tiene appointments. | [ ] | [ ] |
-| 5.6 | Disenar empty state de staff members. | [ ] | [ ] |
+| 5.1 | Disenar listado admin de staff members, incluyendo activos e inactivos. | [x] | [ ] |
+| 5.2 | Disenar crear staff member. | [x] | [ ] |
+| 5.3 | Disenar editar staff member. | [x] | [ ] |
+| 5.4 | Disenar activar/desactivar staff member. | [x] | [ ] |
+| 5.5 | Disenar eliminar staff member y conflicto si tiene appointments. | [x] | [ ] |
+| 5.6 | Disenar empty state de staff members. | [x] | [ ] |
 
 ## 6. Business Admin Staff-Service Assignments
 
 | ID | Diseno | Hecho | Postpuesto |
 | --- | --- | --- | --- |
-| 6.1 | Disenar asignar service a staff member desde detalle de staff. | [ ] | [ ] |
-| 6.2 | Disenar asignar staff member a service desde detalle de service. | [ ] | [ ] |
-| 6.3 | Disenar activar/desactivar asignacion staff-service. | [ ] | [ ] |
-| 6.4 | Disenar desasignar service de staff member y conflicto si tiene appointments. | [ ] | [ ] |
+| 6.1 | Disenar asignar service a staff member desde detalle de staff. | [x] | [ ] |
+| 6.2 | Disenar asignar staff member a service desde detalle de service. | [x] | [ ] |
+| 6.3 | Disenar activar/desactivar asignacion staff-service. | [x] | [ ] |
+| 6.4 | Disenar desasignar service de staff member y conflicto si tiene appointments. | [x] | [ ] |
 
 ## 7. Business Admin Availability
 
 | ID | Diseno | Hecho | Postpuesto |
 | --- | --- | --- | --- |
-| 7.1 | Disenar gestion de disponibilidad semanal por staff member. | [ ] | [ ] |
-| 7.2 | Disenar crear bloque de disponibilidad semanal. | [ ] | [ ] |
-| 7.3 | Disenar editar bloque de disponibilidad semanal. | [ ] | [ ] |
-| 7.4 | Disenar eliminar bloque de disponibilidad semanal. | [ ] | [ ] |
-| 7.5 | Disenar listado de excepciones de disponibilidad. | [ ] | [ ] |
-| 7.6 | Disenar crear excepcion cerrada por fecha. | [ ] | [ ] |
-| 7.7 | Disenar crear excepcion con horario especial por fecha. | [ ] | [ ] |
-| 7.8 | Disenar editar excepcion de disponibilidad. | [ ] | [ ] |
-| 7.9 | Disenar eliminar excepcion de disponibilidad. | [ ] | [ ] |
-| 7.10 | Disenar validaciones visuales de solapes y rangos invalidos. | [ ] | [ ] |
+| 7.1 | Disenar gestion de disponibilidad semanal por staff member. | [x] | [ ] |
+| 7.2 | Disenar crear bloque de disponibilidad semanal. | [x] | [ ] |
+| 7.3 | Disenar editar bloque de disponibilidad semanal. | [x] | [ ] |
+| 7.4 | Disenar eliminar bloque de disponibilidad semanal. | [x] | [ ] |
+| 7.5 | Disenar listado de excepciones de disponibilidad. | [x] | [ ] |
+| 7.6 | Disenar crear excepcion cerrada por fecha. | [x] | [ ] |
+| 7.7 | Disenar crear excepcion con horario especial por fecha. | [x] | [ ] |
+| 7.8 | Disenar editar excepcion de disponibilidad. | [x] | [ ] |
+| 7.9 | Disenar eliminar excepcion de disponibilidad. | [x] | [ ] |
+| 7.10 | Disenar validaciones visuales de solapes y rangos invalidos. | [x] | [ ] |
 
 ## 8. Customer Account Futuro
 
@@ -121,14 +121,14 @@ Este apartado lista solo los primeros disenos que haria para cubrir un MVP visua
 | 11.3 | Login de business admin. | [x] | [ ] |
 | 11.4 | Registro de customer. | [ ] | [ ] |
 | 11.5 | Registro de business con admin inicial. | [x] | [ ] |
-| 11.6 | Perfil publico de business con datos publicos, services y staff members activos. | [ ] | [ ] |
+| 11.6 | Perfil publico de business con datos publicos, services y staff members activos. | [x] | [ ] |
 | 11.7 | Flujo publico de seleccion de appointment hasta elegir slot: service, staff member opcional, fecha y horario. | [ ] | [ ] |
 | 11.8 | Business admin shell/layout base. | [x] | [ ] |
-| 11.9 | Business settings: datos publicos, contacto, direccion, timezone, moneda y ventana maxima de reserva. | [ ] | [ ] |
-| 11.10 | Admin services: listado, crear, editar, activar/desactivar, eliminar y empty/conflict states. | [ ] | [ ] |
-| 11.11 | Admin staff members: listado, crear, editar, activar/desactivar, eliminar y empty/conflict states. | [ ] | [ ] |
-| 11.12 | Admin staff-service assignments desde detalle de staff o service. | [ ] | [ ] |
-| 11.13 | Admin availability: disponibilidad semanal y excepciones por staff member. | [ ] | [ ] |
+| 11.9 | Business settings: datos publicos, contacto, direccion, timezone, moneda y ventana maxima de reserva. | [x] | [ ] |
+| 11.10 | Admin services: listado, crear, editar, activar/desactivar, eliminar y empty/conflict states. | [x] | [ ] |
+| 11.11 | Admin staff members: listado, crear, editar, activar/desactivar, eliminar y empty/conflict states. | [x] | [ ] |
+| 11.12 | Admin staff-service assignments desde detalle de staff o service. | [x] | [ ] |
+| 11.13 | Admin availability: disponibilidad semanal y excepciones por staff member. | [x] | [ ] |
 
 ## Suggested MVP Design Order
 
@@ -137,12 +137,12 @@ Este apartado lista solo los primeros disenos que haria para cubrir un MVP visua
 3. Login de business admin. `[x]` Acceso de admins al panel privado del business.
 4. Registro de business con admin inicial. `[x]` Alta del business y creacion del primer admin con email y password.
 5. Business admin shell/layout base. `[x]` Pantalla inicial tras login con navegacion, topbar y contenedor del panel admin.
-6. Business settings. Edicion de datos publicos, contacto, direccion, timezone, moneda y ventana maxima de reserva.
-7. Admin services. Gestion de services: listado, crear, editar, activar/desactivar, eliminar y estados vacios/conflictos.
-8. Admin staff members. Gestion de staff members: listado, crear, editar, activar/desactivar, eliminar y estados vacios/conflictos.
-9. Admin staff-service assignments. Asignacion de services a staff members y gestion de asignaciones activas/inactivas.
-10. Admin availability. Configuracion de disponibilidad semanal y excepciones por staff member.
-11. Perfil publico de business. Pagina publica del negocio con datos, services activos y staff members activos.
+6. Business settings. `[x]` Edicion de datos publicos, contacto, direccion, timezone, moneda y ventana maxima de reserva.
+7. Admin services. `[x]` Gestion de services: listado, crear, editar, activar/desactivar, eliminar y estados vacios/conflictos.
+8. Admin staff members. `[x]` Gestion de staff members: listado, crear, editar, activar/desactivar, eliminar y estados vacios/conflictos.
+9. Admin staff-service assignments. `[x]` Asignacion de services a staff members y gestion de asignaciones activas/inactivas.
+10. Admin availability. `[x]` Configuracion de disponibilidad semanal y excepciones por staff member.
+11. Perfil publico de business. `[x]` Pagina publica del negocio con datos, services activos y staff members activos.
 12. Flujo publico de seleccion de appointment hasta elegir slot. Seleccion de service, staff member opcional, fecha y slot disponible.
 13. Registro de customer. Alta de customer con email, password y datos basicos antes o durante el flujo de appointment.
 

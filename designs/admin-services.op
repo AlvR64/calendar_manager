@@ -1,0 +1,3782 @@
+{
+  "version": "0.8.0",
+  "name": "admin-services",
+  "children": [
+    {
+      "type": "frame",
+      "id": "n160",
+      "name": "Services Desktop",
+      "width": 1440,
+      "height": 1240,
+      "layout": "horizontal",
+      "gap": 0,
+      "padding": 0,
+      "fill": [
+        {
+          "type": "solid",
+          "color": "#F8FAFC"
+        }
+      ],
+      "x": 0,
+      "y": 0,
+      "children": [
+        {
+          "type": "frame",
+          "id": "n150",
+          "name": "Admin Sidebar",
+          "width": 258,
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 18,
+          "padding": [
+            28,
+            22
+          ],
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#FFFFFF"
+            }
+          ],
+          "stroke": {
+            "thickness": {
+              "right": 1
+            },
+            "fill": [
+              {
+                "type": "solid",
+                "color": "#E5E7EB"
+              }
+            ]
+          },
+          "children": [
+            {
+              "type": "text",
+              "id": "n124",
+              "name": "Sidebar Logo",
+              "width": "fill_container",
+              "height": 30,
+              "content": "Calendar Manager",
+              "fontFamily": "Inter",
+              "fontSize": 21,
+              "fontWeight": 900,
+              "lineHeight": 1.2,
+              "textAlign": "left",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#111827"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n128",
+              "name": "Current Business Card",
+              "width": "fill_container",
+              "height": 88,
+              "layout": "vertical",
+              "gap": 6,
+              "padding": 16,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#F8FAFC"
+                }
+              ],
+              "cornerRadius": 22,
+              "stroke": {
+                "thickness": 1,
+                "fill": [
+                  {
+                    "type": "solid",
+                    "color": "#E5E7EB"
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n125",
+                  "name": "Current Business Label",
+                  "width": "fill_container",
+                  "height": 16,
+                  "content": "Business actual",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": 800,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#64748B"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n126",
+                  "name": "Current Business Name",
+                  "width": "fill_container",
+                  "height": 24,
+                  "content": "Studio Centro",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": 900,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n127",
+                  "name": "Current Business Hint",
+                  "width": "fill_container",
+                  "height": 14,
+                  "content": "Un admin gestiona un solo business",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": 600,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#64748B"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n144",
+              "name": "Admin Navigation",
+              "width": "fill_container",
+              "height": 266,
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 0,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "n131",
+                  "name": "Nav Dashboard",
+                  "width": "fill_container",
+                  "height": 44,
+                  "layout": "horizontal",
+                  "gap": 10,
+                  "padding": [
+                    0,
+                    14
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n129",
+                      "name": "Nav Dashboard Dot",
+                      "width": 8,
+                      "height": 8,
+                      "layout": "vertical",
+                      "gap": 0,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#CBD5E1"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "children": []
+                    },
+                    {
+                      "type": "text",
+                      "id": "n130",
+                      "name": "Nav Dashboard Text",
+                      "width": "fill_container",
+                      "height": 20,
+                      "content": "Dashboard",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 700,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#475569"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n134",
+                  "name": "Nav Business settings",
+                  "width": "fill_container",
+                  "height": 44,
+                  "layout": "horizontal",
+                  "gap": 10,
+                  "padding": [
+                    0,
+                    14
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n132",
+                      "name": "Nav Business settings Dot",
+                      "width": 8,
+                      "height": 8,
+                      "layout": "vertical",
+                      "gap": 0,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#CBD5E1"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "children": []
+                    },
+                    {
+                      "type": "text",
+                      "id": "n133",
+                      "name": "Nav Business settings Text",
+                      "width": "fill_container",
+                      "height": 20,
+                      "content": "Business settings",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 700,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#475569"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n137",
+                  "name": "Nav Services",
+                  "width": "fill_container",
+                  "height": 44,
+                  "layout": "horizontal",
+                  "gap": 10,
+                  "padding": [
+                    0,
+                    14
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ],
+                  "cornerRadius": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n135",
+                      "name": "Nav Services Dot",
+                      "width": 8,
+                      "height": 8,
+                      "layout": "vertical",
+                      "gap": 0,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "children": []
+                    },
+                    {
+                      "type": "text",
+                      "id": "n136",
+                      "name": "Nav Services Text",
+                      "width": "fill_container",
+                      "height": 20,
+                      "content": "Services",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n140",
+                  "name": "Nav Staff members",
+                  "width": "fill_container",
+                  "height": 44,
+                  "layout": "horizontal",
+                  "gap": 10,
+                  "padding": [
+                    0,
+                    14
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n138",
+                      "name": "Nav Staff members Dot",
+                      "width": 8,
+                      "height": 8,
+                      "layout": "vertical",
+                      "gap": 0,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#CBD5E1"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "children": []
+                    },
+                    {
+                      "type": "text",
+                      "id": "n139",
+                      "name": "Nav Staff members Text",
+                      "width": "fill_container",
+                      "height": 20,
+                      "content": "Staff members",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 700,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#475569"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n143",
+                  "name": "Nav Availability",
+                  "width": "fill_container",
+                  "height": 44,
+                  "layout": "horizontal",
+                  "gap": 10,
+                  "padding": [
+                    0,
+                    14
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n141",
+                      "name": "Nav Availability Dot",
+                      "width": 8,
+                      "height": 8,
+                      "layout": "vertical",
+                      "gap": 0,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#CBD5E1"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "children": []
+                    },
+                    {
+                      "type": "text",
+                      "id": "n142",
+                      "name": "Nav Availability Text",
+                      "width": "fill_container",
+                      "height": 20,
+                      "content": "Availability",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 700,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#475569"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n145",
+              "name": "Sidebar Spacer",
+              "width": "fill_container",
+              "height": 250,
+              "layout": "vertical",
+              "gap": 0,
+              "padding": 0,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "children": []
+            },
+            {
+              "type": "frame",
+              "id": "n149",
+              "name": "Admin Account",
+              "width": "fill_container",
+              "height": 92,
+              "layout": "vertical",
+              "gap": 6,
+              "padding": 16,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#111827"
+                }
+              ],
+              "cornerRadius": 24,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n146",
+                  "name": "Admin Name",
+                  "width": "fill_container",
+                  "height": 20,
+                  "content": "Marta Ruiz",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": 850,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n147",
+                  "name": "Admin Email",
+                  "width": "fill_container",
+                  "height": 16,
+                  "content": "admin@studio.com",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": 600,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#CBD5E1"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n148",
+                  "name": "Admin Logout",
+                  "width": "fill_container",
+                  "height": 16,
+                  "content": "Cerrar sesion",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": 900,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#A5B4FC"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "n159",
+          "name": "Services Main",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [
+            28,
+            34
+          ],
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#F8FAFC"
+            }
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "n158",
+              "name": "Admin Topbar",
+              "width": "fill_container",
+              "height": 72,
+              "layout": "horizontal",
+              "gap": 12,
+              "padding": 0,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#F8FAFC"
+                }
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "n153",
+                  "name": "Topbar Copy",
+                  "width": "fill_container",
+                  "height": 58,
+                  "layout": "vertical",
+                  "gap": 4,
+                  "padding": 0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#F8FAFC"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n151",
+                      "name": "Topbar Eyebrow",
+                      "width": "fill_container",
+                      "height": 18,
+                      "content": "Catalogo del business",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": 900,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#4F46E5"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n152",
+                      "name": "Topbar Title",
+                      "width": "fill_container",
+                      "height": 36,
+                      "content": "Services",
+                      "fontFamily": "Inter",
+                      "fontSize": 30,
+                      "fontWeight": 900,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n155",
+                  "name": "Topbar Secondary",
+                  "width": 170,
+                  "height": 44,
+                  "layout": "horizontal",
+                  "gap": 0,
+                  "padding": [
+                    0,
+                    18
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 999,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n154",
+                      "name": "Topbar Secondary Text",
+                      "width": "fill_container",
+                      "height": 18,
+                      "content": "Ver perfil publico",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n157",
+                  "name": "Topbar Primary",
+                  "width": 164,
+                  "height": 44,
+                  "layout": "horizontal",
+                  "gap": 0,
+                  "padding": [
+                    0,
+                    18
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ],
+                  "cornerRadius": 999,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n156",
+                      "name": "Topbar Primary Text",
+                      "width": "fill_container",
+                      "height": 18,
+                      "content": "Crear service",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n67",
+              "name": "Services Body",
+              "width": "fill_container",
+              "height": 1020,
+              "layout": "horizontal",
+              "gap": 22,
+              "padding": 0,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#F8FAFC"
+                }
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "n44",
+                  "name": "Services Main Column",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "layout": "vertical",
+                  "gap": 18,
+                  "padding": 0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#F8FAFC"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n38",
+                      "name": "Services List",
+                      "width": "fill_container",
+                      "height": 512,
+                      "layout": "vertical",
+                      "gap": 14,
+                      "padding": 22,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 30,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "n4",
+                          "name": "Services List Header",
+                          "width": "fill_container",
+                          "height": 44,
+                          "layout": "horizontal",
+                          "gap": 0,
+                          "padding": 0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ],
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n1",
+                              "name": "Services List Title",
+                              "width": "fill_container",
+                              "height": 22,
+                              "content": "Services",
+                              "fontFamily": "Inter",
+                              "fontSize": 24,
+                              "fontWeight": 900,
+                              "lineHeight": 1.2,
+                              "textAlign": "left",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#111827"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n3",
+                              "name": "Create Service",
+                              "width": 140,
+                              "height": 44,
+                              "layout": "horizontal",
+                              "gap": 0,
+                              "padding": [
+                                0,
+                                18
+                              ],
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#111827"
+                                }
+                              ],
+                              "cornerRadius": 999,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n2",
+                                  "name": "Create Service Text",
+                                  "width": "fill_container",
+                                  "height": 18,
+                                  "content": "Crear service",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": 850,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#FFFFFF"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n14",
+                          "name": "Service Row One",
+                          "width": "fill_container",
+                          "height": 82,
+                          "layout": "horizontal",
+                          "gap": 10,
+                          "padding": 14,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ],
+                          "cornerRadius": 22,
+                          "alignItems": "center",
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#E5E7EB"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "n7",
+                              "name": "Service Row One Copy",
+                              "width": "fill_container",
+                              "height": 54,
+                              "layout": "vertical",
+                              "gap": 4,
+                              "padding": 0,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FFFFFF"
+                                }
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n5",
+                                  "name": "Service Row One Title",
+                                  "width": "fill_container",
+                                  "height": 22,
+                                  "content": "Corte y styling",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 16,
+                                  "fontWeight": 850,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "left",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#111827"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "n6",
+                                  "name": "Service Row One Meta",
+                                  "width": "fill_container",
+                                  "height": 18,
+                                  "content": "60 min · 45 EUR · sort order 10",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 12,
+                                  "fontWeight": 650,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "left",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#64748B"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n9",
+                              "name": "Service Row One State",
+                              "width": 84,
+                              "height": 32,
+                              "layout": "horizontal",
+                              "gap": 0,
+                              "padding": [
+                                0,
+                                12
+                              ],
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#DCFCE7"
+                                }
+                              ],
+                              "cornerRadius": 999,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n8",
+                                  "name": "Service Row One State Text",
+                                  "width": "fill_container",
+                                  "height": 16,
+                                  "content": "Active",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 12,
+                                  "fontWeight": 850,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#166534"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n11",
+                              "name": "Service Row One Assign",
+                              "width": 132,
+                              "height": 44,
+                              "layout": "horizontal",
+                              "gap": 0,
+                              "padding": [
+                                0,
+                                18
+                              ],
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#EEF2FF"
+                                }
+                              ],
+                              "cornerRadius": 999,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n10",
+                                  "name": "Service Row One Assign Text",
+                                  "width": "fill_container",
+                                  "height": 18,
+                                  "content": "Asignar staff",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": 850,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#4F46E5"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n13",
+                              "name": "Service Row One Edit",
+                              "width": 82,
+                              "height": 44,
+                              "layout": "horizontal",
+                              "gap": 0,
+                              "padding": [
+                                0,
+                                18
+                              ],
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FFFFFF"
+                                }
+                              ],
+                              "cornerRadius": 999,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n12",
+                                  "name": "Service Row One Edit Text",
+                                  "width": "fill_container",
+                                  "height": 18,
+                                  "content": "Editar",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": 850,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#111827"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n24",
+                          "name": "Service Row Two",
+                          "width": "fill_container",
+                          "height": 82,
+                          "layout": "horizontal",
+                          "gap": 10,
+                          "padding": 14,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ],
+                          "cornerRadius": 22,
+                          "alignItems": "center",
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#E5E7EB"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "n17",
+                              "name": "Service Row Two Copy",
+                              "width": "fill_container",
+                              "height": 54,
+                              "layout": "vertical",
+                              "gap": 4,
+                              "padding": 0,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FFFFFF"
+                                }
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n15",
+                                  "name": "Service Row Two Title",
+                                  "width": "fill_container",
+                                  "height": 22,
+                                  "content": "Color express",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 16,
+                                  "fontWeight": 850,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "left",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#111827"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "n16",
+                                  "name": "Service Row Two Meta",
+                                  "width": "fill_container",
+                                  "height": 18,
+                                  "content": "60 min · 45 EUR · sort order 10",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 12,
+                                  "fontWeight": 650,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "left",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#64748B"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n19",
+                              "name": "Service Row Two State",
+                              "width": 84,
+                              "height": 32,
+                              "layout": "horizontal",
+                              "gap": 0,
+                              "padding": [
+                                0,
+                                12
+                              ],
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#DCFCE7"
+                                }
+                              ],
+                              "cornerRadius": 999,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n18",
+                                  "name": "Service Row Two State Text",
+                                  "width": "fill_container",
+                                  "height": 16,
+                                  "content": "Active",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 12,
+                                  "fontWeight": 850,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#166534"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n21",
+                              "name": "Service Row Two Assign",
+                              "width": 132,
+                              "height": 44,
+                              "layout": "horizontal",
+                              "gap": 0,
+                              "padding": [
+                                0,
+                                18
+                              ],
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#EEF2FF"
+                                }
+                              ],
+                              "cornerRadius": 999,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n20",
+                                  "name": "Service Row Two Assign Text",
+                                  "width": "fill_container",
+                                  "height": 18,
+                                  "content": "Asignar staff",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": 850,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#4F46E5"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n23",
+                              "name": "Service Row Two Edit",
+                              "width": 82,
+                              "height": 44,
+                              "layout": "horizontal",
+                              "gap": 0,
+                              "padding": [
+                                0,
+                                18
+                              ],
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FFFFFF"
+                                }
+                              ],
+                              "cornerRadius": 999,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n22",
+                                  "name": "Service Row Two Edit Text",
+                                  "width": "fill_container",
+                                  "height": 18,
+                                  "content": "Editar",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": 850,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#111827"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n34",
+                          "name": "Service Row Three",
+                          "width": "fill_container",
+                          "height": 82,
+                          "layout": "horizontal",
+                          "gap": 10,
+                          "padding": 14,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ],
+                          "cornerRadius": 22,
+                          "alignItems": "center",
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#E5E7EB"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "n27",
+                              "name": "Service Row Three Copy",
+                              "width": "fill_container",
+                              "height": 54,
+                              "layout": "vertical",
+                              "gap": 4,
+                              "padding": 0,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FFFFFF"
+                                }
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n25",
+                                  "name": "Service Row Three Title",
+                                  "width": "fill_container",
+                                  "height": 22,
+                                  "content": "Tratamiento premium",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 16,
+                                  "fontWeight": 850,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "left",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#111827"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "n26",
+                                  "name": "Service Row Three Meta",
+                                  "width": "fill_container",
+                                  "height": 18,
+                                  "content": "60 min · 45 EUR · sort order 10",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 12,
+                                  "fontWeight": 650,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "left",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#64748B"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n29",
+                              "name": "Service Row Three State",
+                              "width": 84,
+                              "height": 32,
+                              "layout": "horizontal",
+                              "gap": 0,
+                              "padding": [
+                                0,
+                                12
+                              ],
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#F1F5F9"
+                                }
+                              ],
+                              "cornerRadius": 999,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n28",
+                                  "name": "Service Row Three State Text",
+                                  "width": "fill_container",
+                                  "height": 16,
+                                  "content": "Inactive",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 12,
+                                  "fontWeight": 850,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#64748B"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n31",
+                              "name": "Service Row Three Assign",
+                              "width": 132,
+                              "height": 44,
+                              "layout": "horizontal",
+                              "gap": 0,
+                              "padding": [
+                                0,
+                                18
+                              ],
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#EEF2FF"
+                                }
+                              ],
+                              "cornerRadius": 999,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n30",
+                                  "name": "Service Row Three Assign Text",
+                                  "width": "fill_container",
+                                  "height": 18,
+                                  "content": "Asignar staff",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": 850,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#4F46E5"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n33",
+                              "name": "Service Row Three Edit",
+                              "width": 82,
+                              "height": 44,
+                              "layout": "horizontal",
+                              "gap": 0,
+                              "padding": [
+                                0,
+                                18
+                              ],
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FFFFFF"
+                                }
+                              ],
+                              "cornerRadius": 999,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n32",
+                                  "name": "Service Row Three Edit Text",
+                                  "width": "fill_container",
+                                  "height": 18,
+                                  "content": "Editar",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": 850,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#111827"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n37",
+                          "name": "Service Conflict",
+                          "width": "fill_container",
+                          "height": 72,
+                          "layout": "vertical",
+                          "gap": 4,
+                          "padding": 14,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFBEB"
+                            }
+                          ],
+                          "cornerRadius": 18,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#FDE68A"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n35",
+                              "name": "Service Conflict Title",
+                              "width": "fill_container",
+                              "height": 22,
+                              "content": "Conflicto al eliminar",
+                              "fontFamily": "Inter",
+                              "fontSize": 15,
+                              "fontWeight": 900,
+                              "lineHeight": 1.2,
+                              "textAlign": "left",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#92400E"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "n36",
+                              "name": "Service Conflict Copy",
+                              "width": "fill_container",
+                              "height": 22,
+                              "content": "Si el service tiene appointments, se muestra conflicto y se recomienda desactivarlo.",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 650,
+                              "lineHeight": 1.2,
+                              "textAlign": "left",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#B45309"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n43",
+                      "name": "Services Empty State",
+                      "width": "fill_container",
+                      "height": 210,
+                      "layout": "vertical",
+                      "gap": 14,
+                      "padding": 22,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 30,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n39",
+                          "name": "Services Empty Title",
+                          "width": "fill_container",
+                          "height": 22,
+                          "content": "Aun no hay services",
+                          "fontFamily": "Inter",
+                          "fontSize": 23,
+                          "fontWeight": 900,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n40",
+                          "name": "Services Empty Copy",
+                          "width": "fill_container",
+                          "height": 38,
+                          "content": "Crea el primer service para que los customers puedan elegir que reservar.",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": 600,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#64748B"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n42",
+                          "name": "Empty Create Service",
+                          "width": "fill_container",
+                          "height": 44,
+                          "layout": "horizontal",
+                          "gap": 0,
+                          "padding": [
+                            0,
+                            18
+                          ],
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ],
+                          "cornerRadius": 999,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n41",
+                              "name": "Empty Create Service Text",
+                              "width": "fill_container",
+                              "height": 18,
+                              "content": "Crear primer service",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FFFFFF"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n66",
+                  "name": "Assignment Drawer",
+                  "width": "fill_container",
+                  "height": 342,
+                  "layout": "vertical",
+                  "gap": 14,
+                  "padding": 22,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 30,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E7EB"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n45",
+                      "name": "Assignment Title",
+                      "width": "fill_container",
+                      "height": 28,
+                      "content": "Staff asignado a Corte y styling",
+                      "fontFamily": "Inter",
+                      "fontSize": 21,
+                      "fontWeight": 900,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n46",
+                      "name": "Assignment Copy",
+                      "width": "fill_container",
+                      "height": 36,
+                      "content": "Drawer conceptual integrado en esta vista. Permite activar, desactivar y desasignar sin una pantalla separada.",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": 600,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#64748B"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n52",
+                      "name": "Assignment Row Marta Ruiz",
+                      "width": "fill_container",
+                      "height": 54,
+                      "layout": "horizontal",
+                      "gap": 10,
+                      "padding": 10,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 16,
+                      "alignItems": "center",
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "n47",
+                          "name": "Assignment Check Marta Ruiz",
+                          "width": 28,
+                          "height": 28,
+                          "layout": "vertical",
+                          "gap": 0,
+                          "padding": 0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#4F46E5"
+                            }
+                          ],
+                          "cornerRadius": 8,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#4F46E5"
+                              }
+                            ]
+                          },
+                          "children": []
+                        },
+                        {
+                          "type": "text",
+                          "id": "n48",
+                          "name": "Assignment Name Marta Ruiz",
+                          "width": "fill_container",
+                          "height": 20,
+                          "content": "Marta Ruiz",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": 800,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n50",
+                          "name": "Assignment Toggle Marta Ruiz",
+                          "width": 80,
+                          "height": 32,
+                          "layout": "horizontal",
+                          "gap": 0,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#DCFCE7"
+                            }
+                          ],
+                          "cornerRadius": 999,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n49",
+                              "name": "Assignment Toggle Marta Ruiz Text",
+                              "width": "fill_container",
+                              "height": 16,
+                              "content": "Active",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#166534"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n51",
+                          "name": "Assignment Remove Marta Ruiz",
+                          "width": 84,
+                          "height": 18,
+                          "content": "Desasignar",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "right",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#DC2626"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n58",
+                      "name": "Assignment Row Lucas Perez",
+                      "width": "fill_container",
+                      "height": 54,
+                      "layout": "horizontal",
+                      "gap": 10,
+                      "padding": 10,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 16,
+                      "alignItems": "center",
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "n53",
+                          "name": "Assignment Check Lucas Perez",
+                          "width": 28,
+                          "height": 28,
+                          "layout": "vertical",
+                          "gap": 0,
+                          "padding": 0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#4F46E5"
+                            }
+                          ],
+                          "cornerRadius": 8,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#4F46E5"
+                              }
+                            ]
+                          },
+                          "children": []
+                        },
+                        {
+                          "type": "text",
+                          "id": "n54",
+                          "name": "Assignment Name Lucas Perez",
+                          "width": "fill_container",
+                          "height": 20,
+                          "content": "Lucas Perez",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": 800,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n56",
+                          "name": "Assignment Toggle Lucas Perez",
+                          "width": 80,
+                          "height": 32,
+                          "layout": "horizontal",
+                          "gap": 0,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#F1F5F9"
+                            }
+                          ],
+                          "cornerRadius": 999,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n55",
+                              "name": "Assignment Toggle Lucas Perez Text",
+                              "width": "fill_container",
+                              "height": 16,
+                              "content": "Inactive",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#64748B"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n57",
+                          "name": "Assignment Remove Lucas Perez",
+                          "width": 84,
+                          "height": 18,
+                          "content": "Desasignar",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "right",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#DC2626"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n64",
+                      "name": "Assignment Row Nerea Gomez",
+                      "width": "fill_container",
+                      "height": 54,
+                      "layout": "horizontal",
+                      "gap": 10,
+                      "padding": 10,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 16,
+                      "alignItems": "center",
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "n59",
+                          "name": "Assignment Check Nerea Gomez",
+                          "width": 28,
+                          "height": 28,
+                          "layout": "vertical",
+                          "gap": 0,
+                          "padding": 0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#F8FAFC"
+                            }
+                          ],
+                          "cornerRadius": 8,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#CBD5E1"
+                              }
+                            ]
+                          },
+                          "children": []
+                        },
+                        {
+                          "type": "text",
+                          "id": "n60",
+                          "name": "Assignment Name Nerea Gomez",
+                          "width": "fill_container",
+                          "height": 20,
+                          "content": "Nerea Gomez",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": 800,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n62",
+                          "name": "Assignment Toggle Nerea Gomez",
+                          "width": 80,
+                          "height": 32,
+                          "layout": "horizontal",
+                          "gap": 0,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#DCFCE7"
+                            }
+                          ],
+                          "cornerRadius": 999,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n61",
+                              "name": "Assignment Toggle Nerea Gomez Text",
+                              "width": "fill_container",
+                              "height": 16,
+                              "content": "Active",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#166534"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n63",
+                          "name": "Assignment Remove Nerea Gomez",
+                          "width": 84,
+                          "height": 18,
+                          "content": "Desasignar",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "right",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#DC2626"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n65",
+                      "name": "Assignment Conflict",
+                      "width": "fill_container",
+                      "height": 34,
+                      "content": "Si la asignacion tiene appointments futuros, se muestra conflicto y se recomienda desactivar.",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": 650,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#B45309"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "n176",
+      "name": "Services Mobile",
+      "width": 390,
+      "height": 1260,
+      "layout": "vertical",
+      "gap": 0,
+      "padding": 0,
+      "fill": [
+        {
+          "type": "solid",
+          "color": "#F8FAFC"
+        }
+      ],
+      "x": 1500,
+      "y": 0,
+      "children": [
+        {
+          "type": "frame",
+          "id": "n174",
+          "name": "Mobile Admin Header",
+          "width": "fill_container",
+          "height": 154,
+          "layout": "vertical",
+          "gap": 10,
+          "padding": [
+            20,
+            18
+          ],
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#FFFFFF"
+            }
+          ],
+          "stroke": {
+            "thickness": {
+              "bottom": 1
+            },
+            "fill": [
+              {
+                "type": "solid",
+                "color": "#E5E7EB"
+              }
+            ]
+          },
+          "children": [
+            {
+              "type": "frame",
+              "id": "n164",
+              "name": "Mobile Header Row",
+              "width": "fill_container",
+              "height": 34,
+              "layout": "horizontal",
+              "gap": 0,
+              "padding": 0,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n161",
+                  "name": "Mobile Logo",
+                  "width": 220,
+                  "height": 28,
+                  "content": "Calendar Manager",
+                  "fontFamily": "Inter",
+                  "fontSize": 20,
+                  "fontWeight": 900,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n163",
+                  "name": "Mobile Admin",
+                  "width": 76,
+                  "height": 32,
+                  "layout": "horizontal",
+                  "gap": 0,
+                  "padding": [
+                    0,
+                    12
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#EEF2FF"
+                    }
+                  ],
+                  "cornerRadius": 999,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n162",
+                      "name": "Mobile Admin Text",
+                      "width": "fill_container",
+                      "height": 16,
+                      "content": "Admin",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#4F46E5"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "n165",
+              "name": "Mobile Screen Title",
+              "width": "fill_container",
+              "height": 32,
+              "content": "Services",
+              "fontFamily": "Inter",
+              "fontSize": 25,
+              "fontWeight": 900,
+              "lineHeight": 1.2,
+              "textAlign": "left",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#111827"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "n166",
+              "name": "Mobile Business",
+              "width": "fill_container",
+              "height": 18,
+              "content": "Studio Centro · un business por admin",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": 650,
+              "lineHeight": 1.2,
+              "textAlign": "left",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#64748B"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n173",
+              "name": "Mobile Nav",
+              "width": "fill_container",
+              "height": 38,
+              "layout": "horizontal",
+              "gap": 8,
+              "padding": 0,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "n168",
+                  "name": "Mobile Nav Dashboard",
+                  "width": 104,
+                  "height": 32,
+                  "layout": "horizontal",
+                  "gap": 0,
+                  "padding": [
+                    0,
+                    12
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#F8FAFC"
+                    }
+                  ],
+                  "cornerRadius": 999,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n167",
+                      "name": "Mobile Nav Dashboard Text",
+                      "width": "fill_container",
+                      "height": 16,
+                      "content": "Dashboard",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#475569"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n170",
+                  "name": "Mobile Nav Settings",
+                  "width": 92,
+                  "height": 32,
+                  "layout": "horizontal",
+                  "gap": 0,
+                  "padding": [
+                    0,
+                    12
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#F8FAFC"
+                    }
+                  ],
+                  "cornerRadius": 999,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n169",
+                      "name": "Mobile Nav Settings Text",
+                      "width": "fill_container",
+                      "height": 16,
+                      "content": "Settings",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#475569"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n172",
+                  "name": "Mobile Nav Services",
+                  "width": 88,
+                  "height": 32,
+                  "layout": "horizontal",
+                  "gap": 0,
+                  "padding": [
+                    0,
+                    12
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ],
+                  "cornerRadius": 999,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n171",
+                      "name": "Mobile Nav Services Text",
+                      "width": "fill_container",
+                      "height": 16,
+                      "content": "Services",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "n175",
+          "name": "Services Mobile Content",
+          "width": "fill_container",
+          "height": 1106,
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            20,
+            18
+          ],
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#F8FAFC"
+            }
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "n101",
+              "name": "Mobile Services List",
+              "width": "fill_container",
+              "height": 526,
+              "layout": "vertical",
+              "gap": 14,
+              "padding": 22,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "cornerRadius": 30,
+              "stroke": {
+                "thickness": 1,
+                "fill": [
+                  {
+                    "type": "solid",
+                    "color": "#E5E7EB"
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n68",
+                  "name": "Mobile Services Title",
+                  "width": "fill_container",
+                  "height": 22,
+                  "content": "Services",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": 900,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n78",
+                  "name": "Mobile Service One",
+                  "width": "fill_container",
+                  "height": 82,
+                  "layout": "horizontal",
+                  "gap": 10,
+                  "padding": 14,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 22,
+                  "alignItems": "center",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E7EB"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n71",
+                      "name": "Mobile Service One Copy",
+                      "width": "fill_container",
+                      "height": 54,
+                      "layout": "vertical",
+                      "gap": 4,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n69",
+                          "name": "Mobile Service One Title",
+                          "width": "fill_container",
+                          "height": 22,
+                          "content": "Corte y styling",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n70",
+                          "name": "Mobile Service One Meta",
+                          "width": "fill_container",
+                          "height": 18,
+                          "content": "60 min · 45 EUR · sort order 10",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 650,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#64748B"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n73",
+                      "name": "Mobile Service One State",
+                      "width": 84,
+                      "height": 32,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": [
+                        0,
+                        12
+                      ],
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#DCFCE7"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n72",
+                          "name": "Mobile Service One State Text",
+                          "width": "fill_container",
+                          "height": 16,
+                          "content": "Active",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#166534"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n75",
+                      "name": "Mobile Service One Assign",
+                      "width": 132,
+                      "height": 44,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": [
+                        0,
+                        18
+                      ],
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#EEF2FF"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n74",
+                          "name": "Mobile Service One Assign Text",
+                          "width": "fill_container",
+                          "height": 18,
+                          "content": "Asignar staff",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#4F46E5"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n77",
+                      "name": "Mobile Service One Edit",
+                      "width": 82,
+                      "height": 44,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": [
+                        0,
+                        18
+                      ],
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n76",
+                          "name": "Mobile Service One Edit Text",
+                          "width": "fill_container",
+                          "height": 18,
+                          "content": "Editar",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n88",
+                  "name": "Mobile Service Two",
+                  "width": "fill_container",
+                  "height": 82,
+                  "layout": "horizontal",
+                  "gap": 10,
+                  "padding": 14,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 22,
+                  "alignItems": "center",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E7EB"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n81",
+                      "name": "Mobile Service Two Copy",
+                      "width": "fill_container",
+                      "height": 54,
+                      "layout": "vertical",
+                      "gap": 4,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n79",
+                          "name": "Mobile Service Two Title",
+                          "width": "fill_container",
+                          "height": 22,
+                          "content": "Color express",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n80",
+                          "name": "Mobile Service Two Meta",
+                          "width": "fill_container",
+                          "height": 18,
+                          "content": "60 min · 45 EUR · sort order 10",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 650,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#64748B"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n83",
+                      "name": "Mobile Service Two State",
+                      "width": 84,
+                      "height": 32,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": [
+                        0,
+                        12
+                      ],
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#DCFCE7"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n82",
+                          "name": "Mobile Service Two State Text",
+                          "width": "fill_container",
+                          "height": 16,
+                          "content": "Active",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#166534"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n85",
+                      "name": "Mobile Service Two Assign",
+                      "width": 132,
+                      "height": 44,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": [
+                        0,
+                        18
+                      ],
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#EEF2FF"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n84",
+                          "name": "Mobile Service Two Assign Text",
+                          "width": "fill_container",
+                          "height": 18,
+                          "content": "Asignar staff",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#4F46E5"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n87",
+                      "name": "Mobile Service Two Edit",
+                      "width": 82,
+                      "height": 44,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": [
+                        0,
+                        18
+                      ],
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n86",
+                          "name": "Mobile Service Two Edit Text",
+                          "width": "fill_container",
+                          "height": 18,
+                          "content": "Editar",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n98",
+                  "name": "Mobile Service Three",
+                  "width": "fill_container",
+                  "height": 82,
+                  "layout": "horizontal",
+                  "gap": 10,
+                  "padding": 14,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 22,
+                  "alignItems": "center",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E7EB"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n91",
+                      "name": "Mobile Service Three Copy",
+                      "width": "fill_container",
+                      "height": 54,
+                      "layout": "vertical",
+                      "gap": 4,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n89",
+                          "name": "Mobile Service Three Title",
+                          "width": "fill_container",
+                          "height": 22,
+                          "content": "Tratamiento premium",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n90",
+                          "name": "Mobile Service Three Meta",
+                          "width": "fill_container",
+                          "height": 18,
+                          "content": "60 min · 45 EUR · sort order 10",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 650,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#64748B"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n93",
+                      "name": "Mobile Service Three State",
+                      "width": 84,
+                      "height": 32,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": [
+                        0,
+                        12
+                      ],
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#F1F5F9"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n92",
+                          "name": "Mobile Service Three State Text",
+                          "width": "fill_container",
+                          "height": 16,
+                          "content": "Inactive",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#64748B"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n95",
+                      "name": "Mobile Service Three Assign",
+                      "width": 132,
+                      "height": 44,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": [
+                        0,
+                        18
+                      ],
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#EEF2FF"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n94",
+                          "name": "Mobile Service Three Assign Text",
+                          "width": "fill_container",
+                          "height": 18,
+                          "content": "Asignar staff",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#4F46E5"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n97",
+                      "name": "Mobile Service Three Edit",
+                      "width": 82,
+                      "height": 44,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": [
+                        0,
+                        18
+                      ],
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n96",
+                          "name": "Mobile Service Three Edit Text",
+                          "width": "fill_container",
+                          "height": 18,
+                          "content": "Editar",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n100",
+                  "name": "Mobile Create Service",
+                  "width": "fill_container",
+                  "height": 44,
+                  "layout": "horizontal",
+                  "gap": 0,
+                  "padding": [
+                    0,
+                    18
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ],
+                  "cornerRadius": 999,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n99",
+                      "name": "Mobile Create Service Text",
+                      "width": "fill_container",
+                      "height": 18,
+                      "content": "Crear service",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n123",
+              "name": "Assignment Drawer",
+              "width": "fill_container",
+              "height": 342,
+              "layout": "vertical",
+              "gap": 14,
+              "padding": 22,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "cornerRadius": 30,
+              "stroke": {
+                "thickness": 1,
+                "fill": [
+                  {
+                    "type": "solid",
+                    "color": "#E5E7EB"
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n102",
+                  "name": "Assignment Title",
+                  "width": "fill_container",
+                  "height": 28,
+                  "content": "Staff asignado a Corte y styling",
+                  "fontFamily": "Inter",
+                  "fontSize": 21,
+                  "fontWeight": 900,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n103",
+                  "name": "Assignment Copy",
+                  "width": "fill_container",
+                  "height": 36,
+                  "content": "Drawer conceptual integrado en esta vista. Permite activar, desactivar y desasignar sin una pantalla separada.",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": 600,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#64748B"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n109",
+                  "name": "Assignment Row Marta Ruiz",
+                  "width": "fill_container",
+                  "height": 54,
+                  "layout": "horizontal",
+                  "gap": 10,
+                  "padding": 10,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 16,
+                  "alignItems": "center",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E7EB"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n104",
+                      "name": "Assignment Check Marta Ruiz",
+                      "width": 28,
+                      "height": 28,
+                      "layout": "vertical",
+                      "gap": 0,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#4F46E5"
+                        }
+                      ],
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#4F46E5"
+                          }
+                        ]
+                      },
+                      "children": []
+                    },
+                    {
+                      "type": "text",
+                      "id": "n105",
+                      "name": "Assignment Name Marta Ruiz",
+                      "width": "fill_container",
+                      "height": 20,
+                      "content": "Marta Ruiz",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n107",
+                      "name": "Assignment Toggle Marta Ruiz",
+                      "width": 80,
+                      "height": 32,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": [
+                        0,
+                        12
+                      ],
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#DCFCE7"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n106",
+                          "name": "Assignment Toggle Marta Ruiz Text",
+                          "width": "fill_container",
+                          "height": 16,
+                          "content": "Active",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#166534"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n108",
+                      "name": "Assignment Remove Marta Ruiz",
+                      "width": 84,
+                      "height": 18,
+                      "content": "Desasignar",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "right",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#DC2626"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n115",
+                  "name": "Assignment Row Lucas Perez",
+                  "width": "fill_container",
+                  "height": 54,
+                  "layout": "horizontal",
+                  "gap": 10,
+                  "padding": 10,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 16,
+                  "alignItems": "center",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E7EB"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n110",
+                      "name": "Assignment Check Lucas Perez",
+                      "width": 28,
+                      "height": 28,
+                      "layout": "vertical",
+                      "gap": 0,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#4F46E5"
+                        }
+                      ],
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#4F46E5"
+                          }
+                        ]
+                      },
+                      "children": []
+                    },
+                    {
+                      "type": "text",
+                      "id": "n111",
+                      "name": "Assignment Name Lucas Perez",
+                      "width": "fill_container",
+                      "height": 20,
+                      "content": "Lucas Perez",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n113",
+                      "name": "Assignment Toggle Lucas Perez",
+                      "width": 80,
+                      "height": 32,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": [
+                        0,
+                        12
+                      ],
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#F1F5F9"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n112",
+                          "name": "Assignment Toggle Lucas Perez Text",
+                          "width": "fill_container",
+                          "height": 16,
+                          "content": "Inactive",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#64748B"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n114",
+                      "name": "Assignment Remove Lucas Perez",
+                      "width": 84,
+                      "height": 18,
+                      "content": "Desasignar",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "right",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#DC2626"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n121",
+                  "name": "Assignment Row Nerea Gomez",
+                  "width": "fill_container",
+                  "height": 54,
+                  "layout": "horizontal",
+                  "gap": 10,
+                  "padding": 10,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 16,
+                  "alignItems": "center",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E7EB"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n116",
+                      "name": "Assignment Check Nerea Gomez",
+                      "width": 28,
+                      "height": 28,
+                      "layout": "vertical",
+                      "gap": 0,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#F8FAFC"
+                        }
+                      ],
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#CBD5E1"
+                          }
+                        ]
+                      },
+                      "children": []
+                    },
+                    {
+                      "type": "text",
+                      "id": "n117",
+                      "name": "Assignment Name Nerea Gomez",
+                      "width": "fill_container",
+                      "height": 20,
+                      "content": "Nerea Gomez",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n119",
+                      "name": "Assignment Toggle Nerea Gomez",
+                      "width": 80,
+                      "height": 32,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": [
+                        0,
+                        12
+                      ],
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#DCFCE7"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n118",
+                          "name": "Assignment Toggle Nerea Gomez Text",
+                          "width": "fill_container",
+                          "height": 16,
+                          "content": "Active",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#166534"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n120",
+                      "name": "Assignment Remove Nerea Gomez",
+                      "width": 84,
+                      "height": 18,
+                      "content": "Desasignar",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "right",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#DC2626"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n122",
+                  "name": "Assignment Conflict",
+                  "width": "fill_container",
+                  "height": 34,
+                  "content": "Si la asignacion tiene appointments futuros, se muestra conflicto y se recomienda desactivar.",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": 650,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#B45309"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,4012 @@
+{
+  "version": "0.8.0",
+  "name": "admin-availability",
+  "children": [
+    {
+      "type": "frame",
+      "id": "n125",
+      "name": "Availability Desktop",
+      "width": 1440,
+      "height": 1260,
+      "layout": "horizontal",
+      "gap": 0,
+      "padding": 0,
+      "fill": [
+        {
+          "type": "solid",
+          "color": "#F8FAFC"
+        }
+      ],
+      "x": 0,
+      "y": 0,
+      "children": [
+        {
+          "type": "frame",
+          "id": "n115",
+          "name": "Admin Sidebar",
+          "width": 258,
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 18,
+          "padding": [
+            28,
+            22
+          ],
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#FFFFFF"
+            }
+          ],
+          "stroke": {
+            "thickness": {
+              "right": 1
+            },
+            "fill": [
+              {
+                "type": "solid",
+                "color": "#E5E7EB"
+              }
+            ]
+          },
+          "children": [
+            {
+              "type": "text",
+              "id": "n89",
+              "name": "Sidebar Logo",
+              "width": "fill_container",
+              "height": 30,
+              "content": "Calendar Manager",
+              "fontFamily": "Inter",
+              "fontSize": 21,
+              "fontWeight": 900,
+              "lineHeight": 1.2,
+              "textAlign": "left",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#111827"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n93",
+              "name": "Current Business Card",
+              "width": "fill_container",
+              "height": 88,
+              "layout": "vertical",
+              "gap": 6,
+              "padding": 16,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#F8FAFC"
+                }
+              ],
+              "cornerRadius": 22,
+              "stroke": {
+                "thickness": 1,
+                "fill": [
+                  {
+                    "type": "solid",
+                    "color": "#E5E7EB"
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n90",
+                  "name": "Current Business Label",
+                  "width": "fill_container",
+                  "height": 16,
+                  "content": "Business actual",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": 800,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#64748B"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n91",
+                  "name": "Current Business Name",
+                  "width": "fill_container",
+                  "height": 24,
+                  "content": "Studio Centro",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": 900,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n92",
+                  "name": "Current Business Hint",
+                  "width": "fill_container",
+                  "height": 14,
+                  "content": "Un admin gestiona un solo business",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": 600,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#64748B"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n109",
+              "name": "Admin Navigation",
+              "width": "fill_container",
+              "height": 266,
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 0,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "n96",
+                  "name": "Nav Dashboard",
+                  "width": "fill_container",
+                  "height": 44,
+                  "layout": "horizontal",
+                  "gap": 10,
+                  "padding": [
+                    0,
+                    14
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n94",
+                      "name": "Nav Dashboard Dot",
+                      "width": 8,
+                      "height": 8,
+                      "layout": "vertical",
+                      "gap": 0,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#CBD5E1"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "children": []
+                    },
+                    {
+                      "type": "text",
+                      "id": "n95",
+                      "name": "Nav Dashboard Text",
+                      "width": "fill_container",
+                      "height": 20,
+                      "content": "Dashboard",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 700,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#475569"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n99",
+                  "name": "Nav Business settings",
+                  "width": "fill_container",
+                  "height": 44,
+                  "layout": "horizontal",
+                  "gap": 10,
+                  "padding": [
+                    0,
+                    14
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n97",
+                      "name": "Nav Business settings Dot",
+                      "width": 8,
+                      "height": 8,
+                      "layout": "vertical",
+                      "gap": 0,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#CBD5E1"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "children": []
+                    },
+                    {
+                      "type": "text",
+                      "id": "n98",
+                      "name": "Nav Business settings Text",
+                      "width": "fill_container",
+                      "height": 20,
+                      "content": "Business settings",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 700,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#475569"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n102",
+                  "name": "Nav Services",
+                  "width": "fill_container",
+                  "height": 44,
+                  "layout": "horizontal",
+                  "gap": 10,
+                  "padding": [
+                    0,
+                    14
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n100",
+                      "name": "Nav Services Dot",
+                      "width": 8,
+                      "height": 8,
+                      "layout": "vertical",
+                      "gap": 0,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#CBD5E1"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "children": []
+                    },
+                    {
+                      "type": "text",
+                      "id": "n101",
+                      "name": "Nav Services Text",
+                      "width": "fill_container",
+                      "height": 20,
+                      "content": "Services",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 700,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#475569"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n105",
+                  "name": "Nav Staff members",
+                  "width": "fill_container",
+                  "height": 44,
+                  "layout": "horizontal",
+                  "gap": 10,
+                  "padding": [
+                    0,
+                    14
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n103",
+                      "name": "Nav Staff members Dot",
+                      "width": 8,
+                      "height": 8,
+                      "layout": "vertical",
+                      "gap": 0,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#CBD5E1"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "children": []
+                    },
+                    {
+                      "type": "text",
+                      "id": "n104",
+                      "name": "Nav Staff members Text",
+                      "width": "fill_container",
+                      "height": 20,
+                      "content": "Staff members",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 700,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#475569"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n108",
+                  "name": "Nav Availability",
+                  "width": "fill_container",
+                  "height": 44,
+                  "layout": "horizontal",
+                  "gap": 10,
+                  "padding": [
+                    0,
+                    14
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ],
+                  "cornerRadius": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n106",
+                      "name": "Nav Availability Dot",
+                      "width": 8,
+                      "height": 8,
+                      "layout": "vertical",
+                      "gap": 0,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "children": []
+                    },
+                    {
+                      "type": "text",
+                      "id": "n107",
+                      "name": "Nav Availability Text",
+                      "width": "fill_container",
+                      "height": 20,
+                      "content": "Availability",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n110",
+              "name": "Sidebar Spacer",
+              "width": "fill_container",
+              "height": 250,
+              "layout": "vertical",
+              "gap": 0,
+              "padding": 0,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "children": []
+            },
+            {
+              "type": "frame",
+              "id": "n114",
+              "name": "Admin Account",
+              "width": "fill_container",
+              "height": 92,
+              "layout": "vertical",
+              "gap": 6,
+              "padding": 16,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#111827"
+                }
+              ],
+              "cornerRadius": 24,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n111",
+                  "name": "Admin Name",
+                  "width": "fill_container",
+                  "height": 20,
+                  "content": "Marta Ruiz",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": 850,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n112",
+                  "name": "Admin Email",
+                  "width": "fill_container",
+                  "height": 16,
+                  "content": "admin@studio.com",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": 600,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#CBD5E1"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n113",
+                  "name": "Admin Logout",
+                  "width": "fill_container",
+                  "height": 16,
+                  "content": "Cerrar sesion",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": 900,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#A5B4FC"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "n124",
+          "name": "Availability Main",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [
+            28,
+            34
+          ],
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#F8FAFC"
+            }
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "n123",
+              "name": "Admin Topbar",
+              "width": "fill_container",
+              "height": 72,
+              "layout": "horizontal",
+              "gap": 12,
+              "padding": 0,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#F8FAFC"
+                }
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "n118",
+                  "name": "Topbar Copy",
+                  "width": "fill_container",
+                  "height": 58,
+                  "layout": "vertical",
+                  "gap": 4,
+                  "padding": 0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#F8FAFC"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n116",
+                      "name": "Topbar Eyebrow",
+                      "width": "fill_container",
+                      "height": 18,
+                      "content": "Horarios por staff member",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": 900,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#4F46E5"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n117",
+                      "name": "Topbar Title",
+                      "width": "fill_container",
+                      "height": 36,
+                      "content": "Availability",
+                      "fontFamily": "Inter",
+                      "fontSize": 30,
+                      "fontWeight": 900,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n120",
+                  "name": "Topbar Secondary",
+                  "width": 170,
+                  "height": 44,
+                  "layout": "horizontal",
+                  "gap": 0,
+                  "padding": [
+                    0,
+                    18
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 999,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n119",
+                      "name": "Topbar Secondary Text",
+                      "width": "fill_container",
+                      "height": 18,
+                      "content": "Ver perfil publico",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n122",
+                  "name": "Topbar Primary",
+                  "width": 164,
+                  "height": 44,
+                  "layout": "horizontal",
+                  "gap": 0,
+                  "padding": [
+                    0,
+                    18
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ],
+                  "cornerRadius": 999,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n121",
+                      "name": "Topbar Primary Text",
+                      "width": "fill_container",
+                      "height": 18,
+                      "content": "Crear bloque",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n69",
+              "name": "Availability Body",
+              "width": "fill_container",
+              "height": 1030,
+              "layout": "horizontal",
+              "gap": 22,
+              "padding": 0,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#F8FAFC"
+                }
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "n46",
+                  "name": "Weekly Availability",
+                  "width": "fill_container",
+                  "height": 600,
+                  "layout": "vertical",
+                  "gap": 14,
+                  "padding": 22,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 30,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E7EB"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n4",
+                      "name": "Availability Header",
+                      "width": "fill_container",
+                      "height": 44,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n1",
+                          "name": "Availability Title",
+                          "width": "fill_container",
+                          "height": 22,
+                          "content": "Disponibilidad semanal",
+                          "fontFamily": "Inter",
+                          "fontSize": 24,
+                          "fontWeight": 900,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n3",
+                          "name": "Create Availability Block",
+                          "width": 132,
+                          "height": 44,
+                          "layout": "horizontal",
+                          "gap": 0,
+                          "padding": [
+                            0,
+                            18
+                          ],
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ],
+                          "cornerRadius": 999,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n2",
+                              "name": "Create Availability Block Text",
+                              "width": "fill_container",
+                              "height": 18,
+                              "content": "Crear bloque",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FFFFFF"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n13",
+                      "name": "Availability Monday",
+                      "width": "fill_container",
+                      "height": 82,
+                      "layout": "horizontal",
+                      "gap": 10,
+                      "padding": 14,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 22,
+                      "alignItems": "center",
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n5",
+                          "name": "Monday Label",
+                          "width": 110,
+                          "height": 22,
+                          "content": "Monday",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n10",
+                          "name": "Monday Blocks",
+                          "width": "fill_container",
+                          "height": 54,
+                          "layout": "horizontal",
+                          "gap": 8,
+                          "padding": 0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "n7",
+                              "name": "Monday Block 0",
+                              "width": 112,
+                              "height": 32,
+                              "layout": "horizontal",
+                              "gap": 0,
+                              "padding": [
+                                0,
+                                12
+                              ],
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#EEF2FF"
+                                }
+                              ],
+                              "cornerRadius": 999,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n6",
+                                  "name": "Monday Block 0 Text",
+                                  "width": "fill_container",
+                                  "height": 16,
+                                  "content": "09:00-13:00",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 12,
+                                  "fontWeight": 850,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#4F46E5"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n9",
+                              "name": "Monday Block 1",
+                              "width": 112,
+                              "height": 32,
+                              "layout": "horizontal",
+                              "gap": 0,
+                              "padding": [
+                                0,
+                                12
+                              ],
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#EEF2FF"
+                                }
+                              ],
+                              "cornerRadius": 999,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n8",
+                                  "name": "Monday Block 1 Text",
+                                  "width": "fill_container",
+                                  "height": 16,
+                                  "content": "15:00-19:00",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 12,
+                                  "fontWeight": 850,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#4F46E5"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n12",
+                          "name": "Monday Edit",
+                          "width": 82,
+                          "height": 44,
+                          "layout": "horizontal",
+                          "gap": 0,
+                          "padding": [
+                            0,
+                            18
+                          ],
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ],
+                          "cornerRadius": 999,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n11",
+                              "name": "Monday Edit Text",
+                              "width": "fill_container",
+                              "height": 18,
+                              "content": "Editar",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#111827"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n22",
+                      "name": "Availability Tuesday",
+                      "width": "fill_container",
+                      "height": 82,
+                      "layout": "horizontal",
+                      "gap": 10,
+                      "padding": 14,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 22,
+                      "alignItems": "center",
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n14",
+                          "name": "Tuesday Label",
+                          "width": 110,
+                          "height": 22,
+                          "content": "Tuesday",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n19",
+                          "name": "Tuesday Blocks",
+                          "width": "fill_container",
+                          "height": 54,
+                          "layout": "horizontal",
+                          "gap": 8,
+                          "padding": 0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "n16",
+                              "name": "Tuesday Block 0",
+                              "width": 112,
+                              "height": 32,
+                              "layout": "horizontal",
+                              "gap": 0,
+                              "padding": [
+                                0,
+                                12
+                              ],
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#EEF2FF"
+                                }
+                              ],
+                              "cornerRadius": 999,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n15",
+                                  "name": "Tuesday Block 0 Text",
+                                  "width": "fill_container",
+                                  "height": 16,
+                                  "content": "09:00-13:00",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 12,
+                                  "fontWeight": 850,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#4F46E5"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n18",
+                              "name": "Tuesday Block 1",
+                              "width": 112,
+                              "height": 32,
+                              "layout": "horizontal",
+                              "gap": 0,
+                              "padding": [
+                                0,
+                                12
+                              ],
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#EEF2FF"
+                                }
+                              ],
+                              "cornerRadius": 999,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n17",
+                                  "name": "Tuesday Block 1 Text",
+                                  "width": "fill_container",
+                                  "height": 16,
+                                  "content": "15:00-19:00",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 12,
+                                  "fontWeight": 850,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#4F46E5"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n21",
+                          "name": "Tuesday Edit",
+                          "width": 82,
+                          "height": 44,
+                          "layout": "horizontal",
+                          "gap": 0,
+                          "padding": [
+                            0,
+                            18
+                          ],
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ],
+                          "cornerRadius": 999,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n20",
+                              "name": "Tuesday Edit Text",
+                              "width": "fill_container",
+                              "height": 18,
+                              "content": "Editar",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#111827"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n31",
+                      "name": "Availability Wednesday",
+                      "width": "fill_container",
+                      "height": 82,
+                      "layout": "horizontal",
+                      "gap": 10,
+                      "padding": 14,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFBEB"
+                        }
+                      ],
+                      "cornerRadius": 22,
+                      "alignItems": "center",
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#FDE68A"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n23",
+                          "name": "Wednesday Label",
+                          "width": 110,
+                          "height": 22,
+                          "content": "Wednesday",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n28",
+                          "name": "Wednesday Blocks",
+                          "width": "fill_container",
+                          "height": 54,
+                          "layout": "horizontal",
+                          "gap": 8,
+                          "padding": 0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "n25",
+                              "name": "Wednesday Block 0",
+                              "width": 112,
+                              "height": 32,
+                              "layout": "horizontal",
+                              "gap": 0,
+                              "padding": [
+                                0,
+                                12
+                              ],
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FEF2F2"
+                                }
+                              ],
+                              "cornerRadius": 999,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n24",
+                                  "name": "Wednesday Block 0 Text",
+                                  "width": "fill_container",
+                                  "height": 16,
+                                  "content": "09:00-12:00",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 12,
+                                  "fontWeight": 850,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#DC2626"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n27",
+                              "name": "Wednesday Block 1",
+                              "width": 112,
+                              "height": 32,
+                              "layout": "horizontal",
+                              "gap": 0,
+                              "padding": [
+                                0,
+                                12
+                              ],
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FEF2F2"
+                                }
+                              ],
+                              "cornerRadius": 999,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n26",
+                                  "name": "Wednesday Block 1 Text",
+                                  "width": "fill_container",
+                                  "height": 16,
+                                  "content": "11:30-14:00",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 12,
+                                  "fontWeight": 850,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#DC2626"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n30",
+                          "name": "Wednesday Edit",
+                          "width": 82,
+                          "height": 44,
+                          "layout": "horizontal",
+                          "gap": 0,
+                          "padding": [
+                            0,
+                            18
+                          ],
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ],
+                          "cornerRadius": 999,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n29",
+                              "name": "Wednesday Edit Text",
+                              "width": "fill_container",
+                              "height": 18,
+                              "content": "Editar",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#111827"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n38",
+                      "name": "Availability Thursday",
+                      "width": "fill_container",
+                      "height": 82,
+                      "layout": "horizontal",
+                      "gap": 10,
+                      "padding": 14,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 22,
+                      "alignItems": "center",
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n32",
+                          "name": "Thursday Label",
+                          "width": 110,
+                          "height": 22,
+                          "content": "Thursday",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n35",
+                          "name": "Thursday Blocks",
+                          "width": "fill_container",
+                          "height": 54,
+                          "layout": "horizontal",
+                          "gap": 8,
+                          "padding": 0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "n34",
+                              "name": "Thursday Block 0",
+                              "width": 112,
+                              "height": 32,
+                              "layout": "horizontal",
+                              "gap": 0,
+                              "padding": [
+                                0,
+                                12
+                              ],
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#EEF2FF"
+                                }
+                              ],
+                              "cornerRadius": 999,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n33",
+                                  "name": "Thursday Block 0 Text",
+                                  "width": "fill_container",
+                                  "height": 16,
+                                  "content": "09:00-13:00",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 12,
+                                  "fontWeight": 850,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#4F46E5"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n37",
+                          "name": "Thursday Edit",
+                          "width": 82,
+                          "height": 44,
+                          "layout": "horizontal",
+                          "gap": 0,
+                          "padding": [
+                            0,
+                            18
+                          ],
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ],
+                          "cornerRadius": 999,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n36",
+                              "name": "Thursday Edit Text",
+                              "width": "fill_container",
+                              "height": 18,
+                              "content": "Editar",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#111827"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n45",
+                      "name": "Availability Friday",
+                      "width": "fill_container",
+                      "height": 82,
+                      "layout": "horizontal",
+                      "gap": 10,
+                      "padding": 14,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 22,
+                      "alignItems": "center",
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n39",
+                          "name": "Friday Label",
+                          "width": 110,
+                          "height": 22,
+                          "content": "Friday",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n42",
+                          "name": "Friday Blocks",
+                          "width": "fill_container",
+                          "height": 54,
+                          "layout": "horizontal",
+                          "gap": 8,
+                          "padding": 0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "n41",
+                              "name": "Friday Block 0",
+                              "width": 112,
+                              "height": 32,
+                              "layout": "horizontal",
+                              "gap": 0,
+                              "padding": [
+                                0,
+                                12
+                              ],
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#EEF2FF"
+                                }
+                              ],
+                              "cornerRadius": 999,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n40",
+                                  "name": "Friday Block 0 Text",
+                                  "width": "fill_container",
+                                  "height": 16,
+                                  "content": "10:00-14:00",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 12,
+                                  "fontWeight": 850,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#4F46E5"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n44",
+                          "name": "Friday Edit",
+                          "width": 82,
+                          "height": 44,
+                          "layout": "horizontal",
+                          "gap": 0,
+                          "padding": [
+                            0,
+                            18
+                          ],
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ],
+                          "cornerRadius": 999,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n43",
+                              "name": "Friday Edit Text",
+                              "width": "fill_container",
+                              "height": 18,
+                              "content": "Editar",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#111827"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n68",
+                  "name": "Availability Side",
+                  "width": 392,
+                  "height": "fill_container",
+                  "layout": "vertical",
+                  "gap": 18,
+                  "padding": 0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#F8FAFC"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n54",
+                      "name": "Staff Selector",
+                      "width": "fill_container",
+                      "height": 244,
+                      "layout": "vertical",
+                      "gap": 14,
+                      "padding": 22,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 30,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n47",
+                          "name": "Staff Selector Title",
+                          "width": "fill_container",
+                          "height": 22,
+                          "content": "Staff member",
+                          "fontFamily": "Inter",
+                          "fontSize": 22,
+                          "fontWeight": 900,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n50",
+                          "name": "Field Selected staff",
+                          "width": "fill_container",
+                          "height": 76,
+                          "layout": "vertical",
+                          "gap": 6,
+                          "padding": 14,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ],
+                          "cornerRadius": 18,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#E5E7EB"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n48",
+                              "name": "Field Selected staff Label",
+                              "width": "fill_container",
+                              "height": 16,
+                              "content": "Selected staff",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 800,
+                              "lineHeight": 1.2,
+                              "textAlign": "left",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#64748B"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "n49",
+                              "name": "Field Selected staff Value",
+                              "width": "fill_container",
+                              "height": 22,
+                              "content": "Marta Ruiz",
+                              "fontFamily": "Inter",
+                              "fontSize": 15,
+                              "fontWeight": 750,
+                              "lineHeight": 1.2,
+                              "textAlign": "left",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#111827"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n51",
+                          "name": "Assigned Services",
+                          "width": "fill_container",
+                          "height": 38,
+                          "content": "Services asignados: Corte y styling, Color express",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": 650,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#64748B"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n53",
+                          "name": "Change Staff",
+                          "width": "fill_container",
+                          "height": 44,
+                          "layout": "horizontal",
+                          "gap": 0,
+                          "padding": [
+                            0,
+                            18
+                          ],
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#EEF2FF"
+                            }
+                          ],
+                          "cornerRadius": 999,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n52",
+                              "name": "Change Staff Text",
+                              "width": "fill_container",
+                              "height": 18,
+                              "content": "Cambiar staff",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#4F46E5"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n67",
+                      "name": "Availability Exceptions",
+                      "width": "fill_container",
+                      "height": 386,
+                      "layout": "vertical",
+                      "gap": 14,
+                      "padding": 22,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 30,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n55",
+                          "name": "Exceptions Title",
+                          "width": "fill_container",
+                          "height": 22,
+                          "content": "Excepciones",
+                          "fontFamily": "Inter",
+                          "fontSize": 22,
+                          "fontWeight": 900,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n58",
+                          "name": "Closed Exception",
+                          "width": "fill_container",
+                          "height": 70,
+                          "layout": "vertical",
+                          "gap": 4,
+                          "padding": 12,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#F8FAFC"
+                            }
+                          ],
+                          "cornerRadius": 18,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#E5E7EB"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n56",
+                              "name": "Closed Exception Title",
+                              "width": "fill_container",
+                              "height": 22,
+                              "content": "24 Jul · Cerrado",
+                              "fontFamily": "Inter",
+                              "fontSize": 15,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "left",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#111827"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "n57",
+                              "name": "Closed Exception Copy",
+                              "width": "fill_container",
+                              "height": 22,
+                              "content": "Elimina todos los slots del dia.",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 650,
+                              "lineHeight": 1.2,
+                              "textAlign": "left",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#64748B"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n61",
+                          "name": "Special Hours",
+                          "width": "fill_container",
+                          "height": 70,
+                          "layout": "vertical",
+                          "gap": 4,
+                          "padding": 12,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#F8FAFC"
+                            }
+                          ],
+                          "cornerRadius": 18,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#E5E7EB"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n59",
+                              "name": "Special Hours Title",
+                              "width": "fill_container",
+                              "height": 22,
+                              "content": "31 Jul · Horario especial",
+                              "fontFamily": "Inter",
+                              "fontSize": 15,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "left",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#111827"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "n60",
+                              "name": "Special Hours Copy",
+                              "width": "fill_container",
+                              "height": 22,
+                              "content": "10:00-13:00 reemplaza la disponibilidad semanal.",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 650,
+                              "lineHeight": 1.2,
+                              "textAlign": "left",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#64748B"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n64",
+                          "name": "Field Invalid range",
+                          "width": "fill_container",
+                          "height": 76,
+                          "layout": "vertical",
+                          "gap": 6,
+                          "padding": 14,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FEF2F2"
+                            }
+                          ],
+                          "cornerRadius": 18,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#FCA5A5"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n62",
+                              "name": "Field Invalid range Label",
+                              "width": "fill_container",
+                              "height": 16,
+                              "content": "Invalid range",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 800,
+                              "lineHeight": 1.2,
+                              "textAlign": "left",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#DC2626"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "n63",
+                              "name": "Field Invalid range Value",
+                              "width": "fill_container",
+                              "height": 22,
+                              "content": "End time must be after start time",
+                              "fontFamily": "Inter",
+                              "fontSize": 15,
+                              "fontWeight": 750,
+                              "lineHeight": 1.2,
+                              "textAlign": "left",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#111827"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n66",
+                          "name": "Create Exception",
+                          "width": "fill_container",
+                          "height": 44,
+                          "layout": "horizontal",
+                          "gap": 0,
+                          "padding": [
+                            0,
+                            18
+                          ],
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ],
+                          "cornerRadius": 999,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n65",
+                              "name": "Create Exception Text",
+                              "width": "fill_container",
+                              "height": 18,
+                              "content": "Crear excepcion",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FFFFFF"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "n141",
+      "name": "Availability Mobile",
+      "width": 390,
+      "height": 1570,
+      "layout": "vertical",
+      "gap": 0,
+      "padding": 0,
+      "fill": [
+        {
+          "type": "solid",
+          "color": "#F8FAFC"
+        }
+      ],
+      "x": 1500,
+      "y": 0,
+      "children": [
+        {
+          "type": "frame",
+          "id": "n139",
+          "name": "Mobile Admin Header",
+          "width": "fill_container",
+          "height": 154,
+          "layout": "vertical",
+          "gap": 10,
+          "padding": [
+            20,
+            18
+          ],
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#FFFFFF"
+            }
+          ],
+          "stroke": {
+            "thickness": {
+              "bottom": 1
+            },
+            "fill": [
+              {
+                "type": "solid",
+                "color": "#E5E7EB"
+              }
+            ]
+          },
+          "children": [
+            {
+              "type": "frame",
+              "id": "n129",
+              "name": "Mobile Header Row",
+              "width": "fill_container",
+              "height": 34,
+              "layout": "horizontal",
+              "gap": 0,
+              "padding": 0,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n126",
+                  "name": "Mobile Logo",
+                  "width": 220,
+                  "height": 28,
+                  "content": "Calendar Manager",
+                  "fontFamily": "Inter",
+                  "fontSize": 20,
+                  "fontWeight": 900,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n128",
+                  "name": "Mobile Admin",
+                  "width": 76,
+                  "height": 32,
+                  "layout": "horizontal",
+                  "gap": 0,
+                  "padding": [
+                    0,
+                    12
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#EEF2FF"
+                    }
+                  ],
+                  "cornerRadius": 999,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n127",
+                      "name": "Mobile Admin Text",
+                      "width": "fill_container",
+                      "height": 16,
+                      "content": "Admin",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#4F46E5"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "n130",
+              "name": "Mobile Screen Title",
+              "width": "fill_container",
+              "height": 32,
+              "content": "Availability",
+              "fontFamily": "Inter",
+              "fontSize": 25,
+              "fontWeight": 900,
+              "lineHeight": 1.2,
+              "textAlign": "left",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#111827"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "n131",
+              "name": "Mobile Business",
+              "width": "fill_container",
+              "height": 18,
+              "content": "Studio Centro · un business por admin",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": 650,
+              "lineHeight": 1.2,
+              "textAlign": "left",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#64748B"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n138",
+              "name": "Mobile Nav",
+              "width": "fill_container",
+              "height": 38,
+              "layout": "horizontal",
+              "gap": 8,
+              "padding": 0,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "n133",
+                  "name": "Mobile Nav Dashboard",
+                  "width": 104,
+                  "height": 32,
+                  "layout": "horizontal",
+                  "gap": 0,
+                  "padding": [
+                    0,
+                    12
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#F8FAFC"
+                    }
+                  ],
+                  "cornerRadius": 999,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n132",
+                      "name": "Mobile Nav Dashboard Text",
+                      "width": "fill_container",
+                      "height": 16,
+                      "content": "Dashboard",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#475569"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n135",
+                  "name": "Mobile Nav Settings",
+                  "width": 92,
+                  "height": 32,
+                  "layout": "horizontal",
+                  "gap": 0,
+                  "padding": [
+                    0,
+                    12
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#F8FAFC"
+                    }
+                  ],
+                  "cornerRadius": 999,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n134",
+                      "name": "Mobile Nav Settings Text",
+                      "width": "fill_container",
+                      "height": 16,
+                      "content": "Settings",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#475569"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n137",
+                  "name": "Mobile Nav Services",
+                  "width": 88,
+                  "height": 32,
+                  "layout": "horizontal",
+                  "gap": 0,
+                  "padding": [
+                    0,
+                    12
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#F8FAFC"
+                    }
+                  ],
+                  "cornerRadius": 999,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n136",
+                      "name": "Mobile Nav Services Text",
+                      "width": "fill_container",
+                      "height": 16,
+                      "content": "Services",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#475569"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "n140",
+          "name": "Availability Mobile Content",
+          "width": "fill_container",
+          "height": 1416,
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            20,
+            18
+          ],
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#F8FAFC"
+            }
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "n75",
+              "name": "Mobile Staff Selector",
+              "width": "fill_container",
+              "height": 244,
+              "layout": "vertical",
+              "gap": 14,
+              "padding": 22,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "cornerRadius": 30,
+              "stroke": {
+                "thickness": 1,
+                "fill": [
+                  {
+                    "type": "solid",
+                    "color": "#E5E7EB"
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n70",
+                  "name": "Mobile Staff Selector Title",
+                  "width": "fill_container",
+                  "height": 22,
+                  "content": "Staff member",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": 900,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n73",
+                  "name": "Field Selected staff",
+                  "width": "fill_container",
+                  "height": 76,
+                  "layout": "vertical",
+                  "gap": 6,
+                  "padding": 14,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 18,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E7EB"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n71",
+                      "name": "Field Selected staff Label",
+                      "width": "fill_container",
+                      "height": 16,
+                      "content": "Selected staff",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#64748B"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n72",
+                      "name": "Field Selected staff Value",
+                      "width": "fill_container",
+                      "height": 22,
+                      "content": "Marta Ruiz",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": 750,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n74",
+                  "name": "Mobile Staff Services",
+                  "width": "fill_container",
+                  "height": 34,
+                  "content": "Corte y styling, Color express",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": 650,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#64748B"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n46",
+              "name": "Weekly Availability",
+              "width": "fill_container",
+              "height": 600,
+              "layout": "vertical",
+              "gap": 14,
+              "padding": 22,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "cornerRadius": 30,
+              "stroke": {
+                "thickness": 1,
+                "fill": [
+                  {
+                    "type": "solid",
+                    "color": "#E5E7EB"
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "n4",
+                  "name": "Availability Header",
+                  "width": "fill_container",
+                  "height": 44,
+                  "layout": "horizontal",
+                  "gap": 0,
+                  "padding": 0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n1",
+                      "name": "Availability Title",
+                      "width": "fill_container",
+                      "height": 22,
+                      "content": "Disponibilidad semanal",
+                      "fontFamily": "Inter",
+                      "fontSize": 24,
+                      "fontWeight": 900,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n3",
+                      "name": "Create Availability Block",
+                      "width": 132,
+                      "height": 44,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": [
+                        0,
+                        18
+                      ],
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n2",
+                          "name": "Create Availability Block Text",
+                          "width": "fill_container",
+                          "height": 18,
+                          "content": "Crear bloque",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n13",
+                  "name": "Availability Monday",
+                  "width": "fill_container",
+                  "height": 82,
+                  "layout": "horizontal",
+                  "gap": 10,
+                  "padding": 14,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 22,
+                  "alignItems": "center",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E7EB"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n5",
+                      "name": "Monday Label",
+                      "width": 110,
+                      "height": 22,
+                      "content": "Monday",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n10",
+                      "name": "Monday Blocks",
+                      "width": "fill_container",
+                      "height": 54,
+                      "layout": "horizontal",
+                      "gap": 8,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "n7",
+                          "name": "Monday Block 0",
+                          "width": 112,
+                          "height": 32,
+                          "layout": "horizontal",
+                          "gap": 0,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#EEF2FF"
+                            }
+                          ],
+                          "cornerRadius": 999,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n6",
+                              "name": "Monday Block 0 Text",
+                              "width": "fill_container",
+                              "height": 16,
+                              "content": "09:00-13:00",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#4F46E5"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n9",
+                          "name": "Monday Block 1",
+                          "width": 112,
+                          "height": 32,
+                          "layout": "horizontal",
+                          "gap": 0,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#EEF2FF"
+                            }
+                          ],
+                          "cornerRadius": 999,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n8",
+                              "name": "Monday Block 1 Text",
+                              "width": "fill_container",
+                              "height": 16,
+                              "content": "15:00-19:00",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#4F46E5"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n12",
+                      "name": "Monday Edit",
+                      "width": 82,
+                      "height": 44,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": [
+                        0,
+                        18
+                      ],
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n11",
+                          "name": "Monday Edit Text",
+                          "width": "fill_container",
+                          "height": 18,
+                          "content": "Editar",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n22",
+                  "name": "Availability Tuesday",
+                  "width": "fill_container",
+                  "height": 82,
+                  "layout": "horizontal",
+                  "gap": 10,
+                  "padding": 14,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 22,
+                  "alignItems": "center",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E7EB"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n14",
+                      "name": "Tuesday Label",
+                      "width": 110,
+                      "height": 22,
+                      "content": "Tuesday",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n19",
+                      "name": "Tuesday Blocks",
+                      "width": "fill_container",
+                      "height": 54,
+                      "layout": "horizontal",
+                      "gap": 8,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "n16",
+                          "name": "Tuesday Block 0",
+                          "width": 112,
+                          "height": 32,
+                          "layout": "horizontal",
+                          "gap": 0,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#EEF2FF"
+                            }
+                          ],
+                          "cornerRadius": 999,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n15",
+                              "name": "Tuesday Block 0 Text",
+                              "width": "fill_container",
+                              "height": 16,
+                              "content": "09:00-13:00",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#4F46E5"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n18",
+                          "name": "Tuesday Block 1",
+                          "width": 112,
+                          "height": 32,
+                          "layout": "horizontal",
+                          "gap": 0,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#EEF2FF"
+                            }
+                          ],
+                          "cornerRadius": 999,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n17",
+                              "name": "Tuesday Block 1 Text",
+                              "width": "fill_container",
+                              "height": 16,
+                              "content": "15:00-19:00",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#4F46E5"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n21",
+                      "name": "Tuesday Edit",
+                      "width": 82,
+                      "height": 44,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": [
+                        0,
+                        18
+                      ],
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n20",
+                          "name": "Tuesday Edit Text",
+                          "width": "fill_container",
+                          "height": 18,
+                          "content": "Editar",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n31",
+                  "name": "Availability Wednesday",
+                  "width": "fill_container",
+                  "height": 82,
+                  "layout": "horizontal",
+                  "gap": 10,
+                  "padding": 14,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFBEB"
+                    }
+                  ],
+                  "cornerRadius": 22,
+                  "alignItems": "center",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#FDE68A"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n23",
+                      "name": "Wednesday Label",
+                      "width": 110,
+                      "height": 22,
+                      "content": "Wednesday",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n28",
+                      "name": "Wednesday Blocks",
+                      "width": "fill_container",
+                      "height": 54,
+                      "layout": "horizontal",
+                      "gap": 8,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "n25",
+                          "name": "Wednesday Block 0",
+                          "width": 112,
+                          "height": 32,
+                          "layout": "horizontal",
+                          "gap": 0,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FEF2F2"
+                            }
+                          ],
+                          "cornerRadius": 999,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n24",
+                              "name": "Wednesday Block 0 Text",
+                              "width": "fill_container",
+                              "height": 16,
+                              "content": "09:00-12:00",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#DC2626"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n27",
+                          "name": "Wednesday Block 1",
+                          "width": 112,
+                          "height": 32,
+                          "layout": "horizontal",
+                          "gap": 0,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FEF2F2"
+                            }
+                          ],
+                          "cornerRadius": 999,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n26",
+                              "name": "Wednesday Block 1 Text",
+                              "width": "fill_container",
+                              "height": 16,
+                              "content": "11:30-14:00",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#DC2626"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n30",
+                      "name": "Wednesday Edit",
+                      "width": 82,
+                      "height": 44,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": [
+                        0,
+                        18
+                      ],
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n29",
+                          "name": "Wednesday Edit Text",
+                          "width": "fill_container",
+                          "height": 18,
+                          "content": "Editar",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n38",
+                  "name": "Availability Thursday",
+                  "width": "fill_container",
+                  "height": 82,
+                  "layout": "horizontal",
+                  "gap": 10,
+                  "padding": 14,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 22,
+                  "alignItems": "center",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E7EB"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n32",
+                      "name": "Thursday Label",
+                      "width": 110,
+                      "height": 22,
+                      "content": "Thursday",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n35",
+                      "name": "Thursday Blocks",
+                      "width": "fill_container",
+                      "height": 54,
+                      "layout": "horizontal",
+                      "gap": 8,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "n34",
+                          "name": "Thursday Block 0",
+                          "width": 112,
+                          "height": 32,
+                          "layout": "horizontal",
+                          "gap": 0,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#EEF2FF"
+                            }
+                          ],
+                          "cornerRadius": 999,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n33",
+                              "name": "Thursday Block 0 Text",
+                              "width": "fill_container",
+                              "height": 16,
+                              "content": "09:00-13:00",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#4F46E5"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n37",
+                      "name": "Thursday Edit",
+                      "width": 82,
+                      "height": 44,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": [
+                        0,
+                        18
+                      ],
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n36",
+                          "name": "Thursday Edit Text",
+                          "width": "fill_container",
+                          "height": 18,
+                          "content": "Editar",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n45",
+                  "name": "Availability Friday",
+                  "width": "fill_container",
+                  "height": 82,
+                  "layout": "horizontal",
+                  "gap": 10,
+                  "padding": 14,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 22,
+                  "alignItems": "center",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E7EB"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n39",
+                      "name": "Friday Label",
+                      "width": 110,
+                      "height": 22,
+                      "content": "Friday",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n42",
+                      "name": "Friday Blocks",
+                      "width": "fill_container",
+                      "height": 54,
+                      "layout": "horizontal",
+                      "gap": 8,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "n41",
+                          "name": "Friday Block 0",
+                          "width": 112,
+                          "height": 32,
+                          "layout": "horizontal",
+                          "gap": 0,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#EEF2FF"
+                            }
+                          ],
+                          "cornerRadius": 999,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n40",
+                              "name": "Friday Block 0 Text",
+                              "width": "fill_container",
+                              "height": 16,
+                              "content": "10:00-14:00",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#4F46E5"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n44",
+                      "name": "Friday Edit",
+                      "width": 82,
+                      "height": 44,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": [
+                        0,
+                        18
+                      ],
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n43",
+                          "name": "Friday Edit Text",
+                          "width": "fill_container",
+                          "height": 18,
+                          "content": "Editar",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n88",
+              "name": "Mobile Exceptions",
+              "width": "fill_container",
+              "height": 340,
+              "layout": "vertical",
+              "gap": 14,
+              "padding": 22,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "cornerRadius": 30,
+              "stroke": {
+                "thickness": 1,
+                "fill": [
+                  {
+                    "type": "solid",
+                    "color": "#E5E7EB"
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n76",
+                  "name": "Mobile Exceptions Title",
+                  "width": "fill_container",
+                  "height": 22,
+                  "content": "Excepciones",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": 900,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n79",
+                  "name": "Field Closed date",
+                  "width": "fill_container",
+                  "height": 76,
+                  "layout": "vertical",
+                  "gap": 6,
+                  "padding": 14,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 18,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E7EB"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n77",
+                      "name": "Field Closed date Label",
+                      "width": "fill_container",
+                      "height": 16,
+                      "content": "Closed date",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#64748B"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n78",
+                      "name": "Field Closed date Value",
+                      "width": "fill_container",
+                      "height": 22,
+                      "content": "24 Jul · Cerrado",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": 750,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n82",
+                  "name": "Field Special hours",
+                  "width": "fill_container",
+                  "height": 76,
+                  "layout": "vertical",
+                  "gap": 6,
+                  "padding": 14,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 18,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E7EB"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n80",
+                      "name": "Field Special hours Label",
+                      "width": "fill_container",
+                      "height": 16,
+                      "content": "Special hours",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#64748B"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n81",
+                      "name": "Field Special hours Value",
+                      "width": "fill_container",
+                      "height": 22,
+                      "content": "31 Jul · 10:00-13:00",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": 750,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n85",
+                  "name": "Field Overlap validation",
+                  "width": "fill_container",
+                  "height": 76,
+                  "layout": "vertical",
+                  "gap": 6,
+                  "padding": 14,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FEF2F2"
+                    }
+                  ],
+                  "cornerRadius": 18,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#FCA5A5"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n83",
+                      "name": "Field Overlap validation Label",
+                      "width": "fill_container",
+                      "height": 16,
+                      "content": "Overlap validation",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#DC2626"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n84",
+                      "name": "Field Overlap validation Value",
+                      "width": "fill_container",
+                      "height": 22,
+                      "content": "Solape detectado",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": 750,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n87",
+                  "name": "Mobile Create Exception",
+                  "width": "fill_container",
+                  "height": 44,
+                  "layout": "horizontal",
+                  "gap": 0,
+                  "padding": [
+                    0,
+                    18
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ],
+                  "cornerRadius": 999,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n86",
+                      "name": "Mobile Create Exception Text",
+                      "width": "fill_container",
+                      "height": 18,
+                      "content": "Crear excepcion",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

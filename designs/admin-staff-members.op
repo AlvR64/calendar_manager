@@ -1,0 +1,4022 @@
+{
+  "version": "0.8.0",
+  "name": "admin-staff-members",
+  "children": [
+    {
+      "type": "frame",
+      "id": "n172",
+      "name": "Staff Members Desktop",
+      "width": 1440,
+      "height": 1240,
+      "layout": "horizontal",
+      "gap": 0,
+      "padding": 0,
+      "fill": [
+        {
+          "type": "solid",
+          "color": "#F8FAFC"
+        }
+      ],
+      "x": 0,
+      "y": 0,
+      "children": [
+        {
+          "type": "frame",
+          "id": "n162",
+          "name": "Admin Sidebar",
+          "width": 258,
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 18,
+          "padding": [
+            28,
+            22
+          ],
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#FFFFFF"
+            }
+          ],
+          "stroke": {
+            "thickness": {
+              "right": 1
+            },
+            "fill": [
+              {
+                "type": "solid",
+                "color": "#E5E7EB"
+              }
+            ]
+          },
+          "children": [
+            {
+              "type": "text",
+              "id": "n136",
+              "name": "Sidebar Logo",
+              "width": "fill_container",
+              "height": 30,
+              "content": "Calendar Manager",
+              "fontFamily": "Inter",
+              "fontSize": 21,
+              "fontWeight": 900,
+              "lineHeight": 1.2,
+              "textAlign": "left",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#111827"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n140",
+              "name": "Current Business Card",
+              "width": "fill_container",
+              "height": 88,
+              "layout": "vertical",
+              "gap": 6,
+              "padding": 16,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#F8FAFC"
+                }
+              ],
+              "cornerRadius": 22,
+              "stroke": {
+                "thickness": 1,
+                "fill": [
+                  {
+                    "type": "solid",
+                    "color": "#E5E7EB"
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n137",
+                  "name": "Current Business Label",
+                  "width": "fill_container",
+                  "height": 16,
+                  "content": "Business actual",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": 800,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#64748B"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n138",
+                  "name": "Current Business Name",
+                  "width": "fill_container",
+                  "height": 24,
+                  "content": "Studio Centro",
+                  "fontFamily": "Inter",
+                  "fontSize": 18,
+                  "fontWeight": 900,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n139",
+                  "name": "Current Business Hint",
+                  "width": "fill_container",
+                  "height": 14,
+                  "content": "Un admin gestiona un solo business",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": 600,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#64748B"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n156",
+              "name": "Admin Navigation",
+              "width": "fill_container",
+              "height": 266,
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 0,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "n143",
+                  "name": "Nav Dashboard",
+                  "width": "fill_container",
+                  "height": 44,
+                  "layout": "horizontal",
+                  "gap": 10,
+                  "padding": [
+                    0,
+                    14
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n141",
+                      "name": "Nav Dashboard Dot",
+                      "width": 8,
+                      "height": 8,
+                      "layout": "vertical",
+                      "gap": 0,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#CBD5E1"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "children": []
+                    },
+                    {
+                      "type": "text",
+                      "id": "n142",
+                      "name": "Nav Dashboard Text",
+                      "width": "fill_container",
+                      "height": 20,
+                      "content": "Dashboard",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 700,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#475569"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n146",
+                  "name": "Nav Business settings",
+                  "width": "fill_container",
+                  "height": 44,
+                  "layout": "horizontal",
+                  "gap": 10,
+                  "padding": [
+                    0,
+                    14
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n144",
+                      "name": "Nav Business settings Dot",
+                      "width": 8,
+                      "height": 8,
+                      "layout": "vertical",
+                      "gap": 0,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#CBD5E1"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "children": []
+                    },
+                    {
+                      "type": "text",
+                      "id": "n145",
+                      "name": "Nav Business settings Text",
+                      "width": "fill_container",
+                      "height": 20,
+                      "content": "Business settings",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 700,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#475569"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n149",
+                  "name": "Nav Services",
+                  "width": "fill_container",
+                  "height": 44,
+                  "layout": "horizontal",
+                  "gap": 10,
+                  "padding": [
+                    0,
+                    14
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n147",
+                      "name": "Nav Services Dot",
+                      "width": 8,
+                      "height": 8,
+                      "layout": "vertical",
+                      "gap": 0,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#CBD5E1"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "children": []
+                    },
+                    {
+                      "type": "text",
+                      "id": "n148",
+                      "name": "Nav Services Text",
+                      "width": "fill_container",
+                      "height": 20,
+                      "content": "Services",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 700,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#475569"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n152",
+                  "name": "Nav Staff members",
+                  "width": "fill_container",
+                  "height": 44,
+                  "layout": "horizontal",
+                  "gap": 10,
+                  "padding": [
+                    0,
+                    14
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n150",
+                      "name": "Nav Staff members Dot",
+                      "width": 8,
+                      "height": 8,
+                      "layout": "vertical",
+                      "gap": 0,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#CBD5E1"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "children": []
+                    },
+                    {
+                      "type": "text",
+                      "id": "n151",
+                      "name": "Nav Staff members Text",
+                      "width": "fill_container",
+                      "height": 20,
+                      "content": "Staff members",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 700,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#475569"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n155",
+                  "name": "Nav Availability",
+                  "width": "fill_container",
+                  "height": 44,
+                  "layout": "horizontal",
+                  "gap": 10,
+                  "padding": [
+                    0,
+                    14
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 16,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n153",
+                      "name": "Nav Availability Dot",
+                      "width": 8,
+                      "height": 8,
+                      "layout": "vertical",
+                      "gap": 0,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#CBD5E1"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "children": []
+                    },
+                    {
+                      "type": "text",
+                      "id": "n154",
+                      "name": "Nav Availability Text",
+                      "width": "fill_container",
+                      "height": 20,
+                      "content": "Availability",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 700,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#475569"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n157",
+              "name": "Sidebar Spacer",
+              "width": "fill_container",
+              "height": 250,
+              "layout": "vertical",
+              "gap": 0,
+              "padding": 0,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "children": []
+            },
+            {
+              "type": "frame",
+              "id": "n161",
+              "name": "Admin Account",
+              "width": "fill_container",
+              "height": 92,
+              "layout": "vertical",
+              "gap": 6,
+              "padding": 16,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#111827"
+                }
+              ],
+              "cornerRadius": 24,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n158",
+                  "name": "Admin Name",
+                  "width": "fill_container",
+                  "height": 20,
+                  "content": "Marta Ruiz",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": 850,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n159",
+                  "name": "Admin Email",
+                  "width": "fill_container",
+                  "height": 16,
+                  "content": "admin@studio.com",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": 600,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#CBD5E1"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n160",
+                  "name": "Admin Logout",
+                  "width": "fill_container",
+                  "height": 16,
+                  "content": "Cerrar sesion",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": 900,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#A5B4FC"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "n171",
+          "name": "Staff Members Main",
+          "width": "fill_container",
+          "height": "fill_container",
+          "layout": "vertical",
+          "gap": 24,
+          "padding": [
+            28,
+            34
+          ],
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#F8FAFC"
+            }
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "n170",
+              "name": "Admin Topbar",
+              "width": "fill_container",
+              "height": 72,
+              "layout": "horizontal",
+              "gap": 12,
+              "padding": 0,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#F8FAFC"
+                }
+              ],
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "n165",
+                  "name": "Topbar Copy",
+                  "width": "fill_container",
+                  "height": 58,
+                  "layout": "vertical",
+                  "gap": 4,
+                  "padding": 0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#F8FAFC"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n163",
+                      "name": "Topbar Eyebrow",
+                      "width": "fill_container",
+                      "height": 18,
+                      "content": "Personas y recursos",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": 900,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#4F46E5"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n164",
+                      "name": "Topbar Title",
+                      "width": "fill_container",
+                      "height": 36,
+                      "content": "Staff Members",
+                      "fontFamily": "Inter",
+                      "fontSize": 30,
+                      "fontWeight": 900,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n167",
+                  "name": "Topbar Secondary",
+                  "width": 170,
+                  "height": 44,
+                  "layout": "horizontal",
+                  "gap": 0,
+                  "padding": [
+                    0,
+                    18
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 999,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n166",
+                      "name": "Topbar Secondary Text",
+                      "width": "fill_container",
+                      "height": 18,
+                      "content": "Ver perfil publico",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n169",
+                  "name": "Topbar Primary",
+                  "width": 164,
+                  "height": 44,
+                  "layout": "horizontal",
+                  "gap": 0,
+                  "padding": [
+                    0,
+                    18
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ],
+                  "cornerRadius": 999,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n168",
+                      "name": "Topbar Primary Text",
+                      "width": "fill_container",
+                      "height": 18,
+                      "content": "Crear staff",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n73",
+              "name": "Staff Body",
+              "width": "fill_container",
+              "height": 1020,
+              "layout": "horizontal",
+              "gap": 22,
+              "padding": 0,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#F8FAFC"
+                }
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "n50",
+                  "name": "Staff Main Column",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "layout": "vertical",
+                  "gap": 18,
+                  "padding": 0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#F8FAFC"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n44",
+                      "name": "Staff Members List",
+                      "width": "fill_container",
+                      "height": 512,
+                      "layout": "vertical",
+                      "gap": 14,
+                      "padding": 22,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 30,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "n4",
+                          "name": "Staff List Header",
+                          "width": "fill_container",
+                          "height": 44,
+                          "layout": "horizontal",
+                          "gap": 0,
+                          "padding": 0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ],
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n1",
+                              "name": "Staff List Title",
+                              "width": "fill_container",
+                              "height": 22,
+                              "content": "Staff members",
+                              "fontFamily": "Inter",
+                              "fontSize": 24,
+                              "fontWeight": 900,
+                              "lineHeight": 1.2,
+                              "textAlign": "left",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#111827"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n3",
+                              "name": "Create Staff",
+                              "width": 132,
+                              "height": 44,
+                              "layout": "horizontal",
+                              "gap": 0,
+                              "padding": [
+                                0,
+                                18
+                              ],
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#111827"
+                                }
+                              ],
+                              "cornerRadius": 999,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n2",
+                                  "name": "Create Staff Text",
+                                  "width": "fill_container",
+                                  "height": 18,
+                                  "content": "Crear staff",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": 850,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#FFFFFF"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n16",
+                          "name": "Staff Row One",
+                          "width": "fill_container",
+                          "height": 82,
+                          "layout": "horizontal",
+                          "gap": 10,
+                          "padding": 14,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ],
+                          "cornerRadius": 22,
+                          "alignItems": "center",
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#E5E7EB"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "n6",
+                              "name": "Staff Row One Avatar",
+                              "width": 44,
+                              "height": 44,
+                              "layout": "vertical",
+                              "gap": 0,
+                              "padding": 0,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#111827"
+                                }
+                              ],
+                              "cornerRadius": 999,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n5",
+                                  "name": "Staff Row One Initials",
+                                  "width": "fill_container",
+                                  "height": 16,
+                                  "content": "MR",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 13,
+                                  "fontWeight": 900,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#FFFFFF"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n9",
+                              "name": "Staff Row One Copy",
+                              "width": "fill_container",
+                              "height": 54,
+                              "layout": "vertical",
+                              "gap": 4,
+                              "padding": 0,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FFFFFF"
+                                }
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n7",
+                                  "name": "Staff Row One Title",
+                                  "width": "fill_container",
+                                  "height": 22,
+                                  "content": "Marta Ruiz",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 16,
+                                  "fontWeight": 850,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "left",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#111827"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "n8",
+                                  "name": "Staff Row One Meta",
+                                  "width": "fill_container",
+                                  "height": 18,
+                                  "content": "marta.ruiz@studio.com · +34 600 123 456",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 12,
+                                  "fontWeight": 650,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "left",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#64748B"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n11",
+                              "name": "Staff Row One State",
+                              "width": 84,
+                              "height": 32,
+                              "layout": "horizontal",
+                              "gap": 0,
+                              "padding": [
+                                0,
+                                12
+                              ],
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#DCFCE7"
+                                }
+                              ],
+                              "cornerRadius": 999,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n10",
+                                  "name": "Staff Row One State Text",
+                                  "width": "fill_container",
+                                  "height": 16,
+                                  "content": "Active",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 12,
+                                  "fontWeight": 850,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#166534"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n13",
+                              "name": "Staff Row One Assign",
+                              "width": 146,
+                              "height": 44,
+                              "layout": "horizontal",
+                              "gap": 0,
+                              "padding": [
+                                0,
+                                18
+                              ],
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#EEF2FF"
+                                }
+                              ],
+                              "cornerRadius": 999,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n12",
+                                  "name": "Staff Row One Assign Text",
+                                  "width": "fill_container",
+                                  "height": 18,
+                                  "content": "Asignar services",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": 850,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#4F46E5"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n15",
+                              "name": "Staff Row One Edit",
+                              "width": 82,
+                              "height": 44,
+                              "layout": "horizontal",
+                              "gap": 0,
+                              "padding": [
+                                0,
+                                18
+                              ],
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FFFFFF"
+                                }
+                              ],
+                              "cornerRadius": 999,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n14",
+                                  "name": "Staff Row One Edit Text",
+                                  "width": "fill_container",
+                                  "height": 18,
+                                  "content": "Editar",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": 850,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#111827"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n28",
+                          "name": "Staff Row Two",
+                          "width": "fill_container",
+                          "height": 82,
+                          "layout": "horizontal",
+                          "gap": 10,
+                          "padding": 14,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ],
+                          "cornerRadius": 22,
+                          "alignItems": "center",
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#E5E7EB"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "n18",
+                              "name": "Staff Row Two Avatar",
+                              "width": 44,
+                              "height": 44,
+                              "layout": "vertical",
+                              "gap": 0,
+                              "padding": 0,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#111827"
+                                }
+                              ],
+                              "cornerRadius": 999,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n17",
+                                  "name": "Staff Row Two Initials",
+                                  "width": "fill_container",
+                                  "height": 16,
+                                  "content": "LP",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 13,
+                                  "fontWeight": 900,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#FFFFFF"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n21",
+                              "name": "Staff Row Two Copy",
+                              "width": "fill_container",
+                              "height": 54,
+                              "layout": "vertical",
+                              "gap": 4,
+                              "padding": 0,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FFFFFF"
+                                }
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n19",
+                                  "name": "Staff Row Two Title",
+                                  "width": "fill_container",
+                                  "height": 22,
+                                  "content": "Lucas Perez",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 16,
+                                  "fontWeight": 850,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "left",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#111827"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "n20",
+                                  "name": "Staff Row Two Meta",
+                                  "width": "fill_container",
+                                  "height": 18,
+                                  "content": "lucas.perez@studio.com · +34 600 123 456",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 12,
+                                  "fontWeight": 650,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "left",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#64748B"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n23",
+                              "name": "Staff Row Two State",
+                              "width": 84,
+                              "height": 32,
+                              "layout": "horizontal",
+                              "gap": 0,
+                              "padding": [
+                                0,
+                                12
+                              ],
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#DCFCE7"
+                                }
+                              ],
+                              "cornerRadius": 999,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n22",
+                                  "name": "Staff Row Two State Text",
+                                  "width": "fill_container",
+                                  "height": 16,
+                                  "content": "Active",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 12,
+                                  "fontWeight": 850,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#166534"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n25",
+                              "name": "Staff Row Two Assign",
+                              "width": 146,
+                              "height": 44,
+                              "layout": "horizontal",
+                              "gap": 0,
+                              "padding": [
+                                0,
+                                18
+                              ],
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#EEF2FF"
+                                }
+                              ],
+                              "cornerRadius": 999,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n24",
+                                  "name": "Staff Row Two Assign Text",
+                                  "width": "fill_container",
+                                  "height": 18,
+                                  "content": "Asignar services",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": 850,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#4F46E5"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n27",
+                              "name": "Staff Row Two Edit",
+                              "width": 82,
+                              "height": 44,
+                              "layout": "horizontal",
+                              "gap": 0,
+                              "padding": [
+                                0,
+                                18
+                              ],
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FFFFFF"
+                                }
+                              ],
+                              "cornerRadius": 999,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n26",
+                                  "name": "Staff Row Two Edit Text",
+                                  "width": "fill_container",
+                                  "height": 18,
+                                  "content": "Editar",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": 850,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#111827"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n40",
+                          "name": "Staff Row Three",
+                          "width": "fill_container",
+                          "height": 82,
+                          "layout": "horizontal",
+                          "gap": 10,
+                          "padding": 14,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ],
+                          "cornerRadius": 22,
+                          "alignItems": "center",
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#E5E7EB"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "n30",
+                              "name": "Staff Row Three Avatar",
+                              "width": 44,
+                              "height": 44,
+                              "layout": "vertical",
+                              "gap": 0,
+                              "padding": 0,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#111827"
+                                }
+                              ],
+                              "cornerRadius": 999,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n29",
+                                  "name": "Staff Row Three Initials",
+                                  "width": "fill_container",
+                                  "height": 16,
+                                  "content": "NG",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 13,
+                                  "fontWeight": 900,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#FFFFFF"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n33",
+                              "name": "Staff Row Three Copy",
+                              "width": "fill_container",
+                              "height": 54,
+                              "layout": "vertical",
+                              "gap": 4,
+                              "padding": 0,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FFFFFF"
+                                }
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n31",
+                                  "name": "Staff Row Three Title",
+                                  "width": "fill_container",
+                                  "height": 22,
+                                  "content": "Nerea Gomez",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 16,
+                                  "fontWeight": 850,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "left",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#111827"
+                                    }
+                                  ]
+                                },
+                                {
+                                  "type": "text",
+                                  "id": "n32",
+                                  "name": "Staff Row Three Meta",
+                                  "width": "fill_container",
+                                  "height": 18,
+                                  "content": "nerea.gomez@studio.com · +34 600 123 456",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 12,
+                                  "fontWeight": 650,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "left",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#64748B"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n35",
+                              "name": "Staff Row Three State",
+                              "width": 84,
+                              "height": 32,
+                              "layout": "horizontal",
+                              "gap": 0,
+                              "padding": [
+                                0,
+                                12
+                              ],
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#F1F5F9"
+                                }
+                              ],
+                              "cornerRadius": 999,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n34",
+                                  "name": "Staff Row Three State Text",
+                                  "width": "fill_container",
+                                  "height": 16,
+                                  "content": "Inactive",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 12,
+                                  "fontWeight": 850,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#64748B"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n37",
+                              "name": "Staff Row Three Assign",
+                              "width": 146,
+                              "height": 44,
+                              "layout": "horizontal",
+                              "gap": 0,
+                              "padding": [
+                                0,
+                                18
+                              ],
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#EEF2FF"
+                                }
+                              ],
+                              "cornerRadius": 999,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n36",
+                                  "name": "Staff Row Three Assign Text",
+                                  "width": "fill_container",
+                                  "height": 18,
+                                  "content": "Asignar services",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": 850,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#4F46E5"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n39",
+                              "name": "Staff Row Three Edit",
+                              "width": 82,
+                              "height": 44,
+                              "layout": "horizontal",
+                              "gap": 0,
+                              "padding": [
+                                0,
+                                18
+                              ],
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FFFFFF"
+                                }
+                              ],
+                              "cornerRadius": 999,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n38",
+                                  "name": "Staff Row Three Edit Text",
+                                  "width": "fill_container",
+                                  "height": 18,
+                                  "content": "Editar",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": 850,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#111827"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n43",
+                          "name": "Staff Conflict",
+                          "width": "fill_container",
+                          "height": 72,
+                          "layout": "vertical",
+                          "gap": 4,
+                          "padding": 14,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFBEB"
+                            }
+                          ],
+                          "cornerRadius": 18,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#FDE68A"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n41",
+                              "name": "Staff Conflict Title",
+                              "width": "fill_container",
+                              "height": 22,
+                              "content": "Conflicto al eliminar",
+                              "fontFamily": "Inter",
+                              "fontSize": 15,
+                              "fontWeight": 900,
+                              "lineHeight": 1.2,
+                              "textAlign": "left",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#92400E"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "n42",
+                              "name": "Staff Conflict Copy",
+                              "width": "fill_container",
+                              "height": 22,
+                              "content": "Si el staff member tiene appointments, se muestra conflicto y se recomienda desactivarlo.",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 650,
+                              "lineHeight": 1.2,
+                              "textAlign": "left",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#B45309"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n49",
+                      "name": "Staff Empty State",
+                      "width": "fill_container",
+                      "height": 210,
+                      "layout": "vertical",
+                      "gap": 14,
+                      "padding": 22,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 30,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n45",
+                          "name": "Staff Empty Title",
+                          "width": "fill_container",
+                          "height": 22,
+                          "content": "Aun no hay staff members",
+                          "fontFamily": "Inter",
+                          "fontSize": 23,
+                          "fontWeight": 900,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n46",
+                          "name": "Staff Empty Copy",
+                          "width": "fill_container",
+                          "height": 38,
+                          "content": "Crea personas o recursos para poder configurar availability y appointments.",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": 600,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#64748B"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n48",
+                          "name": "Empty Create Staff",
+                          "width": "fill_container",
+                          "height": 44,
+                          "layout": "horizontal",
+                          "gap": 0,
+                          "padding": [
+                            0,
+                            18
+                          ],
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ],
+                          "cornerRadius": 999,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n47",
+                              "name": "Empty Create Staff Text",
+                              "width": "fill_container",
+                              "height": 18,
+                              "content": "Crear staff member",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FFFFFF"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n72",
+                  "name": "Assignment Drawer",
+                  "width": "fill_container",
+                  "height": 342,
+                  "layout": "vertical",
+                  "gap": 14,
+                  "padding": 22,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 30,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E7EB"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n51",
+                      "name": "Assignment Title",
+                      "width": "fill_container",
+                      "height": 28,
+                      "content": "Services asignados a Marta Ruiz",
+                      "fontFamily": "Inter",
+                      "fontSize": 21,
+                      "fontWeight": 900,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n52",
+                      "name": "Assignment Copy",
+                      "width": "fill_container",
+                      "height": 36,
+                      "content": "Drawer conceptual integrado en esta vista. Permite activar, desactivar y desasignar sin una pantalla separada.",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": 600,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#64748B"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n58",
+                      "name": "Assignment Row Corte y styling",
+                      "width": "fill_container",
+                      "height": 54,
+                      "layout": "horizontal",
+                      "gap": 10,
+                      "padding": 10,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 16,
+                      "alignItems": "center",
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "n53",
+                          "name": "Assignment Check Corte y styling",
+                          "width": 28,
+                          "height": 28,
+                          "layout": "vertical",
+                          "gap": 0,
+                          "padding": 0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#4F46E5"
+                            }
+                          ],
+                          "cornerRadius": 8,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#4F46E5"
+                              }
+                            ]
+                          },
+                          "children": []
+                        },
+                        {
+                          "type": "text",
+                          "id": "n54",
+                          "name": "Assignment Name Corte y styling",
+                          "width": "fill_container",
+                          "height": 20,
+                          "content": "Corte y styling",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": 800,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n56",
+                          "name": "Assignment Toggle Corte y styling",
+                          "width": 80,
+                          "height": 32,
+                          "layout": "horizontal",
+                          "gap": 0,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#DCFCE7"
+                            }
+                          ],
+                          "cornerRadius": 999,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n55",
+                              "name": "Assignment Toggle Corte y styling Text",
+                              "width": "fill_container",
+                              "height": 16,
+                              "content": "Active",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#166534"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n57",
+                          "name": "Assignment Remove Corte y styling",
+                          "width": 84,
+                          "height": 18,
+                          "content": "Desasignar",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "right",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#DC2626"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n64",
+                      "name": "Assignment Row Color express",
+                      "width": "fill_container",
+                      "height": 54,
+                      "layout": "horizontal",
+                      "gap": 10,
+                      "padding": 10,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 16,
+                      "alignItems": "center",
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "n59",
+                          "name": "Assignment Check Color express",
+                          "width": 28,
+                          "height": 28,
+                          "layout": "vertical",
+                          "gap": 0,
+                          "padding": 0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#4F46E5"
+                            }
+                          ],
+                          "cornerRadius": 8,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#4F46E5"
+                              }
+                            ]
+                          },
+                          "children": []
+                        },
+                        {
+                          "type": "text",
+                          "id": "n60",
+                          "name": "Assignment Name Color express",
+                          "width": "fill_container",
+                          "height": 20,
+                          "content": "Color express",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": 800,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n62",
+                          "name": "Assignment Toggle Color express",
+                          "width": 80,
+                          "height": 32,
+                          "layout": "horizontal",
+                          "gap": 0,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#F1F5F9"
+                            }
+                          ],
+                          "cornerRadius": 999,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n61",
+                              "name": "Assignment Toggle Color express Text",
+                              "width": "fill_container",
+                              "height": 16,
+                              "content": "Inactive",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#64748B"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n63",
+                          "name": "Assignment Remove Color express",
+                          "width": 84,
+                          "height": 18,
+                          "content": "Desasignar",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "right",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#DC2626"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n70",
+                      "name": "Assignment Row Tratamiento premium",
+                      "width": "fill_container",
+                      "height": 54,
+                      "layout": "horizontal",
+                      "gap": 10,
+                      "padding": 10,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 16,
+                      "alignItems": "center",
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "n65",
+                          "name": "Assignment Check Tratamiento premium",
+                          "width": 28,
+                          "height": 28,
+                          "layout": "vertical",
+                          "gap": 0,
+                          "padding": 0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#F8FAFC"
+                            }
+                          ],
+                          "cornerRadius": 8,
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#CBD5E1"
+                              }
+                            ]
+                          },
+                          "children": []
+                        },
+                        {
+                          "type": "text",
+                          "id": "n66",
+                          "name": "Assignment Name Tratamiento premium",
+                          "width": "fill_container",
+                          "height": 20,
+                          "content": "Tratamiento premium",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": 800,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n68",
+                          "name": "Assignment Toggle Tratamiento premium",
+                          "width": 80,
+                          "height": 32,
+                          "layout": "horizontal",
+                          "gap": 0,
+                          "padding": [
+                            0,
+                            12
+                          ],
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#DCFCE7"
+                            }
+                          ],
+                          "cornerRadius": 999,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n67",
+                              "name": "Assignment Toggle Tratamiento premium Text",
+                              "width": "fill_container",
+                              "height": 16,
+                              "content": "Active",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#166534"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n69",
+                          "name": "Assignment Remove Tratamiento premium",
+                          "width": 84,
+                          "height": 18,
+                          "content": "Desasignar",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "right",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#DC2626"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n71",
+                      "name": "Assignment Conflict",
+                      "width": "fill_container",
+                      "height": 34,
+                      "content": "Si la asignacion tiene appointments futuros, se muestra conflicto y se recomienda desactivar.",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": 650,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#B45309"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "n188",
+      "name": "Staff Members Mobile",
+      "width": 390,
+      "height": 1260,
+      "layout": "vertical",
+      "gap": 0,
+      "padding": 0,
+      "fill": [
+        {
+          "type": "solid",
+          "color": "#F8FAFC"
+        }
+      ],
+      "x": 1500,
+      "y": 0,
+      "children": [
+        {
+          "type": "frame",
+          "id": "n186",
+          "name": "Mobile Admin Header",
+          "width": "fill_container",
+          "height": 154,
+          "layout": "vertical",
+          "gap": 10,
+          "padding": [
+            20,
+            18
+          ],
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#FFFFFF"
+            }
+          ],
+          "stroke": {
+            "thickness": {
+              "bottom": 1
+            },
+            "fill": [
+              {
+                "type": "solid",
+                "color": "#E5E7EB"
+              }
+            ]
+          },
+          "children": [
+            {
+              "type": "frame",
+              "id": "n176",
+              "name": "Mobile Header Row",
+              "width": "fill_container",
+              "height": 34,
+              "layout": "horizontal",
+              "gap": 0,
+              "padding": 0,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "justifyContent": "space_between",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n173",
+                  "name": "Mobile Logo",
+                  "width": 220,
+                  "height": 28,
+                  "content": "Calendar Manager",
+                  "fontFamily": "Inter",
+                  "fontSize": 20,
+                  "fontWeight": 900,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n175",
+                  "name": "Mobile Admin",
+                  "width": 76,
+                  "height": 32,
+                  "layout": "horizontal",
+                  "gap": 0,
+                  "padding": [
+                    0,
+                    12
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#EEF2FF"
+                    }
+                  ],
+                  "cornerRadius": 999,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n174",
+                      "name": "Mobile Admin Text",
+                      "width": "fill_container",
+                      "height": 16,
+                      "content": "Admin",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#4F46E5"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "n177",
+              "name": "Mobile Screen Title",
+              "width": "fill_container",
+              "height": 32,
+              "content": "Staff Members",
+              "fontFamily": "Inter",
+              "fontSize": 25,
+              "fontWeight": 900,
+              "lineHeight": 1.2,
+              "textAlign": "left",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#111827"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "n178",
+              "name": "Mobile Business",
+              "width": "fill_container",
+              "height": 18,
+              "content": "Studio Centro · un business por admin",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": 650,
+              "lineHeight": 1.2,
+              "textAlign": "left",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#64748B"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n185",
+              "name": "Mobile Nav",
+              "width": "fill_container",
+              "height": 38,
+              "layout": "horizontal",
+              "gap": 8,
+              "padding": 0,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "n180",
+                  "name": "Mobile Nav Dashboard",
+                  "width": 104,
+                  "height": 32,
+                  "layout": "horizontal",
+                  "gap": 0,
+                  "padding": [
+                    0,
+                    12
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#F8FAFC"
+                    }
+                  ],
+                  "cornerRadius": 999,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n179",
+                      "name": "Mobile Nav Dashboard Text",
+                      "width": "fill_container",
+                      "height": 16,
+                      "content": "Dashboard",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#475569"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n182",
+                  "name": "Mobile Nav Settings",
+                  "width": 92,
+                  "height": 32,
+                  "layout": "horizontal",
+                  "gap": 0,
+                  "padding": [
+                    0,
+                    12
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#F8FAFC"
+                    }
+                  ],
+                  "cornerRadius": 999,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n181",
+                      "name": "Mobile Nav Settings Text",
+                      "width": "fill_container",
+                      "height": 16,
+                      "content": "Settings",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#475569"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n184",
+                  "name": "Mobile Nav Services",
+                  "width": 88,
+                  "height": 32,
+                  "layout": "horizontal",
+                  "gap": 0,
+                  "padding": [
+                    0,
+                    12
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#F8FAFC"
+                    }
+                  ],
+                  "cornerRadius": 999,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n183",
+                      "name": "Mobile Nav Services Text",
+                      "width": "fill_container",
+                      "height": 16,
+                      "content": "Services",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#475569"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "n187",
+          "name": "Staff Members Mobile Content",
+          "width": "fill_container",
+          "height": 1106,
+          "layout": "vertical",
+          "gap": 16,
+          "padding": [
+            20,
+            18
+          ],
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#F8FAFC"
+            }
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "n113",
+              "name": "Mobile Staff List",
+              "width": "fill_container",
+              "height": 526,
+              "layout": "vertical",
+              "gap": 14,
+              "padding": 22,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "cornerRadius": 30,
+              "stroke": {
+                "thickness": 1,
+                "fill": [
+                  {
+                    "type": "solid",
+                    "color": "#E5E7EB"
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n74",
+                  "name": "Mobile Staff Title",
+                  "width": "fill_container",
+                  "height": 22,
+                  "content": "Staff members",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": 900,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n86",
+                  "name": "Mobile Staff One",
+                  "width": "fill_container",
+                  "height": 82,
+                  "layout": "horizontal",
+                  "gap": 10,
+                  "padding": 14,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 22,
+                  "alignItems": "center",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E7EB"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n76",
+                      "name": "Mobile Staff One Avatar",
+                      "width": 44,
+                      "height": 44,
+                      "layout": "vertical",
+                      "gap": 0,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n75",
+                          "name": "Mobile Staff One Initials",
+                          "width": "fill_container",
+                          "height": 16,
+                          "content": "MR",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": 900,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n79",
+                      "name": "Mobile Staff One Copy",
+                      "width": "fill_container",
+                      "height": 54,
+                      "layout": "vertical",
+                      "gap": 4,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n77",
+                          "name": "Mobile Staff One Title",
+                          "width": "fill_container",
+                          "height": 22,
+                          "content": "Marta Ruiz",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n78",
+                          "name": "Mobile Staff One Meta",
+                          "width": "fill_container",
+                          "height": 18,
+                          "content": "marta.ruiz@studio.com · +34 600 123 456",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 650,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#64748B"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n81",
+                      "name": "Mobile Staff One State",
+                      "width": 84,
+                      "height": 32,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": [
+                        0,
+                        12
+                      ],
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#DCFCE7"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n80",
+                          "name": "Mobile Staff One State Text",
+                          "width": "fill_container",
+                          "height": 16,
+                          "content": "Active",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#166534"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n83",
+                      "name": "Mobile Staff One Assign",
+                      "width": 146,
+                      "height": 44,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": [
+                        0,
+                        18
+                      ],
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#EEF2FF"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n82",
+                          "name": "Mobile Staff One Assign Text",
+                          "width": "fill_container",
+                          "height": 18,
+                          "content": "Asignar services",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#4F46E5"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n85",
+                      "name": "Mobile Staff One Edit",
+                      "width": 82,
+                      "height": 44,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": [
+                        0,
+                        18
+                      ],
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n84",
+                          "name": "Mobile Staff One Edit Text",
+                          "width": "fill_container",
+                          "height": 18,
+                          "content": "Editar",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n98",
+                  "name": "Mobile Staff Two",
+                  "width": "fill_container",
+                  "height": 82,
+                  "layout": "horizontal",
+                  "gap": 10,
+                  "padding": 14,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 22,
+                  "alignItems": "center",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E7EB"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n88",
+                      "name": "Mobile Staff Two Avatar",
+                      "width": 44,
+                      "height": 44,
+                      "layout": "vertical",
+                      "gap": 0,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n87",
+                          "name": "Mobile Staff Two Initials",
+                          "width": "fill_container",
+                          "height": 16,
+                          "content": "LP",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": 900,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n91",
+                      "name": "Mobile Staff Two Copy",
+                      "width": "fill_container",
+                      "height": 54,
+                      "layout": "vertical",
+                      "gap": 4,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n89",
+                          "name": "Mobile Staff Two Title",
+                          "width": "fill_container",
+                          "height": 22,
+                          "content": "Lucas Perez",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n90",
+                          "name": "Mobile Staff Two Meta",
+                          "width": "fill_container",
+                          "height": 18,
+                          "content": "lucas.perez@studio.com · +34 600 123 456",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 650,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#64748B"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n93",
+                      "name": "Mobile Staff Two State",
+                      "width": 84,
+                      "height": 32,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": [
+                        0,
+                        12
+                      ],
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#DCFCE7"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n92",
+                          "name": "Mobile Staff Two State Text",
+                          "width": "fill_container",
+                          "height": 16,
+                          "content": "Active",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#166534"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n95",
+                      "name": "Mobile Staff Two Assign",
+                      "width": 146,
+                      "height": 44,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": [
+                        0,
+                        18
+                      ],
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#EEF2FF"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n94",
+                          "name": "Mobile Staff Two Assign Text",
+                          "width": "fill_container",
+                          "height": 18,
+                          "content": "Asignar services",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#4F46E5"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n97",
+                      "name": "Mobile Staff Two Edit",
+                      "width": 82,
+                      "height": 44,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": [
+                        0,
+                        18
+                      ],
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n96",
+                          "name": "Mobile Staff Two Edit Text",
+                          "width": "fill_container",
+                          "height": 18,
+                          "content": "Editar",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n110",
+                  "name": "Mobile Staff Three",
+                  "width": "fill_container",
+                  "height": 82,
+                  "layout": "horizontal",
+                  "gap": 10,
+                  "padding": 14,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 22,
+                  "alignItems": "center",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E7EB"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n100",
+                      "name": "Mobile Staff Three Avatar",
+                      "width": 44,
+                      "height": 44,
+                      "layout": "vertical",
+                      "gap": 0,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n99",
+                          "name": "Mobile Staff Three Initials",
+                          "width": "fill_container",
+                          "height": 16,
+                          "content": "NG",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": 900,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n103",
+                      "name": "Mobile Staff Three Copy",
+                      "width": "fill_container",
+                      "height": 54,
+                      "layout": "vertical",
+                      "gap": 4,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n101",
+                          "name": "Mobile Staff Three Title",
+                          "width": "fill_container",
+                          "height": 22,
+                          "content": "Nerea Gomez",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n102",
+                          "name": "Mobile Staff Three Meta",
+                          "width": "fill_container",
+                          "height": 18,
+                          "content": "nerea.gomez@studio.com · +34 600 123 456",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 650,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#64748B"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n105",
+                      "name": "Mobile Staff Three State",
+                      "width": 84,
+                      "height": 32,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": [
+                        0,
+                        12
+                      ],
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#F1F5F9"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n104",
+                          "name": "Mobile Staff Three State Text",
+                          "width": "fill_container",
+                          "height": 16,
+                          "content": "Inactive",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#64748B"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n107",
+                      "name": "Mobile Staff Three Assign",
+                      "width": 146,
+                      "height": 44,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": [
+                        0,
+                        18
+                      ],
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#EEF2FF"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n106",
+                          "name": "Mobile Staff Three Assign Text",
+                          "width": "fill_container",
+                          "height": 18,
+                          "content": "Asignar services",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#4F46E5"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n109",
+                      "name": "Mobile Staff Three Edit",
+                      "width": 82,
+                      "height": 44,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": [
+                        0,
+                        18
+                      ],
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n108",
+                          "name": "Mobile Staff Three Edit Text",
+                          "width": "fill_container",
+                          "height": 18,
+                          "content": "Editar",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n112",
+                  "name": "Mobile Create Staff",
+                  "width": "fill_container",
+                  "height": 44,
+                  "layout": "horizontal",
+                  "gap": 0,
+                  "padding": [
+                    0,
+                    18
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ],
+                  "cornerRadius": 999,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n111",
+                      "name": "Mobile Create Staff Text",
+                      "width": "fill_container",
+                      "height": 18,
+                      "content": "Crear staff member",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n135",
+              "name": "Assignment Drawer",
+              "width": "fill_container",
+              "height": 342,
+              "layout": "vertical",
+              "gap": 14,
+              "padding": 22,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "cornerRadius": 30,
+              "stroke": {
+                "thickness": 1,
+                "fill": [
+                  {
+                    "type": "solid",
+                    "color": "#E5E7EB"
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n114",
+                  "name": "Assignment Title",
+                  "width": "fill_container",
+                  "height": 28,
+                  "content": "Services asignados a Marta Ruiz",
+                  "fontFamily": "Inter",
+                  "fontSize": 21,
+                  "fontWeight": 900,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n115",
+                  "name": "Assignment Copy",
+                  "width": "fill_container",
+                  "height": 36,
+                  "content": "Drawer conceptual integrado en esta vista. Permite activar, desactivar y desasignar sin una pantalla separada.",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": 600,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#64748B"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n121",
+                  "name": "Assignment Row Corte y styling",
+                  "width": "fill_container",
+                  "height": 54,
+                  "layout": "horizontal",
+                  "gap": 10,
+                  "padding": 10,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 16,
+                  "alignItems": "center",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E7EB"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n116",
+                      "name": "Assignment Check Corte y styling",
+                      "width": 28,
+                      "height": 28,
+                      "layout": "vertical",
+                      "gap": 0,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#4F46E5"
+                        }
+                      ],
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#4F46E5"
+                          }
+                        ]
+                      },
+                      "children": []
+                    },
+                    {
+                      "type": "text",
+                      "id": "n117",
+                      "name": "Assignment Name Corte y styling",
+                      "width": "fill_container",
+                      "height": 20,
+                      "content": "Corte y styling",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n119",
+                      "name": "Assignment Toggle Corte y styling",
+                      "width": 80,
+                      "height": 32,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": [
+                        0,
+                        12
+                      ],
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#DCFCE7"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n118",
+                          "name": "Assignment Toggle Corte y styling Text",
+                          "width": "fill_container",
+                          "height": 16,
+                          "content": "Active",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#166534"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n120",
+                      "name": "Assignment Remove Corte y styling",
+                      "width": 84,
+                      "height": 18,
+                      "content": "Desasignar",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "right",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#DC2626"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n127",
+                  "name": "Assignment Row Color express",
+                  "width": "fill_container",
+                  "height": 54,
+                  "layout": "horizontal",
+                  "gap": 10,
+                  "padding": 10,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 16,
+                  "alignItems": "center",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E7EB"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n122",
+                      "name": "Assignment Check Color express",
+                      "width": 28,
+                      "height": 28,
+                      "layout": "vertical",
+                      "gap": 0,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#4F46E5"
+                        }
+                      ],
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#4F46E5"
+                          }
+                        ]
+                      },
+                      "children": []
+                    },
+                    {
+                      "type": "text",
+                      "id": "n123",
+                      "name": "Assignment Name Color express",
+                      "width": "fill_container",
+                      "height": 20,
+                      "content": "Color express",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n125",
+                      "name": "Assignment Toggle Color express",
+                      "width": 80,
+                      "height": 32,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": [
+                        0,
+                        12
+                      ],
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#F1F5F9"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n124",
+                          "name": "Assignment Toggle Color express Text",
+                          "width": "fill_container",
+                          "height": 16,
+                          "content": "Inactive",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#64748B"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n126",
+                      "name": "Assignment Remove Color express",
+                      "width": 84,
+                      "height": 18,
+                      "content": "Desasignar",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "right",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#DC2626"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n133",
+                  "name": "Assignment Row Tratamiento premium",
+                  "width": "fill_container",
+                  "height": 54,
+                  "layout": "horizontal",
+                  "gap": 10,
+                  "padding": 10,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 16,
+                  "alignItems": "center",
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E7EB"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n128",
+                      "name": "Assignment Check Tratamiento premium",
+                      "width": 28,
+                      "height": 28,
+                      "layout": "vertical",
+                      "gap": 0,
+                      "padding": 0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#F8FAFC"
+                        }
+                      ],
+                      "cornerRadius": 8,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#CBD5E1"
+                          }
+                        ]
+                      },
+                      "children": []
+                    },
+                    {
+                      "type": "text",
+                      "id": "n129",
+                      "name": "Assignment Name Tratamiento premium",
+                      "width": "fill_container",
+                      "height": 20,
+                      "content": "Tratamiento premium",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n131",
+                      "name": "Assignment Toggle Tratamiento premium",
+                      "width": 80,
+                      "height": 32,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": [
+                        0,
+                        12
+                      ],
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#DCFCE7"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n130",
+                          "name": "Assignment Toggle Tratamiento premium Text",
+                          "width": "fill_container",
+                          "height": 16,
+                          "content": "Active",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#166534"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n132",
+                      "name": "Assignment Remove Tratamiento premium",
+                      "width": 84,
+                      "height": 18,
+                      "content": "Desasignar",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "right",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#DC2626"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n134",
+                  "name": "Assignment Conflict",
+                  "width": "fill_container",
+                  "height": 34,
+                  "content": "Si la asignacion tiene appointments futuros, se muestra conflicto y se recomienda desactivar.",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": 650,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#B45309"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
