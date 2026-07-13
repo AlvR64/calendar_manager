@@ -1,0 +1,2125 @@
+{
+  "version": "0.8.0",
+  "name": "customer-register",
+  "children": [
+    {
+      "type": "frame",
+      "id": "n53",
+      "name": "Customer Register Desktop",
+      "width": 1440,
+      "height": 980,
+      "layout": "vertical",
+      "gap": 0,
+      "padding": 0,
+      "fill": [
+        {
+          "type": "solid",
+          "color": "#FFFFFF"
+        }
+      ],
+      "x": 0,
+      "y": 0,
+      "children": [
+        {
+          "type": "frame",
+          "id": "n7",
+          "name": "Customer Register Header",
+          "width": "fill_container",
+          "height": 78,
+          "layout": "horizontal",
+          "gap": 0,
+          "padding": [
+            0,
+            80
+          ],
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#FFFFFF"
+            }
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "stroke": {
+            "thickness": {
+              "bottom": 1
+            },
+            "fill": [
+              {
+                "type": "solid",
+                "color": "#F3F4F6"
+              }
+            ]
+          },
+          "children": [
+            {
+              "type": "text",
+              "id": "n1",
+              "name": "Customer Register Header Logo",
+              "width": 260,
+              "height": 32,
+              "content": "Calendar Manager",
+              "fontFamily": "Inter",
+              "fontSize": 22,
+              "fontWeight": 900,
+              "lineHeight": 1.2,
+              "textAlign": "left",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#111827"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n6",
+              "name": "Customer Register Header Links",
+              "width": 360,
+              "height": 36,
+              "layout": "horizontal",
+              "gap": 14,
+              "padding": 0,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "justifyContent": "end",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n2",
+                  "name": "Customer Register Header Explore",
+                  "width": 84,
+                  "height": 20,
+                  "content": "Explorar",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": 800,
+                  "lineHeight": 1.2,
+                  "textAlign": "right",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#475569"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n3",
+                  "name": "Customer Register Header Login",
+                  "width": 72,
+                  "height": 20,
+                  "content": "Login",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": 800,
+                  "lineHeight": 1.2,
+                  "textAlign": "right",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#475569"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n5",
+                  "name": "Customer Register Header Business CTA",
+                  "width": 142,
+                  "height": 44,
+                  "layout": "horizontal",
+                  "gap": 0,
+                  "padding": [
+                    0,
+                    18
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ],
+                  "cornerRadius": 999,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n4",
+                      "name": "Customer Register Header Business CTA Text",
+                      "width": "fill_container",
+                      "height": 18,
+                      "content": "Para negocios",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "n52",
+          "name": "Customer Register Body",
+          "width": "fill_container",
+          "height": 902,
+          "layout": "horizontal",
+          "gap": 60,
+          "padding": [
+            58,
+            120
+          ],
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#FFFFFF"
+            }
+          ],
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "n25",
+              "name": "Customer Register Intro",
+              "width": 460,
+              "height": 650,
+              "layout": "vertical",
+              "gap": 18,
+              "padding": 0,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "n9",
+                  "name": "Customer Register Context",
+                  "width": 142,
+                  "height": 32,
+                  "layout": "horizontal",
+                  "gap": 0,
+                  "padding": [
+                    0,
+                    12
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#EEF2FF"
+                    }
+                  ],
+                  "cornerRadius": 999,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n8",
+                      "name": "Customer Register Context Text",
+                      "width": "fill_container",
+                      "height": 16,
+                      "content": "Customer account",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#4F46E5"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n10",
+                  "name": "Customer Register Title",
+                  "width": "fill_container",
+                  "height": 110,
+                  "content": "Crea tu cuenta para continuar la reserva",
+                  "fontFamily": "Inter",
+                  "fontSize": 44,
+                  "fontWeight": 900,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n11",
+                  "name": "Customer Register Copy",
+                  "width": "fill_container",
+                  "height": 72,
+                  "content": "El registro guarda tus datos basicos y permite continuar con el appointment seleccionado cuando el flujo de confirmacion este disponible.",
+                  "fontFamily": "Inter",
+                  "fontSize": 16,
+                  "fontWeight": 600,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#64748B"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n24",
+                  "name": "Pending Appointment",
+                  "width": "fill_container",
+                  "height": 430,
+                  "layout": "vertical",
+                  "gap": 14,
+                  "padding": 22,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 30,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E7EB"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n13",
+                      "name": "Pending Appointment Pill",
+                      "width": 138,
+                      "height": 32,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": [
+                        0,
+                        12
+                      ],
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#DCFCE7"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n12",
+                          "name": "Pending Appointment Pill Text",
+                          "width": "fill_container",
+                          "height": 16,
+                          "content": "Slot seleccionado",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#166534"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n14",
+                      "name": "Pending Appointment Title",
+                      "width": "fill_container",
+                      "height": 34,
+                      "content": "Tu reserva pendiente",
+                      "fontFamily": "Inter",
+                      "fontSize": 26,
+                      "fontWeight": 900,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n15",
+                      "name": "Pending Appointment Copy",
+                      "width": "fill_container",
+                      "height": 42,
+                      "content": "Crea tu cuenta para conservar el slot elegido y continuar al siguiente paso.",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 600,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#64748B"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n21",
+                      "name": "Pending Appointment Details",
+                      "width": "fill_container",
+                      "height": 144,
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": 16,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#F8FAFC"
+                        }
+                      ],
+                      "cornerRadius": 20,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n16",
+                          "name": "Pending Business",
+                          "width": "fill_container",
+                          "height": 22,
+                          "content": "Studio Centro",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": 900,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n17",
+                          "name": "Pending Service",
+                          "width": "fill_container",
+                          "height": 18,
+                          "content": "Corte y styling · 45 EUR · 60 min",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": 700,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#475569"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n18",
+                          "name": "Pending Staff",
+                          "width": "fill_container",
+                          "height": 18,
+                          "content": "Cualquier staff disponible",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": 700,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#475569"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n19",
+                          "name": "Pending Slot",
+                          "width": "fill_container",
+                          "height": 18,
+                          "content": "Mie 24 Jul · 10:15 Europe/Madrid",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": 800,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#4F46E5"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n20",
+                          "name": "Pending Slot Utc",
+                          "width": "fill_container",
+                          "height": 16,
+                          "content": "08:15 UTC",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 650,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#64748B"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n23",
+                      "name": "Pending Change Slot",
+                      "width": "fill_container",
+                      "height": 44,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": [
+                        0,
+                        18
+                      ],
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#EEF2FF"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n22",
+                          "name": "Pending Change Slot Text",
+                          "width": "fill_container",
+                          "height": 18,
+                          "content": "Cambiar slot",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#4F46E5"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n51",
+              "name": "Customer Register Form",
+              "width": "fill_container",
+              "height": 430,
+              "layout": "vertical",
+              "gap": 14,
+              "padding": 22,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "cornerRadius": 30,
+              "stroke": {
+                "thickness": 1,
+                "fill": [
+                  {
+                    "type": "solid",
+                    "color": "#E5E7EB"
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n43",
+                  "name": "Customer Register Form Title",
+                  "width": "fill_container",
+                  "height": 36,
+                  "content": "Crea tu cuenta",
+                  "fontFamily": "Inter",
+                  "fontSize": 28,
+                  "fontWeight": 900,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n44",
+                  "name": "Customer Register Form Copy",
+                  "width": "fill_container",
+                  "height": 36,
+                  "content": "Registra tus datos para continuar con la reserva seleccionada.",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": 600,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#64748B"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n32",
+                  "name": "Register Form Row 1",
+                  "width": "fill_container",
+                  "height": 78,
+                  "layout": "horizontal",
+                  "gap": 12,
+                  "padding": 0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n28",
+                      "name": "Register Field Email",
+                      "width": "fill_container",
+                      "height": 78,
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": 14,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 18,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n26",
+                          "name": "Register Field Email Label",
+                          "width": "fill_container",
+                          "height": 16,
+                          "content": "Email *",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 800,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#64748B"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n27",
+                          "name": "Register Field Email Value",
+                          "width": "fill_container",
+                          "height": 22,
+                          "content": "cliente@email.com",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": 750,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n31",
+                      "name": "Register Field Password",
+                      "width": "fill_container",
+                      "height": 78,
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": 14,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 18,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n29",
+                          "name": "Register Field Password Label",
+                          "width": "fill_container",
+                          "height": 16,
+                          "content": "Password *",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 800,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#64748B"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n30",
+                          "name": "Register Field Password Value",
+                          "width": "fill_container",
+                          "height": 22,
+                          "content": "Minimo 8 caracteres",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": 750,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n39",
+                  "name": "Register Form Row 2",
+                  "width": "fill_container",
+                  "height": 78,
+                  "layout": "horizontal",
+                  "gap": 12,
+                  "padding": 0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n35",
+                      "name": "Register Field First name",
+                      "width": "fill_container",
+                      "height": 78,
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": 14,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 18,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n33",
+                          "name": "Register Field First name Label",
+                          "width": "fill_container",
+                          "height": 16,
+                          "content": "First name *",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 800,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#64748B"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n34",
+                          "name": "Register Field First name Value",
+                          "width": "fill_container",
+                          "height": 22,
+                          "content": "Laura",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": 750,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n38",
+                      "name": "Register Field Last name",
+                      "width": "fill_container",
+                      "height": 78,
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": 14,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 18,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n36",
+                          "name": "Register Field Last name Label",
+                          "width": "fill_container",
+                          "height": 16,
+                          "content": "Last name",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 800,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#64748B"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n37",
+                          "name": "Register Field Last name Value",
+                          "width": "fill_container",
+                          "height": 22,
+                          "content": "Garcia",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": 750,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n42",
+                  "name": "Register Field Phone number",
+                  "width": "fill_container",
+                  "height": 78,
+                  "layout": "vertical",
+                  "gap": 6,
+                  "padding": 14,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 18,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E7EB"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n40",
+                      "name": "Register Field Phone number Label",
+                      "width": "fill_container",
+                      "height": 16,
+                      "content": "Phone number",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#64748B"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n41",
+                      "name": "Register Field Phone number Value",
+                      "width": "fill_container",
+                      "height": 22,
+                      "content": "+34 699 123 456",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": 750,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n47",
+                  "name": "Register Validation State",
+                  "width": "fill_container",
+                  "height": 58,
+                  "layout": "vertical",
+                  "gap": 4,
+                  "padding": 12,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFBEB"
+                    }
+                  ],
+                  "cornerRadius": 16,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#FDE68A"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n45",
+                      "name": "Register Validation Title",
+                      "width": "fill_container",
+                      "height": 16,
+                      "content": "Estado de validacion",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": 900,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#B45309"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n46",
+                      "name": "Register Validation Copy",
+                      "width": "fill_container",
+                      "height": 18,
+                      "content": "Email ya existe o password menor de 8 caracteres.",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": 650,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#B45309"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n49",
+                  "name": "Register Submit",
+                  "width": "fill_container",
+                  "height": 44,
+                  "layout": "horizontal",
+                  "gap": 0,
+                  "padding": [
+                    0,
+                    18
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ],
+                  "cornerRadius": 999,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n48",
+                      "name": "Register Submit Text",
+                      "width": "fill_container",
+                      "height": 18,
+                      "content": "Crear cuenta y continuar",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n50",
+                  "name": "Register Login Link",
+                  "width": "fill_container",
+                  "height": 22,
+                  "content": "Ya tengo cuenta. Iniciar sesion",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": 850,
+                  "lineHeight": 1.2,
+                  "textAlign": "center",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#4F46E5"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "n99",
+      "name": "Customer Register Mobile",
+      "width": 390,
+      "height": 1380,
+      "layout": "vertical",
+      "gap": 0,
+      "padding": 0,
+      "fill": [
+        {
+          "type": "solid",
+          "color": "#FFFFFF"
+        }
+      ],
+      "x": 1500,
+      "y": 0,
+      "children": [
+        {
+          "type": "frame",
+          "id": "n56",
+          "name": "Customer Register Mobile Header",
+          "width": "fill_container",
+          "height": 76,
+          "layout": "horizontal",
+          "gap": 0,
+          "padding": [
+            0,
+            18
+          ],
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#FFFFFF"
+            }
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "stroke": {
+            "thickness": {
+              "bottom": 1
+            },
+            "fill": [
+              {
+                "type": "solid",
+                "color": "#F3F4F6"
+              }
+            ]
+          },
+          "children": [
+            {
+              "type": "text",
+              "id": "n54",
+              "name": "Customer Register Mobile Header Logo",
+              "width": 220,
+              "height": 28,
+              "content": "Calendar Manager",
+              "fontFamily": "Inter",
+              "fontSize": 20,
+              "fontWeight": 900,
+              "lineHeight": 1.2,
+              "textAlign": "left",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#111827"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "n55",
+              "name": "Customer Register Mobile Header Login",
+              "width": 86,
+              "height": 20,
+              "content": "Login",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": 850,
+              "lineHeight": 1.2,
+              "textAlign": "right",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#4F46E5"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "n98",
+          "name": "Customer Register Mobile Body",
+          "width": "fill_container",
+          "height": 1304,
+          "layout": "vertical",
+          "gap": 0,
+          "padding": 0,
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#FFFFFF"
+            }
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "n61",
+              "name": "Mobile Register Intro",
+              "width": "fill_container",
+              "height": 192,
+              "layout": "vertical",
+              "gap": 12,
+              "padding": [
+                28,
+                18
+              ],
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "n58",
+                  "name": "Mobile Register Context",
+                  "width": 142,
+                  "height": 32,
+                  "layout": "horizontal",
+                  "gap": 0,
+                  "padding": [
+                    0,
+                    12
+                  ],
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#EEF2FF"
+                    }
+                  ],
+                  "cornerRadius": 999,
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n57",
+                      "name": "Mobile Register Context Text",
+                      "width": "fill_container",
+                      "height": 16,
+                      "content": "Customer account",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#4F46E5"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n59",
+                  "name": "Mobile Register Title",
+                  "width": "fill_container",
+                  "height": 44,
+                  "content": "Crea tu cuenta",
+                  "fontFamily": "Inter",
+                  "fontSize": 36,
+                  "fontWeight": 900,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n60",
+                  "name": "Mobile Register Copy",
+                  "width": "fill_container",
+                  "height": 38,
+                  "content": "Continua con el slot seleccionado.",
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": 600,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#64748B"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n97",
+              "name": "Mobile Register Content",
+              "width": "fill_container",
+              "height": 1112,
+              "layout": "vertical",
+              "gap": 18,
+              "padding": [
+                0,
+                18
+              ],
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "n72",
+                  "name": "Mobile Pending Appointment",
+                  "width": "fill_container",
+                  "height": 286,
+                  "layout": "vertical",
+                  "gap": 14,
+                  "padding": 22,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 30,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E7EB"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n63",
+                      "name": "Pending Appointment Pill",
+                      "width": 138,
+                      "height": 32,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": [
+                        0,
+                        12
+                      ],
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#DCFCE7"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n62",
+                          "name": "Pending Appointment Pill Text",
+                          "width": "fill_container",
+                          "height": 16,
+                          "content": "Slot seleccionado",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#166534"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n64",
+                      "name": "Pending Appointment Title",
+                      "width": "fill_container",
+                      "height": 28,
+                      "content": "Tu reserva pendiente",
+                      "fontFamily": "Inter",
+                      "fontSize": 22,
+                      "fontWeight": 900,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n65",
+                      "name": "Pending Appointment Copy",
+                      "width": "fill_container",
+                      "height": 42,
+                      "content": "Crea tu cuenta para conservar el slot elegido y continuar al siguiente paso.",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 600,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#64748B"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n71",
+                      "name": "Pending Appointment Details",
+                      "width": "fill_container",
+                      "height": 114,
+                      "layout": "vertical",
+                      "gap": 8,
+                      "padding": 16,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#F8FAFC"
+                        }
+                      ],
+                      "cornerRadius": 20,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n66",
+                          "name": "Pending Business",
+                          "width": "fill_container",
+                          "height": 22,
+                          "content": "Studio Centro",
+                          "fontFamily": "Inter",
+                          "fontSize": 16,
+                          "fontWeight": 900,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n67",
+                          "name": "Pending Service",
+                          "width": "fill_container",
+                          "height": 18,
+                          "content": "Corte y styling · 45 EUR · 60 min",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": 700,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#475569"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n68",
+                          "name": "Pending Staff",
+                          "width": "fill_container",
+                          "height": 18,
+                          "content": "Cualquier staff disponible",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": 700,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#475569"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n69",
+                          "name": "Pending Slot",
+                          "width": "fill_container",
+                          "height": 18,
+                          "content": "Mie 24 Jul · 10:15 Europe/Madrid",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": 800,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#4F46E5"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n70",
+                          "name": "Pending Slot Utc",
+                          "width": "fill_container",
+                          "height": 16,
+                          "content": "08:15 UTC",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 650,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#64748B"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n96",
+                  "name": "Mobile Customer Register Form",
+                  "width": "fill_container",
+                  "height": 572,
+                  "layout": "vertical",
+                  "gap": 14,
+                  "padding": 22,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "cornerRadius": 30,
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E7EB"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n88",
+                      "name": "Customer Register Form Title",
+                      "width": "fill_container",
+                      "height": 32,
+                      "content": "Crea tu cuenta",
+                      "fontFamily": "Inter",
+                      "fontSize": 24,
+                      "fontWeight": 900,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n89",
+                      "name": "Customer Register Form Copy",
+                      "width": "fill_container",
+                      "height": 36,
+                      "content": "Registra tus datos para continuar con la reserva seleccionada.",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 600,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#64748B"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n75",
+                      "name": "Register Field Email",
+                      "width": "fill_container",
+                      "height": 78,
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": 14,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 18,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n73",
+                          "name": "Register Field Email Label",
+                          "width": "fill_container",
+                          "height": 16,
+                          "content": "Email *",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 800,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#64748B"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n74",
+                          "name": "Register Field Email Value",
+                          "width": "fill_container",
+                          "height": 22,
+                          "content": "cliente@email.com",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": 750,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n78",
+                      "name": "Register Field Password",
+                      "width": "fill_container",
+                      "height": 78,
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": 14,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 18,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n76",
+                          "name": "Register Field Password Label",
+                          "width": "fill_container",
+                          "height": 16,
+                          "content": "Password *",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 800,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#64748B"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n77",
+                          "name": "Register Field Password Value",
+                          "width": "fill_container",
+                          "height": 22,
+                          "content": "Minimo 8 caracteres",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": 750,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n81",
+                      "name": "Register Field First name",
+                      "width": "fill_container",
+                      "height": 78,
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": 14,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 18,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n79",
+                          "name": "Register Field First name Label",
+                          "width": "fill_container",
+                          "height": 16,
+                          "content": "First name *",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 800,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#64748B"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n80",
+                          "name": "Register Field First name Value",
+                          "width": "fill_container",
+                          "height": 22,
+                          "content": "Laura",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": 750,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n84",
+                      "name": "Register Field Last name",
+                      "width": "fill_container",
+                      "height": 78,
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": 14,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 18,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n82",
+                          "name": "Register Field Last name Label",
+                          "width": "fill_container",
+                          "height": 16,
+                          "content": "Last name",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 800,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#64748B"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n83",
+                          "name": "Register Field Last name Value",
+                          "width": "fill_container",
+                          "height": 22,
+                          "content": "Garcia",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": 750,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n87",
+                      "name": "Register Field Phone number",
+                      "width": "fill_container",
+                      "height": 78,
+                      "layout": "vertical",
+                      "gap": 6,
+                      "padding": 14,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "cornerRadius": 18,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n85",
+                          "name": "Register Field Phone number Label",
+                          "width": "fill_container",
+                          "height": 16,
+                          "content": "Phone number",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 800,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#64748B"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n86",
+                          "name": "Register Field Phone number Value",
+                          "width": "fill_container",
+                          "height": 22,
+                          "content": "+34 699 123 456",
+                          "fontFamily": "Inter",
+                          "fontSize": 15,
+                          "fontWeight": 750,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n92",
+                      "name": "Register Validation State",
+                      "width": "fill_container",
+                      "height": 58,
+                      "layout": "vertical",
+                      "gap": 4,
+                      "padding": 12,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFBEB"
+                        }
+                      ],
+                      "cornerRadius": 16,
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#FDE68A"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n90",
+                          "name": "Register Validation Title",
+                          "width": "fill_container",
+                          "height": 16,
+                          "content": "Estado de validacion",
+                          "fontFamily": "Inter",
+                          "fontSize": 13,
+                          "fontWeight": 900,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#B45309"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n91",
+                          "name": "Register Validation Copy",
+                          "width": "fill_container",
+                          "height": 18,
+                          "content": "Email ya existe o password menor de 8 caracteres.",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 650,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#B45309"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n94",
+                      "name": "Register Submit",
+                      "width": "fill_container",
+                      "height": 44,
+                      "layout": "horizontal",
+                      "gap": 0,
+                      "padding": [
+                        0,
+                        18
+                      ],
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ],
+                      "cornerRadius": 999,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n93",
+                          "name": "Register Submit Text",
+                          "width": "fill_container",
+                          "height": 18,
+                          "content": "Crear cuenta",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n95",
+                      "name": "Register Login Link",
+                      "width": "fill_container",
+                      "height": 22,
+                      "content": "Ya tengo cuenta. Iniciar sesion",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#4F46E5"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

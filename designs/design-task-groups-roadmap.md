@@ -13,7 +13,7 @@ Legend:
 | 1.1 | Disenar pagina principal publica tipo marketplace. | [x] | [ ] |
 | 1.2 | Disenar login de customer. | [x] | [ ] |
 | 1.3 | Disenar login de business admin. | [x] | [ ] |
-| 1.4 | Disenar registro de customer. | [ ] | [ ] |
+| 1.4 | Disenar registro de customer. | [x] | [ ] |
 | 1.5 | Disenar registro de business con admin inicial. | [x] | [ ] |
 
 ## 2. Public Business Y Booking
@@ -25,8 +25,8 @@ Legend:
 | 2.3 | Disenar detalle publico de service activo. | [x] | [ ] |
 | 2.4 | Disenar lista de staff members activos de un business. | [x] | [ ] |
 | 2.5 | Disenar detalle publico de staff member activo. | [x] | [ ] |
-| 2.6 | Disenar flujo publico de seleccion de appointment: service, staff member opcional, fecha y slot. | [ ] | [ ] |
-| 2.7 | Disenar estados de slots disponibles: loading, vacio, error y fuera de ventana de reserva. | [ ] | [ ] |
+| 2.6 | Disenar flujo publico de seleccion de appointment: service, staff member opcional, fecha y slot. | [x] | [ ] |
+| 2.7 | Disenar estados de slots disponibles: loading, vacio, error y fuera de ventana de reserva. | [x] | [ ] |
 
 ## 3. Business Admin Shell Y Settings
 
@@ -119,10 +119,10 @@ Este apartado lista solo los primeros disenos que haria para cubrir un MVP visua
 | 11.1 | Pagina principal publica tipo marketplace. | [x] | [ ] |
 | 11.2 | Login de customer. | [x] | [ ] |
 | 11.3 | Login de business admin. | [x] | [ ] |
-| 11.4 | Registro de customer. | [ ] | [ ] |
+| 11.4 | Registro de customer. | [x] | [ ] |
 | 11.5 | Registro de business con admin inicial. | [x] | [ ] |
 | 11.6 | Perfil publico de business con datos publicos, services y staff members activos. | [x] | [ ] |
-| 11.7 | Flujo publico de seleccion de appointment hasta elegir slot: service, staff member opcional, fecha y horario. | [ ] | [ ] |
+| 11.7 | Flujo publico de seleccion de appointment hasta elegir slot: service, staff member opcional, fecha y horario. | [x] | [ ] |
 | 11.8 | Business admin shell/layout base. | [x] | [ ] |
 | 11.9 | Business settings: datos publicos, contacto, direccion, timezone, moneda y ventana maxima de reserva. | [x] | [ ] |
 | 11.10 | Admin services: listado, crear, editar, activar/desactivar, eliminar y empty/conflict states. | [x] | [ ] |
@@ -143,8 +143,8 @@ Este apartado lista solo los primeros disenos que haria para cubrir un MVP visua
 9. Admin staff-service assignments. `[x]` Asignacion de services a staff members y gestion de asignaciones activas/inactivas.
 10. Admin availability. `[x]` Configuracion de disponibilidad semanal y excepciones por staff member.
 11. Perfil publico de business. `[x]` Pagina publica del negocio con datos, services activos y staff members activos.
-12. Flujo publico de seleccion de appointment hasta elegir slot. Seleccion de service, staff member opcional, fecha y slot disponible.
-13. Registro de customer. Alta de customer con email, password y datos basicos antes o durante el flujo de appointment.
+12. Flujo publico de seleccion de appointment hasta elegir slot. `[x]` Seleccion de service, staff member opcional, fecha y slot disponible.
+13. Registro de customer. `[x]` Alta de customer con email, password y datos basicos antes o durante el flujo de appointment.
 
 ## Natural Suggested Design Order
 
