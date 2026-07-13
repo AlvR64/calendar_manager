@@ -14,7 +14,7 @@ Legend:
 | 1.2 | Disenar login de customer. | [x] | [ ] |
 | 1.3 | Disenar login de business admin. | [x] | [ ] |
 | 1.4 | Disenar registro de customer. | [ ] | [ ] |
-| 1.5 | Disenar registro de business con admin inicial. | [ ] | [ ] |
+| 1.5 | Disenar registro de business con admin inicial. | [x] | [ ] |
 
 ## 2. Public Business Y Booking
 
@@ -120,7 +120,7 @@ Este apartado lista solo los primeros disenos que haria para cubrir un MVP visua
 | 11.2 | Login de customer. | [x] | [ ] |
 | 11.3 | Login de business admin. | [x] | [ ] |
 | 11.4 | Registro de customer. | [ ] | [ ] |
-| 11.5 | Registro de business con admin inicial. | [ ] | [ ] |
+| 11.5 | Registro de business con admin inicial. | [x] | [ ] |
 | 11.6 | Perfil publico de business con datos publicos, services y staff members activos. | [ ] | [ ] |
 | 11.7 | Flujo publico de seleccion de appointment hasta elegir slot: service, staff member opcional, fecha y horario. | [ ] | [ ] |
 | 11.8 | Business admin shell/layout base. | [ ] | [ ] |
@@ -135,7 +135,7 @@ Este apartado lista solo los primeros disenos que haria para cubrir un MVP visua
 1. Pagina principal publica tipo marketplace. `[x]`
 2. Login de customer. `[x]`
 3. Login de business admin. `[x]`
-4. Registro de business con admin inicial.
+4. Registro de business con admin inicial. `[x]`
 5. Business admin shell/layout base.
 6. Business settings.
 7. Admin services.

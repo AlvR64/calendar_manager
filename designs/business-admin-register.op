@@ -1,0 +1,3216 @@
+{
+  "version": "0.8.0",
+  "name": "OpenPencil CLI Session",
+  "children": [
+    {
+      "type": "frame",
+      "id": "n1",
+      "name": "Business Admin Register Desktop",
+      "x": 0.0,
+      "y": 0.0,
+      "width": 1440.0,
+      "height": 1040.0,
+      "layout": "vertical",
+      "gap": 0.0,
+      "padding": 0.0,
+      "fill": [
+        {
+          "type": "solid",
+          "color": "#FFFFFF"
+        }
+      ],
+      "children": [
+        {
+          "type": "frame",
+          "id": "n2",
+          "name": "Header Desktop",
+          "width": "fill_container",
+          "height": 78.0,
+          "layout": "horizontal",
+          "gap": 24.0,
+          "padding": [
+            0.0,
+            80.0
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#FFFFFF"
+            }
+          ],
+          "stroke": {
+            "thickness": {
+              "bottom": 1.0
+            },
+            "fill": [
+              {
+                "type": "solid",
+                "color": "#F3F4F6"
+              }
+            ]
+          },
+          "children": [
+            {
+              "type": "text",
+              "id": "n3",
+              "name": "Logo Desktop",
+              "width": 260.0,
+              "height": 32.0,
+              "content": "Calendar Manager",
+              "fontFamily": "Inter",
+              "fontSize": 22.0,
+              "fontWeight": 900,
+              "lineHeight": 1.2,
+              "textAlign": "left",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#111827"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "n4",
+              "name": "Back Home Desktop",
+              "width": 160.0,
+              "height": 24.0,
+              "content": "Volver al inicio",
+              "fontFamily": "Inter",
+              "fontSize": 15.0,
+              "fontWeight": 800,
+              "lineHeight": 1.2,
+              "textAlign": "right",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#4F46E5"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "n5",
+          "name": "Register Content Desktop",
+          "width": "fill_container",
+          "height": 962.0,
+          "layout": "horizontal",
+          "gap": 64.0,
+          "padding": [
+            56.0,
+            120.0
+          ],
+          "alignItems": "center",
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#FFFFFF"
+            }
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "n6",
+              "name": "Business Register Info Panel Desktop",
+              "width": 580.0,
+              "height": 760.0,
+              "layout": "vertical",
+              "gap": 12.0,
+              "padding": 28.0,
+              "cornerRadius": 42.0,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#F9FAFB"
+                }
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n7",
+                  "name": "Business Register Eyebrow",
+                  "width": "fill_container",
+                  "height": 18.0,
+                  "content": "ONBOARDING NEGOCIOS",
+                  "fontFamily": "Inter",
+                  "fontSize": 13.0,
+                  "fontWeight": 850,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#4F46E5"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n8",
+                  "name": "Business Register Title",
+                  "width": "fill_container",
+                  "height": 92.0,
+                  "content": "Crea la cuenta de tu negocio",
+                  "fontFamily": "Inter",
+                  "fontSize": 40.0,
+                  "fontWeight": 900,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n9",
+                  "name": "Business Register Copy",
+                  "width": "fill_container",
+                  "height": 48.0,
+                  "content": "Configura tu business, crea el admin inicial y empieza a publicar services, staff members y disponibilidad.",
+                  "fontFamily": "Inter",
+                  "fontSize": 16.0,
+                  "fontWeight": 500,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#6B7280"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n10",
+                  "name": "Step 1 - Datos del business",
+                  "width": "fill_container",
+                  "height": 68.0,
+                  "layout": "horizontal",
+                  "gap": 12.0,
+                  "padding": 14.0,
+                  "alignItems": "center",
+                  "cornerRadius": 22.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "stroke": {
+                    "thickness": 1.0,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E7EB"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n11",
+                      "name": "Step Number 1",
+                      "width": 36.0,
+                      "height": 36.0,
+                      "layout": "vertical",
+                      "gap": 0.0,
+                      "padding": 0.0,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "cornerRadius": 999.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n12",
+                          "name": "Step Number Text 1",
+                          "width": 18.0,
+                          "height": 22.0,
+                          "content": "1",
+                          "fontFamily": "Inter",
+                          "fontSize": 16.0,
+                          "fontWeight": 900,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n13",
+                      "name": "Step Copy 1",
+                      "width": "fill_container",
+                      "height": 40.0,
+                      "layout": "vertical",
+                      "gap": 2.0,
+                      "padding": 0.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n14",
+                          "name": "Step Title 1",
+                          "width": "fill_container",
+                          "height": 20.0,
+                          "content": "Datos del business",
+                          "fontFamily": "Inter",
+                          "fontSize": 15.0,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n15",
+                          "name": "Step Detail 1",
+                          "width": "fill_container",
+                          "height": 18.0,
+                          "content": "Nombre, slug publico, timezone y moneda.",
+                          "fontFamily": "Inter",
+                          "fontSize": 12.0,
+                          "fontWeight": 500,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#6B7280"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n16",
+                  "name": "Step 2 - Cuenta admin",
+                  "width": "fill_container",
+                  "height": 68.0,
+                  "layout": "horizontal",
+                  "gap": 12.0,
+                  "padding": 14.0,
+                  "alignItems": "center",
+                  "cornerRadius": 22.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "stroke": {
+                    "thickness": 1.0,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E7EB"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n17",
+                      "name": "Step Number 2",
+                      "width": 36.0,
+                      "height": 36.0,
+                      "layout": "vertical",
+                      "gap": 0.0,
+                      "padding": 0.0,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "cornerRadius": 999.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#EEF2FF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n18",
+                          "name": "Step Number Text 2",
+                          "width": 18.0,
+                          "height": 22.0,
+                          "content": "2",
+                          "fontFamily": "Inter",
+                          "fontSize": 16.0,
+                          "fontWeight": 900,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#4F46E5"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n19",
+                      "name": "Step Copy 2",
+                      "width": "fill_container",
+                      "height": 40.0,
+                      "layout": "vertical",
+                      "gap": 2.0,
+                      "padding": 0.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n20",
+                          "name": "Step Title 2",
+                          "width": "fill_container",
+                          "height": 20.0,
+                          "content": "Cuenta admin",
+                          "fontFamily": "Inter",
+                          "fontSize": 15.0,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n21",
+                          "name": "Step Detail 2",
+                          "width": "fill_container",
+                          "height": 18.0,
+                          "content": "Email, password y nombre visible del admin.",
+                          "fontFamily": "Inter",
+                          "fontSize": 12.0,
+                          "fontWeight": 500,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#6B7280"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n22",
+                  "name": "Step 3 - Services y disponibilidad",
+                  "width": "fill_container",
+                  "height": 68.0,
+                  "layout": "horizontal",
+                  "gap": 12.0,
+                  "padding": 14.0,
+                  "alignItems": "center",
+                  "cornerRadius": 22.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "stroke": {
+                    "thickness": 1.0,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E7EB"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n23",
+                      "name": "Step Number 3",
+                      "width": 36.0,
+                      "height": 36.0,
+                      "layout": "vertical",
+                      "gap": 0.0,
+                      "padding": 0.0,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "cornerRadius": 999.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#EEF2FF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n24",
+                          "name": "Step Number Text 3",
+                          "width": 18.0,
+                          "height": 22.0,
+                          "content": "3",
+                          "fontFamily": "Inter",
+                          "fontSize": 16.0,
+                          "fontWeight": 900,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#4F46E5"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n25",
+                      "name": "Step Copy 3",
+                      "width": "fill_container",
+                      "height": 40.0,
+                      "layout": "vertical",
+                      "gap": 2.0,
+                      "padding": 0.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n26",
+                          "name": "Step Title 3",
+                          "width": "fill_container",
+                          "height": 20.0,
+                          "content": "Services y disponibilidad",
+                          "fontFamily": "Inter",
+                          "fontSize": 15.0,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n27",
+                          "name": "Step Detail 3",
+                          "width": "fill_container",
+                          "height": 18.0,
+                          "content": "Completa tu oferta despues de crear la cuenta.",
+                          "fontFamily": "Inter",
+                          "fontSize": 12.0,
+                          "fontWeight": 500,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#6B7280"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n28",
+                  "name": "Business Setup Mockup Desktop",
+                  "width": 420.0,
+                  "height": 230.0,
+                  "layout": "vertical",
+                  "gap": 12.0,
+                  "padding": 16.0,
+                  "cornerRadius": 26.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "stroke": {
+                    "thickness": 1.0,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E7EB"
+                      }
+                    ]
+                  },
+                  "effects": [
+                    {
+                      "type": "shadow",
+                      "offsetX": 0.0,
+                      "offsetY": 20.0,
+                      "blur": 44.0,
+                      "spread": -28.0,
+                      "color": "#11182724"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n29",
+                      "name": "Business Setup Mockup Desktop Business Card",
+                      "width": "fill_container",
+                      "height": 60.0,
+                      "layout": "horizontal",
+                      "gap": 12.0,
+                      "padding": 10.0,
+                      "alignItems": "center",
+                      "cornerRadius": 20.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#F9FAFB"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "n30",
+                          "name": "Business Setup Mockup Desktop Logo",
+                          "width": 40.0,
+                          "height": 40.0,
+                          "layout": "vertical",
+                          "gap": 0.0,
+                          "padding": 0.0,
+                          "cornerRadius": 14.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#DBEAFE"
+                            }
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n31",
+                          "name": "Business Setup Mockup Desktop Business Text",
+                          "width": "fill_container",
+                          "height": 44.0,
+                          "layout": "vertical",
+                          "gap": 2.0,
+                          "padding": 0.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#F9FAFB"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n32",
+                              "name": "Business Setup Mockup Desktop Business Name",
+                              "width": "fill_container",
+                              "height": 24.0,
+                              "content": "Studio Centro",
+                              "fontFamily": "Inter",
+                              "fontSize": 16.0,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "left",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#111827"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "n33",
+                              "name": "Business Setup Mockup Desktop Business Slug",
+                              "width": "fill_container",
+                              "height": 18.0,
+                              "content": "calendar-manager.com/b/studio-centro",
+                              "fontFamily": "Inter",
+                              "fontSize": 11.0,
+                              "fontWeight": 600,
+                              "lineHeight": 1.2,
+                              "textAlign": "left",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#6B7280"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n34",
+                      "name": "Business Setup Mockup Desktop Cards",
+                      "width": "fill_container",
+                      "height": 70.0,
+                      "layout": "horizontal",
+                      "gap": 10.0,
+                      "padding": 0.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "n35",
+                          "name": "Business Setup Mockup Desktop Service",
+                          "width": 136.0,
+                          "height": 70.0,
+                          "layout": "vertical",
+                          "gap": 4.0,
+                          "padding": 12.0,
+                          "cornerRadius": 20.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n36",
+                              "name": "Business Setup Mockup Desktop Service Title",
+                              "width": "fill_container",
+                              "height": 18.0,
+                              "content": "Service",
+                              "fontFamily": "Inter",
+                              "fontSize": 13.0,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "left",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FFFFFF"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "n37",
+                              "name": "Business Setup Mockup Desktop Service Body",
+                              "width": "fill_container",
+                              "height": 42.0,
+                              "content": "Corte + arreglo\n45 min · EUR",
+                              "fontFamily": "Inter",
+                              "fontSize": 12.0,
+                              "fontWeight": 600,
+                              "lineHeight": 1.2,
+                              "textAlign": "left",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#D1D5DB"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n38",
+                          "name": "Business Setup Mockup Desktop Staff",
+                          "width": 136.0,
+                          "height": 70.0,
+                          "layout": "vertical",
+                          "gap": 4.0,
+                          "padding": 12.0,
+                          "cornerRadius": 20.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#EEF2FF"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n39",
+                              "name": "Business Setup Mockup Desktop Staff Title",
+                              "width": "fill_container",
+                              "height": 18.0,
+                              "content": "Staff member",
+                              "fontFamily": "Inter",
+                              "fontSize": 13.0,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "left",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#4F46E5"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "n40",
+                              "name": "Business Setup Mockup Desktop Staff Body",
+                              "width": "fill_container",
+                              "height": 42.0,
+                              "content": "Marta Ruiz\nDisponible",
+                              "fontFamily": "Inter",
+                              "fontSize": 12.0,
+                              "fontWeight": 700,
+                              "lineHeight": 1.2,
+                              "textAlign": "left",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#4338CA"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n41",
+                      "name": "Business Setup Mockup Desktop Availability",
+                      "width": "fill_container",
+                      "height": 58.0,
+                      "layout": "vertical",
+                      "gap": 6.0,
+                      "padding": 12.0,
+                      "cornerRadius": 20.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#F9FAFB"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n42",
+                          "name": "Business Setup Mockup Desktop Availability Title",
+                          "width": "fill_container",
+                          "height": 18.0,
+                          "content": "Disponibilidad inicial",
+                          "fontFamily": "Inter",
+                          "fontSize": 13.0,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n43",
+                          "name": "Business Setup Mockup Desktop Slot Row",
+                          "width": "fill_container",
+                          "height": 28.0,
+                          "layout": "horizontal",
+                          "gap": 8.0,
+                          "padding": 0.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#F9FAFB"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "n44",
+                              "name": "Mock Slot 09:00",
+                              "width": 82.0,
+                              "height": 34.0,
+                              "layout": "vertical",
+                              "gap": 0.0,
+                              "padding": 0.0,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "cornerRadius": 11.0,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FFFFFF"
+                                }
+                              ],
+                              "stroke": {
+                                "thickness": 1.0,
+                                "fill": [
+                                  {
+                                    "type": "solid",
+                                    "color": "#E5E7EB"
+                                  }
+                                ]
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n45",
+                                  "name": "Mock Slot Text 09:00",
+                                  "width": "fit_content",
+                                  "height": 16.0,
+                                  "content": "09:00",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 12.0,
+                                  "fontWeight": 800,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#111827"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n46",
+                              "name": "Mock Slot 10:30",
+                              "width": 82.0,
+                              "height": 34.0,
+                              "layout": "vertical",
+                              "gap": 0.0,
+                              "padding": 0.0,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "cornerRadius": 11.0,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FFFFFF"
+                                }
+                              ],
+                              "stroke": {
+                                "thickness": 1.0,
+                                "fill": [
+                                  {
+                                    "type": "solid",
+                                    "color": "#E5E7EB"
+                                  }
+                                ]
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n47",
+                                  "name": "Mock Slot Text 10:30",
+                                  "width": "fit_content",
+                                  "height": 16.0,
+                                  "content": "10:30",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 12.0,
+                                  "fontWeight": 800,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#111827"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n48",
+                              "name": "Mock Slot 12:00",
+                              "width": 82.0,
+                              "height": 34.0,
+                              "layout": "vertical",
+                              "gap": 0.0,
+                              "padding": 0.0,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "cornerRadius": 11.0,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FFFFFF"
+                                }
+                              ],
+                              "stroke": {
+                                "thickness": 1.0,
+                                "fill": [
+                                  {
+                                    "type": "solid",
+                                    "color": "#E5E7EB"
+                                  }
+                                ]
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n49",
+                                  "name": "Mock Slot Text 12:00",
+                                  "width": "fit_content",
+                                  "height": 16.0,
+                                  "content": "12:00",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 12.0,
+                                  "fontWeight": 800,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#111827"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n50",
+              "name": "Business Register Card Desktop",
+              "width": 548.0,
+              "height": 760.0,
+              "layout": "vertical",
+              "gap": 14.0,
+              "padding": 32.0,
+              "cornerRadius": 34.0,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "stroke": {
+                "thickness": 1.0,
+                "fill": [
+                  {
+                    "type": "solid",
+                    "color": "#E5E7EB"
+                  }
+                ]
+              },
+              "effects": [
+                {
+                  "type": "shadow",
+                  "offsetX": 0.0,
+                  "offsetY": 20.0,
+                  "blur": 44.0,
+                  "spread": -28.0,
+                  "color": "#11182724"
+                }
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n51",
+                  "name": "Business Register Card Desktop Title",
+                  "width": "fill_container",
+                  "height": 44.0,
+                  "content": "Crear cuenta de negocio",
+                  "fontFamily": "Inter",
+                  "fontSize": 34.0,
+                  "fontWeight": 900,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n52",
+                  "name": "Business Register Card Desktop Subtitle",
+                  "width": "fill_container",
+                  "height": 46.0,
+                  "content": "Registra tu business y el primer admin para empezar a gestionar tu agenda.",
+                  "fontFamily": "Inter",
+                  "fontSize": 16.0,
+                  "fontWeight": 500,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#6B7280"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n53",
+                  "name": "Business Register Card Desktop Business Section",
+                  "width": "fill_container",
+                  "height": 22.0,
+                  "content": "Datos del business",
+                  "fontFamily": "Inter",
+                  "fontSize": 17.0,
+                  "fontWeight": 900,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n54",
+                  "name": "Business Register Card Desktop Business Row",
+                  "width": "fill_container",
+                  "height": 92.0,
+                  "layout": "horizontal",
+                  "gap": 12.0,
+                  "padding": 0.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n55",
+                      "name": "Business Register Card Desktop BusinessName",
+                      "width": "fill_container",
+                      "height": 76.0,
+                      "layout": "vertical",
+                      "gap": 7.0,
+                      "padding": 0.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n56",
+                          "name": "Business Register Card Desktop BusinessName Label",
+                          "width": "fill_container",
+                          "height": 20.0,
+                          "content": "Nombre del business",
+                          "fontFamily": "Inter",
+                          "fontSize": 14.0,
+                          "fontWeight": 800,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n57",
+                          "name": "Business Register Card Desktop BusinessName Field",
+                          "width": "fill_container",
+                          "height": 50.0,
+                          "layout": "vertical",
+                          "gap": 0.0,
+                          "padding": [
+                            0.0,
+                            15.0
+                          ],
+                          "justifyContent": "center",
+                          "cornerRadius": 15.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#F9FAFB"
+                            }
+                          ],
+                          "stroke": {
+                            "thickness": 1.0,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#E5E7EB"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n58",
+                              "name": "Business Register Card Desktop BusinessName Placeholder",
+                              "width": "fill_container",
+                              "height": 21.0,
+                              "content": "Studio Centro",
+                              "fontFamily": "Inter",
+                              "fontSize": 15.0,
+                              "fontWeight": 500,
+                              "lineHeight": 1.2,
+                              "textAlign": "left",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#9CA3AF"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n59",
+                      "name": "Business Register Card Desktop BusinessSlug",
+                      "width": "fill_container",
+                      "height": 92.0,
+                      "layout": "vertical",
+                      "gap": 7.0,
+                      "padding": 0.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n60",
+                          "name": "Business Register Card Desktop BusinessSlug Label",
+                          "width": "fill_container",
+                          "height": 20.0,
+                          "content": "Slug publico",
+                          "fontFamily": "Inter",
+                          "fontSize": 14.0,
+                          "fontWeight": 800,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n61",
+                          "name": "Business Register Card Desktop BusinessSlug Field",
+                          "width": "fill_container",
+                          "height": 50.0,
+                          "layout": "vertical",
+                          "gap": 0.0,
+                          "padding": [
+                            0.0,
+                            15.0
+                          ],
+                          "justifyContent": "center",
+                          "cornerRadius": 15.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#F9FAFB"
+                            }
+                          ],
+                          "stroke": {
+                            "thickness": 1.0,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#E5E7EB"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n62",
+                              "name": "Business Register Card Desktop BusinessSlug Placeholder",
+                              "width": "fill_container",
+                              "height": 21.0,
+                              "content": "studio-centro",
+                              "fontFamily": "Inter",
+                              "fontSize": 15.0,
+                              "fontWeight": 500,
+                              "lineHeight": 1.2,
+                              "textAlign": "left",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#9CA3AF"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n63",
+                          "name": "Business Register Card Desktop BusinessSlug Helper",
+                          "width": "fill_container",
+                          "height": 18.0,
+                          "content": "calendar-manager.com/b/studio-centro",
+                          "fontFamily": "Inter",
+                          "fontSize": 13.0,
+                          "fontWeight": 600,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#6B7280"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n64",
+                  "name": "Business Register Card Desktop Locale Row",
+                  "width": "fill_container",
+                  "height": 78.0,
+                  "layout": "horizontal",
+                  "gap": 12.0,
+                  "padding": 0.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n65",
+                      "name": "Business Register Card Desktop TimeZone",
+                      "width": "fill_container",
+                      "height": 76.0,
+                      "layout": "vertical",
+                      "gap": 7.0,
+                      "padding": 0.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n66",
+                          "name": "Business Register Card Desktop TimeZone Label",
+                          "width": "fill_container",
+                          "height": 20.0,
+                          "content": "Timezone",
+                          "fontFamily": "Inter",
+                          "fontSize": 14.0,
+                          "fontWeight": 800,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n67",
+                          "name": "Business Register Card Desktop TimeZone Field",
+                          "width": "fill_container",
+                          "height": 50.0,
+                          "layout": "vertical",
+                          "gap": 0.0,
+                          "padding": [
+                            0.0,
+                            15.0
+                          ],
+                          "justifyContent": "center",
+                          "cornerRadius": 15.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#F9FAFB"
+                            }
+                          ],
+                          "stroke": {
+                            "thickness": 1.0,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#E5E7EB"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n68",
+                              "name": "Business Register Card Desktop TimeZone Placeholder",
+                              "width": "fill_container",
+                              "height": 21.0,
+                              "content": "Europe/Madrid",
+                              "fontFamily": "Inter",
+                              "fontSize": 15.0,
+                              "fontWeight": 500,
+                              "lineHeight": 1.2,
+                              "textAlign": "left",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#9CA3AF"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n69",
+                      "name": "Business Register Card Desktop Currency",
+                      "width": "fill_container",
+                      "height": 76.0,
+                      "layout": "vertical",
+                      "gap": 7.0,
+                      "padding": 0.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n70",
+                          "name": "Business Register Card Desktop Currency Label",
+                          "width": "fill_container",
+                          "height": 20.0,
+                          "content": "Moneda",
+                          "fontFamily": "Inter",
+                          "fontSize": 14.0,
+                          "fontWeight": 800,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n71",
+                          "name": "Business Register Card Desktop Currency Field",
+                          "width": "fill_container",
+                          "height": 50.0,
+                          "layout": "vertical",
+                          "gap": 0.0,
+                          "padding": [
+                            0.0,
+                            15.0
+                          ],
+                          "justifyContent": "center",
+                          "cornerRadius": 15.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#F9FAFB"
+                            }
+                          ],
+                          "stroke": {
+                            "thickness": 1.0,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#E5E7EB"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n72",
+                              "name": "Business Register Card Desktop Currency Placeholder",
+                              "width": "fill_container",
+                              "height": 21.0,
+                              "content": "EUR",
+                              "fontFamily": "Inter",
+                              "fontSize": 15.0,
+                              "fontWeight": 500,
+                              "lineHeight": 1.2,
+                              "textAlign": "left",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#9CA3AF"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n73",
+                  "name": "Business Register Card Desktop Admin Section",
+                  "width": "fill_container",
+                  "height": 22.0,
+                  "content": "Admin inicial",
+                  "fontFamily": "Inter",
+                  "fontSize": 17.0,
+                  "fontWeight": 900,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n74",
+                  "name": "Business Register Card Desktop Admin Row",
+                  "width": "fill_container",
+                  "height": 78.0,
+                  "layout": "horizontal",
+                  "gap": 12.0,
+                  "padding": 0.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n75",
+                      "name": "Business Register Card Desktop AdminName",
+                      "width": "fill_container",
+                      "height": 76.0,
+                      "layout": "vertical",
+                      "gap": 7.0,
+                      "padding": 0.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n76",
+                          "name": "Business Register Card Desktop AdminName Label",
+                          "width": "fill_container",
+                          "height": 20.0,
+                          "content": "Nombre del admin",
+                          "fontFamily": "Inter",
+                          "fontSize": 14.0,
+                          "fontWeight": 800,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n77",
+                          "name": "Business Register Card Desktop AdminName Field",
+                          "width": "fill_container",
+                          "height": 50.0,
+                          "layout": "vertical",
+                          "gap": 0.0,
+                          "padding": [
+                            0.0,
+                            15.0
+                          ],
+                          "justifyContent": "center",
+                          "cornerRadius": 15.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#F9FAFB"
+                            }
+                          ],
+                          "stroke": {
+                            "thickness": 1.0,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#E5E7EB"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n78",
+                              "name": "Business Register Card Desktop AdminName Placeholder",
+                              "width": "fill_container",
+                              "height": 21.0,
+                              "content": "Marta Ruiz",
+                              "fontFamily": "Inter",
+                              "fontSize": 15.0,
+                              "fontWeight": 500,
+                              "lineHeight": 1.2,
+                              "textAlign": "left",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#9CA3AF"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n79",
+                      "name": "Business Register Card Desktop AdminEmail",
+                      "width": "fill_container",
+                      "height": 76.0,
+                      "layout": "vertical",
+                      "gap": 7.0,
+                      "padding": 0.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n80",
+                          "name": "Business Register Card Desktop AdminEmail Label",
+                          "width": "fill_container",
+                          "height": 20.0,
+                          "content": "Email admin",
+                          "fontFamily": "Inter",
+                          "fontSize": 14.0,
+                          "fontWeight": 800,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n81",
+                          "name": "Business Register Card Desktop AdminEmail Field",
+                          "width": "fill_container",
+                          "height": 50.0,
+                          "layout": "vertical",
+                          "gap": 0.0,
+                          "padding": [
+                            0.0,
+                            15.0
+                          ],
+                          "justifyContent": "center",
+                          "cornerRadius": 15.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#F9FAFB"
+                            }
+                          ],
+                          "stroke": {
+                            "thickness": 1.0,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#E5E7EB"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n82",
+                              "name": "Business Register Card Desktop AdminEmail Placeholder",
+                              "width": "fill_container",
+                              "height": 21.0,
+                              "content": "admin@studio.com",
+                              "fontFamily": "Inter",
+                              "fontSize": 15.0,
+                              "fontWeight": 500,
+                              "lineHeight": 1.2,
+                              "textAlign": "left",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#9CA3AF"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n83",
+                  "name": "Business Register Card Desktop AdminPassword",
+                  "width": "fill_container",
+                  "height": 76.0,
+                  "layout": "vertical",
+                  "gap": 7.0,
+                  "padding": 0.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n84",
+                      "name": "Business Register Card Desktop AdminPassword Label",
+                      "width": "fill_container",
+                      "height": 20.0,
+                      "content": "Password",
+                      "fontFamily": "Inter",
+                      "fontSize": 14.0,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n85",
+                      "name": "Business Register Card Desktop AdminPassword Field",
+                      "width": "fill_container",
+                      "height": 50.0,
+                      "layout": "vertical",
+                      "gap": 0.0,
+                      "padding": [
+                        0.0,
+                        15.0
+                      ],
+                      "justifyContent": "center",
+                      "cornerRadius": 15.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#F9FAFB"
+                        }
+                      ],
+                      "stroke": {
+                        "thickness": 1.0,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n86",
+                          "name": "Business Register Card Desktop AdminPassword Placeholder",
+                          "width": "fill_container",
+                          "height": 21.0,
+                          "content": "Minimo 8 caracteres",
+                          "fontFamily": "Inter",
+                          "fontSize": 15.0,
+                          "fontWeight": 500,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#9CA3AF"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n87",
+                  "name": "Business Register Card Desktop Submit",
+                  "width": "fill_container",
+                  "height": 52.0,
+                  "layout": "horizontal",
+                  "gap": 0.0,
+                  "padding": [
+                    0.0,
+                    22.0
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "cornerRadius": 16.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n88",
+                      "name": "Business Register Card Desktop Submit Label",
+                      "width": "fit_content",
+                      "height": 22.0,
+                      "content": "Crear cuenta de negocio",
+                      "fontFamily": "Inter",
+                      "fontSize": 15.0,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n89",
+                  "name": "Business Register Card Desktop Note",
+                  "width": "fill_container",
+                  "height": 20.0,
+                  "content": "Podras completar services, staff members y disponibilidad despues.",
+                  "fontFamily": "Inter",
+                  "fontSize": 13.0,
+                  "fontWeight": 600,
+                  "lineHeight": 1.2,
+                  "textAlign": "center",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#6B7280"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n90",
+                  "name": "Business Register Card Desktop Login Link",
+                  "width": "fill_container",
+                  "height": 22.0,
+                  "content": "¿Ya tienes cuenta? Login Negocios",
+                  "fontFamily": "Inter",
+                  "fontSize": 14.0,
+                  "fontWeight": 800,
+                  "lineHeight": 1.2,
+                  "textAlign": "center",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#4F46E5"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "n91",
+      "name": "Business Admin Register Mobile",
+      "x": 1500.0,
+      "y": 0.0,
+      "width": 390.0,
+      "height": 1380.0,
+      "layout": "vertical",
+      "gap": 0.0,
+      "padding": 0.0,
+      "fill": [
+        {
+          "type": "solid",
+          "color": "#FFFFFF"
+        }
+      ],
+      "children": [
+        {
+          "type": "frame",
+          "id": "n92",
+          "name": "Mobile Header",
+          "width": "fill_container",
+          "height": 84.0,
+          "layout": "vertical",
+          "gap": 6.0,
+          "padding": [
+            22.0,
+            22.0
+          ],
+          "alignItems": "center",
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#FFFFFF"
+            }
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "n93",
+              "name": "Mobile Logo",
+              "width": "fill_container",
+              "height": 28.0,
+              "content": "Calendar Manager",
+              "fontFamily": "Inter",
+              "fontSize": 20.0,
+              "fontWeight": 900,
+              "lineHeight": 1.2,
+              "textAlign": "center",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#111827"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "n94",
+              "name": "Mobile Back",
+              "width": "fill_container",
+              "height": 20.0,
+              "content": "Volver al inicio",
+              "fontFamily": "Inter",
+              "fontSize": 13.0,
+              "fontWeight": 800,
+              "lineHeight": 1.2,
+              "textAlign": "center",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#4F46E5"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "n95",
+          "name": "Mobile Register Content",
+          "width": "fill_container",
+          "height": 1296.0,
+          "layout": "vertical",
+          "gap": 18.0,
+          "padding": [
+            10.0,
+            22.0
+          ],
+          "alignItems": "center",
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#FFFFFF"
+            }
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "n96",
+              "name": "Mobile Title",
+              "width": "fill_container",
+              "height": 78.0,
+              "content": "Crear cuenta de negocio",
+              "fontFamily": "Inter",
+              "fontSize": 33.0,
+              "fontWeight": 900,
+              "lineHeight": 1.2,
+              "textAlign": "center",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#111827"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "n97",
+              "name": "Mobile Copy",
+              "width": "fill_container",
+              "height": 44.0,
+              "content": "Registra tu business y crea el primer admin para empezar.",
+              "fontFamily": "Inter",
+              "fontSize": 15.0,
+              "fontWeight": 500,
+              "lineHeight": 1.2,
+              "textAlign": "center",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#6B7280"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n98",
+              "name": "Mobile Steps",
+              "width": "fill_container",
+              "height": 178.0,
+              "layout": "vertical",
+              "gap": 10.0,
+              "padding": 0.0,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "n99",
+                  "name": "Step 1 - Datos del business",
+                  "width": "fill_container",
+                  "height": 68.0,
+                  "layout": "horizontal",
+                  "gap": 12.0,
+                  "padding": 14.0,
+                  "alignItems": "center",
+                  "cornerRadius": 22.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "stroke": {
+                    "thickness": 1.0,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E7EB"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n100",
+                      "name": "Step Number 1",
+                      "width": 36.0,
+                      "height": 36.0,
+                      "layout": "vertical",
+                      "gap": 0.0,
+                      "padding": 0.0,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "cornerRadius": 999.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n101",
+                          "name": "Step Number Text 1",
+                          "width": 18.0,
+                          "height": 22.0,
+                          "content": "1",
+                          "fontFamily": "Inter",
+                          "fontSize": 16.0,
+                          "fontWeight": 900,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n102",
+                      "name": "Step Copy 1",
+                      "width": "fill_container",
+                      "height": 40.0,
+                      "layout": "vertical",
+                      "gap": 2.0,
+                      "padding": 0.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n103",
+                          "name": "Step Title 1",
+                          "width": "fill_container",
+                          "height": 20.0,
+                          "content": "Datos del business",
+                          "fontFamily": "Inter",
+                          "fontSize": 15.0,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n104",
+                          "name": "Step Detail 1",
+                          "width": "fill_container",
+                          "height": 18.0,
+                          "content": "Nombre, slug, timezone y moneda.",
+                          "fontFamily": "Inter",
+                          "fontSize": 12.0,
+                          "fontWeight": 500,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#6B7280"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n105",
+                  "name": "Step 2 - Cuenta admin",
+                  "width": "fill_container",
+                  "height": 68.0,
+                  "layout": "horizontal",
+                  "gap": 12.0,
+                  "padding": 14.0,
+                  "alignItems": "center",
+                  "cornerRadius": 22.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "stroke": {
+                    "thickness": 1.0,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E7EB"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n106",
+                      "name": "Step Number 2",
+                      "width": 36.0,
+                      "height": 36.0,
+                      "layout": "vertical",
+                      "gap": 0.0,
+                      "padding": 0.0,
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "cornerRadius": 999.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#EEF2FF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n107",
+                          "name": "Step Number Text 2",
+                          "width": 18.0,
+                          "height": 22.0,
+                          "content": "2",
+                          "fontFamily": "Inter",
+                          "fontSize": 16.0,
+                          "fontWeight": 900,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#4F46E5"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n108",
+                      "name": "Step Copy 2",
+                      "width": "fill_container",
+                      "height": 40.0,
+                      "layout": "vertical",
+                      "gap": 2.0,
+                      "padding": 0.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n109",
+                          "name": "Step Title 2",
+                          "width": "fill_container",
+                          "height": 20.0,
+                          "content": "Cuenta admin",
+                          "fontFamily": "Inter",
+                          "fontSize": 15.0,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n110",
+                          "name": "Step Detail 2",
+                          "width": "fill_container",
+                          "height": 18.0,
+                          "content": "Email y password inicial.",
+                          "fontFamily": "Inter",
+                          "fontSize": 12.0,
+                          "fontWeight": 500,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#6B7280"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n111",
+              "name": "Business Register Card Mobile",
+              "width": "fill_container",
+              "height": 850.0,
+              "layout": "vertical",
+              "gap": 16.0,
+              "padding": 24.0,
+              "cornerRadius": 28.0,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "stroke": {
+                "thickness": 1.0,
+                "fill": [
+                  {
+                    "type": "solid",
+                    "color": "#E5E7EB"
+                  }
+                ]
+              },
+              "effects": [
+                {
+                  "type": "shadow",
+                  "offsetX": 0.0,
+                  "offsetY": 20.0,
+                  "blur": 44.0,
+                  "spread": -28.0,
+                  "color": "#11182724"
+                }
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n112",
+                  "name": "Business Register Card Mobile Title",
+                  "width": "fill_container",
+                  "height": 40.0,
+                  "content": "Crear cuenta de negocio",
+                  "fontFamily": "Inter",
+                  "fontSize": 30.0,
+                  "fontWeight": 900,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n113",
+                  "name": "Business Register Card Mobile Subtitle",
+                  "width": "fill_container",
+                  "height": 58.0,
+                  "content": "Registra tu business y el primer admin para empezar a gestionar tu agenda.",
+                  "fontFamily": "Inter",
+                  "fontSize": 15.0,
+                  "fontWeight": 500,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#6B7280"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n114",
+                  "name": "Business Register Card Mobile Business Section",
+                  "width": "fill_container",
+                  "height": 22.0,
+                  "content": "Datos del business",
+                  "fontFamily": "Inter",
+                  "fontSize": 16.0,
+                  "fontWeight": 900,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n115",
+                  "name": "Business Register Card Mobile BusinessName",
+                  "width": "fill_container",
+                  "height": 76.0,
+                  "layout": "vertical",
+                  "gap": 7.0,
+                  "padding": 0.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n116",
+                      "name": "Business Register Card Mobile BusinessName Label",
+                      "width": "fill_container",
+                      "height": 20.0,
+                      "content": "Nombre del business",
+                      "fontFamily": "Inter",
+                      "fontSize": 13.0,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n117",
+                      "name": "Business Register Card Mobile BusinessName Field",
+                      "width": "fill_container",
+                      "height": 48.0,
+                      "layout": "vertical",
+                      "gap": 0.0,
+                      "padding": [
+                        0.0,
+                        15.0
+                      ],
+                      "justifyContent": "center",
+                      "cornerRadius": 15.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#F9FAFB"
+                        }
+                      ],
+                      "stroke": {
+                        "thickness": 1.0,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n118",
+                          "name": "Business Register Card Mobile BusinessName Placeholder",
+                          "width": "fill_container",
+                          "height": 21.0,
+                          "content": "Studio Centro",
+                          "fontFamily": "Inter",
+                          "fontSize": 14.0,
+                          "fontWeight": 500,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#9CA3AF"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n119",
+                  "name": "Business Register Card Mobile BusinessSlug",
+                  "width": "fill_container",
+                  "height": 88.0,
+                  "layout": "vertical",
+                  "gap": 7.0,
+                  "padding": 0.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n120",
+                      "name": "Business Register Card Mobile BusinessSlug Label",
+                      "width": "fill_container",
+                      "height": 20.0,
+                      "content": "Slug publico",
+                      "fontFamily": "Inter",
+                      "fontSize": 13.0,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n121",
+                      "name": "Business Register Card Mobile BusinessSlug Field",
+                      "width": "fill_container",
+                      "height": 48.0,
+                      "layout": "vertical",
+                      "gap": 0.0,
+                      "padding": [
+                        0.0,
+                        15.0
+                      ],
+                      "justifyContent": "center",
+                      "cornerRadius": 15.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#F9FAFB"
+                        }
+                      ],
+                      "stroke": {
+                        "thickness": 1.0,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n122",
+                          "name": "Business Register Card Mobile BusinessSlug Placeholder",
+                          "width": "fill_container",
+                          "height": 21.0,
+                          "content": "studio-centro",
+                          "fontFamily": "Inter",
+                          "fontSize": 14.0,
+                          "fontWeight": 500,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#9CA3AF"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n123",
+                      "name": "Business Register Card Mobile BusinessSlug Helper",
+                      "width": "fill_container",
+                      "height": 18.0,
+                      "content": "calendar-manager.com/b/studio-centro",
+                      "fontFamily": "Inter",
+                      "fontSize": 12.0,
+                      "fontWeight": 600,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#6B7280"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n124",
+                  "name": "Business Register Card Mobile Locale Row",
+                  "width": "fill_container",
+                  "height": 188.0,
+                  "layout": "vertical",
+                  "gap": 10.0,
+                  "padding": 0.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n125",
+                      "name": "Business Register Card Mobile TimeZone",
+                      "width": "fill_container",
+                      "height": 88.0,
+                      "layout": "vertical",
+                      "gap": 7.0,
+                      "padding": 0.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n126",
+                          "name": "Business Register Card Mobile TimeZone Label",
+                          "width": "fill_container",
+                          "height": 20.0,
+                          "content": "Timezone",
+                          "fontFamily": "Inter",
+                          "fontSize": 13.0,
+                          "fontWeight": 800,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n127",
+                          "name": "Business Register Card Mobile TimeZone Field",
+                          "width": "fill_container",
+                          "height": 48.0,
+                          "layout": "vertical",
+                          "gap": 0.0,
+                          "padding": [
+                            0.0,
+                            15.0
+                          ],
+                          "justifyContent": "center",
+                          "cornerRadius": 15.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#F9FAFB"
+                            }
+                          ],
+                          "stroke": {
+                            "thickness": 1.0,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#E5E7EB"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n128",
+                              "name": "Business Register Card Mobile TimeZone Placeholder",
+                              "width": "fill_container",
+                              "height": 21.0,
+                              "content": "Europe/Madrid",
+                              "fontFamily": "Inter",
+                              "fontSize": 14.0,
+                              "fontWeight": 500,
+                              "lineHeight": 1.2,
+                              "textAlign": "left",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#9CA3AF"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n129",
+                          "name": "Business Register Card Mobile TimeZone Helper",
+                          "width": "fill_container",
+                          "height": 18.0,
+                          "content": "Identificador IANA",
+                          "fontFamily": "Inter",
+                          "fontSize": 12.0,
+                          "fontWeight": 600,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#6B7280"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n130",
+                      "name": "Business Register Card Mobile Currency",
+                      "width": "fill_container",
+                      "height": 88.0,
+                      "layout": "vertical",
+                      "gap": 7.0,
+                      "padding": 0.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n131",
+                          "name": "Business Register Card Mobile Currency Label",
+                          "width": "fill_container",
+                          "height": 20.0,
+                          "content": "Moneda",
+                          "fontFamily": "Inter",
+                          "fontSize": 13.0,
+                          "fontWeight": 800,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n132",
+                          "name": "Business Register Card Mobile Currency Field",
+                          "width": "fill_container",
+                          "height": 48.0,
+                          "layout": "vertical",
+                          "gap": 0.0,
+                          "padding": [
+                            0.0,
+                            15.0
+                          ],
+                          "justifyContent": "center",
+                          "cornerRadius": 15.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#F9FAFB"
+                            }
+                          ],
+                          "stroke": {
+                            "thickness": 1.0,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#E5E7EB"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n133",
+                              "name": "Business Register Card Mobile Currency Placeholder",
+                              "width": "fill_container",
+                              "height": 21.0,
+                              "content": "EUR",
+                              "fontFamily": "Inter",
+                              "fontSize": 14.0,
+                              "fontWeight": 500,
+                              "lineHeight": 1.2,
+                              "textAlign": "left",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#9CA3AF"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n134",
+                          "name": "Business Register Card Mobile Currency Helper",
+                          "width": "fill_container",
+                          "height": 18.0,
+                          "content": "Codigo ISO 4217",
+                          "fontFamily": "Inter",
+                          "fontSize": 12.0,
+                          "fontWeight": 600,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#6B7280"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n135",
+                  "name": "Business Register Card Mobile Admin Section",
+                  "width": "fill_container",
+                  "height": 22.0,
+                  "content": "Admin inicial",
+                  "fontFamily": "Inter",
+                  "fontSize": 16.0,
+                  "fontWeight": 900,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n136",
+                  "name": "Business Register Card Mobile AdminName",
+                  "width": "fill_container",
+                  "height": 76.0,
+                  "layout": "vertical",
+                  "gap": 7.0,
+                  "padding": 0.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n137",
+                      "name": "Business Register Card Mobile AdminName Label",
+                      "width": "fill_container",
+                      "height": 20.0,
+                      "content": "Nombre del admin",
+                      "fontFamily": "Inter",
+                      "fontSize": 13.0,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n138",
+                      "name": "Business Register Card Mobile AdminName Field",
+                      "width": "fill_container",
+                      "height": 48.0,
+                      "layout": "vertical",
+                      "gap": 0.0,
+                      "padding": [
+                        0.0,
+                        15.0
+                      ],
+                      "justifyContent": "center",
+                      "cornerRadius": 15.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#F9FAFB"
+                        }
+                      ],
+                      "stroke": {
+                        "thickness": 1.0,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n139",
+                          "name": "Business Register Card Mobile AdminName Placeholder",
+                          "width": "fill_container",
+                          "height": 21.0,
+                          "content": "Marta Ruiz",
+                          "fontFamily": "Inter",
+                          "fontSize": 14.0,
+                          "fontWeight": 500,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#9CA3AF"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n140",
+                  "name": "Business Register Card Mobile AdminEmail",
+                  "width": "fill_container",
+                  "height": 76.0,
+                  "layout": "vertical",
+                  "gap": 7.0,
+                  "padding": 0.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n141",
+                      "name": "Business Register Card Mobile AdminEmail Label",
+                      "width": "fill_container",
+                      "height": 20.0,
+                      "content": "Email admin",
+                      "fontFamily": "Inter",
+                      "fontSize": 13.0,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n142",
+                      "name": "Business Register Card Mobile AdminEmail Field",
+                      "width": "fill_container",
+                      "height": 48.0,
+                      "layout": "vertical",
+                      "gap": 0.0,
+                      "padding": [
+                        0.0,
+                        15.0
+                      ],
+                      "justifyContent": "center",
+                      "cornerRadius": 15.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#F9FAFB"
+                        }
+                      ],
+                      "stroke": {
+                        "thickness": 1.0,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n143",
+                          "name": "Business Register Card Mobile AdminEmail Placeholder",
+                          "width": "fill_container",
+                          "height": 21.0,
+                          "content": "admin@studio.com",
+                          "fontFamily": "Inter",
+                          "fontSize": 14.0,
+                          "fontWeight": 500,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#9CA3AF"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n144",
+                  "name": "Business Register Card Mobile AdminPassword",
+                  "width": "fill_container",
+                  "height": 76.0,
+                  "layout": "vertical",
+                  "gap": 7.0,
+                  "padding": 0.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n145",
+                      "name": "Business Register Card Mobile AdminPassword Label",
+                      "width": "fill_container",
+                      "height": 20.0,
+                      "content": "Password",
+                      "fontFamily": "Inter",
+                      "fontSize": 13.0,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n146",
+                      "name": "Business Register Card Mobile AdminPassword Field",
+                      "width": "fill_container",
+                      "height": 48.0,
+                      "layout": "vertical",
+                      "gap": 0.0,
+                      "padding": [
+                        0.0,
+                        15.0
+                      ],
+                      "justifyContent": "center",
+                      "cornerRadius": 15.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#F9FAFB"
+                        }
+                      ],
+                      "stroke": {
+                        "thickness": 1.0,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n147",
+                          "name": "Business Register Card Mobile AdminPassword Placeholder",
+                          "width": "fill_container",
+                          "height": 21.0,
+                          "content": "Minimo 8 caracteres",
+                          "fontFamily": "Inter",
+                          "fontSize": 14.0,
+                          "fontWeight": 500,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#9CA3AF"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n148",
+                  "name": "Business Register Card Mobile Submit",
+                  "width": "fill_container",
+                  "height": 52.0,
+                  "layout": "horizontal",
+                  "gap": 0.0,
+                  "padding": [
+                    0.0,
+                    22.0
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "cornerRadius": 16.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n149",
+                      "name": "Business Register Card Mobile Submit Label",
+                      "width": "fit_content",
+                      "height": 22.0,
+                      "content": "Crear cuenta de negocio",
+                      "fontFamily": "Inter",
+                      "fontSize": 15.0,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n150",
+                  "name": "Business Register Card Mobile Note",
+                  "width": "fill_container",
+                  "height": 20.0,
+                  "content": "Podras completar services, staff members y disponibilidad despues.",
+                  "fontFamily": "Inter",
+                  "fontSize": 13.0,
+                  "fontWeight": 600,
+                  "lineHeight": 1.2,
+                  "textAlign": "center",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#6B7280"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n151",
+                  "name": "Business Register Card Mobile Login Link",
+                  "width": "fill_container",
+                  "height": 22.0,
+                  "content": "¿Ya tienes cuenta? Login Negocios",
+                  "fontFamily": "Inter",
+                  "fontSize": 14.0,
+                  "fontWeight": 800,
+                  "lineHeight": 1.2,
+                  "textAlign": "center",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#4F46E5"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
