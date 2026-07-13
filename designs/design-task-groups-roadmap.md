@@ -110,6 +110,42 @@ Legend:
 | 10.1 | Disenar dashboard admin con resumen de appointments de hoy, proximos e ingresos estimados. | [ ] | [x] |
 | 10.2 | Disenar metricas basicas: appointments por estado, services mas reservados y staff mas reservado. | [ ] | [x] |
 
+## 11. MVP De Disenos Basado En Backend Implementado
+
+Este apartado lista solo los primeros disenos que haria para cubrir un MVP visual basado en casos de uso ya implementados en backend. Cuenta los disenos ya creados.
+
+| ID | Diseno | Hecho | Postpuesto |
+| --- | --- | --- | --- |
+| 11.1 | Pagina principal publica tipo marketplace. | [x] | [ ] |
+| 11.2 | Login de customer. | [x] | [ ] |
+| 11.3 | Login de business admin. | [x] | [ ] |
+| 11.4 | Registro de customer. | [ ] | [ ] |
+| 11.5 | Registro de business con admin inicial. | [ ] | [ ] |
+| 11.6 | Perfil publico de business con datos publicos, services y staff members activos. | [ ] | [ ] |
+| 11.7 | Flujo publico de seleccion de appointment hasta elegir slot: service, staff member opcional, fecha y horario. | [ ] | [ ] |
+| 11.8 | Business admin shell/layout base. | [ ] | [ ] |
+| 11.9 | Business settings: datos publicos, contacto, direccion, timezone, moneda y ventana maxima de reserva. | [ ] | [ ] |
+| 11.10 | Admin services: listado, crear, editar, activar/desactivar, eliminar y empty/conflict states. | [ ] | [ ] |
+| 11.11 | Admin staff members: listado, crear, editar, activar/desactivar, eliminar y empty/conflict states. | [ ] | [ ] |
+| 11.12 | Admin staff-service assignments desde detalle de staff o service. | [ ] | [ ] |
+| 11.13 | Admin availability: disponibilidad semanal y excepciones por staff member. | [ ] | [ ] |
+
+## Suggested MVP Design Order
+
+1. Pagina principal publica tipo marketplace. `[x]`
+2. Login de customer. `[x]`
+3. Login de business admin. `[x]`
+4. Registro de business con admin inicial.
+5. Business admin shell/layout base.
+6. Business settings.
+7. Admin services.
+8. Admin staff members.
+9. Admin staff-service assignments.
+10. Admin availability.
+11. Perfil publico de business.
+12. Flujo publico de seleccion de appointment hasta elegir slot.
+13. Registro de customer.
+
 ## Natural Suggested Design Order
 
 1. Public Landing Y Auth
@@ -122,3 +158,4 @@ Legend:
 8. Customer Account Futuro
 9. Appointments Futuro
 10. Dashboard Y Reporting Futuro
+11. MVP De Disenos Basado En Backend Implementado
