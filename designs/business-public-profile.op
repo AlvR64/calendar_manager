@@ -4,10 +4,10 @@
   "children": [
     {
       "type": "frame",
-      "id": "n105",
+      "id": "n89",
       "name": "Business Public Profile Desktop",
       "width": 1440,
-      "height": 1320,
+      "height": 1390,
       "layout": "vertical",
       "gap": 0,
       "padding": 0,
@@ -94,10 +94,10 @@
         },
         {
           "type": "frame",
-          "id": "n104",
+          "id": "n88",
           "name": "Public Profile Body",
           "width": "fill_container",
-          "height": 1242,
+          "height": 1312,
           "layout": "vertical",
           "gap": 0,
           "padding": 0,
@@ -110,7 +110,7 @@
           "children": [
             {
               "type": "frame",
-              "id": "n26",
+              "id": "n22",
               "name": "Public Hero",
               "width": "fill_container",
               "height": 332,
@@ -129,7 +129,7 @@
               "children": [
                 {
                   "type": "frame",
-                  "id": "n14",
+                  "id": "n10",
                   "name": "Public Hero Copy",
                   "width": "fill_container",
                   "height": 244,
@@ -148,12 +148,12 @@
                       "id": "n5",
                       "name": "Public Active Pill",
                       "width": 142,
-                      "height": 32,
+                      "height": 30,
                       "layout": "horizontal",
                       "gap": 0,
                       "padding": [
                         0,
-                        12
+                        10
                       ],
                       "fill": [
                         {
@@ -226,90 +226,15 @@
                     },
                     {
                       "type": "frame",
-                      "id": "n11",
-                      "name": "Public Hero Meta",
-                      "width": "fill_container",
-                      "height": 30,
-                      "layout": "horizontal",
-                      "gap": 16,
-                      "padding": 0,
-                      "fill": [
-                        {
-                          "type": "solid",
-                          "color": "#FFFFFF"
-                        }
-                      ],
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "n8",
-                          "name": "Public City",
-                          "width": 120,
-                          "height": 20,
-                          "content": "Madrid, ES",
-                          "fontFamily": "Inter",
-                          "fontSize": 14,
-                          "fontWeight": 800,
-                          "lineHeight": 1.2,
-                          "textAlign": "left",
-                          "fill": [
-                            {
-                              "type": "solid",
-                              "color": "#111827"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "text",
-                          "id": "n9",
-                          "name": "Public Timezone",
-                          "width": 160,
-                          "height": 20,
-                          "content": "Europe/Madrid",
-                          "fontFamily": "Inter",
-                          "fontSize": 14,
-                          "fontWeight": 800,
-                          "lineHeight": 1.2,
-                          "textAlign": "left",
-                          "fill": [
-                            {
-                              "type": "solid",
-                              "color": "#111827"
-                            }
-                          ]
-                        },
-                        {
-                          "type": "text",
-                          "id": "n10",
-                          "name": "Public Window",
-                          "width": 180,
-                          "height": 20,
-                          "content": "Reserva hasta 30 dias",
-                          "fontFamily": "Inter",
-                          "fontSize": 14,
-                          "fontWeight": 800,
-                          "lineHeight": 1.2,
-                          "textAlign": "left",
-                          "fill": [
-                            {
-                              "type": "solid",
-                              "color": "#111827"
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "n13",
+                      "id": "n9",
                       "name": "Public Hero CTA",
                       "width": 190,
-                      "height": 44,
+                      "height": 42,
                       "layout": "horizontal",
                       "gap": 0,
                       "padding": [
                         0,
-                        18
+                        16
                       ],
                       "fill": [
                         {
@@ -323,13 +248,13 @@
                       "children": [
                         {
                           "type": "text",
-                          "id": "n12",
+                          "id": "n8",
                           "name": "Public Hero CTA Text",
                           "width": "fill_container",
                           "height": 18,
                           "content": "Reservar appointment",
                           "fontFamily": "Inter",
-                          "fontSize": 14,
+                          "fontSize": 13,
                           "fontWeight": 850,
                           "lineHeight": 1.2,
                           "textAlign": "center",
@@ -346,7 +271,7 @@
                 },
                 {
                   "type": "frame",
-                  "id": "n25",
+                  "id": "n21",
                   "name": "Public Contact Card",
                   "width": 360,
                   "height": 244,
@@ -372,7 +297,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "id": "n15",
+                      "id": "n11",
                       "name": "Public Contact Title",
                       "width": "fill_container",
                       "height": 22,
@@ -391,10 +316,10 @@
                     },
                     {
                       "type": "frame",
-                      "id": "n18",
+                      "id": "n14",
                       "name": "Field Email",
                       "width": "fill_container",
-                      "height": 76,
+                      "height": 72,
                       "layout": "vertical",
                       "gap": 6,
                       "padding": 14,
@@ -417,7 +342,7 @@
                       "children": [
                         {
                           "type": "text",
-                          "id": "n16",
+                          "id": "n12",
                           "name": "Field Email Label",
                           "width": "fill_container",
                           "height": 16,
@@ -436,7 +361,7 @@
                         },
                         {
                           "type": "text",
-                          "id": "n17",
+                          "id": "n13",
                           "name": "Field Email Value",
                           "width": "fill_container",
                           "height": 22,
@@ -457,10 +382,10 @@
                     },
                     {
                       "type": "frame",
-                      "id": "n21",
+                      "id": "n17",
                       "name": "Field Phone",
                       "width": "fill_container",
-                      "height": 76,
+                      "height": 72,
                       "layout": "vertical",
                       "gap": 6,
                       "padding": 14,
@@ -483,7 +408,7 @@
                       "children": [
                         {
                           "type": "text",
-                          "id": "n19",
+                          "id": "n15",
                           "name": "Field Phone Label",
                           "width": "fill_container",
                           "height": 16,
@@ -502,7 +427,7 @@
                         },
                         {
                           "type": "text",
-                          "id": "n20",
+                          "id": "n16",
                           "name": "Field Phone Value",
                           "width": "fill_container",
                           "height": 22,
@@ -523,10 +448,10 @@
                     },
                     {
                       "type": "frame",
-                      "id": "n24",
+                      "id": "n20",
                       "name": "Field Website",
                       "width": "fill_container",
-                      "height": 76,
+                      "height": 72,
                       "layout": "vertical",
                       "gap": 6,
                       "padding": 14,
@@ -549,7 +474,7 @@
                       "children": [
                         {
                           "type": "text",
-                          "id": "n22",
+                          "id": "n18",
                           "name": "Field Website Label",
                           "width": "fill_container",
                           "height": 16,
@@ -568,7 +493,7 @@
                         },
                         {
                           "type": "text",
-                          "id": "n23",
+                          "id": "n19",
                           "name": "Field Website Value",
                           "width": "fill_container",
                           "height": 22,
@@ -593,10 +518,10 @@
             },
             {
               "type": "frame",
-              "id": "n103",
+              "id": "n87",
               "name": "Public Content",
               "width": "fill_container",
-              "height": 840,
+              "height": 910,
               "layout": "horizontal",
               "gap": 22,
               "padding": [
@@ -612,7 +537,7 @@
               "children": [
                 {
                   "type": "frame",
-                  "id": "n58",
+                  "id": "n54",
                   "name": "Public Services Column",
                   "width": "fill_container",
                   "height": "fill_container",
@@ -628,10 +553,10 @@
                   "children": [
                     {
                       "type": "frame",
-                      "id": "n52",
+                      "id": "n48",
                       "name": "Public Services",
                       "width": "fill_container",
-                      "height": 420,
+                      "height": 492,
                       "layout": "vertical",
                       "gap": 14,
                       "padding": 22,
@@ -654,7 +579,7 @@
                       "children": [
                         {
                           "type": "text",
-                          "id": "n27",
+                          "id": "n23",
                           "name": "Public Services Title",
                           "width": "fill_container",
                           "height": 22,
@@ -673,12 +598,12 @@
                         },
                         {
                           "type": "frame",
-                          "id": "n35",
+                          "id": "n31",
                           "name": "Public Service Corte y styling",
                           "width": "fill_container",
-                          "height": 104,
+                          "height": 124,
                           "layout": "horizontal",
-                          "gap": 14,
+                          "gap": 18,
                           "padding": 18,
                           "fill": [
                             {
@@ -700,12 +625,12 @@
                           "children": [
                             {
                               "type": "frame",
-                              "id": "n31",
+                              "id": "n27",
                               "name": "Public Service Corte y styling Copy",
                               "width": "fill_container",
-                              "height": 72,
+                              "height": 84,
                               "layout": "vertical",
-                              "gap": 5,
+                              "gap": 6,
                               "padding": 0,
                               "fill": [
                                 {
@@ -716,13 +641,13 @@
                               "children": [
                                 {
                                   "type": "text",
-                                  "id": "n28",
+                                  "id": "n24",
                                   "name": "Public Service Corte y styling Title",
                                   "width": "fill_container",
                                   "height": 22,
                                   "content": "Corte y styling",
                                   "fontFamily": "Inter",
-                                  "fontSize": 18,
+                                  "fontSize": 19,
                                   "fontWeight": 900,
                                   "lineHeight": 1.2,
                                   "textAlign": "left",
@@ -735,13 +660,13 @@
                                 },
                                 {
                                   "type": "text",
-                                  "id": "n29",
+                                  "id": "n25",
                                   "name": "Public Service Corte y styling Desc",
                                   "width": "fill_container",
-                                  "height": 20,
-                                  "content": "Service activo disponible para appointments.",
+                                  "height": 36,
+                                  "content": "Service activo disponible para appointments con slots publicados.",
                                   "fontFamily": "Inter",
-                                  "fontSize": 13,
+                                  "fontSize": 14,
                                   "fontWeight": 600,
                                   "lineHeight": 1.2,
                                   "textAlign": "left",
@@ -754,7 +679,7 @@
                                 },
                                 {
                                   "type": "text",
-                                  "id": "n30",
+                                  "id": "n26",
                                   "name": "Public Service Corte y styling Duration",
                                   "width": "fill_container",
                                   "height": 18,
@@ -775,9 +700,9 @@
                             },
                             {
                               "type": "text",
-                              "id": "n32",
+                              "id": "n28",
                               "name": "Public Service Corte y styling Price",
-                              "width": 88,
+                              "width": 92,
                               "height": 26,
                               "content": "45 EUR",
                               "fontFamily": "Inter",
@@ -794,15 +719,15 @@
                             },
                             {
                               "type": "frame",
-                              "id": "n34",
+                              "id": "n30",
                               "name": "Public Service Corte y styling CTA",
-                              "width": 104,
-                              "height": 44,
+                              "width": 106,
+                              "height": 42,
                               "layout": "horizontal",
                               "gap": 0,
                               "padding": [
                                 0,
-                                18
+                                16
                               ],
                               "fill": [
                                 {
@@ -816,13 +741,13 @@
                               "children": [
                                 {
                                   "type": "text",
-                                  "id": "n33",
+                                  "id": "n29",
                                   "name": "Public Service Corte y styling CTA Text",
                                   "width": "fill_container",
                                   "height": 18,
                                   "content": "Reservar",
                                   "fontFamily": "Inter",
-                                  "fontSize": 14,
+                                  "fontSize": 13,
                                   "fontWeight": 850,
                                   "lineHeight": 1.2,
                                   "textAlign": "center",
@@ -839,12 +764,12 @@
                         },
                         {
                           "type": "frame",
-                          "id": "n43",
+                          "id": "n39",
                           "name": "Public Service Color express",
                           "width": "fill_container",
-                          "height": 104,
+                          "height": 124,
                           "layout": "horizontal",
-                          "gap": 14,
+                          "gap": 18,
                           "padding": 18,
                           "fill": [
                             {
@@ -866,12 +791,12 @@
                           "children": [
                             {
                               "type": "frame",
-                              "id": "n39",
+                              "id": "n35",
                               "name": "Public Service Color express Copy",
                               "width": "fill_container",
-                              "height": 72,
+                              "height": 84,
                               "layout": "vertical",
-                              "gap": 5,
+                              "gap": 6,
                               "padding": 0,
                               "fill": [
                                 {
@@ -882,13 +807,13 @@
                               "children": [
                                 {
                                   "type": "text",
-                                  "id": "n36",
+                                  "id": "n32",
                                   "name": "Public Service Color express Title",
                                   "width": "fill_container",
                                   "height": 22,
                                   "content": "Color express",
                                   "fontFamily": "Inter",
-                                  "fontSize": 18,
+                                  "fontSize": 19,
                                   "fontWeight": 900,
                                   "lineHeight": 1.2,
                                   "textAlign": "left",
@@ -901,13 +826,13 @@
                                 },
                                 {
                                   "type": "text",
-                                  "id": "n37",
+                                  "id": "n33",
                                   "name": "Public Service Color express Desc",
                                   "width": "fill_container",
-                                  "height": 20,
-                                  "content": "Service activo disponible para appointments.",
+                                  "height": 36,
+                                  "content": "Service activo disponible para appointments con slots publicados.",
                                   "fontFamily": "Inter",
-                                  "fontSize": 13,
+                                  "fontSize": 14,
                                   "fontWeight": 600,
                                   "lineHeight": 1.2,
                                   "textAlign": "left",
@@ -920,7 +845,7 @@
                                 },
                                 {
                                   "type": "text",
-                                  "id": "n38",
+                                  "id": "n34",
                                   "name": "Public Service Color express Duration",
                                   "width": "fill_container",
                                   "height": 18,
@@ -941,9 +866,9 @@
                             },
                             {
                               "type": "text",
-                              "id": "n40",
+                              "id": "n36",
                               "name": "Public Service Color express Price",
-                              "width": 88,
+                              "width": 92,
                               "height": 26,
                               "content": "65 EUR",
                               "fontFamily": "Inter",
@@ -960,15 +885,15 @@
                             },
                             {
                               "type": "frame",
-                              "id": "n42",
+                              "id": "n38",
                               "name": "Public Service Color express CTA",
-                              "width": 104,
-                              "height": 44,
+                              "width": 106,
+                              "height": 42,
                               "layout": "horizontal",
                               "gap": 0,
                               "padding": [
                                 0,
-                                18
+                                16
                               ],
                               "fill": [
                                 {
@@ -982,13 +907,13 @@
                               "children": [
                                 {
                                   "type": "text",
-                                  "id": "n41",
+                                  "id": "n37",
                                   "name": "Public Service Color express CTA Text",
                                   "width": "fill_container",
                                   "height": 18,
                                   "content": "Reservar",
                                   "fontFamily": "Inter",
-                                  "fontSize": 14,
+                                  "fontSize": 13,
                                   "fontWeight": 850,
                                   "lineHeight": 1.2,
                                   "textAlign": "center",
@@ -1005,12 +930,12 @@
                         },
                         {
                           "type": "frame",
-                          "id": "n51",
+                          "id": "n47",
                           "name": "Public Service Tratamiento premium",
                           "width": "fill_container",
-                          "height": 104,
+                          "height": 124,
                           "layout": "horizontal",
-                          "gap": 14,
+                          "gap": 18,
                           "padding": 18,
                           "fill": [
                             {
@@ -1032,12 +957,12 @@
                           "children": [
                             {
                               "type": "frame",
-                              "id": "n47",
+                              "id": "n43",
                               "name": "Public Service Tratamiento premium Copy",
                               "width": "fill_container",
-                              "height": 72,
+                              "height": 84,
                               "layout": "vertical",
-                              "gap": 5,
+                              "gap": 6,
                               "padding": 0,
                               "fill": [
                                 {
@@ -1048,13 +973,13 @@
                               "children": [
                                 {
                                   "type": "text",
-                                  "id": "n44",
+                                  "id": "n40",
                                   "name": "Public Service Tratamiento premium Title",
                                   "width": "fill_container",
                                   "height": 22,
                                   "content": "Tratamiento premium",
                                   "fontFamily": "Inter",
-                                  "fontSize": 18,
+                                  "fontSize": 19,
                                   "fontWeight": 900,
                                   "lineHeight": 1.2,
                                   "textAlign": "left",
@@ -1067,13 +992,13 @@
                                 },
                                 {
                                   "type": "text",
-                                  "id": "n45",
+                                  "id": "n41",
                                   "name": "Public Service Tratamiento premium Desc",
                                   "width": "fill_container",
-                                  "height": 20,
-                                  "content": "Service activo disponible para appointments.",
+                                  "height": 36,
+                                  "content": "Service activo disponible para appointments con slots publicados.",
                                   "fontFamily": "Inter",
-                                  "fontSize": 13,
+                                  "fontSize": 14,
                                   "fontWeight": 600,
                                   "lineHeight": 1.2,
                                   "textAlign": "left",
@@ -1086,7 +1011,7 @@
                                 },
                                 {
                                   "type": "text",
-                                  "id": "n46",
+                                  "id": "n42",
                                   "name": "Public Service Tratamiento premium Duration",
                                   "width": "fill_container",
                                   "height": 18,
@@ -1107,9 +1032,9 @@
                             },
                             {
                               "type": "text",
-                              "id": "n48",
+                              "id": "n44",
                               "name": "Public Service Tratamiento premium Price",
-                              "width": 88,
+                              "width": 92,
                               "height": 26,
                               "content": "95 EUR",
                               "fontFamily": "Inter",
@@ -1126,15 +1051,15 @@
                             },
                             {
                               "type": "frame",
-                              "id": "n50",
+                              "id": "n46",
                               "name": "Public Service Tratamiento premium CTA",
-                              "width": 104,
-                              "height": 44,
+                              "width": 106,
+                              "height": 42,
                               "layout": "horizontal",
                               "gap": 0,
                               "padding": [
                                 0,
-                                18
+                                16
                               ],
                               "fill": [
                                 {
@@ -1148,13 +1073,13 @@
                               "children": [
                                 {
                                   "type": "text",
-                                  "id": "n49",
+                                  "id": "n45",
                                   "name": "Public Service Tratamiento premium CTA Text",
                                   "width": "fill_container",
                                   "height": 18,
                                   "content": "Reservar",
                                   "fontFamily": "Inter",
-                                  "fontSize": 14,
+                                  "fontSize": 13,
                                   "fontWeight": 850,
                                   "lineHeight": 1.2,
                                   "textAlign": "center",
@@ -1173,7 +1098,7 @@
                     },
                     {
                       "type": "frame",
-                      "id": "n57",
+                      "id": "n53",
                       "name": "Public Empty States",
                       "width": "fill_container",
                       "height": 190,
@@ -1199,7 +1124,7 @@
                       "children": [
                         {
                           "type": "text",
-                          "id": "n53",
+                          "id": "n49",
                           "name": "Public Empty Title",
                           "width": "fill_container",
                           "height": 22,
@@ -1218,7 +1143,7 @@
                         },
                         {
                           "type": "text",
-                          "id": "n54",
+                          "id": "n50",
                           "name": "Public Empty Copy",
                           "width": "fill_container",
                           "height": 52,
@@ -1237,15 +1162,15 @@
                         },
                         {
                           "type": "frame",
-                          "id": "n56",
+                          "id": "n52",
                           "name": "No Availability Pill",
                           "width": 190,
-                          "height": 32,
+                          "height": 30,
                           "layout": "horizontal",
                           "gap": 0,
                           "padding": [
                             0,
-                            12
+                            10
                           ],
                           "fill": [
                             {
@@ -1259,7 +1184,7 @@
                           "children": [
                             {
                               "type": "text",
-                              "id": "n55",
+                              "id": "n51",
                               "name": "No Availability Pill Text",
                               "width": "fill_container",
                               "height": 16,
@@ -1284,7 +1209,7 @@
                 },
                 {
                   "type": "frame",
-                  "id": "n102",
+                  "id": "n86",
                   "name": "Public Staff Column",
                   "width": 390,
                   "height": "fill_container",
@@ -1300,10 +1225,10 @@
                   "children": [
                     {
                       "type": "frame",
-                      "id": "n96",
+                      "id": "n80",
                       "name": "Public Staff",
                       "width": "fill_container",
-                      "height": 390,
+                      "height": 444,
                       "layout": "vertical",
                       "gap": 14,
                       "padding": 22,
@@ -1326,7 +1251,7 @@
                       "children": [
                         {
                           "type": "text",
-                          "id": "n59",
+                          "id": "n55",
                           "name": "Public Staff Title",
                           "width": "fill_container",
                           "height": 22,
@@ -1345,20 +1270,20 @@
                         },
                         {
                           "type": "frame",
-                          "id": "n71",
-                          "name": "Public Staff Marta",
+                          "id": "n63",
+                          "name": "Public Staff Marta Ruiz",
                           "width": "fill_container",
-                          "height": 82,
+                          "height": 108,
                           "layout": "horizontal",
-                          "gap": 10,
-                          "padding": 14,
+                          "gap": 14,
+                          "padding": 16,
                           "fill": [
                             {
                               "type": "solid",
                               "color": "#FFFFFF"
                             }
                           ],
-                          "cornerRadius": 22,
+                          "cornerRadius": 24,
                           "alignItems": "center",
                           "stroke": {
                             "thickness": 1,
@@ -1372,10 +1297,10 @@
                           "children": [
                             {
                               "type": "frame",
-                              "id": "n61",
-                              "name": "Public Staff Marta Avatar",
-                              "width": 44,
-                              "height": 44,
+                              "id": "n57",
+                              "name": "Marta Ruiz Public Avatar",
+                              "width": 48,
+                              "height": 48,
                               "layout": "vertical",
                               "gap": 0,
                               "padding": 0,
@@ -1391,8 +1316,8 @@
                               "children": [
                                 {
                                   "type": "text",
-                                  "id": "n60",
-                                  "name": "Public Staff Marta Initials",
+                                  "id": "n56",
+                                  "name": "Marta Ruiz Public Initials",
                                   "width": "fill_container",
                                   "height": 16,
                                   "content": "MR",
@@ -1412,12 +1337,12 @@
                             },
                             {
                               "type": "frame",
-                              "id": "n64",
-                              "name": "Public Staff Marta Copy",
+                              "id": "n62",
+                              "name": "Marta Ruiz Public Copy",
                               "width": "fill_container",
-                              "height": 54,
+                              "height": 66,
                               "layout": "vertical",
-                              "gap": 4,
+                              "gap": 5,
                               "padding": 0,
                               "fill": [
                                 {
@@ -1428,14 +1353,14 @@
                               "children": [
                                 {
                                   "type": "text",
-                                  "id": "n62",
-                                  "name": "Public Staff Marta Title",
+                                  "id": "n58",
+                                  "name": "Marta Ruiz Public Name",
                                   "width": "fill_container",
                                   "height": 22,
                                   "content": "Marta Ruiz",
                                   "fontFamily": "Inter",
-                                  "fontSize": 16,
-                                  "fontWeight": 850,
+                                  "fontSize": 17,
+                                  "fontWeight": 900,
                                   "lineHeight": 1.2,
                                   "textAlign": "left",
                                   "fill": [
@@ -1447,14 +1372,14 @@
                                 },
                                 {
                                   "type": "text",
-                                  "id": "n63",
-                                  "name": "Public Staff Marta Meta",
+                                  "id": "n59",
+                                  "name": "Marta Ruiz Public Bio",
                                   "width": "fill_container",
-                                  "height": 18,
-                                  "content": "marta.ruiz@studio.com · +34 600 123 456",
+                                  "height": 20,
+                                  "content": "Staff member activo con agenda online.",
                                   "fontFamily": "Inter",
-                                  "fontSize": 12,
-                                  "fontWeight": 650,
+                                  "fontSize": 13,
+                                  "fontWeight": 600,
                                   "lineHeight": 1.2,
                                   "textAlign": "left",
                                   "fill": [
@@ -1463,133 +1388,47 @@
                                       "color": "#64748B"
                                     }
                                   ]
-                                }
-                              ]
-                            },
-                            {
-                              "type": "frame",
-                              "id": "n66",
-                              "name": "Public Staff Marta State",
-                              "width": 84,
-                              "height": 32,
-                              "layout": "horizontal",
-                              "gap": 0,
-                              "padding": [
-                                0,
-                                12
-                              ],
-                              "fill": [
+                                },
                                 {
-                                  "type": "solid",
-                                  "color": "#DCFCE7"
-                                }
-                              ],
-                              "cornerRadius": 999,
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "n65",
-                                  "name": "Public Staff Marta State Text",
-                                  "width": "fill_container",
-                                  "height": 16,
-                                  "content": "Active",
-                                  "fontFamily": "Inter",
-                                  "fontSize": 12,
-                                  "fontWeight": 850,
-                                  "lineHeight": 1.2,
-                                  "textAlign": "center",
+                                  "type": "frame",
+                                  "id": "n61",
+                                  "name": "Marta Ruiz Public State",
+                                  "width": 132,
+                                  "height": 30,
+                                  "layout": "horizontal",
+                                  "gap": 0,
+                                  "padding": [
+                                    0,
+                                    10
+                                  ],
                                   "fill": [
                                     {
                                       "type": "solid",
-                                      "color": "#166534"
+                                      "color": "#DCFCE7"
                                     }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "type": "frame",
-                              "id": "n68",
-                              "name": "Public Staff Marta Assign",
-                              "width": 146,
-                              "height": 44,
-                              "layout": "horizontal",
-                              "gap": 0,
-                              "padding": [
-                                0,
-                                18
-                              ],
-                              "fill": [
-                                {
-                                  "type": "solid",
-                                  "color": "#EEF2FF"
-                                }
-                              ],
-                              "cornerRadius": 999,
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "n67",
-                                  "name": "Public Staff Marta Assign Text",
-                                  "width": "fill_container",
-                                  "height": 18,
-                                  "content": "Asignar services",
-                                  "fontFamily": "Inter",
-                                  "fontSize": 14,
-                                  "fontWeight": 850,
-                                  "lineHeight": 1.2,
-                                  "textAlign": "center",
-                                  "fill": [
+                                  ],
+                                  "cornerRadius": 999,
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
                                     {
-                                      "type": "solid",
-                                      "color": "#4F46E5"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "type": "frame",
-                              "id": "n70",
-                              "name": "Public Staff Marta Edit",
-                              "width": 82,
-                              "height": 44,
-                              "layout": "horizontal",
-                              "gap": 0,
-                              "padding": [
-                                0,
-                                18
-                              ],
-                              "fill": [
-                                {
-                                  "type": "solid",
-                                  "color": "#FFFFFF"
-                                }
-                              ],
-                              "cornerRadius": 999,
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "n69",
-                                  "name": "Public Staff Marta Edit Text",
-                                  "width": "fill_container",
-                                  "height": 18,
-                                  "content": "Editar",
-                                  "fontFamily": "Inter",
-                                  "fontSize": 14,
-                                  "fontWeight": 850,
-                                  "lineHeight": 1.2,
-                                  "textAlign": "center",
-                                  "fill": [
-                                    {
-                                      "type": "solid",
-                                      "color": "#111827"
+                                      "type": "text",
+                                      "id": "n60",
+                                      "name": "Marta Ruiz Public State Text",
+                                      "width": "fill_container",
+                                      "height": 16,
+                                      "content": "Disponible online",
+                                      "fontFamily": "Inter",
+                                      "fontSize": 12,
+                                      "fontWeight": 850,
+                                      "lineHeight": 1.2,
+                                      "textAlign": "center",
+                                      "fill": [
+                                        {
+                                          "type": "solid",
+                                          "color": "#166534"
+                                        }
+                                      ]
                                     }
                                   ]
                                 }
@@ -1599,20 +1438,20 @@
                         },
                         {
                           "type": "frame",
-                          "id": "n83",
-                          "name": "Public Staff Lucas",
+                          "id": "n71",
+                          "name": "Public Staff Lucas Perez",
                           "width": "fill_container",
-                          "height": 82,
+                          "height": 108,
                           "layout": "horizontal",
-                          "gap": 10,
-                          "padding": 14,
+                          "gap": 14,
+                          "padding": 16,
                           "fill": [
                             {
                               "type": "solid",
                               "color": "#FFFFFF"
                             }
                           ],
-                          "cornerRadius": 22,
+                          "cornerRadius": 24,
                           "alignItems": "center",
                           "stroke": {
                             "thickness": 1,
@@ -1626,10 +1465,10 @@
                           "children": [
                             {
                               "type": "frame",
-                              "id": "n73",
-                              "name": "Public Staff Lucas Avatar",
-                              "width": 44,
-                              "height": 44,
+                              "id": "n65",
+                              "name": "Lucas Perez Public Avatar",
+                              "width": 48,
+                              "height": 48,
                               "layout": "vertical",
                               "gap": 0,
                               "padding": 0,
@@ -1645,8 +1484,8 @@
                               "children": [
                                 {
                                   "type": "text",
-                                  "id": "n72",
-                                  "name": "Public Staff Lucas Initials",
+                                  "id": "n64",
+                                  "name": "Lucas Perez Public Initials",
                                   "width": "fill_container",
                                   "height": 16,
                                   "content": "LP",
@@ -1666,12 +1505,12 @@
                             },
                             {
                               "type": "frame",
-                              "id": "n76",
-                              "name": "Public Staff Lucas Copy",
+                              "id": "n70",
+                              "name": "Lucas Perez Public Copy",
                               "width": "fill_container",
-                              "height": 54,
+                              "height": 66,
                               "layout": "vertical",
-                              "gap": 4,
+                              "gap": 5,
                               "padding": 0,
                               "fill": [
                                 {
@@ -1682,14 +1521,14 @@
                               "children": [
                                 {
                                   "type": "text",
-                                  "id": "n74",
-                                  "name": "Public Staff Lucas Title",
+                                  "id": "n66",
+                                  "name": "Lucas Perez Public Name",
                                   "width": "fill_container",
                                   "height": 22,
                                   "content": "Lucas Perez",
                                   "fontFamily": "Inter",
-                                  "fontSize": 16,
-                                  "fontWeight": 850,
+                                  "fontSize": 17,
+                                  "fontWeight": 900,
                                   "lineHeight": 1.2,
                                   "textAlign": "left",
                                   "fill": [
@@ -1701,14 +1540,14 @@
                                 },
                                 {
                                   "type": "text",
-                                  "id": "n75",
-                                  "name": "Public Staff Lucas Meta",
+                                  "id": "n67",
+                                  "name": "Lucas Perez Public Bio",
                                   "width": "fill_container",
-                                  "height": 18,
-                                  "content": "lucas.perez@studio.com · +34 600 123 456",
+                                  "height": 20,
+                                  "content": "Staff member activo con agenda online.",
                                   "fontFamily": "Inter",
-                                  "fontSize": 12,
-                                  "fontWeight": 650,
+                                  "fontSize": 13,
+                                  "fontWeight": 600,
                                   "lineHeight": 1.2,
                                   "textAlign": "left",
                                   "fill": [
@@ -1717,133 +1556,47 @@
                                       "color": "#64748B"
                                     }
                                   ]
-                                }
-                              ]
-                            },
-                            {
-                              "type": "frame",
-                              "id": "n78",
-                              "name": "Public Staff Lucas State",
-                              "width": 84,
-                              "height": 32,
-                              "layout": "horizontal",
-                              "gap": 0,
-                              "padding": [
-                                0,
-                                12
-                              ],
-                              "fill": [
+                                },
                                 {
-                                  "type": "solid",
-                                  "color": "#DCFCE7"
-                                }
-                              ],
-                              "cornerRadius": 999,
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "n77",
-                                  "name": "Public Staff Lucas State Text",
-                                  "width": "fill_container",
-                                  "height": 16,
-                                  "content": "Active",
-                                  "fontFamily": "Inter",
-                                  "fontSize": 12,
-                                  "fontWeight": 850,
-                                  "lineHeight": 1.2,
-                                  "textAlign": "center",
+                                  "type": "frame",
+                                  "id": "n69",
+                                  "name": "Lucas Perez Public State",
+                                  "width": 132,
+                                  "height": 30,
+                                  "layout": "horizontal",
+                                  "gap": 0,
+                                  "padding": [
+                                    0,
+                                    10
+                                  ],
                                   "fill": [
                                     {
                                       "type": "solid",
-                                      "color": "#166534"
+                                      "color": "#DCFCE7"
                                     }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "type": "frame",
-                              "id": "n80",
-                              "name": "Public Staff Lucas Assign",
-                              "width": 146,
-                              "height": 44,
-                              "layout": "horizontal",
-                              "gap": 0,
-                              "padding": [
-                                0,
-                                18
-                              ],
-                              "fill": [
-                                {
-                                  "type": "solid",
-                                  "color": "#EEF2FF"
-                                }
-                              ],
-                              "cornerRadius": 999,
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "n79",
-                                  "name": "Public Staff Lucas Assign Text",
-                                  "width": "fill_container",
-                                  "height": 18,
-                                  "content": "Asignar services",
-                                  "fontFamily": "Inter",
-                                  "fontSize": 14,
-                                  "fontWeight": 850,
-                                  "lineHeight": 1.2,
-                                  "textAlign": "center",
-                                  "fill": [
+                                  ],
+                                  "cornerRadius": 999,
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
                                     {
-                                      "type": "solid",
-                                      "color": "#4F46E5"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "type": "frame",
-                              "id": "n82",
-                              "name": "Public Staff Lucas Edit",
-                              "width": 82,
-                              "height": 44,
-                              "layout": "horizontal",
-                              "gap": 0,
-                              "padding": [
-                                0,
-                                18
-                              ],
-                              "fill": [
-                                {
-                                  "type": "solid",
-                                  "color": "#FFFFFF"
-                                }
-                              ],
-                              "cornerRadius": 999,
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "n81",
-                                  "name": "Public Staff Lucas Edit Text",
-                                  "width": "fill_container",
-                                  "height": 18,
-                                  "content": "Editar",
-                                  "fontFamily": "Inter",
-                                  "fontSize": 14,
-                                  "fontWeight": 850,
-                                  "lineHeight": 1.2,
-                                  "textAlign": "center",
-                                  "fill": [
-                                    {
-                                      "type": "solid",
-                                      "color": "#111827"
+                                      "type": "text",
+                                      "id": "n68",
+                                      "name": "Lucas Perez Public State Text",
+                                      "width": "fill_container",
+                                      "height": 16,
+                                      "content": "Disponible online",
+                                      "fontFamily": "Inter",
+                                      "fontSize": 12,
+                                      "fontWeight": 850,
+                                      "lineHeight": 1.2,
+                                      "textAlign": "center",
+                                      "fill": [
+                                        {
+                                          "type": "solid",
+                                          "color": "#166534"
+                                        }
+                                      ]
                                     }
                                   ]
                                 }
@@ -1853,20 +1606,20 @@
                         },
                         {
                           "type": "frame",
-                          "id": "n95",
-                          "name": "Public Staff Nerea",
+                          "id": "n79",
+                          "name": "Public Staff Nerea Gomez",
                           "width": "fill_container",
-                          "height": 82,
+                          "height": 108,
                           "layout": "horizontal",
-                          "gap": 10,
-                          "padding": 14,
+                          "gap": 14,
+                          "padding": 16,
                           "fill": [
                             {
                               "type": "solid",
                               "color": "#FFFFFF"
                             }
                           ],
-                          "cornerRadius": 22,
+                          "cornerRadius": 24,
                           "alignItems": "center",
                           "stroke": {
                             "thickness": 1,
@@ -1880,10 +1633,10 @@
                           "children": [
                             {
                               "type": "frame",
-                              "id": "n85",
-                              "name": "Public Staff Nerea Avatar",
-                              "width": 44,
-                              "height": 44,
+                              "id": "n73",
+                              "name": "Nerea Gomez Public Avatar",
+                              "width": 48,
+                              "height": 48,
                               "layout": "vertical",
                               "gap": 0,
                               "padding": 0,
@@ -1899,8 +1652,8 @@
                               "children": [
                                 {
                                   "type": "text",
-                                  "id": "n84",
-                                  "name": "Public Staff Nerea Initials",
+                                  "id": "n72",
+                                  "name": "Nerea Gomez Public Initials",
                                   "width": "fill_container",
                                   "height": 16,
                                   "content": "NG",
@@ -1920,12 +1673,12 @@
                             },
                             {
                               "type": "frame",
-                              "id": "n88",
-                              "name": "Public Staff Nerea Copy",
+                              "id": "n78",
+                              "name": "Nerea Gomez Public Copy",
                               "width": "fill_container",
-                              "height": 54,
+                              "height": 66,
                               "layout": "vertical",
-                              "gap": 4,
+                              "gap": 5,
                               "padding": 0,
                               "fill": [
                                 {
@@ -1936,14 +1689,14 @@
                               "children": [
                                 {
                                   "type": "text",
-                                  "id": "n86",
-                                  "name": "Public Staff Nerea Title",
+                                  "id": "n74",
+                                  "name": "Nerea Gomez Public Name",
                                   "width": "fill_container",
                                   "height": 22,
                                   "content": "Nerea Gomez",
                                   "fontFamily": "Inter",
-                                  "fontSize": 16,
-                                  "fontWeight": 850,
+                                  "fontSize": 17,
+                                  "fontWeight": 900,
                                   "lineHeight": 1.2,
                                   "textAlign": "left",
                                   "fill": [
@@ -1955,14 +1708,14 @@
                                 },
                                 {
                                   "type": "text",
-                                  "id": "n87",
-                                  "name": "Public Staff Nerea Meta",
+                                  "id": "n75",
+                                  "name": "Nerea Gomez Public Bio",
                                   "width": "fill_container",
-                                  "height": 18,
-                                  "content": "nerea.gomez@studio.com · +34 600 123 456",
+                                  "height": 20,
+                                  "content": "Staff member activo con agenda online.",
                                   "fontFamily": "Inter",
-                                  "fontSize": 12,
-                                  "fontWeight": 650,
+                                  "fontSize": 13,
+                                  "fontWeight": 600,
                                   "lineHeight": 1.2,
                                   "textAlign": "left",
                                   "fill": [
@@ -1971,133 +1724,47 @@
                                       "color": "#64748B"
                                     }
                                   ]
-                                }
-                              ]
-                            },
-                            {
-                              "type": "frame",
-                              "id": "n90",
-                              "name": "Public Staff Nerea State",
-                              "width": 84,
-                              "height": 32,
-                              "layout": "horizontal",
-                              "gap": 0,
-                              "padding": [
-                                0,
-                                12
-                              ],
-                              "fill": [
+                                },
                                 {
-                                  "type": "solid",
-                                  "color": "#DCFCE7"
-                                }
-                              ],
-                              "cornerRadius": 999,
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "n89",
-                                  "name": "Public Staff Nerea State Text",
-                                  "width": "fill_container",
-                                  "height": 16,
-                                  "content": "Active",
-                                  "fontFamily": "Inter",
-                                  "fontSize": 12,
-                                  "fontWeight": 850,
-                                  "lineHeight": 1.2,
-                                  "textAlign": "center",
+                                  "type": "frame",
+                                  "id": "n77",
+                                  "name": "Nerea Gomez Public State",
+                                  "width": 132,
+                                  "height": 30,
+                                  "layout": "horizontal",
+                                  "gap": 0,
+                                  "padding": [
+                                    0,
+                                    10
+                                  ],
                                   "fill": [
                                     {
                                       "type": "solid",
-                                      "color": "#166534"
+                                      "color": "#DCFCE7"
                                     }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "type": "frame",
-                              "id": "n92",
-                              "name": "Public Staff Nerea Assign",
-                              "width": 146,
-                              "height": 44,
-                              "layout": "horizontal",
-                              "gap": 0,
-                              "padding": [
-                                0,
-                                18
-                              ],
-                              "fill": [
-                                {
-                                  "type": "solid",
-                                  "color": "#EEF2FF"
-                                }
-                              ],
-                              "cornerRadius": 999,
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "n91",
-                                  "name": "Public Staff Nerea Assign Text",
-                                  "width": "fill_container",
-                                  "height": 18,
-                                  "content": "Asignar services",
-                                  "fontFamily": "Inter",
-                                  "fontSize": 14,
-                                  "fontWeight": 850,
-                                  "lineHeight": 1.2,
-                                  "textAlign": "center",
-                                  "fill": [
+                                  ],
+                                  "cornerRadius": 999,
+                                  "justifyContent": "center",
+                                  "alignItems": "center",
+                                  "children": [
                                     {
-                                      "type": "solid",
-                                      "color": "#4F46E5"
-                                    }
-                                  ]
-                                }
-                              ]
-                            },
-                            {
-                              "type": "frame",
-                              "id": "n94",
-                              "name": "Public Staff Nerea Edit",
-                              "width": 82,
-                              "height": 44,
-                              "layout": "horizontal",
-                              "gap": 0,
-                              "padding": [
-                                0,
-                                18
-                              ],
-                              "fill": [
-                                {
-                                  "type": "solid",
-                                  "color": "#FFFFFF"
-                                }
-                              ],
-                              "cornerRadius": 999,
-                              "justifyContent": "center",
-                              "alignItems": "center",
-                              "children": [
-                                {
-                                  "type": "text",
-                                  "id": "n93",
-                                  "name": "Public Staff Nerea Edit Text",
-                                  "width": "fill_container",
-                                  "height": 18,
-                                  "content": "Editar",
-                                  "fontFamily": "Inter",
-                                  "fontSize": 14,
-                                  "fontWeight": 850,
-                                  "lineHeight": 1.2,
-                                  "textAlign": "center",
-                                  "fill": [
-                                    {
-                                      "type": "solid",
-                                      "color": "#111827"
+                                      "type": "text",
+                                      "id": "n76",
+                                      "name": "Nerea Gomez Public State Text",
+                                      "width": "fill_container",
+                                      "height": 16,
+                                      "content": "Disponible online",
+                                      "fontFamily": "Inter",
+                                      "fontSize": 12,
+                                      "fontWeight": 850,
+                                      "lineHeight": 1.2,
+                                      "textAlign": "center",
+                                      "fill": [
+                                        {
+                                          "type": "solid",
+                                          "color": "#166534"
+                                        }
+                                      ]
                                     }
                                   ]
                                 }
@@ -2109,7 +1776,7 @@
                     },
                     {
                       "type": "frame",
-                      "id": "n101",
+                      "id": "n85",
                       "name": "Public Booking Panel",
                       "width": "fill_container",
                       "height": 240,
@@ -2135,7 +1802,7 @@
                       "children": [
                         {
                           "type": "text",
-                          "id": "n97",
+                          "id": "n81",
                           "name": "Public Booking Title",
                           "width": "fill_container",
                           "height": 22,
@@ -2154,7 +1821,7 @@
                         },
                         {
                           "type": "text",
-                          "id": "n98",
+                          "id": "n82",
                           "name": "Public Booking Copy",
                           "width": "fill_container",
                           "height": 52,
@@ -2173,15 +1840,15 @@
                         },
                         {
                           "type": "frame",
-                          "id": "n100",
+                          "id": "n84",
                           "name": "Public Booking Button",
                           "width": "fill_container",
-                          "height": 44,
+                          "height": 42,
                           "layout": "horizontal",
                           "gap": 0,
                           "padding": [
                             0,
-                            18
+                            16
                           ],
                           "fill": [
                             {
@@ -2195,13 +1862,13 @@
                           "children": [
                             {
                               "type": "text",
-                              "id": "n99",
+                              "id": "n83",
                               "name": "Public Booking Button Text",
                               "width": "fill_container",
                               "height": 18,
                               "content": "Empezar reserva",
                               "fontFamily": "Inter",
-                              "fontSize": 14,
+                              "fontSize": 13,
                               "fontWeight": 850,
                               "lineHeight": 1.2,
                               "textAlign": "center",
@@ -2226,10 +1893,10 @@
     },
     {
       "type": "frame",
-      "id": "n186",
+      "id": "n162",
       "name": "Business Public Profile Mobile",
       "width": 390,
-      "height": 1880,
+      "height": 2050,
       "layout": "vertical",
       "gap": 0,
       "padding": 0,
@@ -2244,7 +1911,7 @@
       "children": [
         {
           "type": "frame",
-          "id": "n108",
+          "id": "n92",
           "name": "Mobile Public Header",
           "width": "fill_container",
           "height": 76,
@@ -2276,7 +1943,7 @@
           "children": [
             {
               "type": "text",
-              "id": "n106",
+              "id": "n90",
               "name": "Mobile Public Logo",
               "width": 220,
               "height": 28,
@@ -2295,7 +1962,7 @@
             },
             {
               "type": "text",
-              "id": "n107",
+              "id": "n91",
               "name": "Mobile Public Link",
               "width": 82,
               "height": 20,
@@ -2316,10 +1983,10 @@
         },
         {
           "type": "frame",
-          "id": "n185",
+          "id": "n161",
           "name": "Mobile Public Body",
           "width": "fill_container",
-          "height": 1804,
+          "height": 1974,
           "layout": "vertical",
           "gap": 18,
           "padding": [
@@ -2335,7 +2002,7 @@
           "children": [
             {
               "type": "frame",
-              "id": "n121",
+              "id": "n105",
               "name": "Mobile Public Hero",
               "width": "fill_container",
               "height": 360,
@@ -2354,15 +2021,15 @@
               "children": [
                 {
                   "type": "frame",
-                  "id": "n110",
+                  "id": "n94",
                   "name": "Mobile Public Pill",
                   "width": 142,
-                  "height": 32,
+                  "height": 30,
                   "layout": "horizontal",
                   "gap": 0,
                   "padding": [
                     0,
-                    12
+                    10
                   ],
                   "fill": [
                     {
@@ -2376,7 +2043,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "id": "n109",
+                      "id": "n93",
                       "name": "Mobile Public Pill Text",
                       "width": "fill_container",
                       "height": 16,
@@ -2397,7 +2064,7 @@
                 },
                 {
                   "type": "text",
-                  "id": "n111",
+                  "id": "n95",
                   "name": "Mobile Public Title",
                   "width": "fill_container",
                   "height": 52,
@@ -2416,7 +2083,7 @@
                 },
                 {
                   "type": "text",
-                  "id": "n112",
+                  "id": "n96",
                   "name": "Mobile Public Desc",
                   "width": "fill_container",
                   "height": 46,
@@ -2435,10 +2102,10 @@
                 },
                 {
                   "type": "frame",
-                  "id": "n115",
+                  "id": "n99",
                   "name": "Field Ubicacion",
                   "width": "fill_container",
-                  "height": 76,
+                  "height": 72,
                   "layout": "vertical",
                   "gap": 6,
                   "padding": 14,
@@ -2461,7 +2128,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "id": "n113",
+                      "id": "n97",
                       "name": "Field Ubicacion Label",
                       "width": "fill_container",
                       "height": 16,
@@ -2480,7 +2147,7 @@
                     },
                     {
                       "type": "text",
-                      "id": "n114",
+                      "id": "n98",
                       "name": "Field Ubicacion Value",
                       "width": "fill_container",
                       "height": 22,
@@ -2501,10 +2168,10 @@
                 },
                 {
                   "type": "frame",
-                  "id": "n118",
+                  "id": "n102",
                   "name": "Field Timezone",
                   "width": "fill_container",
-                  "height": 76,
+                  "height": 72,
                   "layout": "vertical",
                   "gap": 6,
                   "padding": 14,
@@ -2527,7 +2194,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "id": "n116",
+                      "id": "n100",
                       "name": "Field Timezone Label",
                       "width": "fill_container",
                       "height": 16,
@@ -2546,7 +2213,7 @@
                     },
                     {
                       "type": "text",
-                      "id": "n117",
+                      "id": "n101",
                       "name": "Field Timezone Value",
                       "width": "fill_container",
                       "height": 22,
@@ -2567,15 +2234,15 @@
                 },
                 {
                   "type": "frame",
-                  "id": "n120",
+                  "id": "n104",
                   "name": "Mobile Public CTA",
                   "width": "fill_container",
-                  "height": 44,
+                  "height": 42,
                   "layout": "horizontal",
                   "gap": 0,
                   "padding": [
                     0,
-                    18
+                    16
                   ],
                   "fill": [
                     {
@@ -2589,13 +2256,13 @@
                   "children": [
                     {
                       "type": "text",
-                      "id": "n119",
+                      "id": "n103",
                       "name": "Mobile Public CTA Text",
                       "width": "fill_container",
                       "height": 18,
                       "content": "Reservar appointment",
                       "fontFamily": "Inter",
-                      "fontSize": 14,
+                      "fontSize": 13,
                       "fontWeight": 850,
                       "lineHeight": 1.2,
                       "textAlign": "center",
@@ -2612,10 +2279,10 @@
             },
             {
               "type": "frame",
-              "id": "n139",
+              "id": "n127",
               "name": "Mobile Public Services",
               "width": "fill_container",
-              "height": 420,
+              "height": 530,
               "layout": "vertical",
               "gap": 14,
               "padding": 22,
@@ -2638,7 +2305,7 @@
               "children": [
                 {
                   "type": "text",
-                  "id": "n122",
+                  "id": "n106",
                   "name": "Mobile Public Services Title",
                   "width": "fill_container",
                   "height": 22,
@@ -2657,13 +2324,13 @@
                 },
                 {
                   "type": "frame",
-                  "id": "n130",
-                  "name": "Public Service Corte y styling",
+                  "id": "n116",
+                  "name": "Mobile Public Service Corte y styling",
                   "width": "fill_container",
-                  "height": 104,
-                  "layout": "horizontal",
-                  "gap": 14,
-                  "padding": 18,
+                  "height": 178,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 16,
                   "fill": [
                     {
                       "type": "solid",
@@ -2671,7 +2338,6 @@
                     }
                   ],
                   "cornerRadius": 24,
-                  "alignItems": "center",
                   "stroke": {
                     "thickness": 1,
                     "fill": [
@@ -2683,13 +2349,51 @@
                   },
                   "children": [
                     {
-                      "type": "frame",
-                      "id": "n126",
-                      "name": "Public Service Corte y styling Copy",
+                      "type": "text",
+                      "id": "n107",
+                      "name": "Mobile Public Service Corte y styling Title",
                       "width": "fill_container",
-                      "height": 72,
-                      "layout": "vertical",
-                      "gap": 5,
+                      "height": 24,
+                      "content": "Corte y styling",
+                      "fontFamily": "Inter",
+                      "fontSize": 19,
+                      "fontWeight": 900,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n108",
+                      "name": "Mobile Public Service Corte y styling Desc",
+                      "width": "fill_container",
+                      "height": 42,
+                      "content": "Service activo disponible para appointments con slots publicados.",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 600,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#64748B"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n113",
+                      "name": "Mobile Public Service Corte y styling Meta",
+                      "width": "fill_container",
+                      "height": 32,
+                      "layout": "horizontal",
+                      "gap": 8,
                       "padding": 0,
                       "fill": [
                         {
@@ -2699,94 +2403,104 @@
                       ],
                       "children": [
                         {
-                          "type": "text",
-                          "id": "n123",
-                          "name": "Public Service Corte y styling Title",
-                          "width": "fill_container",
-                          "height": 22,
-                          "content": "Corte y styling",
-                          "fontFamily": "Inter",
-                          "fontSize": 18,
-                          "fontWeight": 900,
-                          "lineHeight": 1.2,
-                          "textAlign": "left",
+                          "type": "frame",
+                          "id": "n110",
+                          "name": "Corte y styling Duration",
+                          "width": 84,
+                          "height": 30,
+                          "layout": "horizontal",
+                          "gap": 0,
+                          "padding": [
+                            0,
+                            10
+                          ],
                           "fill": [
                             {
                               "type": "solid",
-                              "color": "#111827"
+                              "color": "#EEF2FF"
+                            }
+                          ],
+                          "cornerRadius": 999,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n109",
+                              "name": "Corte y styling Duration Text",
+                              "width": "fill_container",
+                              "height": 16,
+                              "content": "60 min",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#4F46E5"
+                                }
+                              ]
                             }
                           ]
                         },
                         {
-                          "type": "text",
-                          "id": "n124",
-                          "name": "Public Service Corte y styling Desc",
-                          "width": "fill_container",
-                          "height": 20,
-                          "content": "Service activo disponible para appointments.",
-                          "fontFamily": "Inter",
-                          "fontSize": 13,
-                          "fontWeight": 600,
-                          "lineHeight": 1.2,
-                          "textAlign": "left",
+                          "type": "frame",
+                          "id": "n112",
+                          "name": "Corte y styling Price",
+                          "width": 88,
+                          "height": 30,
+                          "layout": "horizontal",
+                          "gap": 0,
+                          "padding": [
+                            0,
+                            10
+                          ],
                           "fill": [
                             {
                               "type": "solid",
-                              "color": "#64748B"
+                              "color": "#F8FAFC"
                             }
-                          ]
-                        },
-                        {
-                          "type": "text",
-                          "id": "n125",
-                          "name": "Public Service Corte y styling Duration",
-                          "width": "fill_container",
-                          "height": 18,
-                          "content": "60 min",
-                          "fontFamily": "Inter",
-                          "fontSize": 13,
-                          "fontWeight": 800,
-                          "lineHeight": 1.2,
-                          "textAlign": "left",
-                          "fill": [
+                          ],
+                          "cornerRadius": 999,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
                             {
-                              "type": "solid",
-                              "color": "#4F46E5"
+                              "type": "text",
+                              "id": "n111",
+                              "name": "Corte y styling Price Text",
+                              "width": "fill_container",
+                              "height": 16,
+                              "content": "45 EUR",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#111827"
+                                }
+                              ]
                             }
                           ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "text",
-                      "id": "n127",
-                      "name": "Public Service Corte y styling Price",
-                      "width": 88,
-                      "height": 26,
-                      "content": "45 EUR",
-                      "fontFamily": "Inter",
-                      "fontSize": 18,
-                      "fontWeight": 900,
-                      "lineHeight": 1.2,
-                      "textAlign": "right",
-                      "fill": [
-                        {
-                          "type": "solid",
-                          "color": "#111827"
                         }
                       ]
                     },
                     {
                       "type": "frame",
-                      "id": "n129",
-                      "name": "Public Service Corte y styling CTA",
-                      "width": 104,
-                      "height": 44,
+                      "id": "n115",
+                      "name": "Mobile Public Service Corte y styling CTA",
+                      "width": "fill_container",
+                      "height": 42,
                       "layout": "horizontal",
                       "gap": 0,
                       "padding": [
                         0,
-                        18
+                        16
                       ],
                       "fill": [
                         {
@@ -2800,13 +2514,13 @@
                       "children": [
                         {
                           "type": "text",
-                          "id": "n128",
-                          "name": "Public Service Corte y styling CTA Text",
+                          "id": "n114",
+                          "name": "Mobile Public Service Corte y styling CTA Text",
                           "width": "fill_container",
                           "height": 18,
                           "content": "Reservar",
                           "fontFamily": "Inter",
-                          "fontSize": 14,
+                          "fontSize": 13,
                           "fontWeight": 850,
                           "lineHeight": 1.2,
                           "textAlign": "center",
@@ -2823,13 +2537,13 @@
                 },
                 {
                   "type": "frame",
-                  "id": "n138",
-                  "name": "Public Service Color express",
+                  "id": "n126",
+                  "name": "Mobile Public Service Color express",
                   "width": "fill_container",
-                  "height": 104,
-                  "layout": "horizontal",
-                  "gap": 14,
-                  "padding": 18,
+                  "height": 178,
+                  "layout": "vertical",
+                  "gap": 12,
+                  "padding": 16,
                   "fill": [
                     {
                       "type": "solid",
@@ -2837,7 +2551,6 @@
                     }
                   ],
                   "cornerRadius": 24,
-                  "alignItems": "center",
                   "stroke": {
                     "thickness": 1,
                     "fill": [
@@ -2849,13 +2562,51 @@
                   },
                   "children": [
                     {
-                      "type": "frame",
-                      "id": "n134",
-                      "name": "Public Service Color express Copy",
+                      "type": "text",
+                      "id": "n117",
+                      "name": "Mobile Public Service Color express Title",
                       "width": "fill_container",
-                      "height": 72,
-                      "layout": "vertical",
-                      "gap": 5,
+                      "height": 24,
+                      "content": "Color express",
+                      "fontFamily": "Inter",
+                      "fontSize": 19,
+                      "fontWeight": 900,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n118",
+                      "name": "Mobile Public Service Color express Desc",
+                      "width": "fill_container",
+                      "height": 42,
+                      "content": "Service activo disponible para appointments con slots publicados.",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 600,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#64748B"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n123",
+                      "name": "Mobile Public Service Color express Meta",
+                      "width": "fill_container",
+                      "height": 32,
+                      "layout": "horizontal",
+                      "gap": 8,
                       "padding": 0,
                       "fill": [
                         {
@@ -2865,94 +2616,104 @@
                       ],
                       "children": [
                         {
-                          "type": "text",
-                          "id": "n131",
-                          "name": "Public Service Color express Title",
-                          "width": "fill_container",
-                          "height": 22,
-                          "content": "Color express",
-                          "fontFamily": "Inter",
-                          "fontSize": 18,
-                          "fontWeight": 900,
-                          "lineHeight": 1.2,
-                          "textAlign": "left",
+                          "type": "frame",
+                          "id": "n120",
+                          "name": "Color express Duration",
+                          "width": 84,
+                          "height": 30,
+                          "layout": "horizontal",
+                          "gap": 0,
+                          "padding": [
+                            0,
+                            10
+                          ],
                           "fill": [
                             {
                               "type": "solid",
-                              "color": "#111827"
+                              "color": "#EEF2FF"
+                            }
+                          ],
+                          "cornerRadius": 999,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n119",
+                              "name": "Color express Duration Text",
+                              "width": "fill_container",
+                              "height": 16,
+                              "content": "90 min",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#4F46E5"
+                                }
+                              ]
                             }
                           ]
                         },
                         {
-                          "type": "text",
-                          "id": "n132",
-                          "name": "Public Service Color express Desc",
-                          "width": "fill_container",
-                          "height": 20,
-                          "content": "Service activo disponible para appointments.",
-                          "fontFamily": "Inter",
-                          "fontSize": 13,
-                          "fontWeight": 600,
-                          "lineHeight": 1.2,
-                          "textAlign": "left",
+                          "type": "frame",
+                          "id": "n122",
+                          "name": "Color express Price",
+                          "width": 88,
+                          "height": 30,
+                          "layout": "horizontal",
+                          "gap": 0,
+                          "padding": [
+                            0,
+                            10
+                          ],
                           "fill": [
                             {
                               "type": "solid",
-                              "color": "#64748B"
+                              "color": "#F8FAFC"
                             }
-                          ]
-                        },
-                        {
-                          "type": "text",
-                          "id": "n133",
-                          "name": "Public Service Color express Duration",
-                          "width": "fill_container",
-                          "height": 18,
-                          "content": "90 min",
-                          "fontFamily": "Inter",
-                          "fontSize": 13,
-                          "fontWeight": 800,
-                          "lineHeight": 1.2,
-                          "textAlign": "left",
-                          "fill": [
+                          ],
+                          "cornerRadius": 999,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
                             {
-                              "type": "solid",
-                              "color": "#4F46E5"
+                              "type": "text",
+                              "id": "n121",
+                              "name": "Color express Price Text",
+                              "width": "fill_container",
+                              "height": 16,
+                              "content": "65 EUR",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#111827"
+                                }
+                              ]
                             }
                           ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "text",
-                      "id": "n135",
-                      "name": "Public Service Color express Price",
-                      "width": 88,
-                      "height": 26,
-                      "content": "65 EUR",
-                      "fontFamily": "Inter",
-                      "fontSize": 18,
-                      "fontWeight": 900,
-                      "lineHeight": 1.2,
-                      "textAlign": "right",
-                      "fill": [
-                        {
-                          "type": "solid",
-                          "color": "#111827"
                         }
                       ]
                     },
                     {
                       "type": "frame",
-                      "id": "n137",
-                      "name": "Public Service Color express CTA",
-                      "width": 104,
-                      "height": 44,
+                      "id": "n125",
+                      "name": "Mobile Public Service Color express CTA",
+                      "width": "fill_container",
+                      "height": 42,
                       "layout": "horizontal",
                       "gap": 0,
                       "padding": [
                         0,
-                        18
+                        16
                       ],
                       "fill": [
                         {
@@ -2966,13 +2727,13 @@
                       "children": [
                         {
                           "type": "text",
-                          "id": "n136",
-                          "name": "Public Service Color express CTA Text",
+                          "id": "n124",
+                          "name": "Mobile Public Service Color express CTA Text",
                           "width": "fill_container",
                           "height": 18,
                           "content": "Reservar",
                           "fontFamily": "Inter",
-                          "fontSize": 14,
+                          "fontSize": 13,
                           "fontWeight": 850,
                           "lineHeight": 1.2,
                           "textAlign": "center",
@@ -2991,10 +2752,10 @@
             },
             {
               "type": "frame",
-              "id": "n177",
+              "id": "n153",
               "name": "Mobile Public Staff",
               "width": "fill_container",
-              "height": 386,
+              "height": 462,
               "layout": "vertical",
               "gap": 14,
               "padding": 22,
@@ -3017,7 +2778,7 @@
               "children": [
                 {
                   "type": "text",
-                  "id": "n140",
+                  "id": "n128",
                   "name": "Mobile Public Staff Title",
                   "width": "fill_container",
                   "height": 22,
@@ -3036,20 +2797,20 @@
                 },
                 {
                   "type": "frame",
-                  "id": "n152",
-                  "name": "Mobile Public Staff Marta",
+                  "id": "n136",
+                  "name": "Mobile Staff Marta Ruiz",
                   "width": "fill_container",
-                  "height": 82,
+                  "height": 118,
                   "layout": "horizontal",
-                  "gap": 10,
-                  "padding": 14,
+                  "gap": 14,
+                  "padding": 16,
                   "fill": [
                     {
                       "type": "solid",
                       "color": "#FFFFFF"
                     }
                   ],
-                  "cornerRadius": 22,
+                  "cornerRadius": 24,
                   "alignItems": "center",
                   "stroke": {
                     "thickness": 1,
@@ -3063,10 +2824,10 @@
                   "children": [
                     {
                       "type": "frame",
-                      "id": "n142",
-                      "name": "Mobile Public Staff Marta Avatar",
-                      "width": 44,
-                      "height": 44,
+                      "id": "n130",
+                      "name": "Marta Ruiz Public Avatar",
+                      "width": 48,
+                      "height": 48,
                       "layout": "vertical",
                       "gap": 0,
                       "padding": 0,
@@ -3082,8 +2843,8 @@
                       "children": [
                         {
                           "type": "text",
-                          "id": "n141",
-                          "name": "Mobile Public Staff Marta Initials",
+                          "id": "n129",
+                          "name": "Marta Ruiz Public Initials",
                           "width": "fill_container",
                           "height": 16,
                           "content": "MR",
@@ -3103,12 +2864,12 @@
                     },
                     {
                       "type": "frame",
-                      "id": "n145",
-                      "name": "Mobile Public Staff Marta Copy",
+                      "id": "n135",
+                      "name": "Marta Ruiz Public Copy",
                       "width": "fill_container",
-                      "height": 54,
+                      "height": 76,
                       "layout": "vertical",
-                      "gap": 4,
+                      "gap": 5,
                       "padding": 0,
                       "fill": [
                         {
@@ -3119,14 +2880,14 @@
                       "children": [
                         {
                           "type": "text",
-                          "id": "n143",
-                          "name": "Mobile Public Staff Marta Title",
+                          "id": "n131",
+                          "name": "Marta Ruiz Public Name",
                           "width": "fill_container",
                           "height": 22,
                           "content": "Marta Ruiz",
                           "fontFamily": "Inter",
-                          "fontSize": 16,
-                          "fontWeight": 850,
+                          "fontSize": 17,
+                          "fontWeight": 900,
                           "lineHeight": 1.2,
                           "textAlign": "left",
                           "fill": [
@@ -3138,14 +2899,14 @@
                         },
                         {
                           "type": "text",
-                          "id": "n144",
-                          "name": "Mobile Public Staff Marta Meta",
+                          "id": "n132",
+                          "name": "Marta Ruiz Public Bio",
                           "width": "fill_container",
-                          "height": 18,
-                          "content": "marta.ruiz@studio.com · +34 600 123 456",
+                          "height": 34,
+                          "content": "Staff member activo con agenda online.",
                           "fontFamily": "Inter",
-                          "fontSize": 12,
-                          "fontWeight": 650,
+                          "fontSize": 13,
+                          "fontWeight": 600,
                           "lineHeight": 1.2,
                           "textAlign": "left",
                           "fill": [
@@ -3154,133 +2915,47 @@
                               "color": "#64748B"
                             }
                           ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "n147",
-                      "name": "Mobile Public Staff Marta State",
-                      "width": 84,
-                      "height": 32,
-                      "layout": "horizontal",
-                      "gap": 0,
-                      "padding": [
-                        0,
-                        12
-                      ],
-                      "fill": [
+                        },
                         {
-                          "type": "solid",
-                          "color": "#DCFCE7"
-                        }
-                      ],
-                      "cornerRadius": 999,
-                      "justifyContent": "center",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "n146",
-                          "name": "Mobile Public Staff Marta State Text",
-                          "width": "fill_container",
-                          "height": 16,
-                          "content": "Active",
-                          "fontFamily": "Inter",
-                          "fontSize": 12,
-                          "fontWeight": 850,
-                          "lineHeight": 1.2,
-                          "textAlign": "center",
+                          "type": "frame",
+                          "id": "n134",
+                          "name": "Marta Ruiz Public State",
+                          "width": 132,
+                          "height": 30,
+                          "layout": "horizontal",
+                          "gap": 0,
+                          "padding": [
+                            0,
+                            10
+                          ],
                           "fill": [
                             {
                               "type": "solid",
-                              "color": "#166534"
+                              "color": "#DCFCE7"
                             }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "n149",
-                      "name": "Mobile Public Staff Marta Assign",
-                      "width": 146,
-                      "height": 44,
-                      "layout": "horizontal",
-                      "gap": 0,
-                      "padding": [
-                        0,
-                        18
-                      ],
-                      "fill": [
-                        {
-                          "type": "solid",
-                          "color": "#EEF2FF"
-                        }
-                      ],
-                      "cornerRadius": 999,
-                      "justifyContent": "center",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "n148",
-                          "name": "Mobile Public Staff Marta Assign Text",
-                          "width": "fill_container",
-                          "height": 18,
-                          "content": "Asignar services",
-                          "fontFamily": "Inter",
-                          "fontSize": 14,
-                          "fontWeight": 850,
-                          "lineHeight": 1.2,
-                          "textAlign": "center",
-                          "fill": [
+                          ],
+                          "cornerRadius": 999,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
                             {
-                              "type": "solid",
-                              "color": "#4F46E5"
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "n151",
-                      "name": "Mobile Public Staff Marta Edit",
-                      "width": 82,
-                      "height": 44,
-                      "layout": "horizontal",
-                      "gap": 0,
-                      "padding": [
-                        0,
-                        18
-                      ],
-                      "fill": [
-                        {
-                          "type": "solid",
-                          "color": "#FFFFFF"
-                        }
-                      ],
-                      "cornerRadius": 999,
-                      "justifyContent": "center",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "n150",
-                          "name": "Mobile Public Staff Marta Edit Text",
-                          "width": "fill_container",
-                          "height": 18,
-                          "content": "Editar",
-                          "fontFamily": "Inter",
-                          "fontSize": 14,
-                          "fontWeight": 850,
-                          "lineHeight": 1.2,
-                          "textAlign": "center",
-                          "fill": [
-                            {
-                              "type": "solid",
-                              "color": "#111827"
+                              "type": "text",
+                              "id": "n133",
+                              "name": "Marta Ruiz Public State Text",
+                              "width": "fill_container",
+                              "height": 16,
+                              "content": "Disponible online",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#166534"
+                                }
+                              ]
                             }
                           ]
                         }
@@ -3290,20 +2965,20 @@
                 },
                 {
                   "type": "frame",
-                  "id": "n164",
-                  "name": "Mobile Public Staff Lucas",
+                  "id": "n144",
+                  "name": "Mobile Staff Lucas Perez",
                   "width": "fill_container",
-                  "height": 82,
+                  "height": 118,
                   "layout": "horizontal",
-                  "gap": 10,
-                  "padding": 14,
+                  "gap": 14,
+                  "padding": 16,
                   "fill": [
                     {
                       "type": "solid",
                       "color": "#FFFFFF"
                     }
                   ],
-                  "cornerRadius": 22,
+                  "cornerRadius": 24,
                   "alignItems": "center",
                   "stroke": {
                     "thickness": 1,
@@ -3317,10 +2992,10 @@
                   "children": [
                     {
                       "type": "frame",
-                      "id": "n154",
-                      "name": "Mobile Public Staff Lucas Avatar",
-                      "width": 44,
-                      "height": 44,
+                      "id": "n138",
+                      "name": "Lucas Perez Public Avatar",
+                      "width": 48,
+                      "height": 48,
                       "layout": "vertical",
                       "gap": 0,
                       "padding": 0,
@@ -3336,8 +3011,8 @@
                       "children": [
                         {
                           "type": "text",
-                          "id": "n153",
-                          "name": "Mobile Public Staff Lucas Initials",
+                          "id": "n137",
+                          "name": "Lucas Perez Public Initials",
                           "width": "fill_container",
                           "height": 16,
                           "content": "LP",
@@ -3357,12 +3032,12 @@
                     },
                     {
                       "type": "frame",
-                      "id": "n157",
-                      "name": "Mobile Public Staff Lucas Copy",
+                      "id": "n143",
+                      "name": "Lucas Perez Public Copy",
                       "width": "fill_container",
-                      "height": 54,
+                      "height": 76,
                       "layout": "vertical",
-                      "gap": 4,
+                      "gap": 5,
                       "padding": 0,
                       "fill": [
                         {
@@ -3373,14 +3048,14 @@
                       "children": [
                         {
                           "type": "text",
-                          "id": "n155",
-                          "name": "Mobile Public Staff Lucas Title",
+                          "id": "n139",
+                          "name": "Lucas Perez Public Name",
                           "width": "fill_container",
                           "height": 22,
                           "content": "Lucas Perez",
                           "fontFamily": "Inter",
-                          "fontSize": 16,
-                          "fontWeight": 850,
+                          "fontSize": 17,
+                          "fontWeight": 900,
                           "lineHeight": 1.2,
                           "textAlign": "left",
                           "fill": [
@@ -3392,14 +3067,14 @@
                         },
                         {
                           "type": "text",
-                          "id": "n156",
-                          "name": "Mobile Public Staff Lucas Meta",
+                          "id": "n140",
+                          "name": "Lucas Perez Public Bio",
                           "width": "fill_container",
-                          "height": 18,
-                          "content": "lucas.perez@studio.com · +34 600 123 456",
+                          "height": 34,
+                          "content": "Staff member activo con agenda online.",
                           "fontFamily": "Inter",
-                          "fontSize": 12,
-                          "fontWeight": 650,
+                          "fontSize": 13,
+                          "fontWeight": 600,
                           "lineHeight": 1.2,
                           "textAlign": "left",
                           "fill": [
@@ -3408,133 +3083,47 @@
                               "color": "#64748B"
                             }
                           ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "n159",
-                      "name": "Mobile Public Staff Lucas State",
-                      "width": 84,
-                      "height": 32,
-                      "layout": "horizontal",
-                      "gap": 0,
-                      "padding": [
-                        0,
-                        12
-                      ],
-                      "fill": [
+                        },
                         {
-                          "type": "solid",
-                          "color": "#DCFCE7"
-                        }
-                      ],
-                      "cornerRadius": 999,
-                      "justifyContent": "center",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "n158",
-                          "name": "Mobile Public Staff Lucas State Text",
-                          "width": "fill_container",
-                          "height": 16,
-                          "content": "Active",
-                          "fontFamily": "Inter",
-                          "fontSize": 12,
-                          "fontWeight": 850,
-                          "lineHeight": 1.2,
-                          "textAlign": "center",
+                          "type": "frame",
+                          "id": "n142",
+                          "name": "Lucas Perez Public State",
+                          "width": 132,
+                          "height": 30,
+                          "layout": "horizontal",
+                          "gap": 0,
+                          "padding": [
+                            0,
+                            10
+                          ],
                           "fill": [
                             {
                               "type": "solid",
-                              "color": "#166534"
+                              "color": "#DCFCE7"
                             }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "n161",
-                      "name": "Mobile Public Staff Lucas Assign",
-                      "width": 146,
-                      "height": 44,
-                      "layout": "horizontal",
-                      "gap": 0,
-                      "padding": [
-                        0,
-                        18
-                      ],
-                      "fill": [
-                        {
-                          "type": "solid",
-                          "color": "#EEF2FF"
-                        }
-                      ],
-                      "cornerRadius": 999,
-                      "justifyContent": "center",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "n160",
-                          "name": "Mobile Public Staff Lucas Assign Text",
-                          "width": "fill_container",
-                          "height": 18,
-                          "content": "Asignar services",
-                          "fontFamily": "Inter",
-                          "fontSize": 14,
-                          "fontWeight": 850,
-                          "lineHeight": 1.2,
-                          "textAlign": "center",
-                          "fill": [
+                          ],
+                          "cornerRadius": 999,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
                             {
-                              "type": "solid",
-                              "color": "#4F46E5"
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "n163",
-                      "name": "Mobile Public Staff Lucas Edit",
-                      "width": 82,
-                      "height": 44,
-                      "layout": "horizontal",
-                      "gap": 0,
-                      "padding": [
-                        0,
-                        18
-                      ],
-                      "fill": [
-                        {
-                          "type": "solid",
-                          "color": "#FFFFFF"
-                        }
-                      ],
-                      "cornerRadius": 999,
-                      "justifyContent": "center",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "n162",
-                          "name": "Mobile Public Staff Lucas Edit Text",
-                          "width": "fill_container",
-                          "height": 18,
-                          "content": "Editar",
-                          "fontFamily": "Inter",
-                          "fontSize": 14,
-                          "fontWeight": 850,
-                          "lineHeight": 1.2,
-                          "textAlign": "center",
-                          "fill": [
-                            {
-                              "type": "solid",
-                              "color": "#111827"
+                              "type": "text",
+                              "id": "n141",
+                              "name": "Lucas Perez Public State Text",
+                              "width": "fill_container",
+                              "height": 16,
+                              "content": "Disponible online",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#166534"
+                                }
+                              ]
                             }
                           ]
                         }
@@ -3544,20 +3133,20 @@
                 },
                 {
                   "type": "frame",
-                  "id": "n176",
-                  "name": "Mobile Public Staff Nerea",
+                  "id": "n152",
+                  "name": "Mobile Staff Nerea Gomez",
                   "width": "fill_container",
-                  "height": 82,
+                  "height": 118,
                   "layout": "horizontal",
-                  "gap": 10,
-                  "padding": 14,
+                  "gap": 14,
+                  "padding": 16,
                   "fill": [
                     {
                       "type": "solid",
                       "color": "#FFFFFF"
                     }
                   ],
-                  "cornerRadius": 22,
+                  "cornerRadius": 24,
                   "alignItems": "center",
                   "stroke": {
                     "thickness": 1,
@@ -3571,10 +3160,10 @@
                   "children": [
                     {
                       "type": "frame",
-                      "id": "n166",
-                      "name": "Mobile Public Staff Nerea Avatar",
-                      "width": 44,
-                      "height": 44,
+                      "id": "n146",
+                      "name": "Nerea Gomez Public Avatar",
+                      "width": 48,
+                      "height": 48,
                       "layout": "vertical",
                       "gap": 0,
                       "padding": 0,
@@ -3590,8 +3179,8 @@
                       "children": [
                         {
                           "type": "text",
-                          "id": "n165",
-                          "name": "Mobile Public Staff Nerea Initials",
+                          "id": "n145",
+                          "name": "Nerea Gomez Public Initials",
                           "width": "fill_container",
                           "height": 16,
                           "content": "NG",
@@ -3611,12 +3200,12 @@
                     },
                     {
                       "type": "frame",
-                      "id": "n169",
-                      "name": "Mobile Public Staff Nerea Copy",
+                      "id": "n151",
+                      "name": "Nerea Gomez Public Copy",
                       "width": "fill_container",
-                      "height": 54,
+                      "height": 76,
                       "layout": "vertical",
-                      "gap": 4,
+                      "gap": 5,
                       "padding": 0,
                       "fill": [
                         {
@@ -3627,14 +3216,14 @@
                       "children": [
                         {
                           "type": "text",
-                          "id": "n167",
-                          "name": "Mobile Public Staff Nerea Title",
+                          "id": "n147",
+                          "name": "Nerea Gomez Public Name",
                           "width": "fill_container",
                           "height": 22,
                           "content": "Nerea Gomez",
                           "fontFamily": "Inter",
-                          "fontSize": 16,
-                          "fontWeight": 850,
+                          "fontSize": 17,
+                          "fontWeight": 900,
                           "lineHeight": 1.2,
                           "textAlign": "left",
                           "fill": [
@@ -3646,14 +3235,14 @@
                         },
                         {
                           "type": "text",
-                          "id": "n168",
-                          "name": "Mobile Public Staff Nerea Meta",
+                          "id": "n148",
+                          "name": "Nerea Gomez Public Bio",
                           "width": "fill_container",
-                          "height": 18,
-                          "content": "nerea.gomez@studio.com · +34 600 123 456",
+                          "height": 34,
+                          "content": "Staff member activo con agenda online.",
                           "fontFamily": "Inter",
-                          "fontSize": 12,
-                          "fontWeight": 650,
+                          "fontSize": 13,
+                          "fontWeight": 600,
                           "lineHeight": 1.2,
                           "textAlign": "left",
                           "fill": [
@@ -3662,133 +3251,47 @@
                               "color": "#64748B"
                             }
                           ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "n171",
-                      "name": "Mobile Public Staff Nerea State",
-                      "width": 84,
-                      "height": 32,
-                      "layout": "horizontal",
-                      "gap": 0,
-                      "padding": [
-                        0,
-                        12
-                      ],
-                      "fill": [
+                        },
                         {
-                          "type": "solid",
-                          "color": "#DCFCE7"
-                        }
-                      ],
-                      "cornerRadius": 999,
-                      "justifyContent": "center",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "n170",
-                          "name": "Mobile Public Staff Nerea State Text",
-                          "width": "fill_container",
-                          "height": 16,
-                          "content": "Active",
-                          "fontFamily": "Inter",
-                          "fontSize": 12,
-                          "fontWeight": 850,
-                          "lineHeight": 1.2,
-                          "textAlign": "center",
+                          "type": "frame",
+                          "id": "n150",
+                          "name": "Nerea Gomez Public State",
+                          "width": 132,
+                          "height": 30,
+                          "layout": "horizontal",
+                          "gap": 0,
+                          "padding": [
+                            0,
+                            10
+                          ],
                           "fill": [
                             {
                               "type": "solid",
-                              "color": "#166534"
+                              "color": "#DCFCE7"
                             }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "n173",
-                      "name": "Mobile Public Staff Nerea Assign",
-                      "width": 146,
-                      "height": 44,
-                      "layout": "horizontal",
-                      "gap": 0,
-                      "padding": [
-                        0,
-                        18
-                      ],
-                      "fill": [
-                        {
-                          "type": "solid",
-                          "color": "#EEF2FF"
-                        }
-                      ],
-                      "cornerRadius": 999,
-                      "justifyContent": "center",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "n172",
-                          "name": "Mobile Public Staff Nerea Assign Text",
-                          "width": "fill_container",
-                          "height": 18,
-                          "content": "Asignar services",
-                          "fontFamily": "Inter",
-                          "fontSize": 14,
-                          "fontWeight": 850,
-                          "lineHeight": 1.2,
-                          "textAlign": "center",
-                          "fill": [
+                          ],
+                          "cornerRadius": 999,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "children": [
                             {
-                              "type": "solid",
-                              "color": "#4F46E5"
-                            }
-                          ]
-                        }
-                      ]
-                    },
-                    {
-                      "type": "frame",
-                      "id": "n175",
-                      "name": "Mobile Public Staff Nerea Edit",
-                      "width": 82,
-                      "height": 44,
-                      "layout": "horizontal",
-                      "gap": 0,
-                      "padding": [
-                        0,
-                        18
-                      ],
-                      "fill": [
-                        {
-                          "type": "solid",
-                          "color": "#FFFFFF"
-                        }
-                      ],
-                      "cornerRadius": 999,
-                      "justifyContent": "center",
-                      "alignItems": "center",
-                      "children": [
-                        {
-                          "type": "text",
-                          "id": "n174",
-                          "name": "Mobile Public Staff Nerea Edit Text",
-                          "width": "fill_container",
-                          "height": 18,
-                          "content": "Editar",
-                          "fontFamily": "Inter",
-                          "fontSize": 14,
-                          "fontWeight": 850,
-                          "lineHeight": 1.2,
-                          "textAlign": "center",
-                          "fill": [
-                            {
-                              "type": "solid",
-                              "color": "#111827"
+                              "type": "text",
+                              "id": "n149",
+                              "name": "Nerea Gomez Public State Text",
+                              "width": "fill_container",
+                              "height": 16,
+                              "content": "Disponible online",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#166534"
+                                }
+                              ]
                             }
                           ]
                         }
@@ -3800,7 +3303,7 @@
             },
             {
               "type": "frame",
-              "id": "n184",
+              "id": "n160",
               "name": "Mobile Public States",
               "width": "fill_container",
               "height": 236,
@@ -3826,7 +3329,7 @@
               "children": [
                 {
                   "type": "text",
-                  "id": "n178",
+                  "id": "n154",
                   "name": "Mobile Public States Title",
                   "width": "fill_container",
                   "height": 22,
@@ -3845,7 +3348,7 @@
                 },
                 {
                   "type": "text",
-                  "id": "n179",
+                  "id": "n155",
                   "name": "Mobile Public States Copy",
                   "width": "fill_container",
                   "height": 54,
@@ -3864,15 +3367,15 @@
                 },
                 {
                   "type": "frame",
-                  "id": "n181",
+                  "id": "n157",
                   "name": "Mobile Public Warning",
                   "width": 190,
-                  "height": 32,
+                  "height": 30,
                   "layout": "horizontal",
                   "gap": 0,
                   "padding": [
                     0,
-                    12
+                    10
                   ],
                   "fill": [
                     {
@@ -3886,7 +3389,7 @@
                   "children": [
                     {
                       "type": "text",
-                      "id": "n180",
+                      "id": "n156",
                       "name": "Mobile Public Warning Text",
                       "width": "fill_container",
                       "height": 16,
@@ -3907,15 +3410,15 @@
                 },
                 {
                   "type": "frame",
-                  "id": "n183",
+                  "id": "n159",
                   "name": "Mobile Public Start",
                   "width": "fill_container",
-                  "height": 44,
+                  "height": 42,
                   "layout": "horizontal",
                   "gap": 0,
                   "padding": [
                     0,
-                    18
+                    16
                   ],
                   "fill": [
                     {
@@ -3929,13 +3432,13 @@
                   "children": [
                     {
                       "type": "text",
-                      "id": "n182",
+                      "id": "n158",
                       "name": "Mobile Public Start Text",
                       "width": "fill_container",
                       "height": 18,
                       "content": "Empezar reserva",
                       "fontFamily": "Inter",
-                      "fontSize": 14,
+                      "fontSize": 13,
                       "fontWeight": 850,
                       "lineHeight": 1.2,
                       "textAlign": "center",
