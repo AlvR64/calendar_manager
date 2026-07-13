@@ -22,4 +22,22 @@ public sealed class AppointmentRepository(CalendarDbContext dbContext) : IAppoin
                 && rangeStartUtc < appointment.EndAtUtc)
             .OrderBy(appointment => appointment.StartAtUtc)
             .ToListAsync(cancellationToken);
+
+    public async Task<bool> HasBlockingOverlapAsync(
+        Guid businessId,
+        Guid staffMemberId,
+        DateTimeOffset startAtUtc,
+        DateTimeOffset endAtUtc,
+        Guid? excludedAppointmentId,
+        CancellationToken cancellationToken) =>
+        await dbContext.Appointments
+            .AsNoTracking()
+            .AnyAsync(appointment => appointment.BusinessId == businessId
+                && appointment.StaffMemberId == staffMemberId
+                && appointment.Status != AppointmentStatus.CancelledByCustomer
+                && appointment.Status != AppointmentStatus.CancelledByAdmin
+                && (!excludedAppointmentId.HasValue || appointment.Id != excludedAppointmentId.Value)
+                && appointment.StartAtUtc < endAtUtc
+                && startAtUtc < appointment.EndAtUtc,
+                cancellationToken);
 }

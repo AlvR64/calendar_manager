@@ -327,5 +327,13 @@ public sealed class ListAvailableSlotsQueryHandlerTests
                     && appointment.StartAtUtc < rangeEndUtc
                     && rangeStartUtc < appointment.EndAtUtc)
                 .ToList());
+
+        public Task<bool> HasBlockingOverlapAsync(
+            Guid businessId,
+            Guid staffMemberId,
+            DateTimeOffset startAtUtc,
+            DateTimeOffset endAtUtc,
+            Guid? excludedAppointmentId,
+            CancellationToken cancellationToken) => throw new NotSupportedException();
     }
 }

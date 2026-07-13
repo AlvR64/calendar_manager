@@ -10,4 +10,12 @@ public interface IAppointmentRepository
         DateTimeOffset rangeStartUtc,
         DateTimeOffset rangeEndUtc,
         CancellationToken cancellationToken);
+
+    Task<bool> HasBlockingOverlapAsync(
+        Guid businessId,
+        Guid staffMemberId,
+        DateTimeOffset startAtUtc,
+        DateTimeOffset endAtUtc,
+        Guid? excludedAppointmentId,
+        CancellationToken cancellationToken);
 }
