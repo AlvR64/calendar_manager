@@ -1,0 +1,2320 @@
+{
+  "version": "0.8.0",
+  "name": "OpenPencil CLI Session",
+  "children": [
+    {
+      "type": "frame",
+      "id": "n1",
+      "name": "Business Admin Login Desktop",
+      "x": 0.0,
+      "y": 0.0,
+      "width": 1440.0,
+      "height": 900.0,
+      "layout": "vertical",
+      "gap": 0.0,
+      "padding": 0.0,
+      "fill": [
+        {
+          "type": "solid",
+          "color": "#FFFFFF"
+        }
+      ],
+      "children": [
+        {
+          "type": "frame",
+          "id": "n2",
+          "name": "Header Desktop",
+          "width": "fill_container",
+          "height": 78.0,
+          "layout": "horizontal",
+          "gap": 24.0,
+          "padding": [
+            0.0,
+            80.0
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#FFFFFF"
+            }
+          ],
+          "stroke": {
+            "thickness": {
+              "bottom": 1.0
+            },
+            "fill": [
+              {
+                "type": "solid",
+                "color": "#F3F4F6"
+              }
+            ]
+          },
+          "children": [
+            {
+              "type": "text",
+              "id": "n3",
+              "name": "Logo Desktop",
+              "width": 260.0,
+              "height": 32.0,
+              "content": "Calendar Manager",
+              "fontFamily": "Inter",
+              "fontSize": 22.0,
+              "fontWeight": 900,
+              "lineHeight": 1.2,
+              "textAlign": "left",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#111827"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "n4",
+              "name": "Back Home Desktop",
+              "width": 160.0,
+              "height": 24.0,
+              "content": "Volver al inicio",
+              "fontFamily": "Inter",
+              "fontSize": 15.0,
+              "fontWeight": 800,
+              "lineHeight": 1.2,
+              "textAlign": "right",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#4F46E5"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "n5",
+          "name": "Login Content Desktop",
+          "width": "fill_container",
+          "height": 822.0,
+          "layout": "horizontal",
+          "gap": 74.0,
+          "padding": [
+            70.0,
+            120.0
+          ],
+          "alignItems": "center",
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#FFFFFF"
+            }
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "n6",
+              "name": "Business Info Panel Desktop",
+              "width": 600.0,
+              "height": 650.0,
+              "layout": "vertical",
+              "gap": 18.0,
+              "padding": 34.0,
+              "cornerRadius": 42.0,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#F9FAFB"
+                }
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n7",
+                  "name": "Business Eyebrow Desktop",
+                  "width": "fill_container",
+                  "height": 18.0,
+                  "content": "ACCESO NEGOCIOS",
+                  "fontFamily": "Inter",
+                  "fontSize": 13.0,
+                  "fontWeight": 850,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#4F46E5"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n8",
+                  "name": "Business Panel Title Desktop",
+                  "width": "fill_container",
+                  "height": 105.0,
+                  "content": "Accede a la agenda de tu negocio",
+                  "fontFamily": "Inter",
+                  "fontSize": 42.0,
+                  "fontWeight": 900,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n9",
+                  "name": "Business Panel Copy Desktop",
+                  "width": "fill_container",
+                  "height": 56.0,
+                  "content": "Gestiona services, staff members, disponibilidad y appointments desde un solo lugar.",
+                  "fontFamily": "Inter",
+                  "fontSize": 17.0,
+                  "fontWeight": 500,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#6B7280"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n10",
+                  "name": "Business Dashboard Mockup Desktop",
+                  "width": 380.0,
+                  "height": 280.0,
+                  "layout": "vertical",
+                  "gap": 14.0,
+                  "padding": 18.0,
+                  "cornerRadius": 28.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "stroke": {
+                    "thickness": 1.0,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E7EB"
+                      }
+                    ]
+                  },
+                  "effects": [
+                    {
+                      "type": "shadow",
+                      "offsetX": 0.0,
+                      "offsetY": 20.0,
+                      "blur": 42.0,
+                      "spread": -26.0,
+                      "color": "#11182726"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n11",
+                      "name": "Business Dashboard Mockup Desktop Topbar",
+                      "width": "fill_container",
+                      "height": 34.0,
+                      "layout": "horizontal",
+                      "gap": 12.0,
+                      "padding": 0.0,
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n12",
+                          "name": "Business Dashboard Mockup Desktop Title",
+                          "width": 210.0,
+                          "height": 28.0,
+                          "content": "Agenda semanal",
+                          "fontFamily": "Inter",
+                          "fontSize": 18.0,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n13",
+                          "name": "Business Dashboard Mockup Desktop Badge",
+                          "width": 100.0,
+                          "height": 22.0,
+                          "content": "24 appointments",
+                          "fontFamily": "Inter",
+                          "fontSize": 12.0,
+                          "fontWeight": 800,
+                          "lineHeight": 1.2,
+                          "textAlign": "right",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#4F46E5"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n14",
+                      "name": "Business Dashboard Mockup Desktop Calendar",
+                      "width": "fill_container",
+                      "height": 178.0,
+                      "layout": "horizontal",
+                      "gap": 6.0,
+                      "padding": 0.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "n15",
+                          "name": "Business Dashboard Mockup Desktop Day L",
+                          "width": 48.0,
+                          "height": 178.0,
+                          "layout": "vertical",
+                          "gap": 6.0,
+                          "padding": 0.0,
+                          "alignItems": "center",
+                          "cornerRadius": 14.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#F9FAFB"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n16",
+                              "name": "Business Dashboard Mockup Desktop Day Label L",
+                              "width": 32.0,
+                              "height": 18.0,
+                              "content": "L",
+                              "fontFamily": "Inter",
+                              "fontSize": 12.0,
+                              "fontWeight": 800,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#6B7280"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n17",
+                              "name": "Business Dashboard Mockup Desktop Appointment A L",
+                              "width": 32.0,
+                              "height": 52.0,
+                              "layout": "vertical",
+                              "gap": 0.0,
+                              "padding": 0.0,
+                              "cornerRadius": 11.0,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#DBEAFE"
+                                }
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n18",
+                              "name": "Business Dashboard Mockup Desktop Appointment B L",
+                              "width": 32.0,
+                              "height": 30.0,
+                              "layout": "vertical",
+                              "gap": 0.0,
+                              "padding": 0.0,
+                              "cornerRadius": 11.0,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FDE68A"
+                                }
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n19",
+                          "name": "Business Dashboard Mockup Desktop Day M",
+                          "width": 48.0,
+                          "height": 178.0,
+                          "layout": "vertical",
+                          "gap": 6.0,
+                          "padding": 0.0,
+                          "alignItems": "center",
+                          "cornerRadius": 14.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#F9FAFB"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n20",
+                              "name": "Business Dashboard Mockup Desktop Day Label M",
+                              "width": 32.0,
+                              "height": 18.0,
+                              "content": "M",
+                              "fontFamily": "Inter",
+                              "fontSize": 12.0,
+                              "fontWeight": 800,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#6B7280"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n21",
+                              "name": "Business Dashboard Mockup Desktop Appointment A M",
+                              "width": 32.0,
+                              "height": 34.0,
+                              "layout": "vertical",
+                              "gap": 0.0,
+                              "padding": 0.0,
+                              "cornerRadius": 11.0,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#DCFCE7"
+                                }
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n22",
+                              "name": "Business Dashboard Mockup Desktop Appointment B M",
+                              "width": 32.0,
+                              "height": 58.0,
+                              "layout": "vertical",
+                              "gap": 0.0,
+                              "padding": 0.0,
+                              "cornerRadius": 11.0,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#E0E7FF"
+                                }
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n23",
+                          "name": "Business Dashboard Mockup Desktop Day X",
+                          "width": 48.0,
+                          "height": 178.0,
+                          "layout": "vertical",
+                          "gap": 6.0,
+                          "padding": 0.0,
+                          "alignItems": "center",
+                          "cornerRadius": 14.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#F9FAFB"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n24",
+                              "name": "Business Dashboard Mockup Desktop Day Label X",
+                              "width": 32.0,
+                              "height": 18.0,
+                              "content": "X",
+                              "fontFamily": "Inter",
+                              "fontSize": 12.0,
+                              "fontWeight": 800,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#6B7280"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n25",
+                              "name": "Business Dashboard Mockup Desktop Appointment A X",
+                              "width": 32.0,
+                              "height": 52.0,
+                              "layout": "vertical",
+                              "gap": 0.0,
+                              "padding": 0.0,
+                              "cornerRadius": 11.0,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#DBEAFE"
+                                }
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n26",
+                              "name": "Business Dashboard Mockup Desktop Appointment B X",
+                              "width": 32.0,
+                              "height": 30.0,
+                              "layout": "vertical",
+                              "gap": 0.0,
+                              "padding": 0.0,
+                              "cornerRadius": 11.0,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FDE68A"
+                                }
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n27",
+                          "name": "Business Dashboard Mockup Desktop Day J",
+                          "width": 48.0,
+                          "height": 178.0,
+                          "layout": "vertical",
+                          "gap": 6.0,
+                          "padding": 0.0,
+                          "alignItems": "center",
+                          "cornerRadius": 14.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#F9FAFB"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n28",
+                              "name": "Business Dashboard Mockup Desktop Day Label J",
+                              "width": 32.0,
+                              "height": 18.0,
+                              "content": "J",
+                              "fontFamily": "Inter",
+                              "fontSize": 12.0,
+                              "fontWeight": 800,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#6B7280"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n29",
+                              "name": "Business Dashboard Mockup Desktop Appointment A J",
+                              "width": 32.0,
+                              "height": 34.0,
+                              "layout": "vertical",
+                              "gap": 0.0,
+                              "padding": 0.0,
+                              "cornerRadius": 11.0,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#DCFCE7"
+                                }
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n30",
+                              "name": "Business Dashboard Mockup Desktop Appointment B J",
+                              "width": 32.0,
+                              "height": 58.0,
+                              "layout": "vertical",
+                              "gap": 0.0,
+                              "padding": 0.0,
+                              "cornerRadius": 11.0,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#E0E7FF"
+                                }
+                              ],
+                              "children": []
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n31",
+                          "name": "Business Dashboard Mockup Desktop Day V",
+                          "width": 48.0,
+                          "height": 178.0,
+                          "layout": "vertical",
+                          "gap": 6.0,
+                          "padding": 0.0,
+                          "alignItems": "center",
+                          "cornerRadius": 14.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#F9FAFB"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n32",
+                              "name": "Business Dashboard Mockup Desktop Day Label V",
+                              "width": 32.0,
+                              "height": 18.0,
+                              "content": "V",
+                              "fontFamily": "Inter",
+                              "fontSize": 12.0,
+                              "fontWeight": 800,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#6B7280"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n33",
+                              "name": "Business Dashboard Mockup Desktop Appointment A V",
+                              "width": 32.0,
+                              "height": 52.0,
+                              "layout": "vertical",
+                              "gap": 0.0,
+                              "padding": 0.0,
+                              "cornerRadius": 11.0,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#DBEAFE"
+                                }
+                              ],
+                              "children": []
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n34",
+                              "name": "Business Dashboard Mockup Desktop Appointment B V",
+                              "width": 32.0,
+                              "height": 30.0,
+                              "layout": "vertical",
+                              "gap": 0.0,
+                              "padding": 0.0,
+                              "cornerRadius": 11.0,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FDE68A"
+                                }
+                              ],
+                              "children": []
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n35",
+                      "name": "Business Dashboard Mockup Desktop Bottom",
+                      "width": "fill_container",
+                      "height": 80.0,
+                      "layout": "horizontal",
+                      "gap": 10.0,
+                      "padding": 0.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "n36",
+                          "name": "Business Dashboard Mockup Desktop Services",
+                          "width": 138.0,
+                          "height": 80.0,
+                          "layout": "vertical",
+                          "gap": 4.0,
+                          "padding": 14.0,
+                          "cornerRadius": 18.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n37",
+                              "name": "Business Dashboard Mockup Desktop Services Title",
+                              "width": "fill_container",
+                              "height": 18.0,
+                              "content": "Services",
+                              "fontFamily": "Inter",
+                              "fontSize": 13.0,
+                              "fontWeight": 800,
+                              "lineHeight": 1.2,
+                              "textAlign": "left",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FFFFFF"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "n38",
+                              "name": "Business Dashboard Mockup Desktop Services Rows",
+                              "width": "fill_container",
+                              "height": 48.0,
+                              "content": "Corte\nMasaje\nConsulta",
+                              "fontFamily": "Inter",
+                              "fontSize": 12.0,
+                              "fontWeight": 600,
+                              "lineHeight": 1.2,
+                              "textAlign": "left",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#D1D5DB"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n39",
+                          "name": "Business Dashboard Mockup Desktop Staff",
+                          "width": 138.0,
+                          "height": 80.0,
+                          "layout": "vertical",
+                          "gap": 4.0,
+                          "padding": 14.0,
+                          "cornerRadius": 18.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#EEF2FF"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n40",
+                              "name": "Business Dashboard Mockup Desktop Staff Title",
+                              "width": "fill_container",
+                              "height": 18.0,
+                              "content": "Staff members",
+                              "fontFamily": "Inter",
+                              "fontSize": 13.0,
+                              "fontWeight": 800,
+                              "lineHeight": 1.2,
+                              "textAlign": "left",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#4F46E5"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "n41",
+                              "name": "Business Dashboard Mockup Desktop Staff Rows",
+                              "width": "fill_container",
+                              "height": 36.0,
+                              "content": "Marta · Leo\nSara",
+                              "fontFamily": "Inter",
+                              "fontSize": 12.0,
+                              "fontWeight": 700,
+                              "lineHeight": 1.2,
+                              "textAlign": "left",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#4338CA"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n42",
+              "name": "Business Login Card Desktop",
+              "width": 448.0,
+              "height": 510.0,
+              "layout": "vertical",
+              "gap": 18.0,
+              "padding": 34.0,
+              "cornerRadius": 34.0,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "stroke": {
+                "thickness": 1.0,
+                "fill": [
+                  {
+                    "type": "solid",
+                    "color": "#E5E7EB"
+                  }
+                ]
+              },
+              "effects": [
+                {
+                  "type": "shadow",
+                  "offsetX": 0.0,
+                  "offsetY": 20.0,
+                  "blur": 42.0,
+                  "spread": -26.0,
+                  "color": "#11182726"
+                }
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n43",
+                  "name": "Business Login Card Desktop Title",
+                  "width": "fill_container",
+                  "height": 46.0,
+                  "content": "Login Negocios",
+                  "fontFamily": "Inter",
+                  "fontSize": 34.0,
+                  "fontWeight": 900,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n44",
+                  "name": "Business Login Card Desktop Subtitle",
+                  "width": "fill_container",
+                  "height": 72.0,
+                  "content": "Accede para gestionar la agenda, services, staff members y disponibilidad de tu negocio.",
+                  "fontFamily": "Inter",
+                  "fontSize": 16.0,
+                  "fontWeight": 500,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#6B7280"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n45",
+                  "name": "Business Login Card Desktop Email",
+                  "width": "fill_container",
+                  "height": 78.0,
+                  "layout": "vertical",
+                  "gap": 8.0,
+                  "padding": 0.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n46",
+                      "name": "Business Login Card Desktop Email Label",
+                      "width": "fill_container",
+                      "height": 20.0,
+                      "content": "Email",
+                      "fontFamily": "Inter",
+                      "fontSize": 14.0,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n47",
+                      "name": "Business Login Card Desktop Email Field",
+                      "width": "fill_container",
+                      "height": 50.0,
+                      "layout": "vertical",
+                      "gap": 0.0,
+                      "padding": [
+                        0.0,
+                        16.0
+                      ],
+                      "justifyContent": "center",
+                      "cornerRadius": 15.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#F9FAFB"
+                        }
+                      ],
+                      "stroke": {
+                        "thickness": 1.0,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n48",
+                          "name": "Business Login Card Desktop Email Placeholder",
+                          "width": "fill_container",
+                          "height": 22.0,
+                          "content": "negocio@email.com",
+                          "fontFamily": "Inter",
+                          "fontSize": 15.0,
+                          "fontWeight": 500,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#9CA3AF"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n49",
+                  "name": "Business Login Card Desktop Password",
+                  "width": "fill_container",
+                  "height": 78.0,
+                  "layout": "vertical",
+                  "gap": 8.0,
+                  "padding": 0.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n50",
+                      "name": "Business Login Card Desktop Password Label",
+                      "width": "fill_container",
+                      "height": 20.0,
+                      "content": "Password",
+                      "fontFamily": "Inter",
+                      "fontSize": 14.0,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n51",
+                      "name": "Business Login Card Desktop Password Field",
+                      "width": "fill_container",
+                      "height": 50.0,
+                      "layout": "vertical",
+                      "gap": 0.0,
+                      "padding": [
+                        0.0,
+                        16.0
+                      ],
+                      "justifyContent": "center",
+                      "cornerRadius": 15.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#F9FAFB"
+                        }
+                      ],
+                      "stroke": {
+                        "thickness": 1.0,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n52",
+                          "name": "Business Login Card Desktop Password Placeholder",
+                          "width": "fill_container",
+                          "height": 22.0,
+                          "content": "Tu password",
+                          "fontFamily": "Inter",
+                          "fontSize": 15.0,
+                          "fontWeight": 500,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#9CA3AF"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n53",
+                  "name": "Business Login Card Desktop Options",
+                  "width": "fill_container",
+                  "height": 24.0,
+                  "layout": "horizontal",
+                  "gap": 10.0,
+                  "padding": 0.0,
+                  "justifyContent": "space_between",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n54",
+                      "name": "Business Login Card Desktop Remember",
+                      "width": 140.0,
+                      "height": 22.0,
+                      "content": "□ Recordarme",
+                      "fontFamily": "Inter",
+                      "fontSize": 14.0,
+                      "fontWeight": 600,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#6B7280"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n55",
+                      "name": "Business Login Card Desktop Forgot",
+                      "width": 210.0,
+                      "height": 22.0,
+                      "content": "¿Has olvidado tu password?",
+                      "fontFamily": "Inter",
+                      "fontSize": 14.0,
+                      "fontWeight": 700,
+                      "lineHeight": 1.2,
+                      "textAlign": "right",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#4F46E5"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n56",
+                  "name": "Business Login Card Desktop Submit",
+                  "width": "fill_container",
+                  "height": 52.0,
+                  "layout": "horizontal",
+                  "gap": 0.0,
+                  "padding": [
+                    0.0,
+                    22.0
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "cornerRadius": 16.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n57",
+                      "name": "Business Login Card Desktop Submit Label",
+                      "width": "fit_content",
+                      "height": 22.0,
+                      "content": "Entrar como negocio",
+                      "fontFamily": "Inter",
+                      "fontSize": 15.0,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n58",
+                  "name": "Business Login Card Desktop Signup",
+                  "width": "fill_container",
+                  "height": 38.0,
+                  "content": "¿Quieres gestionar tu negocio? Crear cuenta de negocio",
+                  "fontFamily": "Inter",
+                  "fontSize": 14.0,
+                  "fontWeight": 700,
+                  "lineHeight": 1.2,
+                  "textAlign": "center",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#4F46E5"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "n59",
+      "name": "Business Admin Login Mobile",
+      "x": 1500.0,
+      "y": 0.0,
+      "width": 390.0,
+      "height": 844.0,
+      "layout": "vertical",
+      "gap": 0.0,
+      "padding": 0.0,
+      "fill": [
+        {
+          "type": "solid",
+          "color": "#FFFFFF"
+        }
+      ],
+      "children": [
+        {
+          "type": "frame",
+          "id": "n60",
+          "name": "Mobile Header",
+          "width": "fill_container",
+          "height": 84.0,
+          "layout": "vertical",
+          "gap": 6.0,
+          "padding": [
+            22.0,
+            22.0
+          ],
+          "alignItems": "center",
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#FFFFFF"
+            }
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "n61",
+              "name": "Mobile Logo",
+              "width": "fill_container",
+              "height": 28.0,
+              "content": "Calendar Manager",
+              "fontFamily": "Inter",
+              "fontSize": 20.0,
+              "fontWeight": 900,
+              "lineHeight": 1.2,
+              "textAlign": "center",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#111827"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "n62",
+              "name": "Mobile Back",
+              "width": "fill_container",
+              "height": 20.0,
+              "content": "Volver al inicio",
+              "fontFamily": "Inter",
+              "fontSize": 13.0,
+              "fontWeight": 800,
+              "lineHeight": 1.2,
+              "textAlign": "center",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#4F46E5"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "n63",
+          "name": "Mobile Content",
+          "width": "fill_container",
+          "height": 760.0,
+          "layout": "vertical",
+          "gap": 18.0,
+          "padding": [
+            10.0,
+            22.0
+          ],
+          "alignItems": "center",
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#FFFFFF"
+            }
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "n64",
+              "name": "Mobile Title",
+              "width": "fill_container",
+              "height": 42.0,
+              "content": "Login Negocios",
+              "fontFamily": "Inter",
+              "fontSize": 34.0,
+              "fontWeight": 900,
+              "lineHeight": 1.2,
+              "textAlign": "center",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#111827"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "n65",
+              "name": "Mobile Copy",
+              "width": "fill_container",
+              "height": 42.0,
+              "content": "Gestiona la agenda y disponibilidad de tu negocio.",
+              "fontFamily": "Inter",
+              "fontSize": 15.0,
+              "fontWeight": 500,
+              "lineHeight": 1.2,
+              "textAlign": "center",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#6B7280"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n66",
+              "name": "Business Dashboard Mockup Mobile",
+              "width": 346.0,
+              "height": 246.0,
+              "layout": "vertical",
+              "gap": 14.0,
+              "padding": 18.0,
+              "cornerRadius": 28.0,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "stroke": {
+                "thickness": 1.0,
+                "fill": [
+                  {
+                    "type": "solid",
+                    "color": "#E5E7EB"
+                  }
+                ]
+              },
+              "effects": [
+                {
+                  "type": "shadow",
+                  "offsetX": 0.0,
+                  "offsetY": 20.0,
+                  "blur": 42.0,
+                  "spread": -26.0,
+                  "color": "#11182726"
+                }
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "n67",
+                  "name": "Business Dashboard Mockup Mobile Topbar",
+                  "width": "fill_container",
+                  "height": 34.0,
+                  "layout": "horizontal",
+                  "gap": 12.0,
+                  "padding": 0.0,
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n68",
+                      "name": "Business Dashboard Mockup Mobile Title",
+                      "width": 210.0,
+                      "height": 28.0,
+                      "content": "Agenda semanal",
+                      "fontFamily": "Inter",
+                      "fontSize": 18.0,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n69",
+                      "name": "Business Dashboard Mockup Mobile Badge",
+                      "width": 100.0,
+                      "height": 22.0,
+                      "content": "24 appointments",
+                      "fontFamily": "Inter",
+                      "fontSize": 12.0,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "textAlign": "right",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#4F46E5"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n70",
+                  "name": "Business Dashboard Mockup Mobile Calendar",
+                  "width": "fill_container",
+                  "height": 178.0,
+                  "layout": "horizontal",
+                  "gap": 6.0,
+                  "padding": 0.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n71",
+                      "name": "Business Dashboard Mockup Mobile Day L",
+                      "width": 48.0,
+                      "height": 178.0,
+                      "layout": "vertical",
+                      "gap": 6.0,
+                      "padding": 0.0,
+                      "alignItems": "center",
+                      "cornerRadius": 14.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#F9FAFB"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n72",
+                          "name": "Business Dashboard Mockup Mobile Day Label L",
+                          "width": 32.0,
+                          "height": 18.0,
+                          "content": "L",
+                          "fontFamily": "Inter",
+                          "fontSize": 12.0,
+                          "fontWeight": 800,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#6B7280"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n73",
+                          "name": "Business Dashboard Mockup Mobile Appointment A L",
+                          "width": 32.0,
+                          "height": 52.0,
+                          "layout": "vertical",
+                          "gap": 0.0,
+                          "padding": 0.0,
+                          "cornerRadius": 11.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#DBEAFE"
+                            }
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n74",
+                          "name": "Business Dashboard Mockup Mobile Appointment B L",
+                          "width": 32.0,
+                          "height": 30.0,
+                          "layout": "vertical",
+                          "gap": 0.0,
+                          "padding": 0.0,
+                          "cornerRadius": 11.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FDE68A"
+                            }
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n75",
+                      "name": "Business Dashboard Mockup Mobile Day M",
+                      "width": 48.0,
+                      "height": 178.0,
+                      "layout": "vertical",
+                      "gap": 6.0,
+                      "padding": 0.0,
+                      "alignItems": "center",
+                      "cornerRadius": 14.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#F9FAFB"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n76",
+                          "name": "Business Dashboard Mockup Mobile Day Label M",
+                          "width": 32.0,
+                          "height": 18.0,
+                          "content": "M",
+                          "fontFamily": "Inter",
+                          "fontSize": 12.0,
+                          "fontWeight": 800,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#6B7280"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n77",
+                          "name": "Business Dashboard Mockup Mobile Appointment A M",
+                          "width": 32.0,
+                          "height": 34.0,
+                          "layout": "vertical",
+                          "gap": 0.0,
+                          "padding": 0.0,
+                          "cornerRadius": 11.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#DCFCE7"
+                            }
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n78",
+                          "name": "Business Dashboard Mockup Mobile Appointment B M",
+                          "width": 32.0,
+                          "height": 58.0,
+                          "layout": "vertical",
+                          "gap": 0.0,
+                          "padding": 0.0,
+                          "cornerRadius": 11.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#E0E7FF"
+                            }
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n79",
+                      "name": "Business Dashboard Mockup Mobile Day X",
+                      "width": 48.0,
+                      "height": 178.0,
+                      "layout": "vertical",
+                      "gap": 6.0,
+                      "padding": 0.0,
+                      "alignItems": "center",
+                      "cornerRadius": 14.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#F9FAFB"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n80",
+                          "name": "Business Dashboard Mockup Mobile Day Label X",
+                          "width": 32.0,
+                          "height": 18.0,
+                          "content": "X",
+                          "fontFamily": "Inter",
+                          "fontSize": 12.0,
+                          "fontWeight": 800,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#6B7280"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n81",
+                          "name": "Business Dashboard Mockup Mobile Appointment A X",
+                          "width": 32.0,
+                          "height": 52.0,
+                          "layout": "vertical",
+                          "gap": 0.0,
+                          "padding": 0.0,
+                          "cornerRadius": 11.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#DBEAFE"
+                            }
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n82",
+                          "name": "Business Dashboard Mockup Mobile Appointment B X",
+                          "width": 32.0,
+                          "height": 30.0,
+                          "layout": "vertical",
+                          "gap": 0.0,
+                          "padding": 0.0,
+                          "cornerRadius": 11.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FDE68A"
+                            }
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n83",
+                      "name": "Business Dashboard Mockup Mobile Day J",
+                      "width": 48.0,
+                      "height": 178.0,
+                      "layout": "vertical",
+                      "gap": 6.0,
+                      "padding": 0.0,
+                      "alignItems": "center",
+                      "cornerRadius": 14.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#F9FAFB"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n84",
+                          "name": "Business Dashboard Mockup Mobile Day Label J",
+                          "width": 32.0,
+                          "height": 18.0,
+                          "content": "J",
+                          "fontFamily": "Inter",
+                          "fontSize": 12.0,
+                          "fontWeight": 800,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#6B7280"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n85",
+                          "name": "Business Dashboard Mockup Mobile Appointment A J",
+                          "width": 32.0,
+                          "height": 34.0,
+                          "layout": "vertical",
+                          "gap": 0.0,
+                          "padding": 0.0,
+                          "cornerRadius": 11.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#DCFCE7"
+                            }
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n86",
+                          "name": "Business Dashboard Mockup Mobile Appointment B J",
+                          "width": 32.0,
+                          "height": 58.0,
+                          "layout": "vertical",
+                          "gap": 0.0,
+                          "padding": 0.0,
+                          "cornerRadius": 11.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#E0E7FF"
+                            }
+                          ],
+                          "children": []
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n87",
+                      "name": "Business Dashboard Mockup Mobile Day V",
+                      "width": 48.0,
+                      "height": 178.0,
+                      "layout": "vertical",
+                      "gap": 6.0,
+                      "padding": 0.0,
+                      "alignItems": "center",
+                      "cornerRadius": 14.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#F9FAFB"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n88",
+                          "name": "Business Dashboard Mockup Mobile Day Label V",
+                          "width": 32.0,
+                          "height": 18.0,
+                          "content": "V",
+                          "fontFamily": "Inter",
+                          "fontSize": 12.0,
+                          "fontWeight": 800,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#6B7280"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n89",
+                          "name": "Business Dashboard Mockup Mobile Appointment A V",
+                          "width": 32.0,
+                          "height": 52.0,
+                          "layout": "vertical",
+                          "gap": 0.0,
+                          "padding": 0.0,
+                          "cornerRadius": 11.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#DBEAFE"
+                            }
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n90",
+                          "name": "Business Dashboard Mockup Mobile Appointment B V",
+                          "width": 32.0,
+                          "height": 30.0,
+                          "layout": "vertical",
+                          "gap": 0.0,
+                          "padding": 0.0,
+                          "cornerRadius": 11.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FDE68A"
+                            }
+                          ],
+                          "children": []
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n91",
+                  "name": "Business Dashboard Mockup Mobile Bottom",
+                  "width": "fill_container",
+                  "height": 80.0,
+                  "layout": "horizontal",
+                  "gap": 10.0,
+                  "padding": 0.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n92",
+                      "name": "Business Dashboard Mockup Mobile Services",
+                      "width": 138.0,
+                      "height": 80.0,
+                      "layout": "vertical",
+                      "gap": 4.0,
+                      "padding": 14.0,
+                      "cornerRadius": 18.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n93",
+                          "name": "Business Dashboard Mockup Mobile Services Title",
+                          "width": "fill_container",
+                          "height": 18.0,
+                          "content": "Services",
+                          "fontFamily": "Inter",
+                          "fontSize": 13.0,
+                          "fontWeight": 800,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n94",
+                          "name": "Business Dashboard Mockup Mobile Services Rows",
+                          "width": "fill_container",
+                          "height": 48.0,
+                          "content": "Corte\nMasaje\nConsulta",
+                          "fontFamily": "Inter",
+                          "fontSize": 12.0,
+                          "fontWeight": 600,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#D1D5DB"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n95",
+                      "name": "Business Dashboard Mockup Mobile Staff",
+                      "width": 138.0,
+                      "height": 80.0,
+                      "layout": "vertical",
+                      "gap": 4.0,
+                      "padding": 14.0,
+                      "cornerRadius": 18.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#EEF2FF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n96",
+                          "name": "Business Dashboard Mockup Mobile Staff Title",
+                          "width": "fill_container",
+                          "height": 18.0,
+                          "content": "Staff members",
+                          "fontFamily": "Inter",
+                          "fontSize": 13.0,
+                          "fontWeight": 800,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#4F46E5"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n97",
+                          "name": "Business Dashboard Mockup Mobile Staff Rows",
+                          "width": "fill_container",
+                          "height": 36.0,
+                          "content": "Marta · Leo\nSara",
+                          "fontFamily": "Inter",
+                          "fontSize": 12.0,
+                          "fontWeight": 700,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#4338CA"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n98",
+              "name": "Business Login Card Mobile",
+              "width": "fill_container",
+              "height": 430.0,
+              "layout": "vertical",
+              "gap": 18.0,
+              "padding": 24.0,
+              "cornerRadius": 28.0,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "stroke": {
+                "thickness": 1.0,
+                "fill": [
+                  {
+                    "type": "solid",
+                    "color": "#E5E7EB"
+                  }
+                ]
+              },
+              "effects": [
+                {
+                  "type": "shadow",
+                  "offsetX": 0.0,
+                  "offsetY": 20.0,
+                  "blur": 42.0,
+                  "spread": -26.0,
+                  "color": "#11182726"
+                }
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n99",
+                  "name": "Business Login Card Mobile Title",
+                  "width": "fill_container",
+                  "height": 40.0,
+                  "content": "Login Negocios",
+                  "fontFamily": "Inter",
+                  "fontSize": 30.0,
+                  "fontWeight": 900,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n100",
+                  "name": "Business Login Card Mobile Subtitle",
+                  "width": "fill_container",
+                  "height": 70.0,
+                  "content": "Accede para gestionar la agenda, services, staff members y disponibilidad de tu negocio.",
+                  "fontFamily": "Inter",
+                  "fontSize": 15.0,
+                  "fontWeight": 500,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#6B7280"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n101",
+                  "name": "Business Login Card Mobile Email",
+                  "width": "fill_container",
+                  "height": 78.0,
+                  "layout": "vertical",
+                  "gap": 8.0,
+                  "padding": 0.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n102",
+                      "name": "Business Login Card Mobile Email Label",
+                      "width": "fill_container",
+                      "height": 20.0,
+                      "content": "Email",
+                      "fontFamily": "Inter",
+                      "fontSize": 14.0,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n103",
+                      "name": "Business Login Card Mobile Email Field",
+                      "width": "fill_container",
+                      "height": 50.0,
+                      "layout": "vertical",
+                      "gap": 0.0,
+                      "padding": [
+                        0.0,
+                        16.0
+                      ],
+                      "justifyContent": "center",
+                      "cornerRadius": 15.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#F9FAFB"
+                        }
+                      ],
+                      "stroke": {
+                        "thickness": 1.0,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n104",
+                          "name": "Business Login Card Mobile Email Placeholder",
+                          "width": "fill_container",
+                          "height": 22.0,
+                          "content": "negocio@email.com",
+                          "fontFamily": "Inter",
+                          "fontSize": 15.0,
+                          "fontWeight": 500,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#9CA3AF"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n105",
+                  "name": "Business Login Card Mobile Password",
+                  "width": "fill_container",
+                  "height": 78.0,
+                  "layout": "vertical",
+                  "gap": 8.0,
+                  "padding": 0.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n106",
+                      "name": "Business Login Card Mobile Password Label",
+                      "width": "fill_container",
+                      "height": 20.0,
+                      "content": "Password",
+                      "fontFamily": "Inter",
+                      "fontSize": 14.0,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n107",
+                      "name": "Business Login Card Mobile Password Field",
+                      "width": "fill_container",
+                      "height": 50.0,
+                      "layout": "vertical",
+                      "gap": 0.0,
+                      "padding": [
+                        0.0,
+                        16.0
+                      ],
+                      "justifyContent": "center",
+                      "cornerRadius": 15.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#F9FAFB"
+                        }
+                      ],
+                      "stroke": {
+                        "thickness": 1.0,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n108",
+                          "name": "Business Login Card Mobile Password Placeholder",
+                          "width": "fill_container",
+                          "height": 22.0,
+                          "content": "Tu password",
+                          "fontFamily": "Inter",
+                          "fontSize": 15.0,
+                          "fontWeight": 500,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#9CA3AF"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n109",
+                  "name": "Business Login Card Mobile Options",
+                  "width": "fill_container",
+                  "height": 24.0,
+                  "layout": "horizontal",
+                  "gap": 10.0,
+                  "padding": 0.0,
+                  "justifyContent": "space_between",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n110",
+                      "name": "Business Login Card Mobile Remember",
+                      "width": 140.0,
+                      "height": 22.0,
+                      "content": "□ Recordarme",
+                      "fontFamily": "Inter",
+                      "fontSize": 14.0,
+                      "fontWeight": 600,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#6B7280"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n111",
+                      "name": "Business Login Card Mobile Forgot",
+                      "width": 168.0,
+                      "height": 22.0,
+                      "content": "¿Has olvidado tu password?",
+                      "fontFamily": "Inter",
+                      "fontSize": 14.0,
+                      "fontWeight": 700,
+                      "lineHeight": 1.2,
+                      "textAlign": "right",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#4F46E5"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n112",
+                  "name": "Business Login Card Mobile Submit",
+                  "width": "fill_container",
+                  "height": 52.0,
+                  "layout": "horizontal",
+                  "gap": 0.0,
+                  "padding": [
+                    0.0,
+                    22.0
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "cornerRadius": 16.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n113",
+                      "name": "Business Login Card Mobile Submit Label",
+                      "width": "fit_content",
+                      "height": 22.0,
+                      "content": "Entrar como negocio",
+                      "fontFamily": "Inter",
+                      "fontSize": 15.0,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n114",
+                  "name": "Business Login Card Mobile Signup",
+                  "width": "fill_container",
+                  "height": 38.0,
+                  "content": "¿Quieres gestionar tu negocio? Crear cuenta de negocio",
+                  "fontFamily": "Inter",
+                  "fontSize": 14.0,
+                  "fontWeight": 700,
+                  "lineHeight": 1.2,
+                  "textAlign": "center",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#4F46E5"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

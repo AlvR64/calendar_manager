@@ -1,0 +1,2256 @@
+{
+  "version": "0.8.0",
+  "name": "OpenPencil CLI Session",
+  "children": [
+    {
+      "type": "frame",
+      "id": "n1",
+      "name": "Customer Login Desktop",
+      "x": 0.0,
+      "y": 0.0,
+      "width": 1440.0,
+      "height": 900.0,
+      "layout": "vertical",
+      "gap": 0.0,
+      "padding": 0.0,
+      "fill": [
+        {
+          "type": "solid",
+          "color": "#FFFFFF"
+        }
+      ],
+      "children": [
+        {
+          "type": "frame",
+          "id": "n2",
+          "name": "Header Desktop",
+          "width": "fill_container",
+          "height": 78.0,
+          "layout": "horizontal",
+          "gap": 24.0,
+          "padding": [
+            0.0,
+            80.0
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#FFFFFF"
+            }
+          ],
+          "stroke": {
+            "thickness": {
+              "bottom": 1.0
+            },
+            "fill": [
+              {
+                "type": "solid",
+                "color": "#F3F4F6"
+              }
+            ]
+          },
+          "children": [
+            {
+              "type": "text",
+              "id": "n3",
+              "name": "Logo Desktop",
+              "width": 260.0,
+              "height": 32.0,
+              "content": "Calendar Manager",
+              "fontFamily": "Inter",
+              "fontSize": 22.0,
+              "fontWeight": 900,
+              "lineHeight": 1.2,
+              "textAlign": "left",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#111827"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "n4",
+              "name": "Back Home Desktop",
+              "width": 160.0,
+              "height": 24.0,
+              "content": "Volver al inicio",
+              "fontFamily": "Inter",
+              "fontSize": 15.0,
+              "fontWeight": 800,
+              "lineHeight": 1.2,
+              "textAlign": "right",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#4F46E5"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "n5",
+          "name": "Login Content Desktop",
+          "width": "fill_container",
+          "height": 822.0,
+          "layout": "horizontal",
+          "gap": 74.0,
+          "padding": [
+            70.0,
+            120.0
+          ],
+          "alignItems": "center",
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#FFFFFF"
+            }
+          ],
+          "children": [
+            {
+              "type": "frame",
+              "id": "n6",
+              "name": "Customer Info Panel Desktop",
+              "width": 600.0,
+              "height": 650.0,
+              "layout": "vertical",
+              "gap": 18.0,
+              "padding": 34.0,
+              "cornerRadius": 42.0,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#F9FAFB"
+                }
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n7",
+                  "name": "Customer Eyebrow Desktop",
+                  "width": "fill_container",
+                  "height": 18.0,
+                  "content": "ACCESO CLIENTES",
+                  "fontFamily": "Inter",
+                  "fontSize": 13.0,
+                  "fontWeight": 850,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#4F46E5"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n8",
+                  "name": "Customer Panel Title Desktop",
+                  "width": "fill_container",
+                  "height": 105.0,
+                  "content": "Reserva tus appointments en minutos",
+                  "fontFamily": "Inter",
+                  "fontSize": 42.0,
+                  "fontWeight": 900,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n9",
+                  "name": "Customer Panel Copy Desktop",
+                  "width": "fill_container",
+                  "height": 56.0,
+                  "content": "Consulta tus próximas citas, modifica tus reservas y encuentra nuevos servicios disponibles.",
+                  "fontFamily": "Inter",
+                  "fontSize": 17.0,
+                  "fontWeight": 500,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#6B7280"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n10",
+                  "name": "Customer Appointment Mockup Desktop",
+                  "width": 380.0,
+                  "height": 260.0,
+                  "layout": "vertical",
+                  "gap": 12.0,
+                  "padding": 18.0,
+                  "cornerRadius": 28.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "stroke": {
+                    "thickness": 1.0,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E5E7EB"
+                      }
+                    ]
+                  },
+                  "effects": [
+                    {
+                      "type": "shadow",
+                      "offsetX": 0.0,
+                      "offsetY": 20.0,
+                      "blur": 42.0,
+                      "spread": -26.0,
+                      "color": "#11182726"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n11",
+                      "name": "Customer Appointment Mockup Desktop Top",
+                      "width": "fill_container",
+                      "height": 56.0,
+                      "layout": "horizontal",
+                      "gap": 12.0,
+                      "padding": 0.0,
+                      "alignItems": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "n12",
+                          "name": "Customer Appointment Mockup Desktop Avatar",
+                          "width": 42.0,
+                          "height": 42.0,
+                          "layout": "vertical",
+                          "gap": 0.0,
+                          "padding": 0.0,
+                          "cornerRadius": 999.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#DBEAFE"
+                            }
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n13",
+                          "name": "Customer Appointment Mockup Desktop Business Text",
+                          "width": "fill_container",
+                          "height": 44.0,
+                          "layout": "vertical",
+                          "gap": 2.0,
+                          "padding": 0.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n14",
+                              "name": "Customer Appointment Mockup Desktop Business",
+                              "width": "fill_container",
+                              "height": 24.0,
+                              "content": "Studio Centro",
+                              "fontFamily": "Inter",
+                              "fontSize": 17.0,
+                              "fontWeight": 850,
+                              "lineHeight": 1.2,
+                              "textAlign": "left",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#111827"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "n15",
+                              "name": "Customer Appointment Mockup Desktop Meta",
+                              "width": "fill_container",
+                              "height": 18.0,
+                              "content": "Corte + arreglo · 45 min",
+                              "fontFamily": "Inter",
+                              "fontSize": 12.0,
+                              "fontWeight": 600,
+                              "lineHeight": 1.2,
+                              "textAlign": "left",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#6B7280"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n16",
+                      "name": "Customer Appointment Mockup Desktop Staff",
+                      "width": "fill_container",
+                      "height": 58.0,
+                      "layout": "horizontal",
+                      "gap": 12.0,
+                      "padding": 12.0,
+                      "alignItems": "center",
+                      "cornerRadius": 18.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#F9FAFB"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "n17",
+                          "name": "Customer Appointment Mockup Desktop Staff Dot",
+                          "width": 34.0,
+                          "height": 34.0,
+                          "layout": "vertical",
+                          "gap": 0.0,
+                          "padding": 0.0,
+                          "cornerRadius": 999.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#EEF2FF"
+                            }
+                          ],
+                          "children": []
+                        },
+                        {
+                          "type": "text",
+                          "id": "n18",
+                          "name": "Customer Appointment Mockup Desktop Staff Text",
+                          "width": "fill_container",
+                          "height": 36.0,
+                          "content": "Marta Ruiz\nStaff member disponible",
+                          "fontFamily": "Inter",
+                          "fontSize": 12.0,
+                          "fontWeight": 700,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n19",
+                      "name": "Customer Appointment Mockup Desktop Date",
+                      "width": "fill_container",
+                      "height": 22.0,
+                      "content": "Hoy, 13 julio",
+                      "fontFamily": "Inter",
+                      "fontSize": 14.0,
+                      "fontWeight": 850,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n20",
+                      "name": "Customer Appointment Mockup Desktop Slots",
+                      "width": "fill_container",
+                      "height": 82.0,
+                      "layout": "vertical",
+                      "gap": 10.0,
+                      "padding": 0.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "n21",
+                          "name": "Customer Appointment Mockup Desktop Slots Row 1",
+                          "width": "fill_container",
+                          "height": 36.0,
+                          "layout": "horizontal",
+                          "gap": 8.0,
+                          "padding": 0.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "n22",
+                              "name": "Slot 10:30",
+                              "width": 82.0,
+                              "height": 36.0,
+                              "layout": "vertical",
+                              "gap": 0.0,
+                              "padding": 0.0,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "cornerRadius": 12.0,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#111827"
+                                }
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n23",
+                                  "name": "Slot Label 10:30",
+                                  "width": "fit_content",
+                                  "height": 18.0,
+                                  "content": "10:30",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 13.0,
+                                  "fontWeight": 800,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#FFFFFF"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n24",
+                              "name": "Slot 11:15",
+                              "width": 82.0,
+                              "height": 36.0,
+                              "layout": "vertical",
+                              "gap": 0.0,
+                              "padding": 0.0,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "cornerRadius": 12.0,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FFFFFF"
+                                }
+                              ],
+                              "stroke": {
+                                "thickness": 1.0,
+                                "fill": [
+                                  {
+                                    "type": "solid",
+                                    "color": "#E5E7EB"
+                                  }
+                                ]
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n25",
+                                  "name": "Slot Label 11:15",
+                                  "width": "fit_content",
+                                  "height": 18.0,
+                                  "content": "11:15",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 13.0,
+                                  "fontWeight": 800,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#111827"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n26",
+                              "name": "Slot 12:00",
+                              "width": 82.0,
+                              "height": 36.0,
+                              "layout": "vertical",
+                              "gap": 0.0,
+                              "padding": 0.0,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "cornerRadius": 12.0,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FFFFFF"
+                                }
+                              ],
+                              "stroke": {
+                                "thickness": 1.0,
+                                "fill": [
+                                  {
+                                    "type": "solid",
+                                    "color": "#E5E7EB"
+                                  }
+                                ]
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n27",
+                                  "name": "Slot Label 12:00",
+                                  "width": "fit_content",
+                                  "height": 18.0,
+                                  "content": "12:00",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 13.0,
+                                  "fontWeight": 800,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#111827"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n28",
+                          "name": "Customer Appointment Mockup Desktop Slots Row 2",
+                          "width": "fill_container",
+                          "height": 36.0,
+                          "layout": "horizontal",
+                          "gap": 8.0,
+                          "padding": 0.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "n29",
+                              "name": "Slot 16:00",
+                              "width": 82.0,
+                              "height": 36.0,
+                              "layout": "vertical",
+                              "gap": 0.0,
+                              "padding": 0.0,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "cornerRadius": 12.0,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FFFFFF"
+                                }
+                              ],
+                              "stroke": {
+                                "thickness": 1.0,
+                                "fill": [
+                                  {
+                                    "type": "solid",
+                                    "color": "#E5E7EB"
+                                  }
+                                ]
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n30",
+                                  "name": "Slot Label 16:00",
+                                  "width": "fit_content",
+                                  "height": 18.0,
+                                  "content": "16:00",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 13.0,
+                                  "fontWeight": 800,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#111827"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n31",
+                              "name": "Slot 17:30",
+                              "width": 82.0,
+                              "height": 36.0,
+                              "layout": "vertical",
+                              "gap": 0.0,
+                              "padding": 0.0,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "cornerRadius": 12.0,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FFFFFF"
+                                }
+                              ],
+                              "stroke": {
+                                "thickness": 1.0,
+                                "fill": [
+                                  {
+                                    "type": "solid",
+                                    "color": "#E5E7EB"
+                                  }
+                                ]
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n32",
+                                  "name": "Slot Label 17:30",
+                                  "width": "fit_content",
+                                  "height": 18.0,
+                                  "content": "17:30",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 13.0,
+                                  "fontWeight": 800,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#111827"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n33",
+                              "name": "Slot 18:15",
+                              "width": 82.0,
+                              "height": 36.0,
+                              "layout": "vertical",
+                              "gap": 0.0,
+                              "padding": 0.0,
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "cornerRadius": 12.0,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FFFFFF"
+                                }
+                              ],
+                              "stroke": {
+                                "thickness": 1.0,
+                                "fill": [
+                                  {
+                                    "type": "solid",
+                                    "color": "#E5E7EB"
+                                  }
+                                ]
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n34",
+                                  "name": "Slot Label 18:15",
+                                  "width": "fit_content",
+                                  "height": 18.0,
+                                  "content": "18:15",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 13.0,
+                                  "fontWeight": 800,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#111827"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n35",
+                      "name": "Customer Appointment Mockup Desktop Reserve",
+                      "width": "fill_container",
+                      "height": 52.0,
+                      "layout": "horizontal",
+                      "gap": 0.0,
+                      "padding": [
+                        0.0,
+                        22.0
+                      ],
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "cornerRadius": 16.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n36",
+                          "name": "Customer Appointment Mockup Desktop Reserve Label",
+                          "width": "fit_content",
+                          "height": 22.0,
+                          "content": "Reservar",
+                          "fontFamily": "Inter",
+                          "fontSize": 15.0,
+                          "fontWeight": 800,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n37",
+              "name": "Customer Login Card Desktop",
+              "width": 448.0,
+              "height": 500.0,
+              "layout": "vertical",
+              "gap": 18.0,
+              "padding": 34.0,
+              "cornerRadius": 34.0,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "stroke": {
+                "thickness": 1.0,
+                "fill": [
+                  {
+                    "type": "solid",
+                    "color": "#E5E7EB"
+                  }
+                ]
+              },
+              "effects": [
+                {
+                  "type": "shadow",
+                  "offsetX": 0.0,
+                  "offsetY": 20.0,
+                  "blur": 42.0,
+                  "spread": -26.0,
+                  "color": "#11182726"
+                }
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n38",
+                  "name": "Customer Login Card Desktop Title",
+                  "width": "fill_container",
+                  "height": 46.0,
+                  "content": "Login Clientes",
+                  "fontFamily": "Inter",
+                  "fontSize": 34.0,
+                  "fontWeight": 900,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n39",
+                  "name": "Customer Login Card Desktop Subtitle",
+                  "width": "fill_container",
+                  "height": 60.0,
+                  "content": "Accede para gestionar tus appointments y reservar nuevos servicios.",
+                  "fontFamily": "Inter",
+                  "fontSize": 16.0,
+                  "fontWeight": 500,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#6B7280"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n40",
+                  "name": "Customer Login Card Desktop Email",
+                  "width": "fill_container",
+                  "height": 78.0,
+                  "layout": "vertical",
+                  "gap": 8.0,
+                  "padding": 0.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n41",
+                      "name": "Customer Login Card Desktop Email Label",
+                      "width": "fill_container",
+                      "height": 20.0,
+                      "content": "Email",
+                      "fontFamily": "Inter",
+                      "fontSize": 14.0,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n42",
+                      "name": "Customer Login Card Desktop Email Field",
+                      "width": "fill_container",
+                      "height": 50.0,
+                      "layout": "vertical",
+                      "gap": 0.0,
+                      "padding": [
+                        0.0,
+                        16.0
+                      ],
+                      "justifyContent": "center",
+                      "cornerRadius": 15.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#F9FAFB"
+                        }
+                      ],
+                      "stroke": {
+                        "thickness": 1.0,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n43",
+                          "name": "Customer Login Card Desktop Email Placeholder",
+                          "width": "fill_container",
+                          "height": 22.0,
+                          "content": "tu@email.com",
+                          "fontFamily": "Inter",
+                          "fontSize": 15.0,
+                          "fontWeight": 500,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#9CA3AF"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n44",
+                  "name": "Customer Login Card Desktop Password",
+                  "width": "fill_container",
+                  "height": 78.0,
+                  "layout": "vertical",
+                  "gap": 8.0,
+                  "padding": 0.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n45",
+                      "name": "Customer Login Card Desktop Password Label",
+                      "width": "fill_container",
+                      "height": 20.0,
+                      "content": "Password",
+                      "fontFamily": "Inter",
+                      "fontSize": 14.0,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n46",
+                      "name": "Customer Login Card Desktop Password Field",
+                      "width": "fill_container",
+                      "height": 50.0,
+                      "layout": "vertical",
+                      "gap": 0.0,
+                      "padding": [
+                        0.0,
+                        16.0
+                      ],
+                      "justifyContent": "center",
+                      "cornerRadius": 15.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#F9FAFB"
+                        }
+                      ],
+                      "stroke": {
+                        "thickness": 1.0,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n47",
+                          "name": "Customer Login Card Desktop Password Placeholder",
+                          "width": "fill_container",
+                          "height": 22.0,
+                          "content": "Tu password",
+                          "fontFamily": "Inter",
+                          "fontSize": 15.0,
+                          "fontWeight": 500,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#9CA3AF"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n48",
+                  "name": "Customer Login Card Desktop Options",
+                  "width": "fill_container",
+                  "height": 24.0,
+                  "layout": "horizontal",
+                  "gap": 10.0,
+                  "padding": 0.0,
+                  "justifyContent": "space_between",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n49",
+                      "name": "Customer Login Card Desktop Remember",
+                      "width": 140.0,
+                      "height": 22.0,
+                      "content": "□ Recordarme",
+                      "fontFamily": "Inter",
+                      "fontSize": 14.0,
+                      "fontWeight": 600,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#6B7280"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n50",
+                      "name": "Customer Login Card Desktop Forgot",
+                      "width": 210.0,
+                      "height": 22.0,
+                      "content": "¿Has olvidado tu password?",
+                      "fontFamily": "Inter",
+                      "fontSize": 14.0,
+                      "fontWeight": 700,
+                      "lineHeight": 1.2,
+                      "textAlign": "right",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#4F46E5"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n51",
+                  "name": "Customer Login Card Desktop Submit",
+                  "width": "fill_container",
+                  "height": 52.0,
+                  "layout": "horizontal",
+                  "gap": 0.0,
+                  "padding": [
+                    0.0,
+                    22.0
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "cornerRadius": 16.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n52",
+                      "name": "Customer Login Card Desktop Submit Label",
+                      "width": "fit_content",
+                      "height": 22.0,
+                      "content": "Entrar como cliente",
+                      "fontFamily": "Inter",
+                      "fontSize": 15.0,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n53",
+                  "name": "Customer Login Card Desktop Signup",
+                  "width": "fill_container",
+                  "height": 22.0,
+                  "content": "¿Aún no tienes cuenta? Crear cuenta de cliente",
+                  "fontFamily": "Inter",
+                  "fontSize": 14.0,
+                  "fontWeight": 700,
+                  "lineHeight": 1.2,
+                  "textAlign": "center",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#4F46E5"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "n54",
+      "name": "Customer Login Mobile",
+      "x": 1500.0,
+      "y": 0.0,
+      "width": 390.0,
+      "height": 844.0,
+      "layout": "vertical",
+      "gap": 0.0,
+      "padding": 0.0,
+      "fill": [
+        {
+          "type": "solid",
+          "color": "#FFFFFF"
+        }
+      ],
+      "children": [
+        {
+          "type": "frame",
+          "id": "n55",
+          "name": "Mobile Header",
+          "width": "fill_container",
+          "height": 84.0,
+          "layout": "vertical",
+          "gap": 6.0,
+          "padding": [
+            22.0,
+            22.0
+          ],
+          "alignItems": "center",
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#FFFFFF"
+            }
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "n56",
+              "name": "Mobile Logo",
+              "width": "fill_container",
+              "height": 28.0,
+              "content": "Calendar Manager",
+              "fontFamily": "Inter",
+              "fontSize": 20.0,
+              "fontWeight": 900,
+              "lineHeight": 1.2,
+              "textAlign": "center",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#111827"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "n57",
+              "name": "Mobile Back",
+              "width": "fill_container",
+              "height": 20.0,
+              "content": "Volver al inicio",
+              "fontFamily": "Inter",
+              "fontSize": 13.0,
+              "fontWeight": 800,
+              "lineHeight": 1.2,
+              "textAlign": "center",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#4F46E5"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "n58",
+          "name": "Mobile Content",
+          "width": "fill_container",
+          "height": 760.0,
+          "layout": "vertical",
+          "gap": 18.0,
+          "padding": [
+            10.0,
+            22.0
+          ],
+          "alignItems": "center",
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#FFFFFF"
+            }
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "n59",
+              "name": "Mobile Title",
+              "width": "fill_container",
+              "height": 42.0,
+              "content": "Login Clientes",
+              "fontFamily": "Inter",
+              "fontSize": 34.0,
+              "fontWeight": 900,
+              "lineHeight": 1.2,
+              "textAlign": "center",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#111827"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "n60",
+              "name": "Mobile Copy",
+              "width": "fill_container",
+              "height": 42.0,
+              "content": "Gestiona tus appointments y reserva nuevos servicios.",
+              "fontFamily": "Inter",
+              "fontSize": 15.0,
+              "fontWeight": 500,
+              "lineHeight": 1.2,
+              "textAlign": "center",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#6B7280"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n61",
+              "name": "Customer Appointment Mockup Mobile",
+              "width": 346.0,
+              "height": 260.0,
+              "layout": "vertical",
+              "gap": 12.0,
+              "padding": 18.0,
+              "cornerRadius": 28.0,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "stroke": {
+                "thickness": 1.0,
+                "fill": [
+                  {
+                    "type": "solid",
+                    "color": "#E5E7EB"
+                  }
+                ]
+              },
+              "effects": [
+                {
+                  "type": "shadow",
+                  "offsetX": 0.0,
+                  "offsetY": 20.0,
+                  "blur": 42.0,
+                  "spread": -26.0,
+                  "color": "#11182726"
+                }
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "n62",
+                  "name": "Customer Appointment Mockup Mobile Top",
+                  "width": "fill_container",
+                  "height": 56.0,
+                  "layout": "horizontal",
+                  "gap": 12.0,
+                  "padding": 0.0,
+                  "alignItems": "center",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n63",
+                      "name": "Customer Appointment Mockup Mobile Avatar",
+                      "width": 42.0,
+                      "height": 42.0,
+                      "layout": "vertical",
+                      "gap": 0.0,
+                      "padding": 0.0,
+                      "cornerRadius": 999.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#DBEAFE"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n64",
+                      "name": "Customer Appointment Mockup Mobile Business Text",
+                      "width": "fill_container",
+                      "height": 44.0,
+                      "layout": "vertical",
+                      "gap": 2.0,
+                      "padding": 0.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n65",
+                          "name": "Customer Appointment Mockup Mobile Business",
+                          "width": "fill_container",
+                          "height": 24.0,
+                          "content": "Studio Centro",
+                          "fontFamily": "Inter",
+                          "fontSize": 17.0,
+                          "fontWeight": 850,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "text",
+                          "id": "n66",
+                          "name": "Customer Appointment Mockup Mobile Meta",
+                          "width": "fill_container",
+                          "height": 18.0,
+                          "content": "Corte + arreglo · 45 min",
+                          "fontFamily": "Inter",
+                          "fontSize": 12.0,
+                          "fontWeight": 600,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#6B7280"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n67",
+                  "name": "Customer Appointment Mockup Mobile Staff",
+                  "width": "fill_container",
+                  "height": 58.0,
+                  "layout": "horizontal",
+                  "gap": 12.0,
+                  "padding": 12.0,
+                  "alignItems": "center",
+                  "cornerRadius": 18.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#F9FAFB"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n68",
+                      "name": "Customer Appointment Mockup Mobile Staff Dot",
+                      "width": 34.0,
+                      "height": 34.0,
+                      "layout": "vertical",
+                      "gap": 0.0,
+                      "padding": 0.0,
+                      "cornerRadius": 999.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#EEF2FF"
+                        }
+                      ],
+                      "children": []
+                    },
+                    {
+                      "type": "text",
+                      "id": "n69",
+                      "name": "Customer Appointment Mockup Mobile Staff Text",
+                      "width": "fill_container",
+                      "height": 36.0,
+                      "content": "Marta Ruiz\nStaff member disponible",
+                      "fontFamily": "Inter",
+                      "fontSize": 12.0,
+                      "fontWeight": 700,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n70",
+                  "name": "Customer Appointment Mockup Mobile Date",
+                  "width": "fill_container",
+                  "height": 22.0,
+                  "content": "Hoy, 13 julio",
+                  "fontFamily": "Inter",
+                  "fontSize": 14.0,
+                  "fontWeight": 850,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n71",
+                  "name": "Customer Appointment Mockup Mobile Slots",
+                  "width": "fill_container",
+                  "height": 82.0,
+                  "layout": "vertical",
+                  "gap": 10.0,
+                  "padding": 0.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n72",
+                      "name": "Customer Appointment Mockup Mobile Slots Row 1",
+                      "width": "fill_container",
+                      "height": 36.0,
+                      "layout": "horizontal",
+                      "gap": 8.0,
+                      "padding": 0.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "n73",
+                          "name": "Slot 10:30",
+                          "width": 82.0,
+                          "height": 36.0,
+                          "layout": "vertical",
+                          "gap": 0.0,
+                          "padding": 0.0,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "cornerRadius": 12.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#111827"
+                            }
+                          ],
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n74",
+                              "name": "Slot Label 10:30",
+                              "width": "fit_content",
+                              "height": 18.0,
+                              "content": "10:30",
+                              "fontFamily": "Inter",
+                              "fontSize": 13.0,
+                              "fontWeight": 800,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FFFFFF"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n75",
+                          "name": "Slot 11:15",
+                          "width": 82.0,
+                          "height": 36.0,
+                          "layout": "vertical",
+                          "gap": 0.0,
+                          "padding": 0.0,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "cornerRadius": 12.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ],
+                          "stroke": {
+                            "thickness": 1.0,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#E5E7EB"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n76",
+                              "name": "Slot Label 11:15",
+                              "width": "fit_content",
+                              "height": 18.0,
+                              "content": "11:15",
+                              "fontFamily": "Inter",
+                              "fontSize": 13.0,
+                              "fontWeight": 800,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#111827"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n77",
+                          "name": "Slot 12:00",
+                          "width": 82.0,
+                          "height": 36.0,
+                          "layout": "vertical",
+                          "gap": 0.0,
+                          "padding": 0.0,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "cornerRadius": 12.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ],
+                          "stroke": {
+                            "thickness": 1.0,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#E5E7EB"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n78",
+                              "name": "Slot Label 12:00",
+                              "width": "fit_content",
+                              "height": 18.0,
+                              "content": "12:00",
+                              "fontFamily": "Inter",
+                              "fontSize": 13.0,
+                              "fontWeight": 800,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#111827"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n79",
+                      "name": "Customer Appointment Mockup Mobile Slots Row 2",
+                      "width": "fill_container",
+                      "height": 36.0,
+                      "layout": "horizontal",
+                      "gap": 8.0,
+                      "padding": 0.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ],
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "n80",
+                          "name": "Slot 16:00",
+                          "width": 82.0,
+                          "height": 36.0,
+                          "layout": "vertical",
+                          "gap": 0.0,
+                          "padding": 0.0,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "cornerRadius": 12.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ],
+                          "stroke": {
+                            "thickness": 1.0,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#E5E7EB"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n81",
+                              "name": "Slot Label 16:00",
+                              "width": "fit_content",
+                              "height": 18.0,
+                              "content": "16:00",
+                              "fontFamily": "Inter",
+                              "fontSize": 13.0,
+                              "fontWeight": 800,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#111827"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n82",
+                          "name": "Slot 17:30",
+                          "width": 82.0,
+                          "height": 36.0,
+                          "layout": "vertical",
+                          "gap": 0.0,
+                          "padding": 0.0,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "cornerRadius": 12.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ],
+                          "stroke": {
+                            "thickness": 1.0,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#E5E7EB"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n83",
+                              "name": "Slot Label 17:30",
+                              "width": "fit_content",
+                              "height": 18.0,
+                              "content": "17:30",
+                              "fontFamily": "Inter",
+                              "fontSize": 13.0,
+                              "fontWeight": 800,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#111827"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n84",
+                          "name": "Slot 18:15",
+                          "width": 82.0,
+                          "height": 36.0,
+                          "layout": "vertical",
+                          "gap": 0.0,
+                          "padding": 0.0,
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "cornerRadius": 12.0,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#FFFFFF"
+                            }
+                          ],
+                          "stroke": {
+                            "thickness": 1.0,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#E5E7EB"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n85",
+                              "name": "Slot Label 18:15",
+                              "width": "fit_content",
+                              "height": 18.0,
+                              "content": "18:15",
+                              "fontFamily": "Inter",
+                              "fontSize": 13.0,
+                              "fontWeight": 800,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#111827"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n86",
+                  "name": "Customer Appointment Mockup Mobile Reserve",
+                  "width": "fill_container",
+                  "height": 52.0,
+                  "layout": "horizontal",
+                  "gap": 0.0,
+                  "padding": [
+                    0.0,
+                    22.0
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "cornerRadius": 16.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n87",
+                      "name": "Customer Appointment Mockup Mobile Reserve Label",
+                      "width": "fit_content",
+                      "height": 22.0,
+                      "content": "Reservar",
+                      "fontFamily": "Inter",
+                      "fontSize": 15.0,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n88",
+              "name": "Customer Login Card Mobile",
+              "width": "fill_container",
+              "height": 420.0,
+              "layout": "vertical",
+              "gap": 18.0,
+              "padding": 24.0,
+              "cornerRadius": 28.0,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "stroke": {
+                "thickness": 1.0,
+                "fill": [
+                  {
+                    "type": "solid",
+                    "color": "#E5E7EB"
+                  }
+                ]
+              },
+              "effects": [
+                {
+                  "type": "shadow",
+                  "offsetX": 0.0,
+                  "offsetY": 20.0,
+                  "blur": 42.0,
+                  "spread": -26.0,
+                  "color": "#11182726"
+                }
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n89",
+                  "name": "Customer Login Card Mobile Title",
+                  "width": "fill_container",
+                  "height": 40.0,
+                  "content": "Login Clientes",
+                  "fontFamily": "Inter",
+                  "fontSize": 30.0,
+                  "fontWeight": 900,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n90",
+                  "name": "Customer Login Card Mobile Subtitle",
+                  "width": "fill_container",
+                  "height": 58.0,
+                  "content": "Accede para gestionar tus appointments y reservar nuevos servicios.",
+                  "fontFamily": "Inter",
+                  "fontSize": 15.0,
+                  "fontWeight": 500,
+                  "lineHeight": 1.2,
+                  "textAlign": "left",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#6B7280"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n91",
+                  "name": "Customer Login Card Mobile Email",
+                  "width": "fill_container",
+                  "height": 78.0,
+                  "layout": "vertical",
+                  "gap": 8.0,
+                  "padding": 0.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n92",
+                      "name": "Customer Login Card Mobile Email Label",
+                      "width": "fill_container",
+                      "height": 20.0,
+                      "content": "Email",
+                      "fontFamily": "Inter",
+                      "fontSize": 14.0,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n93",
+                      "name": "Customer Login Card Mobile Email Field",
+                      "width": "fill_container",
+                      "height": 50.0,
+                      "layout": "vertical",
+                      "gap": 0.0,
+                      "padding": [
+                        0.0,
+                        16.0
+                      ],
+                      "justifyContent": "center",
+                      "cornerRadius": 15.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#F9FAFB"
+                        }
+                      ],
+                      "stroke": {
+                        "thickness": 1.0,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n94",
+                          "name": "Customer Login Card Mobile Email Placeholder",
+                          "width": "fill_container",
+                          "height": 22.0,
+                          "content": "tu@email.com",
+                          "fontFamily": "Inter",
+                          "fontSize": 15.0,
+                          "fontWeight": 500,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#9CA3AF"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n95",
+                  "name": "Customer Login Card Mobile Password",
+                  "width": "fill_container",
+                  "height": 78.0,
+                  "layout": "vertical",
+                  "gap": 8.0,
+                  "padding": 0.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n96",
+                      "name": "Customer Login Card Mobile Password Label",
+                      "width": "fill_container",
+                      "height": 20.0,
+                      "content": "Password",
+                      "fontFamily": "Inter",
+                      "fontSize": 14.0,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#111827"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n97",
+                      "name": "Customer Login Card Mobile Password Field",
+                      "width": "fill_container",
+                      "height": 50.0,
+                      "layout": "vertical",
+                      "gap": 0.0,
+                      "padding": [
+                        0.0,
+                        16.0
+                      ],
+                      "justifyContent": "center",
+                      "cornerRadius": 15.0,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#F9FAFB"
+                        }
+                      ],
+                      "stroke": {
+                        "thickness": 1.0,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E5E7EB"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n98",
+                          "name": "Customer Login Card Mobile Password Placeholder",
+                          "width": "fill_container",
+                          "height": 22.0,
+                          "content": "Tu password",
+                          "fontFamily": "Inter",
+                          "fontSize": 15.0,
+                          "fontWeight": 500,
+                          "lineHeight": 1.2,
+                          "textAlign": "left",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#9CA3AF"
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n99",
+                  "name": "Customer Login Card Mobile Options",
+                  "width": "fill_container",
+                  "height": 24.0,
+                  "layout": "horizontal",
+                  "gap": 10.0,
+                  "padding": 0.0,
+                  "justifyContent": "space_between",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n100",
+                      "name": "Customer Login Card Mobile Remember",
+                      "width": 140.0,
+                      "height": 22.0,
+                      "content": "□ Recordarme",
+                      "fontFamily": "Inter",
+                      "fontSize": 14.0,
+                      "fontWeight": 600,
+                      "lineHeight": 1.2,
+                      "textAlign": "left",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#6B7280"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n101",
+                      "name": "Customer Login Card Mobile Forgot",
+                      "width": 168.0,
+                      "height": 22.0,
+                      "content": "¿Has olvidado tu password?",
+                      "fontFamily": "Inter",
+                      "fontSize": 14.0,
+                      "fontWeight": 700,
+                      "lineHeight": 1.2,
+                      "textAlign": "right",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#4F46E5"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n102",
+                  "name": "Customer Login Card Mobile Submit",
+                  "width": "fill_container",
+                  "height": 52.0,
+                  "layout": "horizontal",
+                  "gap": 0.0,
+                  "padding": [
+                    0.0,
+                    22.0
+                  ],
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "cornerRadius": 16.0,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#111827"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n103",
+                      "name": "Customer Login Card Mobile Submit Label",
+                      "width": "fit_content",
+                      "height": 22.0,
+                      "content": "Entrar como cliente",
+                      "fontFamily": "Inter",
+                      "fontSize": 15.0,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n104",
+                  "name": "Customer Login Card Mobile Signup",
+                  "width": "fill_container",
+                  "height": 22.0,
+                  "content": "¿Aún no tienes cuenta? Crear cuenta de cliente",
+                  "fontFamily": "Inter",
+                  "fontSize": 14.0,
+                  "fontWeight": 700,
+                  "lineHeight": 1.2,
+                  "textAlign": "center",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#4F46E5"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
