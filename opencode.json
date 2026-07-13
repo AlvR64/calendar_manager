@@ -15,5 +15,13 @@
   },
   "skills": {
     "paths": [".agents/skills"]
+  },
+  "mcp": {
+    "openpencil": {
+      "type": "remote",
+      "url": "http://127.0.0.1:3100/mcp",
+      "enabled": true,
+      "timeout": 30000
+    }
   }
 }
