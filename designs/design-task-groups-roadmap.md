@@ -132,19 +132,19 @@ Este apartado lista solo los primeros disenos que haria para cubrir un MVP visua
 
 ## Suggested MVP Design Order
 
-1. Pagina principal publica tipo marketplace. `[x]`
-2. Login de customer. `[x]`
-3. Login de business admin. `[x]`
-4. Registro de business con admin inicial. `[x]`
-5. Business admin shell/layout base.
-6. Business settings.
-7. Admin services.
-8. Admin staff members.
-9. Admin staff-service assignments.
-10. Admin availability.
-11. Perfil publico de business.
-12. Flujo publico de seleccion de appointment hasta elegir slot.
-13. Registro de customer.
+1. Pagina principal publica tipo marketplace. `[x]` Landing publica para descubrir businesses y explicar el producto.
+2. Login de customer. `[x]` Acceso de customers a su cuenta cuando exista area privada.
+3. Login de business admin. `[x]` Acceso de admins al panel privado del business.
+4. Registro de business con admin inicial. `[x]` Alta del business y creacion del primer admin con email y password.
+5. Business admin shell/layout base. Pantalla inicial tras login con navegacion, topbar y contenedor del panel admin.
+6. Business settings. Edicion de datos publicos, contacto, direccion, timezone, moneda y ventana maxima de reserva.
+7. Admin services. Gestion de services: listado, crear, editar, activar/desactivar, eliminar y estados vacios/conflictos.
+8. Admin staff members. Gestion de staff members: listado, crear, editar, activar/desactivar, eliminar y estados vacios/conflictos.
+9. Admin staff-service assignments. Asignacion de services a staff members y gestion de asignaciones activas/inactivas.
+10. Admin availability. Configuracion de disponibilidad semanal y excepciones por staff member.
+11. Perfil publico de business. Pagina publica del negocio con datos, services activos y staff members activos.
+12. Flujo publico de seleccion de appointment hasta elegir slot. Seleccion de service, staff member opcional, fecha y slot disponible.
+13. Registro de customer. Alta de customer con email, password y datos basicos antes o durante el flujo de appointment.
 
 ## Natural Suggested Design Order
 
