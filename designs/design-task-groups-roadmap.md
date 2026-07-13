@@ -32,7 +32,7 @@ Legend:
 
 | ID | Diseno | Hecho | Postpuesto |
 | --- | --- | --- | --- |
-| 3.1 | Disenar shell/layout base del business admin: sidebar, topbar y navegacion. | [ ] | [ ] |
+| 3.1 | Disenar shell/layout base del business admin: sidebar, topbar y navegacion. | [x] | [ ] |
 | 3.2 | Disenar settings de business: datos publicos, contacto, direccion, timezone y moneda. | [ ] | [ ] |
 | 3.3 | Disenar configuracion de ventana maxima de reserva. | [ ] | [ ] |
 
@@ -123,7 +123,7 @@ Este apartado lista solo los primeros disenos que haria para cubrir un MVP visua
 | 11.5 | Registro de business con admin inicial. | [x] | [ ] |
 | 11.6 | Perfil publico de business con datos publicos, services y staff members activos. | [ ] | [ ] |
 | 11.7 | Flujo publico de seleccion de appointment hasta elegir slot: service, staff member opcional, fecha y horario. | [ ] | [ ] |
-| 11.8 | Business admin shell/layout base. | [ ] | [ ] |
+| 11.8 | Business admin shell/layout base. | [x] | [ ] |
 | 11.9 | Business settings: datos publicos, contacto, direccion, timezone, moneda y ventana maxima de reserva. | [ ] | [ ] |
 | 11.10 | Admin services: listado, crear, editar, activar/desactivar, eliminar y empty/conflict states. | [ ] | [ ] |
 | 11.11 | Admin staff members: listado, crear, editar, activar/desactivar, eliminar y empty/conflict states. | [ ] | [ ] |
@@ -136,7 +136,7 @@ Este apartado lista solo los primeros disenos que haria para cubrir un MVP visua
 2. Login de customer. `[x]` Acceso de customers a su cuenta cuando exista area privada.
 3. Login de business admin. `[x]` Acceso de admins al panel privado del business.
 4. Registro de business con admin inicial. `[x]` Alta del business y creacion del primer admin con email y password.
-5. Business admin shell/layout base. Pantalla inicial tras login con navegacion, topbar y contenedor del panel admin.
+5. Business admin shell/layout base. `[x]` Pantalla inicial tras login con navegacion, topbar y contenedor del panel admin.
 6. Business settings. Edicion de datos publicos, contacto, direccion, timezone, moneda y ventana maxima de reserva.
 7. Admin services. Gestion de services: listado, crear, editar, activar/desactivar, eliminar y estados vacios/conflictos.
 8. Admin staff members. Gestion de staff members: listado, crear, editar, activar/desactivar, eliminar y estados vacios/conflictos.
