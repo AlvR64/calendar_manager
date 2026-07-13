@@ -87,6 +87,9 @@ Legend:
 | 6.11 | Cambiar estado de appointment: scheduled, confirmed, completed, cancelled, no-show. | [ ] | [ ] |
 | 6.12 | Guardar notas internas del appointment para admin/staff. | [ ] | [ ] |
 | 6.13 | Guardar notas visibles del customer en el appointment. | [ ] | [ ] |
+| 6.14 | Proteger creacion de appointment contra doble reserva concurrente: tomar lock transaccional, validar disponibilidad/solapes dentro de la transaccion e insertar appointment atomicamente. | [ ] | [ ] |
+
+Nota para 6.14: para MVP se prefiere lock transaccional tipo SQL Server `sp_getapplock` por `businessId` + `staffMemberId` + `localDate`. `SlotHold` temporal queda fuera del MVP salvo que se necesite reservar provisionalmente mientras el customer completa registro/pago.
 
 ## 7. Customer Account
 
