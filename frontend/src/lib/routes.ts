@@ -1,0 +1,14 @@
+export const routes = {
+  home: '/',
+  businessProfile: (slug: string) => `/b/${slug}`,
+  appointmentSlotFlow: (slug: string) => `/b/${slug}/appointment`,
+  customerLogin: '/auth/customer/login',
+  customerRegister: '/auth/customer/register',
+  adminLogin: '/auth/admin/login',
+  businessRegister: '/auth/business/register',
+  adminDashboard: '/admin',
+  adminBusinessSettings: '/admin/business-settings',
+  adminServices: '/admin/services',
+  adminStaffMembers: '/admin/staff-members',
+  adminAvailability: '/admin/availability',
+} as const;
