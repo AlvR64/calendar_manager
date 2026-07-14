@@ -3,7 +3,7 @@
 ## Repository Scope
 - The GitHub repo is named `calendar_manager`. If the local folder still appears as `calendar_manager_dotnet`, that is only a local directory name; Git remote/tracking is already updated.
 - Backend work lives under `backend/`; backend-specific instructions live in `backend/AGENTS.md`.
-- Frontend work will live under `frontend/`; frontend-specific instructions will live in `frontend/AGENTS.md` once frontend work starts.
+- Frontend work lives under `frontend/`; frontend-specific instructions live in `frontend/AGENTS.md`.
 - Repo-local OpenCode skills live in `.agents/skills` and are wired by `opencode.json`.
 - Use `domain-modeling` for domain terminology changes, `find-skills` to search for additional repo-local skills, and area-specific skills from the nearest scoped `AGENTS.md`.
 
