@@ -10,8 +10,6 @@
 - `5.6`
 - `5.7`
 - `5.8`
-- `5.11`
-- `5.12`
 
 ## Current Status Matrix
 
@@ -19,16 +17,14 @@ Mirror of `task-groups-roadmap.md` at spec creation time. The roadmap remains au
 
 | ID | Backend | Frontend | Diseno | Postpuesto |
 | --- | --- | --- | --- | --- |
-| `5.1` | [x] | [ ] | [x] | [ ] |
-| `5.2` | [x] | [ ] | [x] | [ ] |
-| `5.3` | [x] | [ ] | [x] | [ ] |
-| `5.4` | [x] | [ ] | [x] | [ ] |
-| `5.5` | [x] | [ ] | [x] | [ ] |
-| `5.6` | [x] | [ ] | [x] | [ ] |
-| `5.7` | [x] | [ ] | [x] | [ ] |
-| `5.8` | [x] | [ ] | [x] | [ ] |
-| `5.11` | [x] | [ ] | [x] | [ ] |
-| `5.12` | [x] | [ ] | [ ] | [ ] |
+| `5.1` | [x] | [x] | [x] | [ ] |
+| `5.2` | [x] | [x] | [x] | [ ] |
+| `5.3` | [x] | [x] | [x] | [ ] |
+| `5.4` | [x] | [x] | [x] | [ ] |
+| `5.5` | [x] | [x] | [x] | [ ] |
+| `5.6` | [x] | [x] | [x] | [ ] |
+| `5.7` | [x] | [x] | [x] | [ ] |
+| `5.8` | [x] | [x] | [x] | [ ] |
 
 ## Goal
 
@@ -119,8 +115,8 @@ Implement admin availability management so admins can define weekly availability
 - [ ] Overlap/duplicate/conflict errors are shown clearly.
 - [ ] UI follows `designs/admin-availability.op`.
 - [ ] Relevant frontend checks pass.
-- [ ] `task-groups-roadmap.md` is updated for completed frontend IDs.
+- [ ] `task-groups-roadmap.md` is updated for `5.1` through `5.8`.
 
 ## Open Questions
 
-- Should frontend mark roadmap `5.11` and `5.12` as done only when appointment creation exists, or should displaying backend validation/conflict behavior in availability and slot flows be enough for first MVP frontend status?
+- Resolved: `5.11` and `5.12` stay unmarked in frontend for this slice. They should be completed by scheduling/slot/appointment flows rather than the admin availability editor.

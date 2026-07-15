@@ -78,14 +78,14 @@ Este archivo es la fuente unica del roadmap. Backend, frontend y disenos deben m
 
 | ID | Caso de uso | Backend | Frontend | Diseno | Postpuesto |
 | --- | --- | --- | --- | --- | --- |
-| 5.1 | Crear disponibilidad semanal de un staff member. | [x] | [ ] | [x] | [ ] |
-| 5.2 | Listar disponibilidad semanal de un staff member. | [x] | [ ] | [x] | [ ] |
-| 5.3 | Actualizar disponibilidad semanal de un staff member. | [x] | [ ] | [x] | [ ] |
-| 5.4 | Eliminar bloque de disponibilidad semanal. | [x] | [ ] | [x] | [ ] |
-| 5.5 | Crear excepcion de disponibilidad por fecha concreta: vacaciones, ausencia, horario especial. | [x] | [ ] | [x] | [ ] |
-| 5.6 | Listar excepciones de disponibilidad de un staff member. | [x] | [ ] | [x] | [ ] |
-| 5.7 | Actualizar excepcion de disponibilidad. | [x] | [ ] | [x] | [ ] |
-| 5.8 | Eliminar excepcion de disponibilidad. | [x] | [ ] | [x] | [ ] |
+| 5.1 | Crear disponibilidad semanal de un staff member. | [x] | [x] | [x] | [ ] |
+| 5.2 | Listar disponibilidad semanal de un staff member. | [x] | [x] | [x] | [ ] |
+| 5.3 | Actualizar disponibilidad semanal de un staff member. | [x] | [x] | [x] | [ ] |
+| 5.4 | Eliminar bloque de disponibilidad semanal. | [x] | [x] | [x] | [ ] |
+| 5.5 | Crear excepcion de disponibilidad por fecha concreta: vacaciones, ausencia, horario especial. | [x] | [x] | [x] | [ ] |
+| 5.6 | Listar excepciones de disponibilidad de un staff member. | [x] | [x] | [x] | [ ] |
+| 5.7 | Actualizar excepcion de disponibilidad. | [x] | [x] | [x] | [ ] |
+| 5.8 | Eliminar excepcion de disponibilidad. | [x] | [x] | [x] | [ ] |
 | 5.9 | Calcular slots disponibles para business + service + fecha. | [x] | [ ] | [x] | [ ] |
 | 5.10 | Calcular slots disponibles para business + service + staff member + fecha. | [x] | [ ] | [x] | [ ] |
 | 5.11 | Validar que un appointment caiga dentro de disponibilidad y fuera de excepciones. | [x] | [ ] | [x] | [ ] |
@@ -238,14 +238,14 @@ Este apartado lista el subconjunto inicial que debe quedar completo en backend, 
 | 4.4 | Activar/desactivar una asignacion staff-service sin borrarla. | [x] | [x] | [x] | [ ] |
 | 4.5 | Listar services asignados a un staff member. | [x] | [x] | [x] | [ ] |
 | 4.6 | Listar staff members asignados a un service. | [x] | [x] | [x] | [ ] |
-| 5.1 | Crear disponibilidad semanal de un staff member. | [x] | [ ] | [x] | [ ] |
-| 5.2 | Listar disponibilidad semanal de un staff member. | [x] | [ ] | [x] | [ ] |
-| 5.3 | Actualizar disponibilidad semanal de un staff member. | [x] | [ ] | [x] | [ ] |
-| 5.4 | Eliminar bloque de disponibilidad semanal. | [x] | [ ] | [x] | [ ] |
-| 5.5 | Crear excepcion de disponibilidad por fecha concreta: vacaciones, ausencia, horario especial. | [x] | [ ] | [x] | [ ] |
-| 5.6 | Listar excepciones de disponibilidad de un staff member. | [x] | [ ] | [x] | [ ] |
-| 5.7 | Actualizar excepcion de disponibilidad. | [x] | [ ] | [x] | [ ] |
-| 5.8 | Eliminar excepcion de disponibilidad. | [x] | [ ] | [x] | [ ] |
+| 5.1 | Crear disponibilidad semanal de un staff member. | [x] | [x] | [x] | [ ] |
+| 5.2 | Listar disponibilidad semanal de un staff member. | [x] | [x] | [x] | [ ] |
+| 5.3 | Actualizar disponibilidad semanal de un staff member. | [x] | [x] | [x] | [ ] |
+| 5.4 | Eliminar bloque de disponibilidad semanal. | [x] | [x] | [x] | [ ] |
+| 5.5 | Crear excepcion de disponibilidad por fecha concreta: vacaciones, ausencia, horario especial. | [x] | [x] | [x] | [ ] |
+| 5.6 | Listar excepciones de disponibilidad de un staff member. | [x] | [x] | [x] | [ ] |
+| 5.7 | Actualizar excepcion de disponibilidad. | [x] | [x] | [x] | [ ] |
+| 5.8 | Eliminar excepcion de disponibilidad. | [x] | [x] | [x] | [ ] |
 | 5.9 | Calcular slots disponibles para business + service + fecha. | [x] | [ ] | [x] | [ ] |
 | 5.10 | Calcular slots disponibles para business + service + staff member + fecha. | [x] | [ ] | [x] | [ ] |
 | 5.11 | Validar que un appointment caiga dentro de disponibilidad y fuera de excepciones. | [x] | [ ] | [x] | [ ] |

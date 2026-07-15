@@ -175,6 +175,45 @@ export type UpdateStaffMemberServiceActiveStateRequest = {
   isActive: boolean;
 };
 
+export type StaffMemberAvailabilityResponse = {
+  id: string;
+  staffMemberId: string;
+  dayOfWeek: number;
+  startTime: string;
+  endTime: string;
+  isActive: boolean;
+  createdAtUtc: string;
+};
+
+export type CreateStaffMemberAvailabilityRequest = {
+  dayOfWeek: number;
+  startTime: string;
+  endTime: string;
+};
+
+export type UpdateStaffMemberAvailabilityRequest = CreateStaffMemberAvailabilityRequest;
+
+export type StaffMemberAvailabilityExceptionResponse = {
+  id: string;
+  staffMemberId: string;
+  localDate: string;
+  isClosed: boolean;
+  startTime?: string | null;
+  endTime?: string | null;
+  reason?: string | null;
+  createdAtUtc: string;
+};
+
+export type CreateStaffMemberAvailabilityExceptionRequest = {
+  localDate: string;
+  isClosed: boolean;
+  startTime?: string | null;
+  endTime?: string | null;
+  reason?: string | null;
+};
+
+export type UpdateStaffMemberAvailabilityExceptionRequest = CreateStaffMemberAvailabilityExceptionRequest;
+
 export type AvailableSlotResponse = {
   staffMemberId: string;
   localDate: string;
