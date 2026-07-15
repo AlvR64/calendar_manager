@@ -1,4 +1,7 @@
-import { NavLink, Outlet } from 'react-router-dom';
+import { NavLink, Outlet, useNavigate } from 'react-router-dom';
+
+import { clearAuthSession, getAuthSession } from '@/auth/authStorage';
+import { routes } from '@/lib/routes';
 
 const navItems = [
   { to: '/admin', label: 'Dashboard', end: true },
@@ -9,14 +12,22 @@ const navItems = [
 ];
 
 export function AdminLayout() {
+  const navigate = useNavigate();
+  const session = getAuthSession('Admin');
+
+  function handleLogout() {
+    clearAuthSession('Admin');
+    navigate(routes.adminLogin, { replace: true });
+  }
+
   return (
     <div className="min-h-screen bg-slate-50 text-slate-950 lg:flex">
       <aside className="border-b border-slate-200 bg-white p-5 lg:min-h-screen lg:w-72 lg:border-b-0 lg:border-r">
         <div className="text-xl font-black">Calendar Manager</div>
         <div className="mt-6 rounded-3xl border border-slate-200 bg-slate-50 p-4">
-          <div className="text-xs font-bold text-slate-500">Business actual</div>
-          <div className="mt-1 text-lg font-black">Studio Centro</div>
-          <div className="mt-1 text-xs text-slate-500">Un admin gestiona un solo business</div>
+          <div className="text-xs font-bold text-slate-500">Admin session</div>
+          <div className="mt-1 truncate text-lg font-black">{session?.displayName ?? 'Admin'}</div>
+          <div className="mt-1 truncate text-xs text-slate-500">{session?.email}</div>
         </div>
         <nav className="mt-6 grid gap-2">
           {navItems.map((item) => (
@@ -35,6 +46,9 @@ export function AdminLayout() {
             </NavLink>
           ))}
         </nav>
+        <button className="mt-6 w-full rounded-2xl border border-slate-200 px-4 py-3 text-sm font-black text-slate-600 transition hover:border-red-200 hover:bg-red-50 hover:text-red-700" onClick={handleLogout} type="button">
+          Logout admin
+        </button>
       </aside>
       <main className="flex-1 p-6 lg:p-8">
         <Outlet />

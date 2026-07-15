@@ -1,4 +1,5 @@
 import { ApiError } from '@/api/httpClient';
+import { getApiErrorMessage } from '@/api/apiErrors';
 
 export function getAuthErrorMessage(error: unknown) {
   if (!(error instanceof ApiError)) {
@@ -28,5 +29,5 @@ export function getAuthErrorMessage(error: unknown) {
     return error.details.title ?? 'Ya existe una cuenta o business con esos datos.';
   }
 
-  return error.details.title ?? 'No se pudo completar la operacion. Intentalo de nuevo.';
+  return getApiErrorMessage(error);
 }

@@ -29,6 +29,10 @@ export type CustomerAuthSession = BaseAuthSession & {
 
 export type AuthSession = AdminAuthSession | CustomerAuthSession;
 
+export function getAuthSession(accountType: 'Admin'): AdminAuthSession | null;
+export function getAuthSession(accountType: 'Customer'): CustomerAuthSession | null;
+export function getAuthSession(accountType: AccountType): AuthSession | null;
+export function getAuthSession(): AuthSession | null;
 export function getAuthSession(accountType?: AccountType): AuthSession | null {
   if (accountType) {
     return readSession(accountType);

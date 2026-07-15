@@ -24,7 +24,7 @@ Este archivo es la fuente unica del roadmap. Backend, frontend y disenos deben m
 | 0.8 | Crear storage de auth MVP y guard de rutas admin. | [ ] | [x] | [ ] | [ ] |
 | 0.9 | Anadir test smoke del shell frontend. | [ ] | [x] | [ ] | [ ] |
 | 0.10 | Implementar pagina principal publica tipo marketplace. | [ ] | [ ] | [x] | [ ] |
-| 0.11 | Implementar business admin shell/layout base. | [ ] | [ ] | [x] | [ ] |
+| 0.11 | Implementar business admin shell/layout base. | [ ] | [x] | [x] | [ ] |
 | 0.12 | Implementar flujo publico de seleccion de appointment hasta elegir slot. | [ ] | [ ] | [x] | [ ] |
 
 ## 1. Gestion Del Business Por Admin
@@ -32,11 +32,11 @@ Este archivo es la fuente unica del roadmap. Backend, frontend y disenos deben m
 | ID | Caso de uso | Backend | Frontend | Diseno | Postpuesto |
 | --- | --- | --- | --- | --- | --- |
 | 1.1 | Registrar business con su admin inicial. | [x] | [x] | [x] | [ ] |
-| 1.2 | Actualizar datos publicos del business: nombre, descripcion, contacto, web, direccion, timezone, moneda. | [x] | [ ] | [x] | [ ] |
+| 1.2 | Actualizar datos publicos del business: nombre, descripcion, contacto, web, direccion, timezone, moneda. | [x] | [x] | [x] | [ ] |
 | 1.3 | Activar/desactivar business desde admin. | [ ] | [ ] | [ ] | [x] |
 | 1.4 | Configurar politica de cancelacion del business. | [ ] | [ ] | [ ] | [x] |
 | 1.5 | Configurar antelacion minima para reservar. | [ ] | [ ] | [ ] | [x] |
-| 1.6 | Configurar ventana maxima de reserva: por ejemplo hasta 30/60/90 dias. | [x] | [ ] | [x] | [ ] |
+| 1.6 | Configurar ventana maxima de reserva: por ejemplo hasta 30/60/90 dias. | [x] | [x] | [x] | [ ] |
 | 1.7 | Configurar buffer antes/despues de appointments. | [ ] | [ ] | [ ] | [x] |
 
 ## 2. Services
@@ -217,11 +217,11 @@ Este apartado lista el subconjunto inicial que debe quedar completo en backend, 
 | 0.8 | Crear storage de auth MVP y guard de rutas admin. | [ ] | [x] | [ ] | [ ] |
 | 0.9 | Anadir test smoke del shell frontend. | [ ] | [x] | [ ] | [ ] |
 | 0.10 | Implementar pagina principal publica tipo marketplace. | [ ] | [ ] | [x] | [ ] |
-| 0.11 | Implementar business admin shell/layout base. | [ ] | [ ] | [x] | [ ] |
+| 0.11 | Implementar business admin shell/layout base. | [ ] | [x] | [x] | [ ] |
 | 0.12 | Implementar flujo publico de seleccion de appointment hasta elegir slot. | [ ] | [ ] | [x] | [ ] |
 | 1.1 | Registrar business con su admin inicial. | [x] | [x] | [x] | [ ] |
-| 1.2 | Actualizar datos publicos del business: nombre, descripcion, contacto, web, direccion, timezone, moneda. | [x] | [ ] | [x] | [ ] |
-| 1.6 | Configurar ventana maxima de reserva: por ejemplo hasta 30/60/90 dias. | [x] | [ ] | [x] | [ ] |
+| 1.2 | Actualizar datos publicos del business: nombre, descripcion, contacto, web, direccion, timezone, moneda. | [x] | [x] | [x] | [ ] |
+| 1.6 | Configurar ventana maxima de reserva: por ejemplo hasta 30/60/90 dias. | [x] | [x] | [x] | [ ] |
 | 2.1 | Crear service para el business del admin autenticado. | [x] | [ ] | [x] | [ ] |
 | 2.2 | Listar services del business para admin, incluyendo inactivos. | [x] | [ ] | [x] | [ ] |
 | 2.3 | Obtener service por id para admin, incluyendo inactivos. | [x] | [ ] | [x] | [ ] |
@@ -266,7 +266,7 @@ Este apartado lista el subconjunto inicial que debe quedar completo en backend, 
 | --- | --- | --- | --- | --- |
 | 1 | Frontend Shell Y Public Landing | [ ] | [ ] | [x] |
 | 2 | Customer Account y Admin Account Y Auth | [x] | [x] | [x] |
-| 3 | Gestion Del Business Por Admin | [x] | [ ] | [x] |
+| 3 | Gestion Del Business Por Admin | [x] | [x] | [x] |
 | 4 | Services | [x] | [ ] | [x] |
 | 5 | Staff Members | [x] | [ ] | [x] |
 | 6 | Asignaciones Staff-Service | [x] | [ ] | [x] |

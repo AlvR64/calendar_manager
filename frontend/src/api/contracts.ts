@@ -89,6 +89,29 @@ export type BusinessResponse = {
   maxAdvanceBookingDays: number;
 };
 
+export type UpdateBusinessDetailsRequest = {
+  name: string;
+  description?: string | null;
+  contactEmail?: string | null;
+  contactPhoneNumber?: string | null;
+  websiteUrl?: string | null;
+  addressLine1?: string | null;
+  addressLine2?: string | null;
+  city?: string | null;
+  postalCode?: string | null;
+  countryCode?: string | null;
+  timeZoneId: string;
+  currencyCode: string;
+};
+
+export type UpdateBusinessBookingWindowRequest = {
+  maxAdvanceBookingDays: number;
+};
+
+export type BusinessBookingWindowResponse = {
+  maxAdvanceBookingDays: number;
+};
+
 export type ServiceResponse = {
   id: string;
   businessId: string;
