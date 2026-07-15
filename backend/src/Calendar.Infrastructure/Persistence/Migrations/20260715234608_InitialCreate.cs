@@ -29,6 +29,7 @@ namespace Calendar.Infrastructure.Persistence.Migrations
                     CountryCode = table.Column<string>(type: "nvarchar(2)", maxLength: 2, nullable: true),
                     TimeZoneId = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
                     CurrencyCode = table.Column<string>(type: "nvarchar(3)", maxLength: 3, nullable: false),
+                    MaxAdvanceBookingDays = table.Column<int>(type: "int", nullable: false, defaultValue: 60),
                     IsActive = table.Column<bool>(type: "bit", nullable: false, defaultValue: true),
                     CreatedAtUtc = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: false),
                     UpdatedAtUtc = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true)
@@ -36,6 +37,7 @@ namespace Calendar.Infrastructure.Persistence.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Businesses", x => x.Id);
+                    table.CheckConstraint("CK_Businesses_MaxAdvanceBookingDays_Range", "[MaxAdvanceBookingDays] BETWEEN 1 AND 365");
                 });
 
             migrationBuilder.CreateTable(

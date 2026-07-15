@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Calendar.Infrastructure.Persistence.Migrations
 {
     [DbContext(typeof(CalendarDbContext))]
-    [Migration("20260712152140_AddBusinessBookingWindow")]
-    partial class AddBusinessBookingWindow
+    [Migration("20260715234608_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

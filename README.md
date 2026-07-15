@@ -29,6 +29,14 @@ Apply database migrations after creating a fresh database, pulling new migration
 bash ./backend/update-db.sh
 ```
 
+If your local database was created from an older migration baseline, drop it before applying the current initial migration:
+
+```bash
+cd backend
+dotnet tool run dotnet-ef database drop --project src/Calendar.Infrastructure --startup-project src/Calendar.Api --context CalendarDbContext
+bash ./update-db.sh
+```
+
 ## Start Scripts
 
 Start SQL Server, backend API, and frontend together:
