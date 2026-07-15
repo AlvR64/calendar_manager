@@ -201,6 +201,77 @@ Nota para 6.14: para MVP se prefiere lock transaccional tipo SQL Server `sp_geta
 | 15.1 | Anadir soporte multi-sede si un business puede tener varias ubicaciones. | [ ] | [ ] | [ ] | [x] |
 | 15.2 | Decidir si disponibilidad, services, staff y appointments cuelgan de business o de sede en un futuro multi-location. | [ ] | [ ] | [ ] | [x] |
 
+## Primer MVP
+
+Este apartado lista el subconjunto inicial que debe quedar completo en backend, frontend y diseno antes de empezar a implementar nuevos casos en paralelo. La prioridad actual es completar la columna `Frontend` para los casos donde `Backend` ya esta hecho y existe `Diseno`, manteniendo fuera la creacion/listado/cancelacion de appointments hasta que el backend exponga esos casos de uso.
+
+| ID | Caso de uso | Backend | Frontend | Diseno | Postpuesto |
+| --- | --- | --- | --- | --- | --- |
+| 0.1 | Inicializar Vite React SPA con TypeScript. | [ ] | [x] | [ ] | [ ] |
+| 0.2 | Configurar npm scripts para dev, build, lint, typecheck, test y preview. | [ ] | [x] | [ ] | [ ] |
+| 0.3 | Configurar React Router con rutas publicas, auth y admin del MVP. | [ ] | [x] | [ ] | [ ] |
+| 0.4 | Configurar TanStack Query como provider de server state. | [ ] | [x] | [ ] | [ ] |
+| 0.5 | Configurar Tailwind CSS y base compatible con shadcn/ui. | [ ] | [x] | [ ] | [ ] |
+| 0.6 | Configurar aliases `@/*`, tsconfig, ESLint y Vitest. | [ ] | [x] | [ ] | [ ] |
+| 0.7 | Crear cliente HTTP base con API URL desde `VITE_API_BASE_URL`. | [ ] | [x] | [ ] | [ ] |
+| 0.8 | Crear storage de auth MVP y guard de rutas admin. | [ ] | [x] | [ ] | [ ] |
+| 0.9 | Anadir test smoke del shell frontend. | [ ] | [x] | [ ] | [ ] |
+| 0.10 | Implementar pagina principal publica tipo marketplace. | [ ] | [ ] | [x] | [ ] |
+| 0.11 | Implementar business admin shell/layout base. | [ ] | [ ] | [x] | [ ] |
+| 0.12 | Implementar flujo publico de seleccion de appointment hasta elegir slot. | [ ] | [ ] | [x] | [ ] |
+| 1.1 | Registrar business con su admin inicial. | [x] | [ ] | [x] | [ ] |
+| 1.2 | Actualizar datos publicos del business: nombre, descripcion, contacto, web, direccion, timezone, moneda. | [x] | [ ] | [x] | [ ] |
+| 1.6 | Configurar ventana maxima de reserva: por ejemplo hasta 30/60/90 dias. | [x] | [ ] | [x] | [ ] |
+| 2.1 | Crear service para el business del admin autenticado. | [x] | [ ] | [x] | [ ] |
+| 2.2 | Listar services del business para admin, incluyendo inactivos. | [x] | [ ] | [x] | [ ] |
+| 2.3 | Obtener service por id para admin, incluyendo inactivos. | [x] | [ ] | [x] | [ ] |
+| 2.4 | Actualizar service: nombre, descripcion, duracion, precio, orden. | [x] | [ ] | [x] | [ ] |
+| 2.5 | Desactivar/eliminar service. | [x] | [ ] | [x] | [ ] |
+| 3.1 | Crear staff member para el business del admin autenticado. | [x] | [ ] | [x] | [ ] |
+| 3.2 | Listar staff members del business para admin, incluyendo inactivos. | [x] | [ ] | [x] | [ ] |
+| 3.3 | Obtener staff member por id para admin, incluyendo inactivos. | [x] | [ ] | [x] | [ ] |
+| 3.4 | Actualizar staff member: nombre, email, telefono, bio, orden. | [x] | [ ] | [x] | [ ] |
+| 3.5 | Desactivar/eliminar staff member. | [x] | [ ] | [x] | [ ] |
+| 4.1 | Asignar service a staff member desde la ruta de staff. | [x] | [ ] | [x] | [ ] |
+| 4.2 | Asignar staff member a service desde la ruta de service. | [x] | [ ] | [x] | [ ] |
+| 4.3 | Desasignar service de staff member. | [x] | [ ] | [x] | [ ] |
+| 4.4 | Activar/desactivar una asignacion staff-service sin borrarla. | [x] | [ ] | [x] | [ ] |
+| 5.1 | Crear disponibilidad semanal de un staff member. | [x] | [ ] | [x] | [ ] |
+| 5.2 | Listar disponibilidad semanal de un staff member. | [x] | [ ] | [x] | [ ] |
+| 5.3 | Actualizar disponibilidad semanal de un staff member. | [x] | [ ] | [x] | [ ] |
+| 5.4 | Eliminar bloque de disponibilidad semanal. | [x] | [ ] | [x] | [ ] |
+| 5.5 | Crear excepcion de disponibilidad por fecha concreta: vacaciones, ausencia, horario especial. | [x] | [ ] | [x] | [ ] |
+| 5.6 | Listar excepciones de disponibilidad de un staff member. | [x] | [ ] | [x] | [ ] |
+| 5.7 | Actualizar excepcion de disponibilidad. | [x] | [ ] | [x] | [ ] |
+| 5.8 | Eliminar excepcion de disponibilidad. | [x] | [ ] | [x] | [ ] |
+| 5.9 | Calcular slots disponibles para business + service + fecha. | [x] | [ ] | [x] | [ ] |
+| 5.10 | Calcular slots disponibles para business + service + staff member + fecha. | [x] | [ ] | [x] | [ ] |
+| 5.11 | Validar que un appointment caiga dentro de disponibilidad y fuera de excepciones. | [x] | [ ] | [x] | [ ] |
+| 5.12 | Validar que un appointment no solape con otro appointment activo. | [x] | [ ] | [ ] | [ ] |
+| 7.1 | Registrar customer. | [x] | [ ] | [x] | [ ] |
+| 7.2 | Login de customer con JWT. | [x] | [ ] | [x] | [ ] |
+| 8.1 | Login de admin con JWT. | [x] | [ ] | [x] | [ ] |
+| 11.1 | Obtener business publico por businessId. | [x] | [ ] | [x] | [ ] |
+| 11.2 | Obtener profile publico de business por businessId. | [x] | [ ] | [x] | [ ] |
+| 11.3 | Obtener profile publico de business por slug. | [x] | [ ] | [x] | [ ] |
+| 11.4 | Listar services activos de un business. | [x] | [ ] | [x] | [ ] |
+| 11.5 | Obtener un service activo concreto de un business. | [x] | [ ] | [x] | [ ] |
+| 11.6 | Listar staff members activos de un business. | [x] | [ ] | [x] | [ ] |
+| 11.7 | Obtener un staff member activo concreto de un business. | [x] | [ ] | [x] | [ ] |
+| 13.1 | Health check simple. | [x] | [ ] | [ ] | [ ] |
+
+## Suggested First MVP Frontend Order
+
+1. Frontend Shell Y Public Landing
+2. Customer Account y Admin Account Y Auth
+3. Gestion Del Business Por Admin
+4. Services
+5. Staff Members
+6. Asignaciones Staff-Service
+7. Disponibilidad Y Horarios
+8. Business Publico Y Descubrimiento
+9. Flujo publico de slots hasta seleccion de appointment
+
 ## Suggested Implementation Order
 
 1. Frontend Shell Y Public Landing
