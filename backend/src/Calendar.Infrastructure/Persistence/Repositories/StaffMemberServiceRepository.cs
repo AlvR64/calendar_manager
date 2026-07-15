@@ -61,6 +61,32 @@ public sealed class StaffMemberServiceRepository(CalendarDbContext dbContext) : 
             .ThenBy(staffMemberService => staffMemberService.StaffMember.DisplayName)
             .ToListAsync(cancellationToken);
 
+    public async Task<IReadOnlyList<StaffMemberService>> ListByBusinessIdAndStaffMemberIdAsync(
+        Guid businessId,
+        Guid staffMemberId,
+        CancellationToken cancellationToken) =>
+        await dbContext.StaffMemberServices
+            .AsNoTracking()
+            .Where(staffMemberService => staffMemberService.StaffMemberId == staffMemberId
+                && staffMemberService.StaffMember.BusinessId == businessId
+                && staffMemberService.Service.BusinessId == businessId)
+            .OrderBy(staffMemberService => staffMemberService.Service.SortOrder)
+            .ThenBy(staffMemberService => staffMemberService.Service.Name)
+            .ToListAsync(cancellationToken);
+
+    public async Task<IReadOnlyList<StaffMemberService>> ListByBusinessIdAndServiceIdAsync(
+        Guid businessId,
+        Guid serviceId,
+        CancellationToken cancellationToken) =>
+        await dbContext.StaffMemberServices
+            .AsNoTracking()
+            .Where(staffMemberService => staffMemberService.ServiceId == serviceId
+                && staffMemberService.StaffMember.BusinessId == businessId
+                && staffMemberService.Service.BusinessId == businessId)
+            .OrderBy(staffMemberService => staffMemberService.StaffMember.SortOrder)
+            .ThenBy(staffMemberService => staffMemberService.StaffMember.DisplayName)
+            .ToListAsync(cancellationToken);
+
     public void Add(StaffMemberService staffMemberService) => dbContext.StaffMemberServices.Add(staffMemberService);
 
     public void Remove(StaffMemberService staffMemberService) => dbContext.StaffMemberServices.Remove(staffMemberService);

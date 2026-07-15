@@ -6,6 +6,8 @@
 - `4.2`
 - `4.3`
 - `4.4`
+- `4.5`
+- `4.6`
 
 ## Current Status Matrix
 
@@ -13,10 +15,12 @@ Mirror of `task-groups-roadmap.md` at spec creation time. The roadmap remains au
 
 | ID | Backend | Frontend | Diseno | Postpuesto |
 | --- | --- | --- | --- | --- |
-| `4.1` | [x] | [ ] | [x] | [ ] |
-| `4.2` | [x] | [ ] | [x] | [ ] |
-| `4.3` | [x] | [ ] | [x] | [ ] |
-| `4.4` | [x] | [ ] | [x] | [ ] |
+| `4.1` | [x] | [x] | [x] | [ ] |
+| `4.2` | [x] | [x] | [x] | [ ] |
+| `4.3` | [x] | [x] | [x] | [ ] |
+| `4.4` | [x] | [x] | [x] | [ ] |
+| `4.5` | [x] | [x] | [x] | [ ] |
+| `4.6` | [x] | [x] | [x] | [ ] |
 
 ## Goal
 
@@ -35,7 +39,6 @@ Implement the admin UI needed to connect services with staff members so availabi
 
 - Custom duration per staff-service.
 - Custom price per staff-service.
-- Dedicated assignment list endpoints unless required by the implementation decision below.
 - Appointment handling for assignments.
 
 ## Backend Contract
@@ -44,6 +47,8 @@ Implement the admin UI needed to connect services with staff members so availabi
 | --- | --- | --- | --- | --- |
 | `POST /api/staff-members/{staffMemberId}/services/{serviceId}` | Admin JWT | Route ids | `201 StaffMemberServiceAssignmentResponse` | `400`, `401`, `403`, `404`, `409` |
 | `POST /api/services/{serviceId}/staff-members/{staffMemberId}` | Admin JWT | Route ids | `201 StaffMemberServiceAssignmentResponse` | `400`, `401`, `403`, `404`, `409` |
+| `GET /api/staff-members/{staffMemberId}/services` | Admin JWT | Route id | `200 StaffMemberServiceAssignmentResponse[]` | `401`, `403`, `404` |
+| `GET /api/services/{serviceId}/staff-members` | Admin JWT | Route id | `200 StaffMemberServiceAssignmentResponse[]` | `401`, `403`, `404` |
 | `PUT /api/staff-members/{staffMemberId}/services/{serviceId}/active-state` | Admin JWT | `UpdateStaffMemberServiceActiveStateRequest` | `200 StaffMemberServiceAssignmentResponse` | `400`, `401`, `403`, `404` |
 | `DELETE /api/staff-members/{staffMemberId}/services/{serviceId}` | Admin JWT | Route ids | `204` | `401`, `403`, `404`, `409` |
 
@@ -97,8 +102,8 @@ Implement the admin UI needed to connect services with staff members so availabi
 - [ ] Admin can unassign and sees conflicts clearly.
 - [ ] UI follows referenced OpenPencil designs.
 - [ ] Relevant frontend checks pass.
-- [ ] `task-groups-roadmap.md` is updated for completed frontend IDs.
+- [ ] `task-groups-roadmap.md` is updated for `4.1` through `4.6`.
 
 ## Open Questions
 
-- Do we need to move roadmap `4.5` and `4.6` out of postpuesto and add admin list endpoints so the UI can show current assignments accurately, including inactive assignments?
+- Resolved: `4.5` and `4.6` were moved out of postpuesto. Admin list endpoints were added so the UI can show current assignments accurately, including inactive assignments.

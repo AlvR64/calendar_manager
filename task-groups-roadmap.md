@@ -65,12 +65,12 @@ Este archivo es la fuente unica del roadmap. Backend, frontend y disenos deben m
 
 | ID | Caso de uso | Backend | Frontend | Diseno | Postpuesto |
 | --- | --- | --- | --- | --- | --- |
-| 4.1 | Asignar service a staff member desde la ruta de staff. | [x] | [ ] | [x] | [ ] |
-| 4.2 | Asignar staff member a service desde la ruta de service. | [x] | [ ] | [x] | [ ] |
-| 4.3 | Desasignar service de staff member. | [x] | [ ] | [x] | [ ] |
-| 4.4 | Activar/desactivar una asignacion staff-service sin borrarla. | [x] | [ ] | [x] | [ ] |
-| 4.5 | Listar services asignados a un staff member. | [ ] | [ ] | [x] | [x] |
-| 4.6 | Listar staff members asignados a un service. | [ ] | [ ] | [x] | [x] |
+| 4.1 | Asignar service a staff member desde la ruta de staff. | [x] | [x] | [x] | [ ] |
+| 4.2 | Asignar staff member a service desde la ruta de service. | [x] | [x] | [x] | [ ] |
+| 4.3 | Desasignar service de staff member. | [x] | [x] | [x] | [ ] |
+| 4.4 | Activar/desactivar una asignacion staff-service sin borrarla. | [x] | [x] | [x] | [ ] |
+| 4.5 | Listar services asignados a un staff member. | [x] | [x] | [x] | [ ] |
+| 4.6 | Listar staff members asignados a un service. | [x] | [x] | [x] | [ ] |
 | 4.7 | Configurar duracion custom por staff-service si un staff tarda distinto en el mismo service. | [ ] | [ ] | [ ] | [x] |
 | 4.8 | Configurar precio custom por staff-service si aplica. | [ ] | [ ] | [ ] | [x] |
 
@@ -232,10 +232,12 @@ Este apartado lista el subconjunto inicial que debe quedar completo en backend, 
 | 3.3 | Obtener staff member por id para admin, incluyendo inactivos. | [x] | [x] | [x] | [ ] |
 | 3.4 | Actualizar staff member: nombre, email, telefono, bio, orden. | [x] | [x] | [x] | [ ] |
 | 3.5 | Desactivar/eliminar staff member. | [x] | [x] | [x] | [ ] |
-| 4.1 | Asignar service a staff member desde la ruta de staff. | [x] | [ ] | [x] | [ ] |
-| 4.2 | Asignar staff member a service desde la ruta de service. | [x] | [ ] | [x] | [ ] |
-| 4.3 | Desasignar service de staff member. | [x] | [ ] | [x] | [ ] |
-| 4.4 | Activar/desactivar una asignacion staff-service sin borrarla. | [x] | [ ] | [x] | [ ] |
+| 4.1 | Asignar service a staff member desde la ruta de staff. | [x] | [x] | [x] | [ ] |
+| 4.2 | Asignar staff member a service desde la ruta de service. | [x] | [x] | [x] | [ ] |
+| 4.3 | Desasignar service de staff member. | [x] | [x] | [x] | [ ] |
+| 4.4 | Activar/desactivar una asignacion staff-service sin borrarla. | [x] | [x] | [x] | [ ] |
+| 4.5 | Listar services asignados a un staff member. | [x] | [x] | [x] | [ ] |
+| 4.6 | Listar staff members asignados a un service. | [x] | [x] | [x] | [ ] |
 | 5.1 | Crear disponibilidad semanal de un staff member. | [x] | [ ] | [x] | [ ] |
 | 5.2 | Listar disponibilidad semanal de un staff member. | [x] | [ ] | [x] | [ ] |
 | 5.3 | Actualizar disponibilidad semanal de un staff member. | [x] | [ ] | [x] | [ ] |

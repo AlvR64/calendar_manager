@@ -8,6 +8,7 @@ using Calendar.Application.Services.CreateService;
 using Calendar.Application.Services.DeleteService;
 using Calendar.Application.Services.UpdateService;
 using Calendar.Application.Services.UpdateServiceActiveState;
+using Calendar.Application.StaffMemberServices;
 using Calendar.Application.StaffMemberServices.AssignStaffMemberService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -712,6 +713,33 @@ public sealed class ServicesControllerTests
         problemDetails.Instance.Should().Be($"/api/services/{serviceId}/staff-members/{staffMemberId}");
     }
 
+    [Fact]
+    public async Task ListServiceStaffMemberAssignments_WhenServiceExists_ReturnsOkResponse()
+    {
+        var businessId = Guid.NewGuid();
+        var serviceId = Guid.NewGuid();
+        var staffMemberId = Guid.NewGuid();
+        var createdAtUtc = DateTimeOffset.UtcNow;
+        var handler = new StubQueryHandler<ListStaffMemberServiceAssignmentsByServiceQuery, ListStaffMemberServiceAssignmentsResult>(
+            ListStaffMemberServiceAssignmentsResult.Success([
+                new StaffMemberServiceAssignmentDetails(staffMemberId, serviceId, false, createdAtUtc)
+            ]));
+        var controller = CreateController(handler, businessId.ToString(), $"/api/services/{serviceId}/staff-members");
+        using var cancellationTokenSource = new CancellationTokenSource();
+
+        var result = await controller.ListServiceStaffMemberAssignments(serviceId, cancellationTokenSource.Token);
+
+        var okResult = result.Result.Should().BeOfType<OkObjectResult>().Subject;
+        var response = okResult.Value.Should().BeOfType<List<StaffMemberServiceAssignmentResponse>>().Subject;
+        response.Should().ContainSingle();
+        response[0].StaffMemberId.Should().Be(staffMemberId);
+        response[0].ServiceId.Should().Be(serviceId);
+        response[0].IsActive.Should().BeFalse();
+        response[0].CreatedAtUtc.Should().Be(createdAtUtc);
+        handler.Query.Should().Be(new ListStaffMemberServiceAssignmentsByServiceQuery(businessId, serviceId));
+        handler.CancellationToken.Should().Be(cancellationTokenSource.Token);
+    }
+
     private static ServicesController CreateController(
         StubCreateServiceHandler handler,
         string? businessIdClaimValue) =>
@@ -725,6 +753,22 @@ public sealed class ServicesControllerTests
             CreateDefaultGetAdminServiceHandler(),
             businessIdClaimValue,
             "/api/services");
+
+    private static ServicesController CreateController(
+        StubQueryHandler<ListStaffMemberServiceAssignmentsByServiceQuery, ListStaffMemberServiceAssignmentsResult> handler,
+        string? businessIdClaimValue,
+        string requestPath) =>
+        CreateController(
+            CreateDefaultCreateServiceHandler(),
+            CreateDefaultUpdateServiceHandler(),
+            CreateDefaultUpdateServiceActiveStateHandler(),
+            CreateDefaultDeleteServiceHandler(),
+            CreateDefaultAssignStaffMemberServiceHandler(),
+            CreateDefaultListAdminServicesHandler(),
+            CreateDefaultGetAdminServiceHandler(),
+            businessIdClaimValue,
+            requestPath,
+            handler);
 
     private static ServicesController CreateController(
         StubAssignStaffMemberServiceHandler handler,
@@ -825,7 +869,8 @@ public sealed class ServicesControllerTests
         StubQueryHandler<ListAdminServicesQuery, ListAdminServicesResult> listAdminServicesHandler,
         StubQueryHandler<GetAdminServiceQuery, GetAdminServiceResult> getAdminServiceHandler,
         string? businessIdClaimValue,
-        string requestPath)
+        string requestPath,
+        StubQueryHandler<ListStaffMemberServiceAssignmentsByServiceQuery, ListStaffMemberServiceAssignmentsResult>? listStaffMemberServiceAssignmentsByServiceHandler = null)
     {
         var claims = new List<Claim>();
         if (businessIdClaimValue is not null)
@@ -840,7 +885,8 @@ public sealed class ServicesControllerTests
             deleteServiceHandler,
             assignStaffMemberServiceHandler,
             listAdminServicesHandler,
-            getAdminServiceHandler)
+            getAdminServiceHandler,
+            listStaffMemberServiceAssignmentsByServiceHandler ?? CreateDefaultListStaffMemberServiceAssignmentsByServiceHandler())
         {
             ControllerContext = new ControllerContext
             {
@@ -931,6 +977,9 @@ public sealed class ServicesControllerTests
         return new StubQueryHandler<GetAdminServiceQuery, GetAdminServiceResult>(
             GetAdminServiceResult.Success(CreateAdminServiceDetails(businessId, serviceId)));
     }
+
+    private static StubQueryHandler<ListStaffMemberServiceAssignmentsByServiceQuery, ListStaffMemberServiceAssignmentsResult> CreateDefaultListStaffMemberServiceAssignmentsByServiceHandler() => new(
+        ListStaffMemberServiceAssignmentsResult.Success([]));
 
     private sealed class StubCreateServiceHandler(CreateServiceResult result)
         : ICommandHandler<CreateServiceCommand, CreateServiceResult>

@@ -2,12 +2,14 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import type { ReactNode } from 'react';
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import type { ServiceResponse } from '@/api/contracts';
+import type { ServiceResponse, StaffMemberResponse } from '@/api/contracts';
 import { ApiError } from '@/api/httpClient';
 import { setAuthSession } from '@/auth/authStorage';
 import * as serviceApi from '@/features/services/serviceApi';
+import * as staffMemberServiceApi from '@/features/staffMemberServices/staffMemberServiceApi';
+import * as staffMemberApi from '@/features/staffMembers/staffMemberApi';
 import { ServicesPage } from '@/pages/admin/ServicesPage';
 
 vi.mock('@/features/services/serviceApi', () => ({
@@ -17,6 +19,24 @@ vi.mock('@/features/services/serviceApi', () => ({
   listServices: vi.fn(),
   updateService: vi.fn(),
   updateServiceActiveState: vi.fn(),
+}));
+
+vi.mock('@/features/staffMembers/staffMemberApi', () => ({
+  createStaffMember: vi.fn(),
+  deleteStaffMember: vi.fn(),
+  getStaffMember: vi.fn(),
+  listStaffMembers: vi.fn(),
+  updateStaffMember: vi.fn(),
+  updateStaffMemberActiveState: vi.fn(),
+}));
+
+vi.mock('@/features/staffMemberServices/staffMemberServiceApi', () => ({
+  assignServiceToStaffMember: vi.fn(),
+  assignStaffMemberToService: vi.fn(),
+  listServiceStaffMemberAssignments: vi.fn(),
+  listStaffMemberServiceAssignments: vi.fn(),
+  unassignServiceFromStaffMember: vi.fn(),
+  updateStaffMemberServiceAssignmentActiveState: vi.fn(),
 }));
 
 const haircut: ServiceResponse = {
@@ -43,7 +63,36 @@ const color: ServiceResponse = {
   sortOrder: 2,
 };
 
+const ana: StaffMemberResponse = {
+  bio: null,
+  businessId: 'business-1',
+  createdAtUtc: '2026-07-15T18:00:00Z',
+  displayName: 'Ana Ruiz',
+  email: 'ana@example.com',
+  id: 'staff-1',
+  isActive: true,
+  phoneNumber: null,
+  sortOrder: 1,
+};
+
+const mario: StaffMemberResponse = {
+  bio: null,
+  businessId: 'business-1',
+  createdAtUtc: '2026-07-15T18:00:00Z',
+  displayName: 'Mario Lopez',
+  email: null,
+  id: 'staff-2',
+  isActive: true,
+  phoneNumber: null,
+  sortOrder: 2,
+};
+
 describe('services page', () => {
+  beforeEach(() => {
+    vi.mocked(staffMemberApi.listStaffMembers).mockResolvedValue([ana]);
+    vi.mocked(staffMemberServiceApi.listServiceStaffMemberAssignments).mockResolvedValue([]);
+  });
+
   afterEach(() => {
     window.localStorage.clear();
     vi.clearAllMocks();
@@ -133,6 +182,55 @@ describe('services page', () => {
     await userEvent.click(screen.getByRole('button', { name: /eliminar/i }));
 
     expect(await screen.findByRole('alert')).toHaveTextContent('The service cannot be deleted because it has appointments.');
+  });
+
+  it('assigns, toggles, and unassigns staff members for a service', async () => {
+    setAdminSession();
+    vi.stubGlobal('confirm', vi.fn(() => true));
+    vi.mocked(serviceApi.listServices).mockResolvedValue([haircut]);
+    vi.mocked(staffMemberApi.listStaffMembers).mockResolvedValue([ana, mario]);
+    vi.mocked(staffMemberServiceApi.listServiceStaffMemberAssignments).mockResolvedValue([
+      {
+        createdAtUtc: '2026-07-15T18:00:00Z',
+        isActive: true,
+        serviceId: 'service-1',
+        staffMemberId: 'staff-1',
+      },
+    ]);
+    vi.mocked(staffMemberServiceApi.assignStaffMemberToService).mockResolvedValue({
+      createdAtUtc: '2026-07-15T18:00:00Z',
+      isActive: true,
+      serviceId: 'service-1',
+      staffMemberId: 'staff-2',
+    });
+    vi.mocked(staffMemberServiceApi.updateStaffMemberServiceAssignmentActiveState).mockResolvedValue({
+      createdAtUtc: '2026-07-15T18:00:00Z',
+      isActive: false,
+      serviceId: 'service-1',
+      staffMemberId: 'staff-1',
+    });
+    vi.mocked(staffMemberServiceApi.unassignServiceFromStaffMember).mockResolvedValue(undefined);
+
+    renderWithProviders(<ServicesPage />);
+
+    expect(await screen.findByText('Ana Ruiz')).toBeInTheDocument();
+
+    const user = userEvent.setup();
+    await user.selectOptions(screen.getByRole('combobox'), 'staff-2');
+    await user.click(screen.getByRole('button', { name: /asignar staff/i }));
+    await waitFor(() => {
+      expect(staffMemberServiceApi.assignStaffMemberToService).toHaveBeenCalledWith('service-1', 'staff-2', 'admin-token');
+    });
+
+    await user.click(screen.getByRole('button', { name: /desactivar assignment/i }));
+    await waitFor(() => {
+      expect(staffMemberServiceApi.updateStaffMemberServiceAssignmentActiveState).toHaveBeenCalledWith('staff-1', 'service-1', { isActive: false }, 'admin-token');
+    });
+
+    await user.click(screen.getByRole('button', { name: /desasignar/i }));
+    await waitFor(() => {
+      expect(staffMemberServiceApi.unassignServiceFromStaffMember).toHaveBeenCalledWith('staff-1', 'service-1', 'admin-token');
+    });
   });
 });
 

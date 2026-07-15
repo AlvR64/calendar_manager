@@ -7,6 +7,7 @@ using Calendar.Application.Services.CreateService;
 using Calendar.Application.Services.DeleteService;
 using Calendar.Application.Services.UpdateService;
 using Calendar.Application.Services.UpdateServiceActiveState;
+using Calendar.Application.StaffMemberServices;
 using Calendar.Application.StaffMemberServices.AssignStaffMemberService;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -23,7 +24,8 @@ public sealed class ServicesController(
     ICommandHandler<DeleteServiceCommand, DeleteServiceResult> deleteServiceHandler,
     ICommandHandler<AssignStaffMemberServiceCommand, AssignStaffMemberServiceResult> assignStaffMemberServiceHandler,
     IQueryHandler<ListAdminServicesQuery, ListAdminServicesResult> listAdminServicesHandler,
-    IQueryHandler<GetAdminServiceQuery, GetAdminServiceResult> getAdminServiceHandler) : ControllerBase
+    IQueryHandler<GetAdminServiceQuery, GetAdminServiceResult> getAdminServiceHandler,
+    IQueryHandler<ListStaffMemberServiceAssignmentsByServiceQuery, ListStaffMemberServiceAssignmentsResult> listStaffMemberServiceAssignmentsByServiceHandler) : ControllerBase
 {
     [HttpGet]
     [ProducesResponseType<IReadOnlyList<ServiceResponse>>(StatusCodes.Status200OK)]
@@ -263,6 +265,37 @@ public sealed class ServicesController(
         return StatusCode(StatusCodes.Status201Created, response);
     }
 
+    [HttpGet("{serviceId:guid}/staff-members")]
+    [ProducesResponseType<IReadOnlyList<StaffMemberServiceAssignmentResponse>>(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<IReadOnlyList<StaffMemberServiceAssignmentResponse>>> ListServiceStaffMemberAssignments(
+        Guid serviceId,
+        CancellationToken cancellationToken)
+    {
+        if (!TryGetBusinessId(out var businessId))
+        {
+            return Forbid();
+        }
+
+        var result = await listStaffMemberServiceAssignmentsByServiceHandler.HandleAsync(
+            new ListStaffMemberServiceAssignmentsByServiceQuery(businessId, serviceId),
+            cancellationToken);
+
+        if (!result.Succeeded)
+        {
+            return result.Error switch
+            {
+                ListStaffMemberServiceAssignmentsError.BusinessNotFound => NotFound(CreateBusinessNotFoundProblemDetails()),
+                ListStaffMemberServiceAssignmentsError.ServiceNotFound => NotFound(CreateServiceNotFoundProblemDetails()),
+                _ => BadRequest()
+            };
+        }
+
+        return Ok(result.Assignments.Select(MapStaffMemberServiceAssignment).ToList());
+    }
+
     private bool TryGetBusinessId(out Guid businessId)
     {
         var businessIdValue = User.FindFirstValue("business_id");
@@ -319,4 +352,11 @@ public sealed class ServicesController(
         service.IsActive,
         service.SortOrder,
         service.CreatedAtUtc);
+
+    private static StaffMemberServiceAssignmentResponse MapStaffMemberServiceAssignment(
+        StaffMemberServiceAssignmentDetails assignment) => new(
+            assignment.StaffMemberId,
+            assignment.ServiceId,
+            assignment.IsActive,
+            assignment.CreatedAtUtc);
 }

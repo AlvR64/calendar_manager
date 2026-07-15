@@ -23,6 +23,7 @@ using Calendar.Application.StaffMemberAvailabilityExceptions.CreateStaffMemberAv
 using Calendar.Application.StaffMemberAvailabilityExceptions.DeleteStaffMemberAvailabilityException;
 using Calendar.Application.StaffMemberAvailabilityExceptions.ListStaffMemberAvailabilityExceptions;
 using Calendar.Application.StaffMemberAvailabilityExceptions.UpdateStaffMemberAvailabilityException;
+using Calendar.Application.StaffMemberServices;
 using Calendar.Application.StaffMemberServices.AssignStaffMemberService;
 using Calendar.Application.StaffMemberServices.UnassignStaffMemberService;
 using Calendar.Application.StaffMemberServices.UpdateStaffMemberServiceActiveState;
@@ -56,6 +57,8 @@ public static class DependencyInjection
         services.AddScoped<ICommandHandler<AssignStaffMemberServiceCommand, AssignStaffMemberServiceResult>, AssignStaffMemberServiceCommandHandler>();
         services.AddScoped<ICommandHandler<UnassignStaffMemberServiceCommand, UnassignStaffMemberServiceResult>, UnassignStaffMemberServiceCommandHandler>();
         services.AddScoped<ICommandHandler<UpdateStaffMemberServiceActiveStateCommand, UpdateStaffMemberServiceActiveStateResult>, UpdateStaffMemberServiceActiveStateCommandHandler>();
+        services.AddScoped<IQueryHandler<ListStaffMemberServiceAssignmentsByStaffMemberQuery, ListStaffMemberServiceAssignmentsResult>, AdminStaffMemberServiceAssignmentQueryHandler>();
+        services.AddScoped<IQueryHandler<ListStaffMemberServiceAssignmentsByServiceQuery, ListStaffMemberServiceAssignmentsResult>, AdminStaffMemberServiceAssignmentQueryHandler>();
         services.AddScoped<ICommandHandler<CreateStaffMemberAvailabilityCommand, CreateStaffMemberAvailabilityResult>, CreateStaffMemberAvailabilityCommandHandler>();
         services.AddScoped<IQueryHandler<ListStaffMemberAvailabilitiesQuery, ListStaffMemberAvailabilitiesResult>, ListStaffMemberAvailabilitiesQueryHandler>();
         services.AddScoped<ICommandHandler<UpdateStaffMemberAvailabilityCommand, UpdateStaffMemberAvailabilityResult>, UpdateStaffMemberAvailabilityCommandHandler>();

@@ -12,6 +12,7 @@ using Calendar.Application.StaffMemberAvailabilityExceptions.CreateStaffMemberAv
 using Calendar.Application.StaffMemberAvailabilityExceptions.DeleteStaffMemberAvailabilityException;
 using Calendar.Application.StaffMemberAvailabilityExceptions.ListStaffMemberAvailabilityExceptions;
 using Calendar.Application.StaffMemberAvailabilityExceptions.UpdateStaffMemberAvailabilityException;
+using Calendar.Application.StaffMemberServices;
 using Calendar.Application.StaffMemberServices.AssignStaffMemberService;
 using Calendar.Application.StaffMemberServices.UnassignStaffMemberService;
 using Calendar.Application.StaffMemberServices.UpdateStaffMemberServiceActiveState;
@@ -36,6 +37,7 @@ public sealed class StaffMembersController(
     ICommandHandler<AssignStaffMemberServiceCommand, AssignStaffMemberServiceResult> assignStaffMemberServiceHandler,
     ICommandHandler<UnassignStaffMemberServiceCommand, UnassignStaffMemberServiceResult> unassignStaffMemberServiceHandler,
     ICommandHandler<UpdateStaffMemberServiceActiveStateCommand, UpdateStaffMemberServiceActiveStateResult> updateStaffMemberServiceActiveStateHandler,
+    IQueryHandler<ListStaffMemberServiceAssignmentsByStaffMemberQuery, ListStaffMemberServiceAssignmentsResult> listStaffMemberServiceAssignmentsByStaffMemberHandler,
     ICommandHandler<CreateStaffMemberAvailabilityCommand, CreateStaffMemberAvailabilityResult> createStaffMemberAvailabilityHandler,
     IQueryHandler<ListStaffMemberAvailabilitiesQuery, ListStaffMemberAvailabilitiesResult> listStaffMemberAvailabilitiesHandler,
     ICommandHandler<UpdateStaffMemberAvailabilityCommand, UpdateStaffMemberAvailabilityResult> updateStaffMemberAvailabilityHandler,
@@ -588,6 +590,37 @@ public sealed class StaffMembersController(
         return StatusCode(StatusCodes.Status201Created, response);
     }
 
+    [HttpGet("{staffMemberId:guid}/services")]
+    [ProducesResponseType<IReadOnlyList<StaffMemberServiceAssignmentResponse>>(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<IReadOnlyList<StaffMemberServiceAssignmentResponse>>> ListStaffMemberServiceAssignments(
+        Guid staffMemberId,
+        CancellationToken cancellationToken)
+    {
+        if (!TryGetBusinessId(out var businessId))
+        {
+            return Forbid();
+        }
+
+        var result = await listStaffMemberServiceAssignmentsByStaffMemberHandler.HandleAsync(
+            new ListStaffMemberServiceAssignmentsByStaffMemberQuery(businessId, staffMemberId),
+            cancellationToken);
+
+        if (!result.Succeeded)
+        {
+            return result.Error switch
+            {
+                ListStaffMemberServiceAssignmentsError.BusinessNotFound => NotFound(CreateBusinessNotFoundProblemDetails()),
+                ListStaffMemberServiceAssignmentsError.StaffMemberNotFound => NotFound(CreateStaffMemberNotFoundProblemDetails()),
+                _ => BadRequest()
+            };
+        }
+
+        return Ok(result.Assignments.Select(MapStaffMemberServiceAssignment).ToList());
+    }
+
     [HttpPut("{staffMemberId:guid}/services/{serviceId:guid}/active-state")]
     [ProducesResponseType<StaffMemberServiceAssignmentResponse>(StatusCodes.Status200OK)]
     [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest)]
@@ -819,6 +852,13 @@ public sealed class StaffMembersController(
         staffMember.IsActive,
         staffMember.SortOrder,
         staffMember.CreatedAtUtc);
+
+    private static StaffMemberServiceAssignmentResponse MapStaffMemberServiceAssignment(
+        StaffMemberServiceAssignmentDetails assignment) => new(
+            assignment.StaffMemberId,
+            assignment.ServiceId,
+            assignment.IsActive,
+            assignment.CreatedAtUtc);
 
     private static StaffMemberAvailabilityResponse MapAvailability(StaffMemberAvailabilityDetails availability) => new(
         availability.Id,

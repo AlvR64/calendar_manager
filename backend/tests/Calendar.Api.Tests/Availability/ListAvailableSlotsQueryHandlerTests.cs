@@ -252,6 +252,10 @@ public sealed class ListAvailableSlotsQueryHandlerTests
 
         public Task<IReadOnlyList<StaffMemberService>> ListActiveByBusinessIdAsync(Guid businessId, CancellationToken cancellationToken) => throw new NotSupportedException();
 
+        public Task<IReadOnlyList<StaffMemberService>> ListByBusinessIdAndStaffMemberIdAsync(Guid businessId, Guid staffMemberId, CancellationToken cancellationToken) => throw new NotSupportedException();
+
+        public Task<IReadOnlyList<StaffMemberService>> ListByBusinessIdAndServiceIdAsync(Guid businessId, Guid serviceId, CancellationToken cancellationToken) => throw new NotSupportedException();
+
         public void Add(StaffMemberService staffMemberService) => throw new NotSupportedException();
 
         public void Remove(StaffMemberService staffMemberService) => throw new NotSupportedException();

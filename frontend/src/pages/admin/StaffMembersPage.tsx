@@ -3,10 +3,17 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { useEffect, useMemo, useState, type ReactNode } from 'react';
 import { useForm } from 'react-hook-form';
 
-import type { StaffMemberResponse } from '@/api/contracts';
+import type { ServiceResponse, StaffMemberResponse, StaffMemberServiceAssignmentResponse } from '@/api/contracts';
 import { getApiErrorMessage } from '@/api/apiErrors';
 import { getAuthSession } from '@/auth/authStorage';
 import { ApiErrorAlert, FieldError, inputClassName, labelClassName, primaryButtonClassName } from '@/features/auth/authUi';
+import { listServices } from '@/features/services/serviceApi';
+import {
+  assignServiceToStaffMember,
+  listStaffMemberServiceAssignments,
+  unassignServiceFromStaffMember,
+  updateStaffMemberServiceAssignmentActiveState,
+} from '@/features/staffMemberServices/staffMemberServiceApi';
 import {
   createStaffMember,
   deleteStaffMember,
@@ -17,6 +24,8 @@ import {
 import { type StaffMemberFormValues, emptyToNull, staffMemberFormSchema } from '@/features/staffMembers/staffMemberValidation';
 
 const staffMembersQueryKey = ['admin', 'staff-members'] as const;
+const servicesQueryKey = ['admin', 'services'] as const;
+const staffMemberAssignmentsQueryKey = (staffMemberId: string) => ['admin', 'staff-members', staffMemberId, 'services'] as const;
 
 export function StaffMembersPage() {
   const session = getAuthSession('Admin');
@@ -27,6 +36,11 @@ export function StaffMembersPage() {
   const staffMembersQuery = useQuery({
     queryFn: () => listStaffMembers(session!.token),
     queryKey: staffMembersQueryKey,
+  });
+
+  const servicesQuery = useQuery({
+    queryFn: () => listServices(session!.token),
+    queryKey: servicesQueryKey,
   });
 
   const staffMembers = useMemo(
@@ -107,14 +121,14 @@ export function StaffMembersPage() {
   const mutationError = createMutation.error ?? updateMutation.error ?? activeStateMutation.error ?? deleteMutation.error;
   const isSaving = createMutation.isPending || updateMutation.isPending;
 
-  if (staffMembersQuery.isPending) {
+  if (staffMembersQuery.isPending || servicesQuery.isPending) {
     return <StaffMembersSkeleton />;
   }
 
-  if (staffMembersQuery.isError) {
+  if (staffMembersQuery.isError || servicesQuery.isError) {
     return (
       <StaffMembersFrame activeStaffMembersCount={0} totalStaffMembersCount={0}>
-        <ApiErrorAlert message={getApiErrorMessage(staffMembersQuery.error)} />
+        <ApiErrorAlert message={getApiErrorMessage(staffMembersQuery.error ?? servicesQuery.error)} />
       </StaffMembersFrame>
     );
   }
@@ -182,6 +196,7 @@ export function StaffMembersPage() {
                       </button>
                     </div>
                   </div>
+                  <StaffMemberAssignmentsPanel services={servicesQuery.data} staffMember={staffMember} token={session!.token} />
                 </article>
               ))
             )}
@@ -281,6 +296,128 @@ function StaffMembersSkeleton() {
 
 function SuccessAlert({ message }: { message: string }) {
   return <div className="rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-bold text-emerald-700">{message}</div>;
+}
+
+function StaffMemberAssignmentsPanel({ services, staffMember, token }: { services: ServiceResponse[]; staffMember: StaffMemberResponse; token: string }) {
+  const queryClient = useQueryClient();
+  const [selectedServiceId, setSelectedServiceId] = useState('');
+  const [message, setMessage] = useState<string>();
+
+  const assignmentsQuery = useQuery({
+    queryFn: () => listStaffMemberServiceAssignments(staffMember.id, token),
+    queryKey: staffMemberAssignmentsQueryKey(staffMember.id),
+  });
+
+  const assignments = assignmentsQuery.data ?? [];
+  const assignedServiceIds = new Set(assignments.map((assignment) => assignment.serviceId));
+  const assignableServices = services.filter((service) => !assignedServiceIds.has(service.id));
+
+  const assignMutation = useMutation({
+    mutationFn: (serviceId: string) => assignServiceToStaffMember(staffMember.id, serviceId, token),
+    onSuccess: () => {
+      setMessage('Service asignado.');
+      setSelectedServiceId('');
+      queryClient.invalidateQueries({ queryKey: staffMemberAssignmentsQueryKey(staffMember.id) });
+    },
+  });
+
+  const activeStateMutation = useMutation({
+    mutationFn: (assignment: StaffMemberServiceAssignmentResponse) =>
+      updateStaffMemberServiceAssignmentActiveState(staffMember.id, assignment.serviceId, { isActive: !assignment.isActive }, token),
+    onSuccess: () => {
+      setMessage('Assignment actualizada.');
+      queryClient.invalidateQueries({ queryKey: staffMemberAssignmentsQueryKey(staffMember.id) });
+    },
+  });
+
+  const unassignMutation = useMutation({
+    mutationFn: (serviceId: string) => unassignServiceFromStaffMember(staffMember.id, serviceId, token),
+    onSuccess: () => {
+      setMessage('Service desasignado.');
+      queryClient.invalidateQueries({ queryKey: staffMemberAssignmentsQueryKey(staffMember.id) });
+    },
+  });
+
+  const mutationError = assignMutation.error ?? activeStateMutation.error ?? unassignMutation.error;
+
+  function handleAssign() {
+    setMessage(undefined);
+    if (!selectedServiceId) {
+      setMessage('Selecciona un service para asignar.');
+      return;
+    }
+
+    assignMutation.mutate(selectedServiceId);
+  }
+
+  function handleUnassign(assignment: StaffMemberServiceAssignmentResponse) {
+    setMessage(undefined);
+    const service = services.find((candidate) => candidate.id === assignment.serviceId);
+    if (!window.confirm(`Desasignar ${service?.name ?? 'este service'} de ${staffMember.displayName}?`)) {
+      return;
+    }
+
+    unassignMutation.mutate(assignment.serviceId);
+  }
+
+  return (
+    <div className="mt-5 rounded-[1.25rem] border border-slate-100 bg-slate-50 p-4">
+      <div className="flex flex-col gap-3 lg:flex-row lg:items-end lg:justify-between">
+        <div>
+          <p className="text-xs font-black uppercase tracking-[0.18em] text-indigo-600">Assignments</p>
+          <p className="mt-1 text-sm font-bold text-slate-600">Conecta este staff member con services.</p>
+        </div>
+        <div className="flex flex-col gap-2 sm:flex-row">
+          <select className={`${inputClassName} mt-0 min-w-56`} onChange={(event) => setSelectedServiceId(event.target.value)} value={selectedServiceId}>
+            <option value="">Selecciona service</option>
+            {assignableServices.map((service) => (
+              <option key={service.id} value={service.id}>
+                {service.name}{service.isActive ? '' : ' (inactive)'}
+              </option>
+            ))}
+          </select>
+          <button className="rounded-2xl bg-indigo-600 px-4 py-3 text-sm font-black text-white transition hover:bg-indigo-700 disabled:bg-slate-300" disabled={assignMutation.isPending || services.length === 0} onClick={handleAssign} type="button">
+            Asignar service
+          </button>
+        </div>
+      </div>
+
+      <div className="mt-4 grid gap-3">
+        <ApiErrorAlert message={mutationError ? getApiErrorMessage(mutationError) : assignmentsQuery.isError ? getApiErrorMessage(assignmentsQuery.error) : undefined} />
+        {message ? <div className="rounded-2xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-bold text-emerald-700">{message}</div> : null}
+        {assignmentsQuery.isPending ? (
+          <div className="h-16 animate-pulse rounded-2xl bg-slate-200" />
+        ) : assignments.length === 0 ? (
+          <p className="rounded-2xl border border-dashed border-slate-300 bg-white px-4 py-3 text-sm font-bold text-slate-500">Sin services asignados todavia.</p>
+        ) : (
+          assignments.map((assignment) => {
+            const service = services.find((candidate) => candidate.id === assignment.serviceId);
+            return (
+              <div className="flex flex-col gap-3 rounded-2xl border border-slate-200 bg-white p-3 md:flex-row md:items-center md:justify-between" key={assignment.serviceId}>
+                <div>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="text-sm font-black text-slate-900">{service?.name ?? 'Service no disponible'}</span>
+                    <span className={assignment.isActive ? 'rounded-full bg-emerald-100 px-2.5 py-1 text-xs font-black text-emerald-700' : 'rounded-full bg-slate-100 px-2.5 py-1 text-xs font-black text-slate-500'}>
+                      {assignment.isActive ? 'Assignment active' : 'Assignment inactive'}
+                    </span>
+                    {service && !service.isActive ? <span className="rounded-full bg-amber-100 px-2.5 py-1 text-xs font-black text-amber-700">Service inactive</span> : null}
+                  </div>
+                </div>
+                <div className="flex flex-wrap gap-2">
+                  <button className="rounded-xl border border-slate-200 px-3 py-2 text-sm font-black text-slate-700 hover:bg-slate-50 disabled:opacity-50" disabled={activeStateMutation.isPending} onClick={() => activeStateMutation.mutate(assignment)} type="button">
+                    {assignment.isActive ? 'Desactivar assignment' : 'Activar assignment'}
+                  </button>
+                  <button className="rounded-xl border border-red-200 px-3 py-2 text-sm font-black text-red-700 hover:bg-red-50 disabled:opacity-50" disabled={unassignMutation.isPending} onClick={() => handleUnassign(assignment)} type="button">
+                    Desasignar
+                  </button>
+                </div>
+              </div>
+            );
+          })
+        )}
+      </div>
+    </div>
+  );
 }
 
 function toFormValues(staffMember?: StaffMemberResponse): StaffMemberFormValues {

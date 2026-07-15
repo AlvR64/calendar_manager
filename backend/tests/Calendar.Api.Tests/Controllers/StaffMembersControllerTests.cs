@@ -13,6 +13,7 @@ using Calendar.Application.StaffMemberAvailabilityExceptions.CreateStaffMemberAv
 using Calendar.Application.StaffMemberAvailabilityExceptions.DeleteStaffMemberAvailabilityException;
 using Calendar.Application.StaffMemberAvailabilityExceptions.ListStaffMemberAvailabilityExceptions;
 using Calendar.Application.StaffMemberAvailabilityExceptions.UpdateStaffMemberAvailabilityException;
+using Calendar.Application.StaffMemberServices;
 using Calendar.Application.StaffMemberServices.AssignStaffMemberService;
 using Calendar.Application.StaffMemberServices.UnassignStaffMemberService;
 using Calendar.Application.StaffMemberServices.UpdateStaffMemberServiceActiveState;
@@ -1541,6 +1542,59 @@ public sealed class StaffMembersControllerTests
         problemDetails.Instance.Should().Be($"/api/staff-members/{staffMemberId}/services/{serviceId}");
     }
 
+    [Fact]
+    public async Task ListStaffMemberServiceAssignments_WhenStaffMemberExists_ReturnsOkResponse()
+    {
+        var businessId = Guid.NewGuid();
+        var staffMemberId = Guid.NewGuid();
+        var serviceId = Guid.NewGuid();
+        var createdAtUtc = DateTimeOffset.UtcNow;
+        var handler = new StubQueryHandler<ListStaffMemberServiceAssignmentsByStaffMemberQuery, ListStaffMemberServiceAssignmentsResult>(
+            ListStaffMemberServiceAssignmentsResult.Success([
+                new StaffMemberServiceAssignmentDetails(staffMemberId, serviceId, false, createdAtUtc)
+            ]));
+        var controller = CreateController(handler, businessId.ToString(), $"/api/staff-members/{staffMemberId}/services");
+        using var cancellationTokenSource = new CancellationTokenSource();
+
+        var result = await controller.ListStaffMemberServiceAssignments(staffMemberId, cancellationTokenSource.Token);
+
+        var okResult = result.Result.Should().BeOfType<OkObjectResult>().Subject;
+        var response = okResult.Value.Should().BeOfType<List<StaffMemberServiceAssignmentResponse>>().Subject;
+        response.Should().ContainSingle();
+        response[0].StaffMemberId.Should().Be(staffMemberId);
+        response[0].ServiceId.Should().Be(serviceId);
+        response[0].IsActive.Should().BeFalse();
+        response[0].CreatedAtUtc.Should().Be(createdAtUtc);
+        handler.Query.Should().Be(new ListStaffMemberServiceAssignmentsByStaffMemberQuery(businessId, staffMemberId));
+        handler.CancellationToken.Should().Be(cancellationTokenSource.Token);
+    }
+
+    private static StaffMembersController CreateController(
+        StubQueryHandler<ListStaffMemberServiceAssignmentsByStaffMemberQuery, ListStaffMemberServiceAssignmentsResult> handler,
+        string? businessIdClaimValue,
+        string requestPath) =>
+        CreateController(
+            CreateDefaultCreateStaffMemberHandler(),
+            CreateDefaultUpdateStaffMemberHandler(),
+            CreateDefaultUpdateStaffMemberActiveStateHandler(),
+            CreateDefaultDeleteStaffMemberHandler(),
+            CreateDefaultAssignStaffMemberServiceHandler(),
+            CreateDefaultUnassignStaffMemberServiceHandler(),
+            CreateDefaultUpdateStaffMemberServiceActiveStateHandler(),
+            CreateDefaultCreateStaffMemberAvailabilityHandler(),
+            CreateDefaultListStaffMemberAvailabilitiesHandler(),
+            CreateDefaultUpdateStaffMemberAvailabilityHandler(),
+            CreateDefaultDeleteStaffMemberAvailabilityHandler(),
+            CreateDefaultCreateStaffMemberAvailabilityExceptionHandler(),
+            CreateDefaultListStaffMemberAvailabilityExceptionsHandler(),
+            CreateDefaultUpdateStaffMemberAvailabilityExceptionHandler(),
+            CreateDefaultDeleteStaffMemberAvailabilityExceptionHandler(),
+            CreateDefaultListAdminStaffMembersHandler(),
+            CreateDefaultGetAdminStaffMemberHandler(),
+            businessIdClaimValue,
+            requestPath,
+            handler);
+
     private static StaffMembersController CreateController(
         StubCreateStaffMemberHandler handler,
         string? businessIdClaimValue) =>
@@ -1984,7 +2038,8 @@ public sealed class StaffMembersControllerTests
         StubQueryHandler<ListAdminStaffMembersQuery, ListAdminStaffMembersResult> listAdminStaffMembersHandler,
         StubQueryHandler<GetAdminStaffMemberQuery, GetAdminStaffMemberResult> getAdminStaffMemberHandler,
         string? businessIdClaimValue,
-        string requestPath)
+        string requestPath,
+        StubQueryHandler<ListStaffMemberServiceAssignmentsByStaffMemberQuery, ListStaffMemberServiceAssignmentsResult>? listStaffMemberServiceAssignmentsByStaffMemberHandler = null)
     {
         var claims = new List<Claim>();
         if (businessIdClaimValue is not null)
@@ -2000,6 +2055,7 @@ public sealed class StaffMembersControllerTests
             assignStaffMemberServiceHandler,
             unassignStaffMemberServiceHandler,
             updateStaffMemberServiceActiveStateHandler,
+            listStaffMemberServiceAssignmentsByStaffMemberHandler ?? CreateDefaultListStaffMemberServiceAssignmentsByStaffMemberHandler(),
             createStaffMemberAvailabilityHandler,
             listStaffMemberAvailabilitiesHandler,
             updateStaffMemberAvailabilityHandler,
@@ -2138,6 +2194,9 @@ public sealed class StaffMembersControllerTests
         return new StubCommandHandler<UpdateStaffMemberServiceActiveStateCommand, UpdateStaffMemberServiceActiveStateResult>(
             UpdateStaffMemberServiceActiveStateResult.Success(staffMemberId, serviceId, true, DateTimeOffset.UtcNow));
     }
+
+    private static StubQueryHandler<ListStaffMemberServiceAssignmentsByStaffMemberQuery, ListStaffMemberServiceAssignmentsResult> CreateDefaultListStaffMemberServiceAssignmentsByStaffMemberHandler() => new(
+        ListStaffMemberServiceAssignmentsResult.Success([]));
 
     private static StubCommandHandler<CreateStaffMemberAvailabilityCommand, CreateStaffMemberAvailabilityResult> CreateDefaultCreateStaffMemberAvailabilityHandler()
     {

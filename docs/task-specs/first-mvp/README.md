@@ -40,7 +40,7 @@ This table is a quick execution index. `../../../task-groups-roadmap.md` remains
 | `02-business-settings.md` | Done | `0.11`, `1.2`, `1.6` | Frontend implemented and roadmap updated. |
 | `03-services.md` | Done | `2.1`-`2.5` | Frontend implemented and roadmap updated. |
 | `04-staff-members.md` | Done | `3.1`-`3.5` | Frontend implemented and roadmap updated. |
-| `05-staff-service-assignments.md` | Pending | `4.1`-`4.4` | Next recommended implementation slice; requires checking assignment listing needs. |
+| `05-staff-service-assignments.md` | Done | `4.1`-`4.6` | Frontend implemented; admin assignment listing endpoints added and roadmap updated. |
 | `06-availability.md` | Pending | `5.1`-`5.8`, `5.11`, `5.12` | Depends on staff members. |
 | `07-public-business-profile.md` | Pending | `0.10`, `11.1`-`11.7` | Depends on configured business/services/staff. |
 | `08-public-slot-flow.md` | Pending | `0.12`, `5.9`, `5.10`, `5.11`, `11.3`, `11.4`, `11.6` | Stops before appointment creation. |

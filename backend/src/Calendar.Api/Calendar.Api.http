@@ -305,6 +305,12 @@ Content-Type: application/json
 
 ###
 
+### List services assigned to staff member
+GET {{baseUrl}}/api/staff-members/{{staffMemberId}}/services
+Authorization: Bearer {{adminAccessToken}}
+
+###
+
 ### Assign service to staff member
 POST {{baseUrl}}/api/staff-members/{{staffMemberId}}/services/{{serviceId}}
 Authorization: Bearer {{adminAccessToken}}
@@ -324,6 +330,12 @@ Content-Type: application/json
 
 ### Unassign service from staff member
 DELETE {{baseUrl}}/api/staff-members/{{staffMemberId}}/services/{{serviceId}}
+Authorization: Bearer {{adminAccessToken}}
+
+###
+
+### List staff members assigned to service
+GET {{baseUrl}}/api/services/{{serviceId}}/staff-members
 Authorization: Bearer {{adminAccessToken}}
 
 ###

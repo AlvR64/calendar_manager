@@ -164,6 +164,17 @@ export type UpdateStaffMemberActiveStateRequest = {
   isActive: boolean;
 };
 
+export type StaffMemberServiceAssignmentResponse = {
+  staffMemberId: string;
+  serviceId: string;
+  isActive: boolean;
+  createdAtUtc: string;
+};
+
+export type UpdateStaffMemberServiceActiveStateRequest = {
+  isActive: boolean;
+};
+
 export type AvailableSlotResponse = {
   staffMemberId: string;
   localDate: string;

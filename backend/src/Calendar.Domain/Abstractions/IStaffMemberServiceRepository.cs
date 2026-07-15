@@ -19,6 +19,16 @@ public interface IStaffMemberServiceRepository
         Guid serviceId,
         CancellationToken cancellationToken);
 
+    Task<IReadOnlyList<StaffMemberService>> ListByBusinessIdAndStaffMemberIdAsync(
+        Guid businessId,
+        Guid staffMemberId,
+        CancellationToken cancellationToken);
+
+    Task<IReadOnlyList<StaffMemberService>> ListByBusinessIdAndServiceIdAsync(
+        Guid businessId,
+        Guid serviceId,
+        CancellationToken cancellationToken);
+
     void Add(StaffMemberService staffMemberService);
 
     void Remove(StaffMemberService staffMemberService);
