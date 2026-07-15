@@ -45,6 +45,8 @@ Start SQL Server, backend API, and frontend together:
 bash ./start-full-dev.sh
 ```
 
+The full dev script keeps the terminal attached to backend and frontend logs. This is expected; press `Ctrl+C` to stop both processes.
+
 Start only backend dependencies and API:
 
 ```bash
