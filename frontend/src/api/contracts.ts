@@ -245,8 +245,8 @@ export type UpdateStaffMemberAvailabilityExceptionRequest = CreateStaffMemberAva
 export type AvailableSlotResponse = {
   staffMemberId: string;
   localDate: string;
-  localStartTime: string;
-  localEndTime: string;
+  startTime: string;
+  endTime: string;
   startAtUtc: string;
   endAtUtc: string;
 };

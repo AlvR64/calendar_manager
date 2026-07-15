@@ -16,13 +16,13 @@ Mirror of `task-groups-roadmap.md` at spec creation time. The roadmap remains au
 
 | ID | Backend | Frontend | Diseno | Postpuesto |
 | --- | --- | --- | --- | --- |
-| `0.12` | [ ] | [ ] | [x] | [ ] |
-| `5.9` | [x] | [ ] | [x] | [ ] |
-| `5.10` | [x] | [ ] | [x] | [ ] |
-| `5.11` | [x] | [ ] | [x] | [ ] |
-| `11.3` | [x] | [ ] | [x] | [ ] |
-| `11.4` | [x] | [ ] | [x] | [ ] |
-| `11.6` | [x] | [ ] | [x] | [ ] |
+| `0.12` | [ ] | [x] | [x] | [ ] |
+| `5.9` | [x] | [x] | [x] | [ ] |
+| `5.10` | [x] | [x] | [x] | [ ] |
+| `5.11` | [x] | [x] | [x] | [ ] |
+| `11.3` | [x] | [x] | [x] | [ ] |
+| `11.4` | [x] | [x] | [x] | [ ] |
+| `11.6` | [x] | [x] | [x] | [ ] |
 
 ## Goal
 
@@ -106,16 +106,16 @@ Implement the public appointment slot selection flow up to selecting a slot, usi
 
 ## Acceptance Criteria
 
-- [ ] `/b/:slug/appointment` is not a placeholder.
-- [ ] Flow loads real business profile context.
-- [ ] User can select service, optional staff member, date, and slot.
-- [ ] Slots are fetched from real backend endpoints.
-- [ ] Outside-window and no-slot states are clear.
-- [ ] Flow stops after local slot selection and does not create an appointment.
-- [ ] UI follows `designs/public-appointment-slot-flow.op`.
-- [ ] Relevant frontend checks pass.
-- [ ] `task-groups-roadmap.md` is updated for completed frontend IDs.
+- [x] `/b/:slug/appointment` is not a placeholder.
+- [x] Flow loads real business profile context.
+- [x] User can select service, optional staff member, date, and slot.
+- [x] Slots are fetched from real backend endpoints.
+- [x] Outside-window and no-slot states are clear.
+- [x] Flow stops after local slot selection and does not create an appointment.
+- [x] UI follows `designs/public-appointment-slot-flow.op`.
+- [x] Relevant frontend checks pass.
+- [x] `task-groups-roadmap.md` is updated for completed frontend IDs.
 
 ## Open Questions
 
-- Should the flow require customer login before slot selection, or only after appointment creation exists in a later backend slice?
+- Resolved: customer login is not required before slot selection. Login/registration belongs to a later appointment creation step.

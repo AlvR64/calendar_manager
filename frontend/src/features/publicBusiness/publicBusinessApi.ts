@@ -1,4 +1,4 @@
-import type { BusinessProfileResponse, BusinessResponse, BusinessServiceResponse, BusinessStaffMemberResponse } from '@/api/contracts';
+import type { AvailableSlotResponse, BusinessProfileResponse, BusinessResponse, BusinessServiceResponse, BusinessStaffMemberResponse } from '@/api/contracts';
 import { apiRequest } from '@/api/httpClient';
 
 export function getPublicBusinessById(businessId: string) {
@@ -27,4 +27,16 @@ export function listPublicBusinessStaffMembers(businessId: string) {
 
 export function getPublicBusinessStaffMember(businessId: string, staffMemberId: string) {
   return apiRequest<BusinessStaffMemberResponse>(`/api/businesses/${businessId}/staff-members/${staffMemberId}`);
+}
+
+export function listPublicAvailableSlots(businessId: string, serviceId: string, date: string, staffMemberId?: string) {
+  const query = `date=${encodeURIComponent(date)}`;
+
+  if (staffMemberId) {
+    return apiRequest<AvailableSlotResponse[]>(
+      `/api/businesses/${businessId}/services/${serviceId}/staff-members/${staffMemberId}/available-slots?${query}`,
+    );
+  }
+
+  return apiRequest<AvailableSlotResponse[]>(`/api/businesses/${businessId}/services/${serviceId}/available-slots?${query}`);
 }

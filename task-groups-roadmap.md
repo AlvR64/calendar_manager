@@ -25,7 +25,7 @@ Este archivo es la fuente unica del roadmap. Backend, frontend y disenos deben m
 | 0.9 | Anadir test smoke del shell frontend. | [ ] | [x] | [ ] | [ ] |
 | 0.10 | Implementar pagina principal publica tipo marketplace. | [ ] | [x] | [x] | [ ] |
 | 0.11 | Implementar business admin shell/layout base. | [ ] | [x] | [x] | [ ] |
-| 0.12 | Implementar flujo publico de seleccion de appointment hasta elegir slot. | [ ] | [ ] | [x] | [ ] |
+| 0.12 | Implementar flujo publico de seleccion de appointment hasta elegir slot. | [ ] | [x] | [x] | [ ] |
 
 ## 1. Gestion Del Business Por Admin
 
@@ -86,9 +86,9 @@ Este archivo es la fuente unica del roadmap. Backend, frontend y disenos deben m
 | 5.6 | Listar excepciones de disponibilidad de un staff member. | [x] | [x] | [x] | [ ] |
 | 5.7 | Actualizar excepcion de disponibilidad. | [x] | [x] | [x] | [ ] |
 | 5.8 | Eliminar excepcion de disponibilidad. | [x] | [x] | [x] | [ ] |
-| 5.9 | Calcular slots disponibles para business + service + fecha. | [x] | [ ] | [x] | [ ] |
-| 5.10 | Calcular slots disponibles para business + service + staff member + fecha. | [x] | [ ] | [x] | [ ] |
-| 5.11 | Validar que un appointment caiga dentro de disponibilidad y fuera de excepciones. | [x] | [ ] | [x] | [ ] |
+| 5.9 | Calcular slots disponibles para business + service + fecha. | [x] | [x] | [x] | [ ] |
+| 5.10 | Calcular slots disponibles para business + service + staff member + fecha. | [x] | [x] | [x] | [ ] |
+| 5.11 | Validar que un appointment caiga dentro de disponibilidad y fuera de excepciones. | [x] | [x] | [x] | [ ] |
 | 5.12 | Validar que un appointment no solape con otro appointment activo. | [x] | [ ] | [ ] | [ ] |
 
 ## 6. Appointments / Reservas
@@ -218,7 +218,7 @@ Este apartado lista el subconjunto inicial que debe quedar completo en backend, 
 | 0.9 | Anadir test smoke del shell frontend. | [ ] | [x] | [ ] | [ ] |
 | 0.10 | Implementar pagina principal publica tipo marketplace. | [ ] | [x] | [x] | [ ] |
 | 0.11 | Implementar business admin shell/layout base. | [ ] | [x] | [x] | [ ] |
-| 0.12 | Implementar flujo publico de seleccion de appointment hasta elegir slot. | [ ] | [ ] | [x] | [ ] |
+| 0.12 | Implementar flujo publico de seleccion de appointment hasta elegir slot. | [ ] | [x] | [x] | [ ] |
 | 1.1 | Registrar business con su admin inicial. | [x] | [x] | [x] | [ ] |
 | 1.2 | Actualizar datos publicos del business: nombre, descripcion, contacto, web, direccion, timezone, moneda. | [x] | [x] | [x] | [ ] |
 | 1.6 | Configurar ventana maxima de reserva: por ejemplo hasta 30/60/90 dias. | [x] | [x] | [x] | [ ] |
@@ -246,9 +246,9 @@ Este apartado lista el subconjunto inicial que debe quedar completo en backend, 
 | 5.6 | Listar excepciones de disponibilidad de un staff member. | [x] | [x] | [x] | [ ] |
 | 5.7 | Actualizar excepcion de disponibilidad. | [x] | [x] | [x] | [ ] |
 | 5.8 | Eliminar excepcion de disponibilidad. | [x] | [x] | [x] | [ ] |
-| 5.9 | Calcular slots disponibles para business + service + fecha. | [x] | [ ] | [x] | [ ] |
-| 5.10 | Calcular slots disponibles para business + service + staff member + fecha. | [x] | [ ] | [x] | [ ] |
-| 5.11 | Validar que un appointment caiga dentro de disponibilidad y fuera de excepciones. | [x] | [ ] | [x] | [ ] |
+| 5.9 | Calcular slots disponibles para business + service + fecha. | [x] | [x] | [x] | [ ] |
+| 5.10 | Calcular slots disponibles para business + service + staff member + fecha. | [x] | [x] | [x] | [ ] |
+| 5.11 | Validar que un appointment caiga dentro de disponibilidad y fuera de excepciones. | [x] | [x] | [x] | [ ] |
 | 5.12 | Validar que un appointment no solape con otro appointment activo. | [x] | [ ] | [ ] | [ ] |
 | 7.1 | Registrar customer. | [x] | [x] | [x] | [ ] |
 | 7.2 | Login de customer con JWT. | [x] | [x] | [x] | [ ] |
@@ -266,7 +266,7 @@ Este apartado lista el subconjunto inicial que debe quedar completo en backend, 
 
 | Orden | Area | Backend | Frontend | Diseno |
 | --- | --- | --- | --- | --- |
-| 1 | Frontend Shell Y Public Landing | [ ] | [ ] | [x] |
+| 1 | Frontend Shell Y Public Landing | [ ] | [x] | [x] |
 | 2 | Customer Account y Admin Account Y Auth | [x] | [x] | [x] |
 | 3 | Gestion Del Business Por Admin | [x] | [x] | [x] |
 | 4 | Services | [x] | [x] | [x] |
@@ -274,7 +274,7 @@ Este apartado lista el subconjunto inicial que debe quedar completo en backend, 
 | 6 | Asignaciones Staff-Service | [x] | [x] | [x] |
 | 7 | Disponibilidad Y Horarios | [x] | [x] | [x] |
 | 8 | Business Publico Y Descubrimiento | [x] | [x] | [x] |
-| 9 | Flujo publico de slots hasta seleccion de appointment | [x] | [ ] | [x] |
+| 9 | Flujo publico de slots hasta seleccion de appointment | [x] | [x] | [x] |
 
 ## Suggested Implementation Order
 
