@@ -16,6 +16,14 @@
 - Use its group/use-case IDs when frontend task IDs are referenced.
 - Keep the frontend column synchronized as frontend work is completed.
 
+## Frontend Task Specs
+- Product/use-case specs live under `../docs/task-specs/`.
+- First MVP frontend specs live under `../docs/task-specs/first-mvp/`.
+- Before implementing a first MVP frontend slice, read the matching spec when it exists.
+- Create missing specs from `../docs/task-specs/TEMPLATE.md` when a slice needs clearer scope before implementation.
+- `../task-groups-roadmap.md` remains the source of truth for frontend status.
+- Mark the roadmap `Frontend` column only when the UI/API behavior is implemented and verified, not for placeholders.
+
 ## Product And Domain Language
 - Follow the root `AGENTS.md` domain language.
 - Use `Appointment`, not `Booking`.

@@ -18,6 +18,14 @@
 - Use its group/use-case IDs when task IDs are referenced.
 - Keep backend, frontend, and design columns synchronized as work is completed.
 
+## Task Specs
+- Product/use-case specs live under `docs/task-specs/`.
+- Specs describe scope, backend contracts, design references, implementation plans, tests, and acceptance criteria.
+- Specs do not replace `task-groups-roadmap.md`; the roadmap remains the source of truth for status.
+- Before implementing a roadmap item, read the matching spec when it exists.
+- Create new specs from `docs/task-specs/TEMPLATE.md` and keep them concise.
+- After completing a spec, update `task-groups-roadmap.md`.
+
 ## Domain Language
 - Use `Appointment`, not `Booking`, for customer reservations.
 - Appointments are scheduled against a `StaffMember`.

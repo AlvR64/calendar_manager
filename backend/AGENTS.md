@@ -14,6 +14,12 @@
 - Use its group/use-case IDs when backend task IDs are referenced.
 - Keep the backend column synchronized as backend work is completed.
 
+## Backend Task Specs
+- Product/use-case specs live under `../docs/task-specs/`.
+- For backend work tied to a product use case, read the matching spec when it exists.
+- Backend specs must keep API contracts, validation, errors, tests, and roadmap IDs aligned.
+- `../task-groups-roadmap.md` remains the source of truth for backend status.
+
 ## Architecture
 - Keep domain entities in `Calendar.Domain/Entities`.
 - EF Core mapping belongs in `Calendar.Infrastructure/Persistence/Configurations`.
