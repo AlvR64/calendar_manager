@@ -262,15 +262,17 @@ Este apartado lista el subconjunto inicial que debe quedar completo en backend, 
 
 ## Suggested First MVP Frontend Order
 
-1. Frontend Shell Y Public Landing `[ ]` Setup tecnico hecho; landing y shell visual pendientes.
-2. Customer Account y Admin Account Y Auth `[ ]`
-3. Gestion Del Business Por Admin `[ ]`
-4. Services `[ ]`
-5. Staff Members `[ ]`
-6. Asignaciones Staff-Service `[ ]`
-7. Disponibilidad Y Horarios `[ ]`
-8. Business Publico Y Descubrimiento `[ ]`
-9. Flujo publico de slots hasta seleccion de appointment `[ ]`
+| Orden | Area | Backend | Frontend | Diseno |
+| --- | --- | --- | --- | --- |
+| 1 | Frontend Shell Y Public Landing | [ ] | [ ] | [x] |
+| 2 | Customer Account y Admin Account Y Auth | [x] | [ ] | [x] |
+| 3 | Gestion Del Business Por Admin | [x] | [ ] | [x] |
+| 4 | Services | [x] | [ ] | [x] |
+| 5 | Staff Members | [x] | [ ] | [x] |
+| 6 | Asignaciones Staff-Service | [x] | [ ] | [x] |
+| 7 | Disponibilidad Y Horarios | [x] | [ ] | [x] |
+| 8 | Business Publico Y Descubrimiento | [x] | [ ] | [x] |
+| 9 | Flujo publico de slots hasta seleccion de appointment | [x] | [ ] | [x] |
 
 ## Suggested Implementation Order
 
