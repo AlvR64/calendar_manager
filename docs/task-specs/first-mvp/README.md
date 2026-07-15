@@ -32,14 +32,18 @@ Excluded for now:
 
 ## Specs
 
-- `01-auth-and-registration.md`
-- `02-business-settings.md`
-- `03-services.md`
-- `04-staff-members.md`
-- `05-staff-service-assignments.md`
-- `06-availability.md`
-- `07-public-business-profile.md`
-- `08-public-slot-flow.md`
+This table is a quick execution index. `../../../task-groups-roadmap.md` remains authoritative for backend, frontend, and design status.
+
+| Spec | Status | Roadmap IDs | Notes |
+| --- | --- | --- | --- |
+| `01-auth-and-registration.md` | Done | `1.1`, `7.1`, `7.2`, `8.1` | Frontend implemented and roadmap updated. |
+| `02-business-settings.md` | Done | `0.11`, `1.2`, `1.6` | Frontend implemented and roadmap updated. |
+| `03-services.md` | Done | `2.1`-`2.5` | Frontend implemented and roadmap updated. |
+| `04-staff-members.md` | Pending | `3.1`-`3.5` | Next recommended implementation slice. |
+| `05-staff-service-assignments.md` | Pending | `4.1`-`4.4` | Requires checking assignment listing needs. |
+| `06-availability.md` | Pending | `5.1`-`5.8`, `5.11`, `5.12` | Depends on staff members. |
+| `07-public-business-profile.md` | Pending | `0.10`, `11.1`-`11.7` | Depends on configured business/services/staff. |
+| `08-public-slot-flow.md` | Pending | `0.12`, `5.9`, `5.10`, `5.11`, `11.3`, `11.4`, `11.6` | Stops before appointment creation. |
 
 Update each spec as needed before implementing that slice. Create additional specs from `../TEMPLATE.md` only when new first MVP slices are added.
 
