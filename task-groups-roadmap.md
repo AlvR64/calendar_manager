@@ -23,7 +23,7 @@ Este archivo es la fuente unica del roadmap. Backend, frontend y disenos deben m
 | 0.7 | Crear cliente HTTP base con API URL desde `VITE_API_BASE_URL`. | [ ] | [x] | [ ] | [ ] |
 | 0.8 | Crear storage de auth MVP y guard de rutas admin. | [ ] | [x] | [ ] | [ ] |
 | 0.9 | Anadir test smoke del shell frontend. | [ ] | [x] | [ ] | [ ] |
-| 0.10 | Implementar pagina principal publica tipo marketplace. | [ ] | [ ] | [x] | [ ] |
+| 0.10 | Implementar pagina principal publica tipo marketplace. | [ ] | [x] | [x] | [ ] |
 | 0.11 | Implementar business admin shell/layout base. | [ ] | [x] | [x] | [ ] |
 | 0.12 | Implementar flujo publico de seleccion de appointment hasta elegir slot. | [ ] | [ ] | [x] | [ ] |
 
@@ -155,13 +155,13 @@ Nota para 6.14: para MVP se prefiere lock transaccional tipo SQL Server `sp_geta
 
 | ID | Caso de uso | Backend | Frontend | Diseno | Postpuesto |
 | --- | --- | --- | --- | --- | --- |
-| 11.1 | Obtener business publico por businessId. | [x] | [ ] | [x] | [ ] |
-| 11.2 | Obtener profile publico de business por businessId. | [x] | [ ] | [x] | [ ] |
-| 11.3 | Obtener profile publico de business por slug. | [x] | [ ] | [x] | [ ] |
-| 11.4 | Listar services activos de un business. | [x] | [ ] | [x] | [ ] |
-| 11.5 | Obtener un service activo concreto de un business. | [x] | [ ] | [x] | [ ] |
-| 11.6 | Listar staff members activos de un business. | [x] | [ ] | [x] | [ ] |
-| 11.7 | Obtener un staff member activo concreto de un business. | [x] | [ ] | [x] | [ ] |
+| 11.1 | Obtener business publico por businessId. | [x] | [x] | [x] | [ ] |
+| 11.2 | Obtener profile publico de business por businessId. | [x] | [x] | [x] | [ ] |
+| 11.3 | Obtener profile publico de business por slug. | [x] | [x] | [x] | [ ] |
+| 11.4 | Listar services activos de un business. | [x] | [x] | [x] | [ ] |
+| 11.5 | Obtener un service activo concreto de un business. | [x] | [x] | [x] | [ ] |
+| 11.6 | Listar staff members activos de un business. | [x] | [x] | [x] | [ ] |
+| 11.7 | Obtener un staff member activo concreto de un business. | [x] | [x] | [x] | [ ] |
 | 11.8 | Validar disponibilidad de slug y sugerir alternativas si ya esta ocupado. | [ ] | [ ] | [ ] | [ ] |
 | 11.9 | Buscar businesses publicos por texto, ciudad o categoria. | [ ] | [ ] | [ ] | [ ] |
 | 11.10 | Listar businesses publicos destacados o activos para landing/search. | [ ] | [ ] | [ ] | [ ] |
@@ -216,7 +216,7 @@ Este apartado lista el subconjunto inicial que debe quedar completo en backend, 
 | 0.7 | Crear cliente HTTP base con API URL desde `VITE_API_BASE_URL`. | [ ] | [x] | [ ] | [ ] |
 | 0.8 | Crear storage de auth MVP y guard de rutas admin. | [ ] | [x] | [ ] | [ ] |
 | 0.9 | Anadir test smoke del shell frontend. | [ ] | [x] | [ ] | [ ] |
-| 0.10 | Implementar pagina principal publica tipo marketplace. | [ ] | [ ] | [x] | [ ] |
+| 0.10 | Implementar pagina principal publica tipo marketplace. | [ ] | [x] | [x] | [ ] |
 | 0.11 | Implementar business admin shell/layout base. | [ ] | [x] | [x] | [ ] |
 | 0.12 | Implementar flujo publico de seleccion de appointment hasta elegir slot. | [ ] | [ ] | [x] | [ ] |
 | 1.1 | Registrar business con su admin inicial. | [x] | [x] | [x] | [ ] |
@@ -253,13 +253,13 @@ Este apartado lista el subconjunto inicial que debe quedar completo en backend, 
 | 7.1 | Registrar customer. | [x] | [x] | [x] | [ ] |
 | 7.2 | Login de customer con JWT. | [x] | [x] | [x] | [ ] |
 | 8.1 | Login de admin con JWT. | [x] | [x] | [x] | [ ] |
-| 11.1 | Obtener business publico por businessId. | [x] | [ ] | [x] | [ ] |
-| 11.2 | Obtener profile publico de business por businessId. | [x] | [ ] | [x] | [ ] |
-| 11.3 | Obtener profile publico de business por slug. | [x] | [ ] | [x] | [ ] |
-| 11.4 | Listar services activos de un business. | [x] | [ ] | [x] | [ ] |
-| 11.5 | Obtener un service activo concreto de un business. | [x] | [ ] | [x] | [ ] |
-| 11.6 | Listar staff members activos de un business. | [x] | [ ] | [x] | [ ] |
-| 11.7 | Obtener un staff member activo concreto de un business. | [x] | [ ] | [x] | [ ] |
+| 11.1 | Obtener business publico por businessId. | [x] | [x] | [x] | [ ] |
+| 11.2 | Obtener profile publico de business por businessId. | [x] | [x] | [x] | [ ] |
+| 11.3 | Obtener profile publico de business por slug. | [x] | [x] | [x] | [ ] |
+| 11.4 | Listar services activos de un business. | [x] | [x] | [x] | [ ] |
+| 11.5 | Obtener un service activo concreto de un business. | [x] | [x] | [x] | [ ] |
+| 11.6 | Listar staff members activos de un business. | [x] | [x] | [x] | [ ] |
+| 11.7 | Obtener un staff member activo concreto de un business. | [x] | [x] | [x] | [ ] |
 | 13.1 | Health check simple. | [x] | [ ] | [ ] | [ ] |
 
 ## Suggested First MVP Frontend Order
@@ -270,10 +270,10 @@ Este apartado lista el subconjunto inicial que debe quedar completo en backend, 
 | 2 | Customer Account y Admin Account Y Auth | [x] | [x] | [x] |
 | 3 | Gestion Del Business Por Admin | [x] | [x] | [x] |
 | 4 | Services | [x] | [x] | [x] |
-| 5 | Staff Members | [x] | [ ] | [x] |
-| 6 | Asignaciones Staff-Service | [x] | [ ] | [x] |
-| 7 | Disponibilidad Y Horarios | [x] | [ ] | [x] |
-| 8 | Business Publico Y Descubrimiento | [x] | [ ] | [x] |
+| 5 | Staff Members | [x] | [x] | [x] |
+| 6 | Asignaciones Staff-Service | [x] | [x] | [x] |
+| 7 | Disponibilidad Y Horarios | [x] | [x] | [x] |
+| 8 | Business Publico Y Descubrimiento | [x] | [x] | [x] |
 | 9 | Flujo publico de slots hasta seleccion de appointment | [x] | [ ] | [x] |
 
 ## Suggested Implementation Order

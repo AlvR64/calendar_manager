@@ -17,14 +17,14 @@ Mirror of `task-groups-roadmap.md` at spec creation time. The roadmap remains au
 
 | ID | Backend | Frontend | Diseno | Postpuesto |
 | --- | --- | --- | --- | --- |
-| `0.10` | [ ] | [ ] | [x] | [ ] |
-| `11.1` | [x] | [ ] | [x] | [ ] |
-| `11.2` | [x] | [ ] | [x] | [ ] |
-| `11.3` | [x] | [ ] | [x] | [ ] |
-| `11.4` | [x] | [ ] | [x] | [ ] |
-| `11.5` | [x] | [ ] | [x] | [ ] |
-| `11.6` | [x] | [ ] | [x] | [ ] |
-| `11.7` | [x] | [ ] | [x] | [ ] |
+| `0.10` | [ ] | [x] | [x] | [ ] |
+| `11.1` | [x] | [x] | [x] | [ ] |
+| `11.2` | [x] | [x] | [x] | [ ] |
+| `11.3` | [x] | [x] | [x] | [ ] |
+| `11.4` | [x] | [x] | [x] | [ ] |
+| `11.5` | [x] | [x] | [x] | [ ] |
+| `11.6` | [x] | [x] | [x] | [ ] |
+| `11.7` | [x] | [x] | [x] | [ ] |
 
 ## Goal
 
@@ -105,14 +105,14 @@ The primary route should use `GET /api/businesses/by-slug/{slug}/profile` to avo
 
 ## Acceptance Criteria
 
-- [ ] `/` is not a placeholder and follows `designs/homepage.op`.
-- [ ] `/b/:slug` loads real backend profile data.
-- [ ] Active services and staff members are displayed.
-- [ ] Missing business renders a clear not found state.
-- [ ] CTA routes to `/b/:slug/appointment`.
-- [ ] Relevant frontend checks pass.
-- [ ] `task-groups-roadmap.md` is updated for completed frontend IDs.
+- [x] `/` is not a placeholder and follows `designs/homepage.op`.
+- [x] `/b/:slug` loads real backend profile data.
+- [x] Active services and staff members are displayed.
+- [x] Missing business renders a clear not found state.
+- [x] CTA routes to `/b/:slug/appointment`.
+- [x] Relevant frontend checks pass.
+- [x] `task-groups-roadmap.md` is updated for completed frontend IDs.
 
 ## Open Questions
 
-- Should the first MVP homepage use static content only, or should it include a manually entered business slug/search shortcut until public search endpoints exist?
+- Resolved: the first MVP homepage uses static content and a demo profile link. Public search and featured business endpoints remain out of scope.

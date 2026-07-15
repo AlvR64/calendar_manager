@@ -112,6 +112,34 @@ export type BusinessBookingWindowResponse = {
   maxAdvanceBookingDays: number;
 };
 
+export type BusinessProfileResponse = {
+  business: BusinessResponse;
+  services: BusinessServiceResponse[];
+  staffMembers: BusinessStaffMemberResponse[];
+  assignments: BusinessStaffMemberServiceAssignmentResponse[];
+};
+
+export type BusinessServiceResponse = {
+  id: string;
+  name: string;
+  description?: string | null;
+  durationMinutes: number;
+  priceAmount: number;
+  sortOrder: number;
+};
+
+export type BusinessStaffMemberResponse = {
+  id: string;
+  displayName: string;
+  bio?: string | null;
+  sortOrder: number;
+};
+
+export type BusinessStaffMemberServiceAssignmentResponse = {
+  staffMemberId: string;
+  serviceId: string;
+};
+
 export type ServiceResponse = {
   id: string;
   businessId: string;
