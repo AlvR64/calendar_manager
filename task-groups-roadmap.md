@@ -54,11 +54,11 @@ Este archivo es la fuente unica del roadmap. Backend, frontend y disenos deben m
 
 | ID | Caso de uso | Backend | Frontend | Diseno | Postpuesto |
 | --- | --- | --- | --- | --- | --- |
-| 3.1 | Crear staff member para el business del admin autenticado. | [x] | [ ] | [x] | [ ] |
-| 3.2 | Listar staff members del business para admin, incluyendo inactivos. | [x] | [ ] | [x] | [ ] |
-| 3.3 | Obtener staff member por id para admin, incluyendo inactivos. | [x] | [ ] | [x] | [ ] |
-| 3.4 | Actualizar staff member: nombre, email, telefono, bio, orden. | [x] | [ ] | [x] | [ ] |
-| 3.5 | Desactivar/eliminar staff member. | [x] | [ ] | [x] | [ ] |
+| 3.1 | Crear staff member para el business del admin autenticado. | [x] | [x] | [x] | [ ] |
+| 3.2 | Listar staff members del business para admin, incluyendo inactivos. | [x] | [x] | [x] | [ ] |
+| 3.3 | Obtener staff member por id para admin, incluyendo inactivos. | [x] | [x] | [x] | [ ] |
+| 3.4 | Actualizar staff member: nombre, email, telefono, bio, orden. | [x] | [x] | [x] | [ ] |
+| 3.5 | Desactivar/eliminar staff member. | [x] | [x] | [x] | [ ] |
 | 3.6 | Anadir avatar/foto de staff member. | [ ] | [ ] | [ ] | [x] |
 
 ## 4. Asignaciones Staff-Service
@@ -227,11 +227,11 @@ Este apartado lista el subconjunto inicial que debe quedar completo en backend, 
 | 2.3 | Obtener service por id para admin, incluyendo inactivos. | [x] | [x] | [x] | [ ] |
 | 2.4 | Actualizar service: nombre, descripcion, duracion, precio, orden. | [x] | [x] | [x] | [ ] |
 | 2.5 | Desactivar/eliminar service. | [x] | [x] | [x] | [ ] |
-| 3.1 | Crear staff member para el business del admin autenticado. | [x] | [ ] | [x] | [ ] |
-| 3.2 | Listar staff members del business para admin, incluyendo inactivos. | [x] | [ ] | [x] | [ ] |
-| 3.3 | Obtener staff member por id para admin, incluyendo inactivos. | [x] | [ ] | [x] | [ ] |
-| 3.4 | Actualizar staff member: nombre, email, telefono, bio, orden. | [x] | [ ] | [x] | [ ] |
-| 3.5 | Desactivar/eliminar staff member. | [x] | [ ] | [x] | [ ] |
+| 3.1 | Crear staff member para el business del admin autenticado. | [x] | [x] | [x] | [ ] |
+| 3.2 | Listar staff members del business para admin, incluyendo inactivos. | [x] | [x] | [x] | [ ] |
+| 3.3 | Obtener staff member por id para admin, incluyendo inactivos. | [x] | [x] | [x] | [ ] |
+| 3.4 | Actualizar staff member: nombre, email, telefono, bio, orden. | [x] | [x] | [x] | [ ] |
+| 3.5 | Desactivar/eliminar staff member. | [x] | [x] | [x] | [ ] |
 | 4.1 | Asignar service a staff member desde la ruta de staff. | [x] | [ ] | [x] | [ ] |
 | 4.2 | Asignar staff member a service desde la ruta de service. | [x] | [ ] | [x] | [ ] |
 | 4.3 | Desasignar service de staff member. | [x] | [ ] | [x] | [ ] |

@@ -150,6 +150,20 @@ export type StaffMemberResponse = {
   createdAtUtc: string;
 };
 
+export type CreateStaffMemberRequest = {
+  displayName: string;
+  email?: string | null;
+  phoneNumber?: string | null;
+  bio?: string | null;
+  sortOrder: number;
+};
+
+export type UpdateStaffMemberRequest = CreateStaffMemberRequest;
+
+export type UpdateStaffMemberActiveStateRequest = {
+  isActive: boolean;
+};
+
 export type AvailableSlotResponse = {
   staffMemberId: string;
   localDate: string;
