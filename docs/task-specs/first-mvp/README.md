@@ -30,7 +30,7 @@ Excluded for now:
 - Media uploads.
 - External calendar integrations.
 
-## Planned Specs
+## Specs
 
 - `01-auth-and-registration.md`
 - `02-business-settings.md`
@@ -41,7 +41,7 @@ Excluded for now:
 - `07-public-business-profile.md`
 - `08-public-slot-flow.md`
 
-Create each spec just before implementing that slice, using `../TEMPLATE.md`.
+Update each spec as needed before implementing that slice. Create additional specs from `../TEMPLATE.md` only when new first MVP slices are added.
 
 ## Completion Rule
 
