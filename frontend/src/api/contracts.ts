@@ -1,5 +1,76 @@
 export type AccountType = 'Admin' | 'Customer';
 
+export type LoginAdminRequest = {
+  email: string;
+  password: string;
+};
+
+export type LoginCustomerRequest = {
+  email: string;
+  password: string;
+};
+
+export type LoginAdminResponse = {
+  accessToken: string;
+  tokenType: string;
+  expiresAtUtc: string;
+  user: {
+    type: 'Admin';
+    id: string;
+    businessId: string;
+    email: string;
+    displayName: string;
+  };
+};
+
+export type LoginCustomerResponse = {
+  accessToken: string;
+  tokenType: string;
+  expiresAtUtc: string;
+  user: {
+    type: 'Customer';
+    id: string;
+    email: string;
+    firstName: string;
+    lastName?: string | null;
+  };
+};
+
+export type RegisterBusinessRequest = {
+  businessName: string;
+  businessSlug: string;
+  timeZoneId: string;
+  currencyCode: string;
+  adminEmail: string;
+  adminPassword: string;
+  adminDisplayName: string;
+};
+
+export type RegisterBusinessResponse = {
+  businessId: string;
+  businessSlug: string;
+  adminId: string;
+  adminEmail: string;
+  createdAtUtc: string;
+};
+
+export type RegisterCustomerRequest = {
+  email: string;
+  password: string;
+  firstName: string;
+  lastName?: string | null;
+  phoneNumber?: string | null;
+};
+
+export type RegisterCustomerResponse = {
+  customerId: string;
+  email: string;
+  firstName: string;
+  lastName?: string | null;
+  phoneNumber?: string | null;
+  createdAtUtc: string;
+};
+
 export type BusinessResponse = {
   id: string;
   name: string;

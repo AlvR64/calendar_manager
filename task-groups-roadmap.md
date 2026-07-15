@@ -31,7 +31,7 @@ Este archivo es la fuente unica del roadmap. Backend, frontend y disenos deben m
 
 | ID | Caso de uso | Backend | Frontend | Diseno | Postpuesto |
 | --- | --- | --- | --- | --- | --- |
-| 1.1 | Registrar business con su admin inicial. | [x] | [ ] | [x] | [ ] |
+| 1.1 | Registrar business con su admin inicial. | [x] | [x] | [x] | [ ] |
 | 1.2 | Actualizar datos publicos del business: nombre, descripcion, contacto, web, direccion, timezone, moneda. | [x] | [ ] | [x] | [ ] |
 | 1.3 | Activar/desactivar business desde admin. | [ ] | [ ] | [ ] | [x] |
 | 1.4 | Configurar politica de cancelacion del business. | [ ] | [ ] | [ ] | [x] |
@@ -116,8 +116,8 @@ Nota para 6.14: para MVP se prefiere lock transaccional tipo SQL Server `sp_geta
 
 | ID | Caso de uso | Backend | Frontend | Diseno | Postpuesto |
 | --- | --- | --- | --- | --- | --- |
-| 7.1 | Registrar customer. | [x] | [ ] | [x] | [ ] |
-| 7.2 | Login de customer con JWT. | [x] | [ ] | [x] | [ ] |
+| 7.1 | Registrar customer. | [x] | [x] | [x] | [ ] |
+| 7.2 | Login de customer con JWT. | [x] | [x] | [x] | [ ] |
 | 7.3 | Obtener perfil del customer autenticado. | [ ] | [ ] | [ ] | [ ] |
 | 7.4 | Actualizar perfil de customer. | [ ] | [ ] | [ ] | [ ] |
 | 7.5 | Cambiar password de customer. | [ ] | [ ] | [ ] | [ ] |
@@ -128,7 +128,7 @@ Nota para 6.14: para MVP se prefiere lock transaccional tipo SQL Server `sp_geta
 
 | ID | Caso de uso | Backend | Frontend | Diseno | Postpuesto |
 | --- | --- | --- | --- | --- | --- |
-| 8.1 | Login de admin con JWT. | [x] | [ ] | [x] | [ ] |
+| 8.1 | Login de admin con JWT. | [x] | [x] | [x] | [ ] |
 | 8.2 | Cambiar password de admin. | [ ] | [ ] | [ ] | [ ] |
 | 8.3 | Verificar email de admin. | [ ] | [ ] | [ ] | [ ] |
 | 8.4 | Resetear password por email. | [ ] | [ ] | [ ] | [ ] |
@@ -219,7 +219,7 @@ Este apartado lista el subconjunto inicial que debe quedar completo en backend, 
 | 0.10 | Implementar pagina principal publica tipo marketplace. | [ ] | [ ] | [x] | [ ] |
 | 0.11 | Implementar business admin shell/layout base. | [ ] | [ ] | [x] | [ ] |
 | 0.12 | Implementar flujo publico de seleccion de appointment hasta elegir slot. | [ ] | [ ] | [x] | [ ] |
-| 1.1 | Registrar business con su admin inicial. | [x] | [ ] | [x] | [ ] |
+| 1.1 | Registrar business con su admin inicial. | [x] | [x] | [x] | [ ] |
 | 1.2 | Actualizar datos publicos del business: nombre, descripcion, contacto, web, direccion, timezone, moneda. | [x] | [ ] | [x] | [ ] |
 | 1.6 | Configurar ventana maxima de reserva: por ejemplo hasta 30/60/90 dias. | [x] | [ ] | [x] | [ ] |
 | 2.1 | Crear service para el business del admin autenticado. | [x] | [ ] | [x] | [ ] |
@@ -248,9 +248,9 @@ Este apartado lista el subconjunto inicial que debe quedar completo en backend, 
 | 5.10 | Calcular slots disponibles para business + service + staff member + fecha. | [x] | [ ] | [x] | [ ] |
 | 5.11 | Validar que un appointment caiga dentro de disponibilidad y fuera de excepciones. | [x] | [ ] | [x] | [ ] |
 | 5.12 | Validar que un appointment no solape con otro appointment activo. | [x] | [ ] | [ ] | [ ] |
-| 7.1 | Registrar customer. | [x] | [ ] | [x] | [ ] |
-| 7.2 | Login de customer con JWT. | [x] | [ ] | [x] | [ ] |
-| 8.1 | Login de admin con JWT. | [x] | [ ] | [x] | [ ] |
+| 7.1 | Registrar customer. | [x] | [x] | [x] | [ ] |
+| 7.2 | Login de customer con JWT. | [x] | [x] | [x] | [ ] |
+| 8.1 | Login de admin con JWT. | [x] | [x] | [x] | [ ] |
 | 11.1 | Obtener business publico por businessId. | [x] | [ ] | [x] | [ ] |
 | 11.2 | Obtener profile publico de business por businessId. | [x] | [ ] | [x] | [ ] |
 | 11.3 | Obtener profile publico de business por slug. | [x] | [ ] | [x] | [ ] |
@@ -265,7 +265,7 @@ Este apartado lista el subconjunto inicial que debe quedar completo en backend, 
 | Orden | Area | Backend | Frontend | Diseno |
 | --- | --- | --- | --- | --- |
 | 1 | Frontend Shell Y Public Landing | [ ] | [ ] | [x] |
-| 2 | Customer Account y Admin Account Y Auth | [x] | [ ] | [x] |
+| 2 | Customer Account y Admin Account Y Auth | [x] | [x] | [x] |
 | 3 | Gestion Del Business Por Admin | [x] | [ ] | [x] |
 | 4 | Services | [x] | [ ] | [x] |
 | 5 | Staff Members | [x] | [ ] | [x] |

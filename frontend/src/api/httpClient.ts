@@ -2,6 +2,7 @@ import { env } from '@/config/env';
 
 export type ApiErrorDetails = {
   detail?: string;
+  errors?: Record<string, string[]>;
   status?: number;
   title?: string;
   type?: string;

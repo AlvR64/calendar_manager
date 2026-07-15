@@ -1,30 +1,68 @@
 import type { AccountType } from '@/api/contracts';
 
-const authTokenKey = 'calendar_manager.auth_token';
-const accountTypeKey = 'calendar_manager.account_type';
+const sessionKeyByAccountType = {
+  Admin: 'calendar_manager.admin_session',
+  Customer: 'calendar_manager.customer_session',
+} satisfies Record<AccountType, string>;
 
-export type AuthSession = {
-  accountType: AccountType;
+type BaseAuthSession = {
+  expiresAtUtc: string;
   token: string;
+  tokenType: string;
 };
 
-export function getAuthSession(): AuthSession | null {
-  const token = window.localStorage.getItem(authTokenKey);
-  const accountType = window.localStorage.getItem(accountTypeKey) as AccountType | null;
+export type AdminAuthSession = BaseAuthSession & {
+  accountType: 'Admin';
+  businessId: string;
+  displayName: string;
+  email: string;
+  id: string;
+};
 
-  if (!token || !accountType) {
-    return null;
+export type CustomerAuthSession = BaseAuthSession & {
+  accountType: 'Customer';
+  email: string;
+  firstName: string;
+  id: string;
+  lastName?: string | null;
+};
+
+export type AuthSession = AdminAuthSession | CustomerAuthSession;
+
+export function getAuthSession(accountType?: AccountType): AuthSession | null {
+  if (accountType) {
+    return readSession(accountType);
   }
 
-  return { accountType, token };
+  return readSession('Admin') ?? readSession('Customer');
 }
 
 export function setAuthSession(session: AuthSession): void {
-  window.localStorage.setItem(authTokenKey, session.token);
-  window.localStorage.setItem(accountTypeKey, session.accountType);
+  window.localStorage.setItem(sessionKeyByAccountType[session.accountType], JSON.stringify(session));
 }
 
-export function clearAuthSession(): void {
-  window.localStorage.removeItem(authTokenKey);
-  window.localStorage.removeItem(accountTypeKey);
+export function clearAuthSession(accountType?: AccountType): void {
+  if (accountType) {
+    window.localStorage.removeItem(sessionKeyByAccountType[accountType]);
+    return;
+  }
+
+  window.localStorage.removeItem(sessionKeyByAccountType.Admin);
+  window.localStorage.removeItem(sessionKeyByAccountType.Customer);
+}
+
+function readSession(accountType: AccountType): AuthSession | null {
+  const value = window.localStorage.getItem(sessionKeyByAccountType[accountType]);
+
+  if (!value) {
+    return null;
+  }
+
+  try {
+    const session = JSON.parse(value) as AuthSession;
+    return session.accountType === accountType && session.token ? session : null;
+  } catch {
+    window.localStorage.removeItem(sessionKeyByAccountType[accountType]);
+    return null;
+  }
 }
