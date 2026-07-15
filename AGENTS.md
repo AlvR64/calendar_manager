@@ -13,6 +13,11 @@
 - Customers reserve appointments for services with available staff members.
 - Staff members represent people/resources with agendas in the current MVP.
 
+## Unified Roadmap
+- `task-groups-roadmap.md` is the single source of truth for backend, frontend, and design task status.
+- Use its group/use-case IDs when task IDs are referenced.
+- Keep backend, frontend, and design columns synchronized as work is completed.
+
 ## Domain Language
 - Use `Appointment`, not `Booking`, for customer reservations.
 - Appointments are scheduled against a `StaffMember`.

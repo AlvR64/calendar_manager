@@ -12,10 +12,9 @@
 - Use Playwright for end-to-end flows if/when E2E coverage is introduced.
 
 ## Frontend Roadmap
-- `frontend-task-groups-roadmap.md` is the temporary frontend MVP task roadmap.
+- `../task-groups-roadmap.md` is the single source of truth for backend, frontend, and design task status.
 - Use its group/use-case IDs when frontend task IDs are referenced.
-- Keep it aligned with backend implemented use cases and OpenPencil designs under `designs/`.
-- Expect the file to evolve or be removed once those frontend MVP tasks are finished.
+- Keep the frontend column synchronized as frontend work is completed.
 
 ## Product And Domain Language
 - Follow the root `AGENTS.md` domain language.

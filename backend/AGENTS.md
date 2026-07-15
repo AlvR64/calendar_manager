@@ -10,9 +10,9 @@
 - Use `csharp-xunit` when adding or refactoring xUnit tests.
 
 ## Backend Roadmap
-- `backend-task-groups-roadmap.md` is the temporary backend task roadmap.
-- Use its group/use-case IDs when the user references backend task IDs.
-- Expect the file to be removed once those backend tasks are finished.
+- `../task-groups-roadmap.md` is the single source of truth for backend, frontend, and design task status.
+- Use its group/use-case IDs when backend task IDs are referenced.
+- Keep the backend column synchronized as backend work is completed.
 
 ## Architecture
 - Keep domain entities in `Calendar.Domain/Entities`.
