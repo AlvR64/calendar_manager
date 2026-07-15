@@ -43,11 +43,11 @@ Este archivo es la fuente unica del roadmap. Backend, frontend y disenos deben m
 
 | ID | Caso de uso | Backend | Frontend | Diseno | Postpuesto |
 | --- | --- | --- | --- | --- | --- |
-| 2.1 | Crear service para el business del admin autenticado. | [x] | [ ] | [x] | [ ] |
-| 2.2 | Listar services del business para admin, incluyendo inactivos. | [x] | [ ] | [x] | [ ] |
-| 2.3 | Obtener service por id para admin, incluyendo inactivos. | [x] | [ ] | [x] | [ ] |
-| 2.4 | Actualizar service: nombre, descripcion, duracion, precio, orden. | [x] | [ ] | [x] | [ ] |
-| 2.5 | Desactivar/eliminar service. | [x] | [ ] | [x] | [ ] |
+| 2.1 | Crear service para el business del admin autenticado. | [x] | [x] | [x] | [ ] |
+| 2.2 | Listar services del business para admin, incluyendo inactivos. | [x] | [x] | [x] | [ ] |
+| 2.3 | Obtener service por id para admin, incluyendo inactivos. | [x] | [x] | [x] | [ ] |
+| 2.4 | Actualizar service: nombre, descripcion, duracion, precio, orden. | [x] | [x] | [x] | [ ] |
+| 2.5 | Desactivar/eliminar service. | [x] | [x] | [x] | [ ] |
 | 2.6 | Anadir imagenes de services. | [ ] | [ ] | [ ] | [x] |
 
 ## 3. Staff Members
@@ -222,11 +222,11 @@ Este apartado lista el subconjunto inicial que debe quedar completo en backend, 
 | 1.1 | Registrar business con su admin inicial. | [x] | [x] | [x] | [ ] |
 | 1.2 | Actualizar datos publicos del business: nombre, descripcion, contacto, web, direccion, timezone, moneda. | [x] | [x] | [x] | [ ] |
 | 1.6 | Configurar ventana maxima de reserva: por ejemplo hasta 30/60/90 dias. | [x] | [x] | [x] | [ ] |
-| 2.1 | Crear service para el business del admin autenticado. | [x] | [ ] | [x] | [ ] |
-| 2.2 | Listar services del business para admin, incluyendo inactivos. | [x] | [ ] | [x] | [ ] |
-| 2.3 | Obtener service por id para admin, incluyendo inactivos. | [x] | [ ] | [x] | [ ] |
-| 2.4 | Actualizar service: nombre, descripcion, duracion, precio, orden. | [x] | [ ] | [x] | [ ] |
-| 2.5 | Desactivar/eliminar service. | [x] | [ ] | [x] | [ ] |
+| 2.1 | Crear service para el business del admin autenticado. | [x] | [x] | [x] | [ ] |
+| 2.2 | Listar services del business para admin, incluyendo inactivos. | [x] | [x] | [x] | [ ] |
+| 2.3 | Obtener service por id para admin, incluyendo inactivos. | [x] | [x] | [x] | [ ] |
+| 2.4 | Actualizar service: nombre, descripcion, duracion, precio, orden. | [x] | [x] | [x] | [ ] |
+| 2.5 | Desactivar/eliminar service. | [x] | [x] | [x] | [ ] |
 | 3.1 | Crear staff member para el business del admin autenticado. | [x] | [ ] | [x] | [ ] |
 | 3.2 | Listar staff members del business para admin, incluyendo inactivos. | [x] | [ ] | [x] | [ ] |
 | 3.3 | Obtener staff member por id para admin, incluyendo inactivos. | [x] | [ ] | [x] | [ ] |
@@ -267,7 +267,7 @@ Este apartado lista el subconjunto inicial que debe quedar completo en backend, 
 | 1 | Frontend Shell Y Public Landing | [ ] | [ ] | [x] |
 | 2 | Customer Account y Admin Account Y Auth | [x] | [x] | [x] |
 | 3 | Gestion Del Business Por Admin | [x] | [x] | [x] |
-| 4 | Services | [x] | [ ] | [x] |
+| 4 | Services | [x] | [x] | [x] |
 | 5 | Staff Members | [x] | [ ] | [x] |
 | 6 | Asignaciones Staff-Service | [x] | [ ] | [x] |
 | 7 | Disponibilidad Y Horarios | [x] | [ ] | [x] |

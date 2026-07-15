@@ -124,6 +124,20 @@ export type ServiceResponse = {
   createdAtUtc: string;
 };
 
+export type CreateServiceRequest = {
+  name: string;
+  description?: string | null;
+  durationMinutes: number;
+  priceAmount: number;
+  sortOrder: number;
+};
+
+export type UpdateServiceRequest = CreateServiceRequest;
+
+export type UpdateServiceActiveStateRequest = {
+  isActive: boolean;
+};
+
 export type StaffMemberResponse = {
   id: string;
   businessId: string;
