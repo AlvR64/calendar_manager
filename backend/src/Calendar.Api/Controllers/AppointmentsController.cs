@@ -1,9 +1,12 @@
 using System.Security.Claims;
 using Calendar.Api.Contracts.Appointments;
 using Calendar.Application.Abstractions.Messaging;
+using Calendar.Application.Appointments.CancelAdminAppointment;
 using Calendar.Application.Appointments.CreateAppointment;
 using Calendar.Application.Appointments.GetAppointmentDetails;
 using Calendar.Application.Appointments.ListAdminAppointments;
+using Calendar.Application.Appointments.UpdateAppointmentInternalNotes;
+using Calendar.Application.Appointments.UpdateAppointmentStatus;
 using Calendar.Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -14,6 +17,9 @@ namespace Calendar.Api.Controllers;
 [Route("api/appointments")]
 public sealed class AppointmentsController(
     ICommandHandler<CreateAppointmentCommand, CreateAppointmentResult> createAppointmentHandler,
+    ICommandHandler<CancelAdminAppointmentCommand, CancelAdminAppointmentResult> cancelAdminAppointmentHandler,
+    ICommandHandler<UpdateAppointmentStatusCommand, UpdateAppointmentStatusResult> updateAppointmentStatusHandler,
+    ICommandHandler<UpdateAppointmentInternalNotesCommand, UpdateAppointmentInternalNotesResult> updateAppointmentInternalNotesHandler,
     IQueryHandler<GetAppointmentDetailsQuery, AppointmentDetails?> getAppointmentDetailsHandler,
     IQueryHandler<ListAdminAppointmentsQuery, ListAdminAppointmentsResult> listAdminAppointmentsHandler) : ControllerBase
 {
@@ -57,6 +63,99 @@ public sealed class AppointmentsController(
         }
 
         return Ok(result.Appointments.Select(MapAppointmentSummary).ToList());
+    }
+
+    [Authorize(Roles = "Admin")]
+    [HttpPost("{appointmentId:guid}/cancel")]
+    [ProducesResponseType<AppointmentDetailsResponse>(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status409Conflict)]
+    public async Task<ActionResult<AppointmentDetailsResponse>> CancelAppointmentAsAdmin(
+        Guid appointmentId,
+        CancelAppointmentRequest request,
+        CancellationToken cancellationToken)
+    {
+        if (!TryGetAdminBusinessId(out var businessId))
+        {
+            return Forbid();
+        }
+
+        var result = await cancelAdminAppointmentHandler.HandleAsync(
+            new CancelAdminAppointmentCommand(businessId, appointmentId, request.CancellationReason),
+            cancellationToken);
+
+        if (!result.Succeeded)
+        {
+            return ToActionResult(result.Error!.Value);
+        }
+
+        return Ok(MapAppointmentDetails(result.Appointment!));
+    }
+
+    [Authorize(Roles = "Admin")]
+    [HttpPut("{appointmentId:guid}/status")]
+    [ProducesResponseType<AppointmentDetailsResponse>(StatusCodes.Status200OK)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status409Conflict)]
+    public async Task<ActionResult<AppointmentDetailsResponse>> UpdateAppointmentStatus(
+        Guid appointmentId,
+        UpdateAppointmentStatusRequest request,
+        CancellationToken cancellationToken)
+    {
+        if (!TryGetAdminBusinessId(out var businessId))
+        {
+            return Forbid();
+        }
+
+        if (!TryParseOperationalStatus(request.Status, out var status))
+        {
+            return BadRequest(CreateInvalidOperationalStatusProblemDetails());
+        }
+
+        var result = await updateAppointmentStatusHandler.HandleAsync(
+            new UpdateAppointmentStatusCommand(businessId, appointmentId, status),
+            cancellationToken);
+
+        if (!result.Succeeded)
+        {
+            return ToActionResult(result.Error!.Value);
+        }
+
+        return Ok(MapAppointmentDetails(result.Appointment!));
+    }
+
+    [Authorize(Roles = "Admin")]
+    [HttpPut("{appointmentId:guid}/internal-notes")]
+    [ProducesResponseType<AppointmentDetailsResponse>(StatusCodes.Status200OK)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<AppointmentDetailsResponse>> UpdateAppointmentInternalNotes(
+        Guid appointmentId,
+        UpdateAppointmentInternalNotesRequest request,
+        CancellationToken cancellationToken)
+    {
+        if (!TryGetAdminBusinessId(out var businessId))
+        {
+            return Forbid();
+        }
+
+        var result = await updateAppointmentInternalNotesHandler.HandleAsync(
+            new UpdateAppointmentInternalNotesCommand(businessId, appointmentId, request.InternalNotes),
+            cancellationToken);
+
+        if (!result.Succeeded)
+        {
+            return ToActionResult(result.Error!.Value);
+        }
+
+        return Ok(MapAppointmentDetails(result.Appointment!));
     }
 
     [Authorize(Roles = "Customer,Admin")]
@@ -163,6 +262,18 @@ public sealed class AppointmentsController(
         return true;
     }
 
+    private static bool TryParseOperationalStatus(string? value, out AppointmentStatus status)
+    {
+        if (!Enum.TryParse<AppointmentStatus>(value, ignoreCase: true, out var parsedStatus))
+        {
+            status = default;
+            return false;
+        }
+
+        status = parsedStatus;
+        return status is AppointmentStatus.Scheduled or AppointmentStatus.Completed or AppointmentStatus.NoShow;
+    }
+
     private ActionResult ToActionResult(CreateAppointmentError error) => error switch
     {
         CreateAppointmentError.BusinessNotFound => NotFound(CreateBusinessNotFoundProblemDetails()),
@@ -184,6 +295,31 @@ public sealed class AppointmentsController(
         ListAdminAppointmentsError.InvalidBusinessTimeZone => BadRequest(CreateInvalidBusinessTimeZoneProblemDetails()),
         ListAdminAppointmentsError.InvalidDateRange => BadRequest(CreateInvalidDateRangeProblemDetails()),
         ListAdminAppointmentsError.DateRangeTooLarge => BadRequest(CreateDateRangeTooLargeProblemDetails()),
+        _ => BadRequest()
+    };
+
+    private ActionResult ToActionResult(CancelAdminAppointmentError error) => error switch
+    {
+        CancelAdminAppointmentError.AppointmentNotFound => NotFound(CreateAppointmentNotFoundProblemDetails()),
+        CancelAdminAppointmentError.Forbidden => Forbid(),
+        CancelAdminAppointmentError.AlreadyCancelled => Conflict(CreateAppointmentAlreadyCancelledProblemDetails()),
+        _ => BadRequest()
+    };
+
+    private ActionResult ToActionResult(UpdateAppointmentStatusError error) => error switch
+    {
+        UpdateAppointmentStatusError.AppointmentNotFound => NotFound(CreateAppointmentNotFoundProblemDetails()),
+        UpdateAppointmentStatusError.Forbidden => Forbid(),
+        UpdateAppointmentStatusError.InvalidStatus => BadRequest(CreateInvalidOperationalStatusProblemDetails()),
+        UpdateAppointmentStatusError.AppointmentCancelled => Conflict(CreateAppointmentAlreadyCancelledProblemDetails()),
+        _ => BadRequest()
+    };
+
+    private ActionResult ToActionResult(UpdateAppointmentInternalNotesError error) => error switch
+    {
+        UpdateAppointmentInternalNotesError.AppointmentNotFound => NotFound(CreateAppointmentNotFoundProblemDetails()),
+        UpdateAppointmentInternalNotesError.Forbidden => Forbid(),
+        UpdateAppointmentInternalNotesError.InternalNotesTooLong => BadRequest(CreateInternalNotesTooLongProblemDetails()),
         _ => BadRequest()
     };
 
@@ -216,6 +352,30 @@ public sealed class AppointmentsController(
         Status = StatusCodes.Status400BadRequest,
         Title = "Invalid appointment status.",
         Detail = "The status filter must be a valid appointment status.",
+        Instance = HttpContext.Request.Path
+    };
+
+    private ProblemDetails CreateInvalidOperationalStatusProblemDetails() => new()
+    {
+        Status = StatusCodes.Status400BadRequest,
+        Title = "Invalid appointment status.",
+        Detail = "The appointment status must be Scheduled, Completed, or NoShow.",
+        Instance = HttpContext.Request.Path
+    };
+
+    private ProblemDetails CreateAppointmentAlreadyCancelledProblemDetails() => new()
+    {
+        Status = StatusCodes.Status409Conflict,
+        Title = "Appointment already cancelled.",
+        Detail = "The appointment is already cancelled.",
+        Instance = HttpContext.Request.Path
+    };
+
+    private ProblemDetails CreateInternalNotesTooLongProblemDetails() => new()
+    {
+        Status = StatusCodes.Status400BadRequest,
+        Title = "Appointment internal notes are too long.",
+        Detail = "Appointment internal notes must be 1000 characters or fewer.",
         Instance = HttpContext.Request.Path
     };
 
@@ -375,6 +535,7 @@ public sealed class AppointmentsController(
         details.EndTime,
         details.Status,
         details.CustomerNotes,
+        details.InternalNotes,
         details.CancelledAtUtc,
         details.CancellationReason,
         details.CreatedAtUtc);

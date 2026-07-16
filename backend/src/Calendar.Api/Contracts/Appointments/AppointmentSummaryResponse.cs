@@ -14,6 +14,7 @@ public sealed record AppointmentSummaryResponse(
     TimeOnly EndTime,
     string Status,
     string? CustomerNotes,
+    string? InternalNotes,
     DateTimeOffset? CancelledAtUtc,
     string? CancellationReason,
     DateTimeOffset CreatedAtUtc);

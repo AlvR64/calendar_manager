@@ -1,10 +1,13 @@
 using Calendar.Application.Abstractions.Messaging;
+using Calendar.Application.Appointments.CancelAdminAppointment;
 using Calendar.Application.Appointments.CancelCustomerAppointment;
 using Calendar.Application.Appointments.CreateAppointment;
 using Calendar.Application.Appointments.GetAppointmentDetails;
 using Calendar.Application.Appointments.ListAdminAppointments;
 using Calendar.Application.Appointments.ListCustomerAppointments;
 using Calendar.Application.Appointments.Scheduling;
+using Calendar.Application.Appointments.UpdateAppointmentInternalNotes;
+using Calendar.Application.Appointments.UpdateAppointmentStatus;
 using Calendar.Application.Auth.LoginAdmin;
 using Calendar.Application.Auth.LoginCustomer;
 using Calendar.Application.Auth.RegisterBusiness;
@@ -50,7 +53,10 @@ public static class DependencyInjection
         services.AddScoped<ICommandHandler<RegisterBusinessCommand, RegisterBusinessResult>, RegisterBusinessCommandHandler>();
         services.AddScoped<ICommandHandler<RegisterCustomerCommand, RegisterCustomerResult>, RegisterCustomerCommandHandler>();
         services.AddScoped<ICommandHandler<CreateAppointmentCommand, CreateAppointmentResult>, CreateAppointmentCommandHandler>();
+        services.AddScoped<ICommandHandler<CancelAdminAppointmentCommand, CancelAdminAppointmentResult>, CancelAdminAppointmentCommandHandler>();
         services.AddScoped<ICommandHandler<CancelCustomerAppointmentCommand, CancelCustomerAppointmentResult>, CancelCustomerAppointmentCommandHandler>();
+        services.AddScoped<ICommandHandler<UpdateAppointmentStatusCommand, UpdateAppointmentStatusResult>, UpdateAppointmentStatusCommandHandler>();
+        services.AddScoped<ICommandHandler<UpdateAppointmentInternalNotesCommand, UpdateAppointmentInternalNotesResult>, UpdateAppointmentInternalNotesCommandHandler>();
         services.AddScoped<IQueryHandler<GetAppointmentDetailsQuery, AppointmentDetails?>, GetAppointmentDetailsQueryHandler>();
         services.AddScoped<IQueryHandler<ListAdminAppointmentsQuery, ListAdminAppointmentsResult>, ListAdminAppointmentsQueryHandler>();
         services.AddScoped<IQueryHandler<ListCustomerAppointmentsQuery, IReadOnlyList<AppointmentDetails>>, ListCustomerAppointmentsQueryHandler>();

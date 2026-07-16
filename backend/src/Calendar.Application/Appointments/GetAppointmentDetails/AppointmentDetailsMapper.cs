@@ -43,6 +43,7 @@ public static class AppointmentDetailsMapper
             TimeOnly.FromDateTime(localEnd.DateTime),
             appointment.Status.ToString(),
             appointment.CustomerNotes,
+            appointment.InternalNotes,
             appointment.CancelledAtUtc,
             appointment.CancellationReason,
             appointment.CreatedAtUtc);

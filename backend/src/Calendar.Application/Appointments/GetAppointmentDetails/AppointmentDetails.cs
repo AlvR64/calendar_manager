@@ -13,6 +13,7 @@ public sealed record AppointmentDetails(
     TimeOnly EndTime,
     string Status,
     string? CustomerNotes,
+    string? InternalNotes,
     DateTimeOffset? CancelledAtUtc,
     string? CancellationReason,
     DateTimeOffset CreatedAtUtc);

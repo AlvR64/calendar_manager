@@ -155,6 +155,7 @@ public sealed class CustomerAppointmentsControllerTests
             new TimeOnly(10, 30),
             status,
             "Notas",
+            null,
             cancelledAtUtc,
             cancellationReason,
             DateTimeOffset.UtcNow);

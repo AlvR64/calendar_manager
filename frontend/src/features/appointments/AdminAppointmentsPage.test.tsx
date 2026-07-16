@@ -13,7 +13,10 @@ import * as staffMemberApi from '@/features/staffMembers/staffMemberApi';
 import { AdminAppointmentsPage } from '@/pages/admin/AdminAppointmentsPage';
 
 vi.mock('@/features/appointments/appointmentApi', () => ({
+  cancelAdminAppointment: vi.fn(),
   listAdminAppointments: vi.fn(),
+  updateAdminAppointmentInternalNotes: vi.fn(),
+  updateAdminAppointmentStatus: vi.fn(),
 }));
 
 vi.mock('@/features/services/serviceApi', () => ({
@@ -72,6 +75,7 @@ const appointment: AppointmentSummaryResponse = {
   endAtUtc: '2026-07-20T08:30:00Z',
   endTime: '10:30:00',
   id: 'appointment-1',
+  internalNotes: 'Preparar sala 2',
   localDate: '2026-07-20',
   service: {
     currencyCodeSnapshot: 'EUR',
@@ -117,7 +121,7 @@ describe('admin appointments page', () => {
     const user = userEvent.setup();
     await user.selectOptions(screen.getByLabelText(/staff member/i), 'staff-1');
     await user.selectOptions(screen.getByLabelText(/service/i), 'service-1');
-    await user.selectOptions(screen.getByLabelText(/status/i), 'CancelledByCustomer');
+    await user.selectOptions(screen.getAllByLabelText(/status/i)[0], 'CancelledByCustomer');
     await user.click(screen.getByRole('button', { name: /aplicar filtros/i }));
 
     await waitFor(() => {
@@ -126,6 +130,29 @@ describe('admin appointments page', () => {
         staffMemberId: 'staff-1',
         status: 'CancelledByCustomer',
       }));
+    });
+  });
+
+  it('runs admin appointment actions and refreshes the list', async () => {
+    arrangeSuccessfulQueries([appointment]);
+    vi.mocked(appointmentApi.cancelAdminAppointment).mockResolvedValue(toDetails({ ...appointment, status: 'CancelledByAdmin' }));
+    vi.mocked(appointmentApi.updateAdminAppointmentStatus).mockResolvedValue(toDetails({ ...appointment, status: 'Completed' }));
+    vi.mocked(appointmentApi.updateAdminAppointmentInternalNotes).mockResolvedValue(toDetails({ ...appointment, internalNotes: 'Nueva nota interna' }));
+    vi.spyOn(window, 'confirm').mockReturnValue(true);
+    renderWithProviders(<AdminAppointmentsPage />);
+    await screen.findByText('2026-07-20');
+
+    const user = userEvent.setup();
+    await user.selectOptions(screen.getAllByLabelText(/status/i)[1], 'Completed');
+    await user.click(screen.getByRole('button', { name: /cancelar/i }));
+    await user.clear(screen.getByLabelText(/notas internas/i));
+    await user.type(screen.getByLabelText(/notas internas/i), 'Nueva nota interna');
+    await user.click(screen.getByRole('button', { name: /guardar notas/i }));
+
+    await waitFor(() => {
+      expect(appointmentApi.updateAdminAppointmentStatus).toHaveBeenCalledWith('appointment-1', { status: 'Completed' }, 'admin-token');
+      expect(appointmentApi.cancelAdminAppointment).toHaveBeenCalledWith('appointment-1', { cancellationReason: 'Cancelled by admin' }, 'admin-token');
+      expect(appointmentApi.updateAdminAppointmentInternalNotes).toHaveBeenCalledWith('appointment-1', { internalNotes: 'Nueva nota interna' }, 'admin-token');
     });
   });
 
@@ -154,6 +181,13 @@ function arrangeSuccessfulQueries(appointments: AppointmentSummaryResponse[]) {
   vi.mocked(staffMemberApi.listStaffMembers).mockResolvedValue(staffMembers);
   vi.mocked(serviceApi.listServices).mockResolvedValue(services);
   vi.mocked(appointmentApi.listAdminAppointments).mockResolvedValue(appointments);
+}
+
+function toDetails(appointment: AppointmentSummaryResponse) {
+  return {
+    ...appointment,
+    customer: appointment.customer,
+  };
 }
 
 function setAdminSession() {

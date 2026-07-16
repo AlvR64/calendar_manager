@@ -4,6 +4,8 @@
 
 Appointments MVP.
 
+Estado: done.
+
 ## IDs De Capacidad
 
 - `6.9`
@@ -14,9 +16,9 @@ Appointments MVP.
 
 | ID | Backend | Frontend | Diseno | Postpuesto |
 | --- | --- | --- | --- | --- |
-| `6.9` | [ ] | [ ] | [ ] | [ ] |
-| `6.11` | [ ] | [ ] | [ ] | [ ] |
-| `6.12` | [ ] | [ ] | [ ] | [ ] |
+| `6.9` | [x] | [x] | [ ] | [ ] |
+| `6.11` | [x] | [x] | [ ] | [ ] |
+| `6.12` | [x] | [x] | [ ] | [ ] |
 
 ## Objetivo
 
@@ -102,13 +104,13 @@ Permitir que el admin gestione appointments existentes: cancelar, cambiar estado
 
 ## Criterios De Aceptacion
 
-- [ ] Admin cancela appointment de su business.
-- [ ] Admin no actua sobre appointments de otro business.
-- [ ] Admin cambia estado operativo permitido.
-- [ ] Admin guarda notas internas.
-- [ ] Customer no ve notas internas.
-- [ ] Roadmap actualizado.
+- [x] Admin cancela appointment de su business.
+- [x] Admin no actua sobre appointments de otro business.
+- [x] Admin cambia estado operativo permitido.
+- [x] Admin guarda notas internas.
+- [x] Customer no ve notas internas.
+- [x] Roadmap actualizado.
 
 ## Preguntas Abiertas
 
-- Decidir si `Completed`/`NoShow` solo se permiten para appointments pasados o tambien manualmente en cualquier momento para MVP.
+- Resuelto para MVP: `Completed`/`NoShow` se permiten manualmente sobre appointments no cancelados sin validar si ya pasaron.

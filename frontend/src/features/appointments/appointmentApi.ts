@@ -1,4 +1,12 @@
-import type { AppointmentDetailsResponse, AppointmentResponse, AppointmentSummaryResponse, CancelAppointmentRequest, CreateAppointmentRequest } from '@/api/contracts';
+import type {
+  AppointmentDetailsResponse,
+  AppointmentResponse,
+  AppointmentSummaryResponse,
+  CancelAppointmentRequest,
+  CreateAppointmentRequest,
+  UpdateAppointmentInternalNotesRequest,
+  UpdateAppointmentStatusRequest,
+} from '@/api/contracts';
 import { apiRequest } from '@/api/httpClient';
 
 export function createAppointment(request: CreateAppointmentRequest, token: string) {
@@ -45,6 +53,30 @@ export function listAdminAppointments(token: string, filters: AdminAppointmentFi
   }
 
   return apiRequest<AppointmentSummaryResponse[]>(`/api/appointments?${searchParams.toString()}`, { token });
+}
+
+export function cancelAdminAppointment(appointmentId: string, request: CancelAppointmentRequest, token: string) {
+  return apiRequest<AppointmentDetailsResponse>(`/api/appointments/${appointmentId}/cancel`, {
+    body: request,
+    method: 'POST',
+    token,
+  });
+}
+
+export function updateAdminAppointmentStatus(appointmentId: string, request: UpdateAppointmentStatusRequest, token: string) {
+  return apiRequest<AppointmentDetailsResponse>(`/api/appointments/${appointmentId}/status`, {
+    body: request,
+    method: 'PUT',
+    token,
+  });
+}
+
+export function updateAdminAppointmentInternalNotes(appointmentId: string, request: UpdateAppointmentInternalNotesRequest, token: string) {
+  return apiRequest<AppointmentDetailsResponse>(`/api/appointments/${appointmentId}/internal-notes`, {
+    body: request,
+    method: 'PUT',
+    token,
+  });
 }
 
 export function listCustomerAppointments(token: string, filters: CustomerAppointmentFilters = {}) {

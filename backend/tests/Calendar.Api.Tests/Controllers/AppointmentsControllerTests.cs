@@ -2,9 +2,12 @@ using System.Security.Claims;
 using Calendar.Api.Contracts.Appointments;
 using Calendar.Api.Controllers;
 using Calendar.Application.Abstractions.Messaging;
+using Calendar.Application.Appointments.CancelAdminAppointment;
 using Calendar.Application.Appointments.CreateAppointment;
 using Calendar.Application.Appointments.GetAppointmentDetails;
 using Calendar.Application.Appointments.ListAdminAppointments;
+using Calendar.Application.Appointments.UpdateAppointmentInternalNotes;
+using Calendar.Application.Appointments.UpdateAppointmentStatus;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -86,6 +89,57 @@ public sealed class AppointmentsControllerTests
         problemDetails.Status.Should().Be(StatusCodes.Status400BadRequest);
         problemDetails.Title.Should().Be("Appointment date range is required.");
         listHandler.Query.Should().BeNull();
+    }
+
+    [Fact]
+    public async Task CancelAppointmentAsAdmin_WhenRequestIsValid_ReturnsCancelledAppointmentDetails()
+    {
+        var businessId = Guid.NewGuid();
+        var details = CreateDetails(businessId: businessId, status: "CancelledByAdmin");
+        var cancelHandler = new StubCancelAdminAppointmentHandler(CancelAdminAppointmentResult.Success(details));
+        var controller = CreateController(CreateDefaultCreateHandler(), cancelHandler, new StubUpdateAppointmentStatusHandler(UpdateAppointmentStatusResult.Success(details)), new StubUpdateAppointmentInternalNotesHandler(UpdateAppointmentInternalNotesResult.Success(details)), new StubGetAppointmentDetailsHandler(null), new StubListAdminAppointmentsHandler(ListAdminAppointmentsResult.Success([])), null, role: "Admin", businessId.ToString());
+
+        var result = await controller.CancelAppointmentAsAdmin(details.Id, new CancelAppointmentRequest { CancellationReason = "Closed" }, CancellationToken.None);
+
+        var okResult = result.Result.Should().BeOfType<OkObjectResult>().Subject;
+        var response = okResult.Value.Should().BeOfType<AppointmentDetailsResponse>().Subject;
+        response.Status.Should().Be("CancelledByAdmin");
+        cancelHandler.Command.Should().NotBeNull();
+        cancelHandler.Command!.BusinessId.Should().Be(businessId);
+        cancelHandler.Command.AppointmentId.Should().Be(details.Id);
+        cancelHandler.Command.CancellationReason.Should().Be("Closed");
+    }
+
+    [Fact]
+    public async Task UpdateAppointmentStatus_WhenStatusIsInvalid_ReturnsBadRequest()
+    {
+        var details = CreateDetails();
+        var statusHandler = new StubUpdateAppointmentStatusHandler(UpdateAppointmentStatusResult.Success(details));
+        var controller = CreateController(CreateDefaultCreateHandler(), new StubCancelAdminAppointmentHandler(CancelAdminAppointmentResult.Success(details)), statusHandler, new StubUpdateAppointmentInternalNotesHandler(UpdateAppointmentInternalNotesResult.Success(details)), new StubGetAppointmentDetailsHandler(null), new StubListAdminAppointmentsHandler(ListAdminAppointmentsResult.Success([])), null, role: "Admin", Guid.NewGuid().ToString());
+
+        var result = await controller.UpdateAppointmentStatus(details.Id, new UpdateAppointmentStatusRequest { Status = "CancelledByCustomer" }, CancellationToken.None);
+
+        var badRequest = result.Result.Should().BeOfType<BadRequestObjectResult>().Subject;
+        var problemDetails = badRequest.Value.Should().BeOfType<ProblemDetails>().Subject;
+        problemDetails.Status.Should().Be(StatusCodes.Status400BadRequest);
+        statusHandler.Command.Should().BeNull();
+    }
+
+    [Fact]
+    public async Task UpdateAppointmentInternalNotes_WhenRequestIsValid_UsesAdminBusinessId()
+    {
+        var businessId = Guid.NewGuid();
+        var details = CreateDetails(businessId: businessId, internalNotes: "Prep room 2");
+        var notesHandler = new StubUpdateAppointmentInternalNotesHandler(UpdateAppointmentInternalNotesResult.Success(details));
+        var controller = CreateController(CreateDefaultCreateHandler(), new StubCancelAdminAppointmentHandler(CancelAdminAppointmentResult.Success(details)), new StubUpdateAppointmentStatusHandler(UpdateAppointmentStatusResult.Success(details)), notesHandler, new StubGetAppointmentDetailsHandler(null), new StubListAdminAppointmentsHandler(ListAdminAppointmentsResult.Success([])), null, role: "Admin", businessId.ToString());
+
+        var result = await controller.UpdateAppointmentInternalNotes(details.Id, new UpdateAppointmentInternalNotesRequest { InternalNotes = "Prep room 2" }, CancellationToken.None);
+
+        result.Result.Should().BeOfType<OkObjectResult>();
+        notesHandler.Command.Should().NotBeNull();
+        notesHandler.Command!.BusinessId.Should().Be(businessId);
+        notesHandler.Command.AppointmentId.Should().Be(details.Id);
+        notesHandler.Command.InternalNotes.Should().Be("Prep room 2");
     }
 
     [Fact]
@@ -311,7 +365,7 @@ public sealed class AppointmentsControllerTests
             "EUR",
             DateTimeOffset.UtcNow);
 
-    private static AppointmentDetails CreateDetails(Guid? customerId = null, Guid? businessId = null)
+    private static AppointmentDetails CreateDetails(Guid? customerId = null, Guid? businessId = null, string status = "Scheduled", string? internalNotes = "Notas internas")
     {
         var startAtUtc = new DateTimeOffset(2026, 7, 20, 8, 0, 0, TimeSpan.Zero);
         var endAtUtc = startAtUtc.AddMinutes(30);
@@ -327,8 +381,9 @@ public sealed class AppointmentsControllerTests
             new DateOnly(2026, 7, 20),
             new TimeOnly(10, 0),
             new TimeOnly(10, 30),
-            "Scheduled",
+            status,
             "Notas",
+            internalNotes,
             null,
             null,
             DateTimeOffset.UtcNow);
@@ -353,7 +408,31 @@ public sealed class AppointmentsControllerTests
         string role,
         string? businessIdClaimValue)
     {
-        var controller = new AppointmentsController(createHandler, getHandler, listHandler)
+        var details = CreateDetails();
+        return CreateController(
+            createHandler,
+            new StubCancelAdminAppointmentHandler(CancelAdminAppointmentResult.Success(details)),
+            new StubUpdateAppointmentStatusHandler(UpdateAppointmentStatusResult.Success(details)),
+            new StubUpdateAppointmentInternalNotesHandler(UpdateAppointmentInternalNotesResult.Success(details)),
+            getHandler,
+            listHandler,
+            customerIdClaimValue,
+            role,
+            businessIdClaimValue);
+    }
+
+    private static AppointmentsController CreateController(
+        StubCreateAppointmentHandler createHandler,
+        StubCancelAdminAppointmentHandler cancelAdminHandler,
+        StubUpdateAppointmentStatusHandler updateStatusHandler,
+        StubUpdateAppointmentInternalNotesHandler updateInternalNotesHandler,
+        StubGetAppointmentDetailsHandler getHandler,
+        StubListAdminAppointmentsHandler listHandler,
+        string? customerIdClaimValue,
+        string role,
+        string? businessIdClaimValue)
+    {
+        var controller = new AppointmentsController(createHandler, cancelAdminHandler, updateStatusHandler, updateInternalNotesHandler, getHandler, listHandler)
         {
             ControllerContext = new ControllerContext
             {
@@ -403,6 +482,39 @@ public sealed class AppointmentsControllerTests
         {
             Query = query;
             CancellationToken = cancellationToken;
+            return Task.FromResult(result);
+        }
+    }
+
+    private sealed class StubCancelAdminAppointmentHandler(CancelAdminAppointmentResult result) : ICommandHandler<CancelAdminAppointmentCommand, CancelAdminAppointmentResult>
+    {
+        public CancelAdminAppointmentCommand? Command { get; private set; }
+
+        public Task<CancelAdminAppointmentResult> HandleAsync(CancelAdminAppointmentCommand command, CancellationToken cancellationToken)
+        {
+            Command = command;
+            return Task.FromResult(result);
+        }
+    }
+
+    private sealed class StubUpdateAppointmentStatusHandler(UpdateAppointmentStatusResult result) : ICommandHandler<UpdateAppointmentStatusCommand, UpdateAppointmentStatusResult>
+    {
+        public UpdateAppointmentStatusCommand? Command { get; private set; }
+
+        public Task<UpdateAppointmentStatusResult> HandleAsync(UpdateAppointmentStatusCommand command, CancellationToken cancellationToken)
+        {
+            Command = command;
+            return Task.FromResult(result);
+        }
+    }
+
+    private sealed class StubUpdateAppointmentInternalNotesHandler(UpdateAppointmentInternalNotesResult result) : ICommandHandler<UpdateAppointmentInternalNotesCommand, UpdateAppointmentInternalNotesResult>
+    {
+        public UpdateAppointmentInternalNotesCommand? Command { get; private set; }
+
+        public Task<UpdateAppointmentInternalNotesResult> HandleAsync(UpdateAppointmentInternalNotesCommand command, CancellationToken cancellationToken)
+        {
+            Command = command;
             return Task.FromResult(result);
         }
     }

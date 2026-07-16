@@ -304,6 +304,7 @@ export type AppointmentSummaryResponse = {
   endAtUtc: string;
   endTime: string;
   id: string;
+  internalNotes?: string | null;
   localDate: string;
   service: AppointmentServiceResponse;
   staffMember: AppointmentStaffMemberResponse;
@@ -314,6 +315,14 @@ export type AppointmentSummaryResponse = {
 
 export type CancelAppointmentRequest = {
   cancellationReason?: string | null;
+};
+
+export type UpdateAppointmentStatusRequest = {
+  status: string;
+};
+
+export type UpdateAppointmentInternalNotesRequest = {
+  internalNotes?: string | null;
 };
 
 export type AppointmentBusinessResponse = {

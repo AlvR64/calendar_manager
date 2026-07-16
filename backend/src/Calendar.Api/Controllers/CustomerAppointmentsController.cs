@@ -175,6 +175,7 @@ public sealed class CustomerAppointmentsController(
         details.EndTime,
         details.Status,
         details.CustomerNotes,
+        null,
         details.CancelledAtUtc,
         details.CancellationReason,
         details.CreatedAtUtc);
