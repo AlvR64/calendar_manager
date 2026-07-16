@@ -179,7 +179,7 @@ Las siguientes secciones contienen los IDs de capacidad estables usados por incr
 | 6.8 | Cancelar appointment como customer. | [ ] | [ ] | [ ] | [ ] |
 | 6.9 | Cancelar appointment como admin. | [ ] | [ ] | [ ] | [ ] |
 | 6.10 | Reprogramar appointment. | [ ] | [ ] | [ ] | [ ] |
-| 6.11 | Cambiar estado de appointment: scheduled, confirmed, completed, cancelled, no-show. | [ ] | [ ] | [ ] | [ ] |
+| 6.11 | Cambiar estado operativo de appointment: scheduled, completed, no-show. Las cancelaciones se gestionan con 6.8 y 6.9. | [ ] | [ ] | [ ] | [ ] |
 | 6.12 | Guardar notas internas del appointment para admin/staff. | [ ] | [ ] | [ ] | [ ] |
 | 6.13 | Guardar notas visibles del customer en el appointment. | [ ] | [ ] | [ ] | [ ] |
 | 6.14 | Proteger creacion de appointment contra doble reserva concurrente: tomar lock transaccional, validar disponibilidad/solapes dentro de la transaccion e insertar appointment atomicamente. | [ ] | [ ] | [ ] | [ ] |
