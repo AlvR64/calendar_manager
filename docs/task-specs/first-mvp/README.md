@@ -1,60 +1,62 @@
-# First MVP Task Specs
+# Specs De Entrega Del First MVP
 
-Status: completed baseline.
+Estado: baseline completada.
 
-The first MVP specs exist to document how backend, frontend, and design were synchronized for the initial usable product baseline.
+Incremento: First MVP.
 
-`../../../task-groups-roadmap.md` remains the source of truth for status. Specs in this folder are implementation guides only.
+Estas specs de entrega documentan como backend, frontend y diseno se sincronizaron para la baseline inicial usable del producto.
 
-Completed specs are retained as implementation records and regression references. Do not delete them unless their historical context is migrated elsewhere.
+`../../../task-groups-roadmap.md` sigue siendo la fuente de verdad del estado. Las specs de esta carpeta son guias de implementacion y registro historico.
 
-## Scope
+Las specs completadas se conservan como registro historico y referencia de regresion. No se borran salvo que su contexto historico se migre a otro lugar.
 
-Included:
+## Alcance
 
-- Frontend shell, public landing, and admin shell behavior.
-- Customer and admin auth screens backed by existing backend auth.
-- Business registration and settings.
-- Admin services.
-- Admin staff members.
-- Staff-service assignments.
-- Availability and exceptions.
-- Public business profile.
-- Public slot flow up to selecting an appointment slot.
+Incluido:
 
-Excluded for now:
+- Shell frontend, landing publica y comportamiento del layout admin.
+- Pantallas de auth de customer y admin respaldadas por el backend existente.
+- Registro y settings de business.
+- Services admin.
+- Staff members admin.
+- Asignaciones staff-service.
+- Disponibilidad y excepciones.
+- Perfil publico de business.
+- Flujo publico hasta seleccionar un slot de appointment.
 
-- Creating appointments.
-- Listing appointments.
-- Cancelling or rescheduling appointments.
-- Dashboard/reporting metrics.
-- Notifications.
+Excluido:
+
+- Crear appointments.
+- Listar appointments.
+- Cancelar o reprogramar appointments.
+- Metricas de dashboard/reporting.
+- Notificaciones.
 - Media uploads.
-- External calendar integrations.
+- Integraciones con calendarios externos.
 
 ## Specs
 
-This table is a quick execution index. `../../../task-groups-roadmap.md` remains authoritative for backend, frontend, and design status.
+Esta tabla es un indice rapido de ejecucion. `../../../task-groups-roadmap.md` sigue siendo autoritativo para el estado de backend, frontend y diseno.
 
-| Spec | Status | Roadmap IDs | Notes |
+| Spec | Estado | IDs de capacidad | Notas |
 | --- | --- | --- | --- |
-| `01-auth-and-registration.md` | Done | `1.1`, `7.1`, `7.2`, `8.1` | Frontend implemented and roadmap updated. |
-| `02-business-settings.md` | Done | `0.11`, `1.2`, `1.6` | Frontend implemented and roadmap updated. |
-| `03-services.md` | Done | `2.1`-`2.5` | Frontend implemented and roadmap updated. |
-| `04-staff-members.md` | Done | `3.1`-`3.5` | Frontend implemented and roadmap updated. |
-| `05-staff-service-assignments.md` | Done | `4.1`-`4.6` | Frontend implemented; admin assignment listing endpoints added and roadmap updated. |
-| `06-availability.md` | Done | `5.1`-`5.8` | Frontend implemented and roadmap updated; `5.12` remains for appointment creation. |
-| `07-public-business-profile.md` | Done | `0.10`, `11.1`-`11.7` | Frontend implemented and roadmap updated. |
-| `08-public-slot-flow.md` | Done | `0.12`, `5.9`, `5.10`, `5.11`, `11.3`, `11.4`, `11.6` | Frontend implemented; stops before appointment creation. |
+| `01-auth-and-registration.md` | Hecha | `1.1`, `7.1`, `7.2`, `8.1` | Frontend implementado y roadmap actualizado. |
+| `02-business-settings.md` | Hecha | `0.11`, `1.2`, `1.6` | Frontend implementado y roadmap actualizado. |
+| `03-services.md` | Hecha | `2.1`-`2.5` | Frontend implementado y roadmap actualizado. |
+| `04-staff-members.md` | Hecha | `3.1`-`3.5` | Frontend implementado y roadmap actualizado. |
+| `05-staff-service-assignments.md` | Hecha | `4.1`-`4.6` | Frontend implementado; endpoints admin de listado de asignaciones anadidos y roadmap actualizado. |
+| `06-availability.md` | Hecha | `5.1`-`5.8` | Frontend implementado y roadmap actualizado; `5.12` queda para appointment creation. |
+| `07-public-business-profile.md` | Hecha | `0.10`, `11.1`-`11.7` | Frontend implementado y roadmap actualizado. |
+| `08-public-slot-flow.md` | Hecha | `0.12`, `5.9`, `5.10`, `5.11`, `11.3`, `11.4`, `11.6` | Frontend implementado; se detiene antes de crear appointments. |
 
-These specs are not the active work queue anymore. Create additional specs from `../TEMPLATE.md` for new slices, preferably in a new folder such as `../appointments-mvp/` when appointment creation work starts.
+Estas specs ya no son la cola activa de trabajo. Crea nuevas specs de entrega desde `../TEMPLATE.md` para nuevas slices, preferiblemente en una carpeta por incremento como `../appointments-mvp/` cuando empiece el trabajo de appointments.
 
-## Historical Completion Rule
+## Regla Historica De Finalizacion
 
-A first MVP slice is complete only when:
+Una slice del First MVP se consideraba completa solo cuando:
 
-- The relevant frontend UI is implemented beyond placeholders.
-- It uses the backend contract or intentionally documented mock/dev state.
-- Loading, empty, error, validation, and success states are covered where applicable.
-- Relevant checks pass.
-- `task-groups-roadmap.md` is updated.
+- La UI frontend relevante estaba implementada mas alla de placeholders.
+- Usaba el contrato backend o un estado mock/dev documentado intencionalmente.
+- Los estados loading, empty, error, validation y success estaban cubiertos donde aplicaba.
+- Los checks relevantes pasaban.
+- `task-groups-roadmap.md` estaba actualizado.
