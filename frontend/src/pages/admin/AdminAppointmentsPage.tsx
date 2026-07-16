@@ -253,19 +253,28 @@ function AppointmentCard({
         <div className="flex min-w-full flex-col gap-3 text-sm font-bold text-slate-500 xl:min-w-80 xl:items-end">
           <span>{appointment.service.durationMinutesSnapshot} min · {formatMoney(appointment.service.priceAmountSnapshot, appointment.service.currencyCodeSnapshot)}</span>
           <div className="grid w-full gap-2 sm:grid-cols-3 xl:grid-cols-1">
-            <label className="text-xs font-black uppercase tracking-[0.16em] text-slate-500">
-              Status
-              <select
-                className="mt-1 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-black text-slate-700 disabled:opacity-50"
-                disabled={isCancelled || isActionPending}
-                onChange={(event) => onStatusChange(appointment.id, event.target.value)}
-                value={isCancelled ? 'Scheduled' : appointment.status}
-              >
-                <option value="Scheduled">Scheduled</option>
-                <option value="Completed">Completed</option>
-                <option value="NoShow">No-show</option>
-              </select>
-            </label>
+            {isCancelled ? (
+              <div className="text-xs font-black uppercase tracking-[0.16em] text-slate-500">
+                Status
+                <div className="mt-1 w-full rounded-xl border border-red-100 bg-red-50 px-3 py-2 text-sm font-black normal-case tracking-normal text-red-700">
+                  {appointment.status}
+                </div>
+              </div>
+            ) : (
+              <label className="text-xs font-black uppercase tracking-[0.16em] text-slate-500">
+                Status
+                <select
+                  className="mt-1 w-full rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-black text-slate-700 disabled:opacity-50"
+                  disabled={isActionPending}
+                  onChange={(event) => onStatusChange(appointment.id, event.target.value)}
+                  value={appointment.status}
+                >
+                  <option value="Scheduled">Scheduled</option>
+                  <option value="Completed">Completed</option>
+                  <option value="NoShow">No-show</option>
+                </select>
+              </label>
+            )}
             <button className="rounded-xl border border-red-200 px-4 py-2 font-black text-red-700 transition hover:bg-red-50 disabled:opacity-50" disabled={isCancelled || isActionPending} onClick={() => onCancel(appointment)} type="button">
               Cancelar
             </button>

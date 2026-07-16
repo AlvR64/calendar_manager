@@ -67,12 +67,12 @@ public sealed class AppointmentsController(
 
     [Authorize(Roles = "Admin")]
     [HttpPost("{appointmentId:guid}/cancel")]
-    [ProducesResponseType<AppointmentDetailsResponse>(StatusCodes.Status200OK)]
+    [ProducesResponseType<AdminAppointmentDetailsResponse>(StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
     [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
     [ProducesResponseType<ProblemDetails>(StatusCodes.Status409Conflict)]
-    public async Task<ActionResult<AppointmentDetailsResponse>> CancelAppointmentAsAdmin(
+    public async Task<ActionResult<AdminAppointmentDetailsResponse>> CancelAppointmentAsAdmin(
         Guid appointmentId,
         CancelAppointmentRequest request,
         CancellationToken cancellationToken)
@@ -91,18 +91,18 @@ public sealed class AppointmentsController(
             return ToActionResult(result.Error!.Value);
         }
 
-        return Ok(MapAppointmentDetails(result.Appointment!));
+        return Ok(MapAdminAppointmentDetails(result.Appointment!));
     }
 
     [Authorize(Roles = "Admin")]
     [HttpPut("{appointmentId:guid}/status")]
-    [ProducesResponseType<AppointmentDetailsResponse>(StatusCodes.Status200OK)]
+    [ProducesResponseType<AdminAppointmentDetailsResponse>(StatusCodes.Status200OK)]
     [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
     [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
     [ProducesResponseType<ProblemDetails>(StatusCodes.Status409Conflict)]
-    public async Task<ActionResult<AppointmentDetailsResponse>> UpdateAppointmentStatus(
+    public async Task<ActionResult<AdminAppointmentDetailsResponse>> UpdateAppointmentStatus(
         Guid appointmentId,
         UpdateAppointmentStatusRequest request,
         CancellationToken cancellationToken)
@@ -126,17 +126,17 @@ public sealed class AppointmentsController(
             return ToActionResult(result.Error!.Value);
         }
 
-        return Ok(MapAppointmentDetails(result.Appointment!));
+        return Ok(MapAdminAppointmentDetails(result.Appointment!));
     }
 
     [Authorize(Roles = "Admin")]
     [HttpPut("{appointmentId:guid}/internal-notes")]
-    [ProducesResponseType<AppointmentDetailsResponse>(StatusCodes.Status200OK)]
+    [ProducesResponseType<AdminAppointmentDetailsResponse>(StatusCodes.Status200OK)]
     [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status401Unauthorized)]
     [ProducesResponseType(StatusCodes.Status403Forbidden)]
     [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
-    public async Task<ActionResult<AppointmentDetailsResponse>> UpdateAppointmentInternalNotes(
+    public async Task<ActionResult<AdminAppointmentDetailsResponse>> UpdateAppointmentInternalNotes(
         Guid appointmentId,
         UpdateAppointmentInternalNotesRequest request,
         CancellationToken cancellationToken)
@@ -155,7 +155,7 @@ public sealed class AppointmentsController(
             return ToActionResult(result.Error!.Value);
         }
 
-        return Ok(MapAppointmentDetails(result.Appointment!));
+        return Ok(MapAdminAppointmentDetails(result.Appointment!));
     }
 
     [Authorize(Roles = "Customer,Admin")]
@@ -503,6 +503,39 @@ public sealed class AppointmentsController(
         details.EndTime,
         details.Status,
         details.CustomerNotes,
+        details.CancelledAtUtc,
+        details.CancellationReason,
+        details.CreatedAtUtc);
+
+    private static AdminAppointmentDetailsResponse MapAdminAppointmentDetails(AppointmentDetails details) => new(
+        details.Id,
+        new AppointmentBusinessResponse(
+            details.Business.Id,
+            details.Business.Name,
+            details.Business.Slug,
+            details.Business.TimeZoneId),
+        new AppointmentServiceResponse(
+            details.Service.Id,
+            details.Service.NameSnapshot,
+            details.Service.DurationMinutesSnapshot,
+            details.Service.PriceAmountSnapshot,
+            details.Service.CurrencyCodeSnapshot),
+        new AppointmentStaffMemberResponse(
+            details.StaffMember.Id,
+            details.StaffMember.DisplayName),
+        new AppointmentCustomerResponse(
+            details.Customer.Id,
+            details.Customer.FirstName,
+            details.Customer.LastName,
+            details.Customer.Email),
+        details.StartAtUtc,
+        details.EndAtUtc,
+        details.LocalDate,
+        details.StartTime,
+        details.EndTime,
+        details.Status,
+        details.CustomerNotes,
+        details.InternalNotes,
         details.CancelledAtUtc,
         details.CancellationReason,
         details.CreatedAtUtc);

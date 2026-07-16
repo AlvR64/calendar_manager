@@ -294,6 +294,10 @@ export type AppointmentDetailsResponse = {
   status: string;
 };
 
+export type AdminAppointmentDetailsResponse = AppointmentDetailsResponse & {
+  internalNotes?: string | null;
+};
+
 export type AppointmentSummaryResponse = {
   business: AppointmentBusinessResponse;
   cancelledAtUtc?: string | null;

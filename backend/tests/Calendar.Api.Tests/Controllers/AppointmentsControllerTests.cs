@@ -102,7 +102,7 @@ public sealed class AppointmentsControllerTests
         var result = await controller.CancelAppointmentAsAdmin(details.Id, new CancelAppointmentRequest { CancellationReason = "Closed" }, CancellationToken.None);
 
         var okResult = result.Result.Should().BeOfType<OkObjectResult>().Subject;
-        var response = okResult.Value.Should().BeOfType<AppointmentDetailsResponse>().Subject;
+        var response = okResult.Value.Should().BeOfType<AdminAppointmentDetailsResponse>().Subject;
         response.Status.Should().Be("CancelledByAdmin");
         cancelHandler.Command.Should().NotBeNull();
         cancelHandler.Command!.BusinessId.Should().Be(businessId);
@@ -135,7 +135,9 @@ public sealed class AppointmentsControllerTests
 
         var result = await controller.UpdateAppointmentInternalNotes(details.Id, new UpdateAppointmentInternalNotesRequest { InternalNotes = "Prep room 2" }, CancellationToken.None);
 
-        result.Result.Should().BeOfType<OkObjectResult>();
+        var okResult = result.Result.Should().BeOfType<OkObjectResult>().Subject;
+        var response = okResult.Value.Should().BeOfType<AdminAppointmentDetailsResponse>().Subject;
+        response.InternalNotes.Should().Be("Prep room 2");
         notesHandler.Command.Should().NotBeNull();
         notesHandler.Command!.BusinessId.Should().Be(businessId);
         notesHandler.Command.AppointmentId.Should().Be(details.Id);

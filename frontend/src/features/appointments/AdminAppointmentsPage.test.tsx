@@ -156,6 +156,17 @@ describe('admin appointments page', () => {
     });
   });
 
+  it('shows cancelled appointment status without an operational status selector', async () => {
+    arrangeSuccessfulQueries([{ ...appointment, status: 'CancelledByCustomer' }]);
+
+    renderWithProviders(<AdminAppointmentsPage />);
+
+    expect(await screen.findByText('2026-07-20')).toBeInTheDocument();
+    expect(screen.getAllByText('CancelledByCustomer')).not.toHaveLength(0);
+    expect(screen.getAllByLabelText(/status/i)).toHaveLength(1);
+    expect(screen.getByRole('button', { name: /cancelar/i })).toBeDisabled();
+  });
+
   it('shows an empty state', async () => {
     arrangeSuccessfulQueries([]);
 

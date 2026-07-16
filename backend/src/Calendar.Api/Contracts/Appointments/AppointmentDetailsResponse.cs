@@ -18,6 +18,25 @@ public sealed record AppointmentDetailsResponse(
     string? CancellationReason,
     DateTimeOffset CreatedAtUtc);
 
+/// <summary>Represents detailed appointment information returned by admin-only appointment APIs.</summary>
+public sealed record AdminAppointmentDetailsResponse(
+    Guid Id,
+    AppointmentBusinessResponse Business,
+    AppointmentServiceResponse Service,
+    AppointmentStaffMemberResponse StaffMember,
+    AppointmentCustomerResponse Customer,
+    DateTimeOffset StartAtUtc,
+    DateTimeOffset EndAtUtc,
+    DateOnly LocalDate,
+    TimeOnly StartTime,
+    TimeOnly EndTime,
+    string Status,
+    string? CustomerNotes,
+    string? InternalNotes,
+    DateTimeOffset? CancelledAtUtc,
+    string? CancellationReason,
+    DateTimeOffset CreatedAtUtc);
+
 /// <summary>Represents the business attached to an appointment.</summary>
 public sealed record AppointmentBusinessResponse(Guid Id, string Name, string Slug, string TimeZoneId);
 
