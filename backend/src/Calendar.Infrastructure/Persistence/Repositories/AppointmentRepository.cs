@@ -15,6 +15,49 @@ public sealed class AppointmentRepository(CalendarDbContext dbContext) : IAppoin
             .Include(appointment => appointment.Customer)
             .FirstOrDefaultAsync(appointment => appointment.Id == id, cancellationToken);
 
+    public async Task<Appointment?> GetByIdWithDetailsForUpdateAsync(Guid id, CancellationToken cancellationToken) =>
+        await dbContext.Appointments
+            .Include(appointment => appointment.Business)
+            .Include(appointment => appointment.Service)
+            .Include(appointment => appointment.StaffMember)
+            .Include(appointment => appointment.Customer)
+            .FirstOrDefaultAsync(appointment => appointment.Id == id, cancellationToken);
+
+    public async Task<IReadOnlyList<Appointment>> ListByCustomerIdWithDetailsAsync(
+        Guid customerId,
+        DateTimeOffset? fromUtc,
+        DateTimeOffset? toUtc,
+        AppointmentStatus? status,
+        CancellationToken cancellationToken)
+    {
+        var query = dbContext.Appointments
+            .AsNoTracking()
+            .Include(appointment => appointment.Business)
+            .Include(appointment => appointment.Service)
+            .Include(appointment => appointment.StaffMember)
+            .Include(appointment => appointment.Customer)
+            .Where(appointment => appointment.CustomerId == customerId);
+
+        if (fromUtc.HasValue)
+        {
+            query = query.Where(appointment => appointment.EndAtUtc >= fromUtc.Value);
+        }
+
+        if (toUtc.HasValue)
+        {
+            query = query.Where(appointment => appointment.StartAtUtc <= toUtc.Value);
+        }
+
+        if (status.HasValue)
+        {
+            query = query.Where(appointment => appointment.Status == status.Value);
+        }
+
+        return await query
+            .OrderBy(appointment => appointment.StartAtUtc)
+            .ToListAsync(cancellationToken);
+    }
+
     public async Task<IReadOnlyList<Appointment>> ListBlockingAppointmentsAsync(
         Guid businessId,
         IReadOnlyCollection<Guid> staffMemberIds,

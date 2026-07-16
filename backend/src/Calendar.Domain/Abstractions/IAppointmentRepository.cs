@@ -6,6 +6,15 @@ public interface IAppointmentRepository
 {
     Task<Appointment?> GetByIdWithDetailsAsync(Guid id, CancellationToken cancellationToken);
 
+    Task<Appointment?> GetByIdWithDetailsForUpdateAsync(Guid id, CancellationToken cancellationToken);
+
+    Task<IReadOnlyList<Appointment>> ListByCustomerIdWithDetailsAsync(
+        Guid customerId,
+        DateTimeOffset? fromUtc,
+        DateTimeOffset? toUtc,
+        AppointmentStatus? status,
+        CancellationToken cancellationToken);
+
     Task<IReadOnlyList<Appointment>> ListBlockingAppointmentsAsync(
         Guid businessId,
         IReadOnlyCollection<Guid> staffMemberIds,

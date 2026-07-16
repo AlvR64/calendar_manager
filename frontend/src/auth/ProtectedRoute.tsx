@@ -13,7 +13,9 @@ export function ProtectedRoute({ accountType, children }: ProtectedRouteProps) {
   const session = getAuthSession(accountType);
 
   if (!session) {
-    return <Navigate replace state={{ from: location }} to={accountType === 'Admin' ? '/auth/admin/login' : '/auth/customer/login'} />;
+    const loginPath = accountType === 'Admin' ? '/auth/admin/login' : '/auth/customer/login';
+    const returnTo = `${location.pathname}${location.search}`;
+    return <Navigate replace state={{ from: location }} to={`${loginPath}?returnTo=${encodeURIComponent(returnTo)}`} />;
   }
 
   return children;

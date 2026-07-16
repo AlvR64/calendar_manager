@@ -1,5 +1,7 @@
 # Customer Appointment List And Cancellation
 
+Estado: done.
+
 ## Incremento
 
 Appointments MVP.
@@ -13,8 +15,8 @@ Appointments MVP.
 
 | ID | Backend | Frontend | Diseno | Postpuesto |
 | --- | --- | --- | --- | --- |
-| `6.4` | [ ] | [ ] | [ ] | [ ] |
-| `6.8` | [ ] | [ ] | [ ] | [ ] |
+| `6.4` | [x] | [x] | [ ] | [ ] |
+| `6.8` | [x] | [x] | [ ] | [ ] |
 
 ## Objetivo
 
@@ -80,6 +82,7 @@ Permitir que un customer autenticado vea sus appointments y cancele appointments
 - Mostrar fecha/hora en timezone del business.
 - Separar visualmente upcoming, past y cancelled donde sea practico.
 - `cancellationReason` opcional, maximo recomendado 500 caracteres.
+- Customer solo puede cancelar appointments `Scheduled` futuros; appointments pasados o ya cancelados devuelven `409 Conflict`.
 
 ## Plan De Implementacion
 
@@ -101,13 +104,13 @@ Permitir que un customer autenticado vea sus appointments y cancele appointments
 
 ## Criterios De Aceptacion
 
-- [ ] Customer ve sus appointments.
-- [ ] Customer no ve appointments de otros customers.
-- [ ] Customer puede cancelar appointment permitido.
-- [ ] Cancelacion actualiza estado y timestamp.
-- [ ] UI refleja estado cancelado tras la accion.
-- [ ] Roadmap actualizado.
+- [x] Customer ve sus appointments.
+- [x] Customer no ve appointments de otros customers.
+- [x] Customer puede cancelar appointment permitido.
+- [x] Cancelacion actualiza estado y timestamp.
+- [x] UI refleja estado cancelado tras la accion.
+- [x] Roadmap actualizado.
 
 ## Preguntas Abiertas
 
-- Definir si se bloquea cancelacion customer para appointments ya pasados en este MVP o si basta con estado `Scheduled`.
+- Resuelto: se bloquea cancelacion customer para appointments pasados en este MVP.

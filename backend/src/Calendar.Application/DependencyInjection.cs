@@ -1,6 +1,8 @@
 using Calendar.Application.Abstractions.Messaging;
+using Calendar.Application.Appointments.CancelCustomerAppointment;
 using Calendar.Application.Appointments.CreateAppointment;
 using Calendar.Application.Appointments.GetAppointmentDetails;
+using Calendar.Application.Appointments.ListCustomerAppointments;
 using Calendar.Application.Appointments.Scheduling;
 using Calendar.Application.Auth.LoginAdmin;
 using Calendar.Application.Auth.LoginCustomer;
@@ -47,7 +49,9 @@ public static class DependencyInjection
         services.AddScoped<ICommandHandler<RegisterBusinessCommand, RegisterBusinessResult>, RegisterBusinessCommandHandler>();
         services.AddScoped<ICommandHandler<RegisterCustomerCommand, RegisterCustomerResult>, RegisterCustomerCommandHandler>();
         services.AddScoped<ICommandHandler<CreateAppointmentCommand, CreateAppointmentResult>, CreateAppointmentCommandHandler>();
+        services.AddScoped<ICommandHandler<CancelCustomerAppointmentCommand, CancelCustomerAppointmentResult>, CancelCustomerAppointmentCommandHandler>();
         services.AddScoped<IQueryHandler<GetAppointmentDetailsQuery, AppointmentDetails?>, GetAppointmentDetailsQueryHandler>();
+        services.AddScoped<IQueryHandler<ListCustomerAppointmentsQuery, IReadOnlyList<AppointmentDetails>>, ListCustomerAppointmentsQueryHandler>();
         services.AddScoped<IAppointmentScheduleValidator, AppointmentScheduleValidator>();
         services.AddScoped<IQueryHandler<ListAvailableSlotsQuery, ListAvailableSlotsResult>, ListAvailableSlotsQueryHandler>();
         services.AddScoped<ICommandHandler<CreateServiceCommand, CreateServiceResult>, CreateServiceCommandHandler>();

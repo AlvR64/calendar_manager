@@ -294,6 +294,27 @@ export type AppointmentDetailsResponse = {
   status: string;
 };
 
+export type AppointmentSummaryResponse = {
+  business: AppointmentBusinessResponse;
+  cancelledAtUtc?: string | null;
+  cancellationReason?: string | null;
+  createdAtUtc: string;
+  customerNotes?: string | null;
+  endAtUtc: string;
+  endTime: string;
+  id: string;
+  localDate: string;
+  service: AppointmentServiceResponse;
+  staffMember: AppointmentStaffMemberResponse;
+  startAtUtc: string;
+  startTime: string;
+  status: string;
+};
+
+export type CancelAppointmentRequest = {
+  cancellationReason?: string | null;
+};
+
 export type AppointmentBusinessResponse = {
   id: string;
   name: string;

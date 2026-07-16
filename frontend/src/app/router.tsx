@@ -13,6 +13,7 @@ import { BusinessAdminLoginPage } from '@/pages/auth/BusinessAdminLoginPage';
 import { BusinessAdminRegisterPage } from '@/pages/auth/BusinessAdminRegisterPage';
 import { CustomerLoginPage } from '@/pages/auth/CustomerLoginPage';
 import { CustomerRegisterPage } from '@/pages/auth/CustomerRegisterPage';
+import { CustomerAppointmentsPage } from '@/pages/customer/CustomerAppointmentsPage';
 import { AppointmentDetailsPage } from '@/pages/public/AppointmentDetailsPage';
 import { AppointmentSlotFlowPage } from '@/pages/public/AppointmentSlotFlowPage';
 import { BusinessProfilePage } from '@/pages/public/BusinessProfilePage';
@@ -36,6 +37,14 @@ export const router = createBrowserRouter([
       { path: '/auth/admin/login', element: <BusinessAdminLoginPage /> },
       { path: '/auth/business/register', element: <BusinessAdminRegisterPage /> },
     ],
+  },
+  {
+    path: '/customer/appointments',
+    element: (
+      <ProtectedRoute accountType="Customer">
+        <CustomerAppointmentsPage />
+      </ProtectedRoute>
+    ),
   },
   {
     path: '/admin',
