@@ -55,18 +55,18 @@ Notas de sincronizacion:
 
 | Slice | Estado | Spec | IDs de capacidad | Notas |
 | --- | --- | --- | --- | --- |
-| Crear appointment como customer | Siguiente | Pendiente | `6.1`, `6.14`, `5.12` | Crea appointments reales despues de seleccionar slot. |
-| Confirmacion y detalle de appointment | Planificado | Pendiente | `6.3` | Pantalla de confirmacion y consulta de appointment. |
-| Lista de appointments del customer | Planificado | Pendiente | `6.4`, `6.8` | Customer ve y cancela sus appointments. |
-| Gestion admin de appointments | Planificado | Pendiente | `6.5`, `6.7`, `6.9`, `6.11`, `6.12` | Admin lista, calendario, cancelacion, estados y notas internas. |
-| Dashboard basico | Mas adelante | Pendiente | `10.1` | Depende de tener appointments reales. |
+| Crear appointment como customer | Siguiente | `docs/task-specs/appointments-mvp/01-customer-appointment-creation.md` | `6.1`, `6.14`, `5.12`, `6.13` | Crea appointments reales despues de seleccionar slot. |
+| Confirmacion y detalle de appointment | Planificado | `docs/task-specs/appointments-mvp/02-appointment-detail.md` | `6.3` | Pantalla de confirmacion y consulta de appointment. |
+| Lista de appointments del customer | Planificado | `docs/task-specs/appointments-mvp/03-customer-appointment-list-and-cancellation.md` | `6.4`, `6.8` | Customer ve y cancela sus appointments. |
+| Gestion admin de appointments | Planificado | `docs/task-specs/appointments-mvp/04-admin-appointment-calendar-and-list.md`, `docs/task-specs/appointments-mvp/05-admin-appointment-actions.md` | `6.5`, `6.6`, `6.7`, `6.9`, `6.11`, `6.12` | Admin lista, calendario, cancelacion, estados y notas internas. |
+| Dashboard basico | Mas adelante | `docs/task-specs/appointments-mvp/06-dashboard-basics.md` | `10.1` | Depende de tener appointments reales. |
 
 ## Incrementos De Producto
 
 | Incremento | Estado | Specs | Notas |
 | --- | --- | --- | --- |
 | First MVP | Hecho | `docs/task-specs/first-mvp/` | Baseline usable completada. |
-| Appointments MVP | Siguiente | Pendiente | Creacion y gestion real de appointments. |
+| Appointments MVP | Siguiente | `docs/task-specs/appointments-mvp/` | Creacion y gestion real de appointments. |
 | Operacion MVP | Mas adelante | Pendiente | Dashboard, notificaciones y flujos operativos. |
 | Growth/Search MVP | Mas adelante | Pendiente | Descubrimiento publico, categorias y busqueda. |
 | Hardening De Plataforma | Mas adelante | Pendiente | Rate limiting, readiness checks, auditoria y paginacion. |

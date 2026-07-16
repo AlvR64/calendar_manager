@@ -1,85 +1,89 @@
 # <Spec Name>
 
-## Roadmap IDs
+## Incremento
+
+<Nombre del incremento>.
+
+## IDs De Capacidad
 
 - `<id>`
 
-## Current Status Matrix
+## Matriz De Estado Actual
 
-Mirror the current state from `task-groups-roadmap.md` for quick context. The roadmap remains authoritative.
+Mirror del estado actual de `task-groups-roadmap.md` para contexto rapido. El roadmap sigue siendo autoritativo.
 
 | ID | Backend | Frontend | Diseno | Postpuesto |
 | --- | --- | --- | --- | --- |
 | `<id>` | [ ] | [ ] | [ ] | [ ] |
 
-## Goal
+## Objetivo
 
-State the user/business outcome this slice must provide.
+Resultado de usuario/business que esta slice debe entregar.
 
-## Scope
+## Alcance
 
-- What is included in this spec.
+- Que incluye esta spec.
 
-## Non-Goals
+## Fuera De Alcance
 
-- What is deliberately excluded, even if related.
+- Que queda deliberadamente fuera, aunque este relacionado.
 
-## Backend Contract
+## Contrato Backend
 
-Document the backend behavior the frontend or feature depends on.
+Documentar el comportamiento backend del que depende la feature/frontend.
 
 | Endpoint / Use Case | Auth | Request | Success Response | Error Cases |
 | --- | --- | --- | --- | --- |
-| `METHOD /path` | Required/None | DTO/body/query | DTO/status | Validation/auth/not-found/conflict |
+| `METHOD /path` | Requerida/Ninguna | DTO/body/query | DTO/status | Validation/auth/not-found/conflict |
 
-## Design References
+## Referencias De Diseno
 
 - `designs/<file>.op`
 
-## Frontend Routes And Screens
+## Rutas Y Pantallas Frontend
 
 - `/route`
 
-## UX States
+## Estados UX
 
 - Loading
 - Empty
 - Error
 - Validation errors
 - Success
-- Unauthorized/forbidden when applicable
+- Unauthorized/forbidden cuando aplique
 
-## Data And Validation Rules
+## Reglas De Datos Y Validacion
 
-- Backend validation remains authoritative.
-- Mirror simple client-side validation when useful.
-- Note timezone/currency/date handling when applicable.
+- La validacion backend sigue siendo autoritativa.
+- Replicar validaciones simples en cliente cuando sea util.
+- Documentar manejo de timezone, currency y fechas cuando aplique.
 
-## Implementation Plan
+## Plan De Implementacion
 
-1. Add or update API types/client functions.
-2. Add or update query/mutation hooks.
-3. Build forms/components/screens.
-4. Wire route/page behavior.
-5. Cover loading, empty, error, validation, and success states.
-6. Add or update tests.
-7. Update `task-groups-roadmap.md` when complete.
+1. Anadir o actualizar tipos/API client.
+2. Anadir o actualizar query/mutation hooks.
+3. Construir forms/components/screens.
+4. Conectar rutas/comportamiento de pagina.
+5. Cubrir estados loading, empty, error, validation y success.
+6. Anadir o actualizar tests.
+7. Actualizar `task-groups-roadmap.md` al completar.
 
-## Test Plan
+## Plan De Tests
 
 - Unit/component tests:
 - Integration/manual checks:
-- Commands to run:
+- Comandos a ejecutar:
 
-## Acceptance Criteria
+## Criterios De Aceptacion
 
-- [ ] The feature satisfies the roadmap IDs listed above.
-- [ ] UI follows the referenced OpenPencil design where a design exists.
-- [ ] Backend contract is respected.
-- [ ] Loading, empty, error, validation, and success states are handled where applicable.
-- [ ] Relevant tests/checks pass.
-- [ ] `task-groups-roadmap.md` is updated after completion.
+- [ ] La feature satisface los IDs de capacidad listados arriba.
+- [ ] La UI sigue el diseno OpenPencil referenciado donde exista.
+- [ ] El contrato backend se respeta.
+- [ ] Loading, empty, error, validation y success states estan manejados donde aplique.
+- [ ] Los tests/checks relevantes pasan.
+- [ ] `task-groups-roadmap.md` esta actualizado tras completar.
 
-## Open Questions
+## Preguntas Abiertas
 
-- None.
+- Ninguna.

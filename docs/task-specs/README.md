@@ -1,20 +1,23 @@
-# Task Specs
+# Specs De Entrega
 
-Task specs describe how to implement product/use-case slices without becoming the source of truth for status.
+Las specs de entrega describen como implementar slices de producto sin convertirse en la fuente de verdad del estado.
 
-`task-groups-roadmap.md` remains the single source of truth for whether backend, frontend, and design are done. Specs explain scope, contracts, implementation plan, and acceptance criteria for a task or feature slice.
+`task-groups-roadmap.md` sigue siendo la fuente unica de verdad para saber si backend, frontend y diseno estan hechos. Las specs explican alcance, contratos, plan de implementacion y criterios de aceptacion para una slice.
 
-## Rules
+## Reglas
 
-- Keep specs at product/use-case level, not split into separate frontend and backend specs.
-- Reference roadmap IDs from `task-groups-roadmap.md` in every spec.
-- Use `TEMPLATE.md` when creating a new spec.
-- Keep specs concise and implementation-oriented.
-- Update `task-groups-roadmap.md` when a spec is completed.
-- Do not mark roadmap `Frontend` as done for placeholders; mark it only when UI/API behavior is implemented and verified.
-- Do not mark roadmap `Backend` as done until the API/application behavior and relevant tests are complete.
-- Do not mark roadmap `Diseno` as done unless the OpenPencil design exists and covers the case.
+- Mantener specs a nivel de producto/use-case, no separadas por frontend/backend.
+- Declarar el incremento de producto en cada spec.
+- Referenciar IDs de capacidad de `task-groups-roadmap.md` en cada spec.
+- Una spec puede cubrir IDs de capacidad de varios grupos.
+- Usar `TEMPLATE.md` al crear una nueva spec.
+- Mantener specs concisas y orientadas a implementacion.
+- Actualizar `task-groups-roadmap.md` cuando una spec se completa.
+- No marcar `Frontend` como hecho por placeholders; marcarlo solo cuando hay UI/API real implementada y verificada.
+- No marcar `Backend` como hecho hasta que API/application behavior y tests relevantes esten completos.
+- No marcar `Diseno` como hecho salvo que exista el diseno OpenPencil y cubra el caso.
 
-## Current Phases
+## Incrementos Actuales
 
-- `first-mvp/`: specs for closing the current frontend gap against backend features and existing OpenPencil designs.
+- `first-mvp/`: baseline completada del primer MVP.
+- `appointments-mvp/`: incremento activo para creacion y gestion real de appointments.
