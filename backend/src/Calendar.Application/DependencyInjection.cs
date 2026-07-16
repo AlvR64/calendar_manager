@@ -1,4 +1,5 @@
 using Calendar.Application.Abstractions.Messaging;
+using Calendar.Application.AdminDashboard.GetAdminDashboardSummary;
 using Calendar.Application.Appointments.CancelAdminAppointment;
 using Calendar.Application.Appointments.CancelCustomerAppointment;
 using Calendar.Application.Appointments.CreateAppointment;
@@ -57,6 +58,7 @@ public static class DependencyInjection
         services.AddScoped<ICommandHandler<CancelCustomerAppointmentCommand, CancelCustomerAppointmentResult>, CancelCustomerAppointmentCommandHandler>();
         services.AddScoped<ICommandHandler<UpdateAppointmentStatusCommand, UpdateAppointmentStatusResult>, UpdateAppointmentStatusCommandHandler>();
         services.AddScoped<ICommandHandler<UpdateAppointmentInternalNotesCommand, UpdateAppointmentInternalNotesResult>, UpdateAppointmentInternalNotesCommandHandler>();
+        services.AddScoped<IQueryHandler<GetAdminDashboardSummaryQuery, GetAdminDashboardSummaryResult>, GetAdminDashboardSummaryQueryHandler>();
         services.AddScoped<IQueryHandler<GetAppointmentDetailsQuery, AppointmentDetails?>, GetAppointmentDetailsQueryHandler>();
         services.AddScoped<IQueryHandler<ListAdminAppointmentsQuery, ListAdminAppointmentsResult>, ListAdminAppointmentsQueryHandler>();
         services.AddScoped<IQueryHandler<ListCustomerAppointmentsQuery, IReadOnlyList<AppointmentDetails>>, ListCustomerAppointmentsQueryHandler>();

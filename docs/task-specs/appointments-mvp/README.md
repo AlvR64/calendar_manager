@@ -50,7 +50,7 @@ Estas specs convierten el flujo publico actual de seleccion de slot en un flujo 
 | `03-customer-appointment-list-and-cancellation.md` | Hecha | `6.4`, `6.8` | Customer ve sus appointments y cancela appointments scheduled futuros. |
 | `04-admin-appointment-calendar-and-list.md` | Hecha | `6.5`, `6.6`, `6.7` | Admin lista appointments agrupados por dia con filtros por rango, staff, service y status. |
 | `05-admin-appointment-actions.md` | Hecha | `6.9`, `6.11`, `6.12` | Admin cancela, cambia estado operativo y guarda notas internas. |
-| `06-dashboard-basics.md` | Planificada | `10.1` | Dashboard admin basico basado en appointments reales. |
+| `06-dashboard-basics.md` | Hecha | `10.1` | Dashboard admin basico basado en appointments reales. |
 
 ## Orden Recomendado
 

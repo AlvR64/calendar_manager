@@ -4,6 +4,8 @@
 
 Appointments MVP.
 
+Estado: done.
+
 ## IDs De Capacidad
 
 - `10.1`
@@ -12,7 +14,7 @@ Appointments MVP.
 
 | ID | Backend | Frontend | Diseno | Postpuesto |
 | --- | --- | --- | --- | --- |
-| `10.1` | [ ] | [ ] | [ ] | [ ] |
+| `10.1` | [x] | [x] | [ ] | [ ] |
 
 ## Objetivo
 
@@ -98,13 +100,13 @@ Actualizar el dashboard admin para mostrar un resumen basico basado en appointme
 
 ## Criterios De Aceptacion
 
-- [ ] Dashboard muestra appointments de hoy.
-- [ ] Dashboard muestra proximos appointments.
-- [ ] Dashboard calcula ingresos estimados con snapshots.
-- [ ] Dashboard excluye cancelados de ingresos.
-- [ ] UI enlaza a admin appointments.
-- [ ] Roadmap actualizado.
+- [x] Dashboard muestra appointments de hoy.
+- [x] Dashboard muestra proximos appointments.
+- [x] Dashboard calcula ingresos estimados con snapshots.
+- [x] Dashboard excluye cancelados de ingresos.
+- [x] UI enlaza a admin appointments.
+- [x] Roadmap actualizado.
 
 ## Preguntas Abiertas
 
-- Definir rango default final: proximos 7 dias o proximos 14 dias.
+- Resuelto para MVP: rango default de hoy + proximos 7 dias.

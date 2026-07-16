@@ -351,3 +351,18 @@ export type AppointmentCustomerResponse = {
   id: string;
   lastName?: string | null;
 };
+
+export type AdminDashboardSummaryResponse = {
+  currencyCode: string;
+  estimatedRevenueAmount: number;
+  rangeEndLocalDate: string;
+  rangeStartLocalDate: string;
+  statusCounts: AdminDashboardStatusCountResponse[];
+  todayAppointmentCount: number;
+  upcomingAppointments: AppointmentSummaryResponse[];
+};
+
+export type AdminDashboardStatusCountResponse = {
+  count: number;
+  status: string;
+};

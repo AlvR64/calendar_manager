@@ -59,14 +59,14 @@ Notas de sincronizacion:
 | Confirmacion y detalle de appointment | Hecho | `docs/task-specs/appointments-mvp/02-appointment-detail.md` | `6.3` | Detalle recargable protegido para customer propietario o admin del business; diseno especifico queda pendiente. |
 | Lista de appointments del customer | Hecho | `docs/task-specs/appointments-mvp/03-customer-appointment-list-and-cancellation.md` | `6.4`, `6.8` | Customer ve sus appointments y cancela appointments scheduled futuros; diseno especifico queda pendiente. |
 | Gestion admin de appointments | Hecho | `docs/task-specs/appointments-mvp/04-admin-appointment-calendar-and-list.md`, `docs/task-specs/appointments-mvp/05-admin-appointment-actions.md` | `6.5`, `6.6`, `6.7`, `6.9`, `6.11`, `6.12` | Admin lista por rango/filtros, cancela, cambia estado operativo y guarda notas internas; diseno especifico queda pendiente. |
-| Dashboard basico | Mas adelante | `docs/task-specs/appointments-mvp/06-dashboard-basics.md` | `10.1` | Depende de tener appointments reales. |
+| Dashboard basico | Hecho | `docs/task-specs/appointments-mvp/06-dashboard-basics.md` | `10.1` | Dashboard admin basico usa appointments reales; diseno especifico queda pendiente. |
 
 ## Incrementos De Producto
 
 | Incremento | Estado | Specs | Notas |
 | --- | --- | --- | --- |
 | First MVP | Hecho | `docs/task-specs/first-mvp/` | Baseline usable completada. |
-| Appointments MVP | Siguiente | `docs/task-specs/appointments-mvp/` | Creacion y gestion real de appointments. |
+| Appointments MVP | Hecho | `docs/task-specs/appointments-mvp/` | Creacion, gestion y dashboard basico de appointments reales. |
 | Operacion MVP | Mas adelante | Pendiente | Dashboard, notificaciones y flujos operativos. |
 | Growth/Search MVP | Mas adelante | Pendiente | Descubrimiento publico, categorias y busqueda. |
 | Hardening De Plataforma | Mas adelante | Pendiente | Rate limiting, readiness checks, auditoria y paginacion. |
@@ -222,7 +222,7 @@ Nota para 6.14: para MVP se prefiere lock transaccional tipo SQL Server `sp_geta
 
 | ID | Caso de uso | Backend | Frontend | Diseno | Postpuesto |
 | --- | --- | --- | --- | --- | --- |
-| 10.1 | Anadir endpoint de resumen dashboard admin: appointments de hoy, proximos, ingresos estimados. | [ ] | [ ] | [ ] | [ ] |
+| 10.1 | Anadir endpoint de resumen dashboard admin: appointments de hoy, proximos, ingresos estimados. | [x] | [x] | [ ] | [ ] |
 | 10.2 | Anadir endpoint de metricas basicas: appointments por estado, services mas reservados, staff mas reservado. | [ ] | [ ] | [ ] | [ ] |
 
 ### 11. Business Publico Y Descubrimiento
