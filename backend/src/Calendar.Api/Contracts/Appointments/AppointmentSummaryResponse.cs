@@ -1,11 +1,12 @@
 namespace Calendar.Api.Contracts.Appointments;
 
-/// <summary>Represents an appointment summary returned in customer lists.</summary>
+/// <summary>Represents an appointment summary returned in appointment lists.</summary>
 public sealed record AppointmentSummaryResponse(
     Guid Id,
     AppointmentBusinessResponse Business,
     AppointmentServiceResponse Service,
     AppointmentStaffMemberResponse StaffMember,
+    AppointmentCustomerResponse Customer,
     DateTimeOffset StartAtUtc,
     DateTimeOffset EndAtUtc,
     DateOnly LocalDate,

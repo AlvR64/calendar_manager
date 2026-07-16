@@ -25,6 +25,12 @@ const scheduledAppointment: AppointmentSummaryResponse = {
   cancelledAtUtc: null,
   cancellationReason: null,
   createdAtUtc: '2026-07-16T10:00:00Z',
+  customer: {
+    email: 'customer@example.test',
+    firstName: 'Clara',
+    id: 'customer-1',
+    lastName: null,
+  },
   customerNotes: 'Notas',
   endAtUtc: '2026-07-20T08:30:00Z',
   endTime: '10:30:00',

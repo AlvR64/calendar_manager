@@ -58,6 +58,44 @@ public sealed class AppointmentRepository(CalendarDbContext dbContext) : IAppoin
             .ToListAsync(cancellationToken);
     }
 
+    public async Task<IReadOnlyList<Appointment>> ListByBusinessIdWithDetailsAsync(
+        Guid businessId,
+        DateTimeOffset fromUtc,
+        DateTimeOffset toUtc,
+        Guid? staffMemberId,
+        Guid? serviceId,
+        AppointmentStatus? status,
+        CancellationToken cancellationToken)
+    {
+        var query = dbContext.Appointments
+            .AsNoTracking()
+            .Include(appointment => appointment.Business)
+            .Include(appointment => appointment.Service)
+            .Include(appointment => appointment.StaffMember)
+            .Include(appointment => appointment.Customer)
+            .Where(appointment => appointment.BusinessId == businessId)
+            .Where(appointment => appointment.StartAtUtc < toUtc && fromUtc < appointment.EndAtUtc);
+
+        if (staffMemberId.HasValue)
+        {
+            query = query.Where(appointment => appointment.StaffMemberId == staffMemberId.Value);
+        }
+
+        if (serviceId.HasValue)
+        {
+            query = query.Where(appointment => appointment.ServiceId == serviceId.Value);
+        }
+
+        if (status.HasValue)
+        {
+            query = query.Where(appointment => appointment.Status == status.Value);
+        }
+
+        return await query
+            .OrderBy(appointment => appointment.StartAtUtc)
+            .ToListAsync(cancellationToken);
+    }
+
     public async Task<IReadOnlyList<Appointment>> ListBlockingAppointmentsAsync(
         Guid businessId,
         IReadOnlyCollection<Guid> staffMemberIds,

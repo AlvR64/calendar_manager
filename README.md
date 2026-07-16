@@ -78,8 +78,9 @@ bash ./frontend/start-dev.sh
 9. Open `/b/{slug}/appointment` to select a service, optional staff member, date, and slot.
 10. Log in or register as a customer to confirm the selected slot as a real appointment, then open the protected appointment detail page from the success link.
 11. Open `/customer/appointments` as the customer to list appointments and cancel scheduled future appointments.
+12. Open `/admin/appointments` as the admin to list business appointments by date range, staff member, service, and status.
 
-Admin appointment management continues in the Appointments MVP specs.
+Admin appointment actions continue in the Appointments MVP specs.
 
 ## Notes
 

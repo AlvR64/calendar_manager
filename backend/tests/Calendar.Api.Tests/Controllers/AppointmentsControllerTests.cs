@@ -4,6 +4,7 @@ using Calendar.Api.Controllers;
 using Calendar.Application.Abstractions.Messaging;
 using Calendar.Application.Appointments.CreateAppointment;
 using Calendar.Application.Appointments.GetAppointmentDetails;
+using Calendar.Application.Appointments.ListAdminAppointments;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -11,6 +12,82 @@ namespace Calendar.Api.Tests.Controllers;
 
 public sealed class AppointmentsControllerTests
 {
+    [Fact]
+    public async Task ListAppointments_WhenRequestIsValid_ReturnsAppointmentSummaries()
+    {
+        var businessId = Guid.NewGuid();
+        var staffMemberId = Guid.NewGuid();
+        var serviceId = Guid.NewGuid();
+        var details = CreateDetails(businessId: businessId);
+        var listHandler = new StubListAdminAppointmentsHandler(ListAdminAppointmentsResult.Success([details]));
+        var controller = CreateController(CreateDefaultCreateHandler(), new StubGetAppointmentDetailsHandler(null), listHandler, null, role: "Admin", businessId.ToString());
+
+        var result = await controller.ListAppointments(
+            new DateOnly(2026, 7, 20),
+            new DateOnly(2026, 7, 27),
+            staffMemberId,
+            serviceId,
+            "Scheduled",
+            CancellationToken.None);
+
+        var okResult = result.Result.Should().BeOfType<OkObjectResult>().Subject;
+        var response = okResult.Value.Should().BeAssignableTo<IReadOnlyList<AppointmentSummaryResponse>>().Subject;
+        response.Should().ContainSingle();
+        response[0].Id.Should().Be(details.Id);
+        response[0].Business.Id.Should().Be(businessId);
+        response[0].Customer.Email.Should().Be(details.Customer.Email);
+        response[0].Service.NameSnapshot.Should().Be(details.Service.NameSnapshot);
+        listHandler.Query.Should().NotBeNull();
+        listHandler.Query!.BusinessId.Should().Be(businessId);
+        listHandler.Query.FromLocalDate.Should().Be(new DateOnly(2026, 7, 20));
+        listHandler.Query.ToLocalDate.Should().Be(new DateOnly(2026, 7, 27));
+        listHandler.Query.StaffMemberId.Should().Be(staffMemberId);
+        listHandler.Query.ServiceId.Should().Be(serviceId);
+        listHandler.Query.Status.Should().Be(Calendar.Domain.Entities.AppointmentStatus.Scheduled);
+    }
+
+    [Fact]
+    public async Task ListAppointments_WhenBusinessClaimIsMissing_ReturnsForbid()
+    {
+        var listHandler = new StubListAdminAppointmentsHandler(ListAdminAppointmentsResult.Success([]));
+        var controller = CreateController(CreateDefaultCreateHandler(), new StubGetAppointmentDetailsHandler(null), listHandler, null, role: "Admin", businessIdClaimValue: null);
+
+        var result = await controller.ListAppointments(new DateOnly(2026, 7, 20), new DateOnly(2026, 7, 27), null, null, null, CancellationToken.None);
+
+        result.Result.Should().BeOfType<ForbidResult>();
+        listHandler.Query.Should().BeNull();
+    }
+
+    [Fact]
+    public async Task ListAppointments_WhenStatusIsInvalid_ReturnsBadRequest()
+    {
+        var listHandler = new StubListAdminAppointmentsHandler(ListAdminAppointmentsResult.Success([]));
+        var controller = CreateController(CreateDefaultCreateHandler(), new StubGetAppointmentDetailsHandler(null), listHandler, null, role: "Admin", Guid.NewGuid().ToString());
+
+        var result = await controller.ListAppointments(new DateOnly(2026, 7, 20), new DateOnly(2026, 7, 27), null, null, "invalid", CancellationToken.None);
+
+        var badRequest = result.Result.Should().BeOfType<BadRequestObjectResult>().Subject;
+        var problemDetails = badRequest.Value.Should().BeOfType<ProblemDetails>().Subject;
+        problemDetails.Status.Should().Be(StatusCodes.Status400BadRequest);
+        problemDetails.Title.Should().Be("Invalid appointment status.");
+        listHandler.Query.Should().BeNull();
+    }
+
+    [Fact]
+    public async Task ListAppointments_WhenRangeIsMissing_ReturnsBadRequest()
+    {
+        var listHandler = new StubListAdminAppointmentsHandler(ListAdminAppointmentsResult.Success([]));
+        var controller = CreateController(CreateDefaultCreateHandler(), new StubGetAppointmentDetailsHandler(null), listHandler, null, role: "Admin", Guid.NewGuid().ToString());
+
+        var result = await controller.ListAppointments(null, new DateOnly(2026, 7, 27), null, null, null, CancellationToken.None);
+
+        var badRequest = result.Result.Should().BeOfType<BadRequestObjectResult>().Subject;
+        var problemDetails = badRequest.Value.Should().BeOfType<ProblemDetails>().Subject;
+        problemDetails.Status.Should().Be(StatusCodes.Status400BadRequest);
+        problemDetails.Title.Should().Be("Appointment date range is required.");
+        listHandler.Query.Should().BeNull();
+    }
+
     [Fact]
     public async Task CreateAppointment_WhenRequestIsValid_ReturnsCreatedResponse()
     {
@@ -133,7 +210,7 @@ public sealed class AppointmentsControllerTests
         var customerId = Guid.NewGuid();
         var details = CreateDetails(customerId: customerId);
         var queryHandler = new StubGetAppointmentDetailsHandler(details);
-        var controller = CreateController(CreateDefaultCreateHandler(), queryHandler, customerId.ToString(), role: "Customer", businessIdClaimValue: null);
+        var controller = CreateController(CreateDefaultCreateHandler(), queryHandler, new StubListAdminAppointmentsHandler(ListAdminAppointmentsResult.Success([])), customerId.ToString(), role: "Customer", businessIdClaimValue: null);
 
         var result = await controller.GetAppointment(details.Id, CancellationToken.None);
 
@@ -161,7 +238,7 @@ public sealed class AppointmentsControllerTests
         var businessId = Guid.NewGuid();
         var details = CreateDetails(businessId: businessId);
         var queryHandler = new StubGetAppointmentDetailsHandler(details);
-        var controller = CreateController(CreateDefaultCreateHandler(), queryHandler, Guid.NewGuid().ToString(), role: "Admin", businessId.ToString());
+        var controller = CreateController(CreateDefaultCreateHandler(), queryHandler, new StubListAdminAppointmentsHandler(ListAdminAppointmentsResult.Success([])), Guid.NewGuid().ToString(), role: "Admin", businessId.ToString());
 
         var result = await controller.GetAppointment(details.Id, CancellationToken.None);
 
@@ -173,7 +250,7 @@ public sealed class AppointmentsControllerTests
     public async Task GetAppointment_WhenAppointmentDoesNotExist_ReturnsNotFoundProblemDetails()
     {
         var queryHandler = new StubGetAppointmentDetailsHandler(null);
-        var controller = CreateController(CreateDefaultCreateHandler(), queryHandler, Guid.NewGuid().ToString(), role: "Customer", businessIdClaimValue: null);
+        var controller = CreateController(CreateDefaultCreateHandler(), queryHandler, new StubListAdminAppointmentsHandler(ListAdminAppointmentsResult.Success([])), Guid.NewGuid().ToString(), role: "Customer", businessIdClaimValue: null);
 
         var result = await controller.GetAppointment(Guid.NewGuid(), CancellationToken.None);
 
@@ -189,7 +266,7 @@ public sealed class AppointmentsControllerTests
     {
         var details = CreateDetails(customerId: Guid.NewGuid());
         var queryHandler = new StubGetAppointmentDetailsHandler(details);
-        var controller = CreateController(CreateDefaultCreateHandler(), queryHandler, Guid.NewGuid().ToString(), role: "Customer", businessIdClaimValue: null);
+        var controller = CreateController(CreateDefaultCreateHandler(), queryHandler, new StubListAdminAppointmentsHandler(ListAdminAppointmentsResult.Success([])), Guid.NewGuid().ToString(), role: "Customer", businessIdClaimValue: null);
 
         var result = await controller.GetAppointment(details.Id, CancellationToken.None);
 
@@ -201,7 +278,7 @@ public sealed class AppointmentsControllerTests
     {
         var details = CreateDetails(businessId: Guid.NewGuid());
         var queryHandler = new StubGetAppointmentDetailsHandler(details);
-        var controller = CreateController(CreateDefaultCreateHandler(), queryHandler, Guid.NewGuid().ToString(), role: "Admin", businessIdClaimValue: Guid.NewGuid().ToString());
+        var controller = CreateController(CreateDefaultCreateHandler(), queryHandler, new StubListAdminAppointmentsHandler(ListAdminAppointmentsResult.Success([])), Guid.NewGuid().ToString(), role: "Admin", businessIdClaimValue: Guid.NewGuid().ToString());
 
         var result = await controller.GetAppointment(details.Id, CancellationToken.None);
 
@@ -262,7 +339,7 @@ public sealed class AppointmentsControllerTests
 
     private static AppointmentsController CreateController(StubCreateAppointmentHandler handler, string? customerIdClaimValue)
     {
-        var controller = CreateController(handler, new StubGetAppointmentDetailsHandler(null), customerIdClaimValue, role: "Customer", businessIdClaimValue: null);
+        var controller = CreateController(handler, new StubGetAppointmentDetailsHandler(null), new StubListAdminAppointmentsHandler(ListAdminAppointmentsResult.Success([])), customerIdClaimValue, role: "Customer", businessIdClaimValue: null);
         controller.ControllerContext.HttpContext.Request.Path = "/api/appointments";
 
         return controller;
@@ -271,11 +348,12 @@ public sealed class AppointmentsControllerTests
     private static AppointmentsController CreateController(
         StubCreateAppointmentHandler createHandler,
         StubGetAppointmentDetailsHandler getHandler,
+        StubListAdminAppointmentsHandler listHandler,
         string? customerIdClaimValue,
         string role,
         string? businessIdClaimValue)
     {
-        var controller = new AppointmentsController(createHandler, getHandler)
+        var controller = new AppointmentsController(createHandler, getHandler, listHandler)
         {
             ControllerContext = new ControllerContext
             {
@@ -325,6 +403,17 @@ public sealed class AppointmentsControllerTests
         {
             Query = query;
             CancellationToken = cancellationToken;
+            return Task.FromResult(result);
+        }
+    }
+
+    private sealed class StubListAdminAppointmentsHandler(ListAdminAppointmentsResult result) : IQueryHandler<ListAdminAppointmentsQuery, ListAdminAppointmentsResult>
+    {
+        public ListAdminAppointmentsQuery? Query { get; private set; }
+
+        public Task<ListAdminAppointmentsResult> HandleAsync(ListAdminAppointmentsQuery query, CancellationToken cancellationToken)
+        {
+            Query = query;
             return Task.FromResult(result);
         }
     }

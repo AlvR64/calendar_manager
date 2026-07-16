@@ -163,6 +163,11 @@ public sealed class CustomerAppointmentsController(
         new AppointmentStaffMemberResponse(
             details.StaffMember.Id,
             details.StaffMember.DisplayName),
+        new AppointmentCustomerResponse(
+            details.Customer.Id,
+            details.Customer.FirstName,
+            details.Customer.LastName,
+            details.Customer.Email),
         details.StartAtUtc,
         details.EndAtUtc,
         details.LocalDate,

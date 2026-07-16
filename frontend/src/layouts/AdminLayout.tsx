@@ -9,6 +9,7 @@ const navItems = [
   { to: '/admin/services', label: 'Services' },
   { to: '/admin/staff-members', label: 'Staff members' },
   { to: '/admin/availability', label: 'Availability' },
+  { to: routes.adminAppointments, label: 'Appointments' },
 ];
 
 export function AdminLayout() {

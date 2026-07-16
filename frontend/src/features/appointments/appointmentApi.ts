@@ -19,6 +19,34 @@ export type CustomerAppointmentFilters = {
   to?: string;
 };
 
+export type AdminAppointmentFilters = {
+  from: string;
+  serviceId?: string;
+  staffMemberId?: string;
+  status?: string;
+  to: string;
+};
+
+export function listAdminAppointments(token: string, filters: AdminAppointmentFilters) {
+  const searchParams = new URLSearchParams();
+  searchParams.set('from', filters.from);
+  searchParams.set('to', filters.to);
+
+  if (filters.staffMemberId) {
+    searchParams.set('staffMemberId', filters.staffMemberId);
+  }
+
+  if (filters.serviceId) {
+    searchParams.set('serviceId', filters.serviceId);
+  }
+
+  if (filters.status) {
+    searchParams.set('status', filters.status);
+  }
+
+  return apiRequest<AppointmentSummaryResponse[]>(`/api/appointments?${searchParams.toString()}`, { token });
+}
+
 export function listCustomerAppointments(token: string, filters: CustomerAppointmentFilters = {}) {
   const searchParams = new URLSearchParams();
   if (filters.from) {

@@ -5,6 +5,7 @@ import { AdminLayout } from '@/layouts/AdminLayout';
 import { AuthLayout } from '@/layouts/AuthLayout';
 import { PublicLayout } from '@/layouts/PublicLayout';
 import { AdminDashboardPage } from '@/pages/admin/AdminDashboardPage';
+import { AdminAppointmentsPage } from '@/pages/admin/AdminAppointmentsPage';
 import { AvailabilityPage } from '@/pages/admin/AvailabilityPage';
 import { BusinessSettingsPage } from '@/pages/admin/BusinessSettingsPage';
 import { ServicesPage } from '@/pages/admin/ServicesPage';
@@ -59,6 +60,7 @@ export const router = createBrowserRouter([
       { path: 'services', element: <ServicesPage /> },
       { path: 'staff-members', element: <StaffMembersPage /> },
       { path: 'availability', element: <AvailabilityPage /> },
+      { path: 'appointments', element: <AdminAppointmentsPage /> },
     ],
   },
 ]);

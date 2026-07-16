@@ -299,6 +299,7 @@ export type AppointmentSummaryResponse = {
   cancelledAtUtc?: string | null;
   cancellationReason?: string | null;
   createdAtUtc: string;
+  customer: AppointmentCustomerResponse;
   customerNotes?: string | null;
   endAtUtc: string;
   endTime: string;

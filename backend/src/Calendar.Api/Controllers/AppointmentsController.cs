@@ -3,6 +3,8 @@ using Calendar.Api.Contracts.Appointments;
 using Calendar.Application.Abstractions.Messaging;
 using Calendar.Application.Appointments.CreateAppointment;
 using Calendar.Application.Appointments.GetAppointmentDetails;
+using Calendar.Application.Appointments.ListAdminAppointments;
+using Calendar.Domain.Entities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,8 +14,51 @@ namespace Calendar.Api.Controllers;
 [Route("api/appointments")]
 public sealed class AppointmentsController(
     ICommandHandler<CreateAppointmentCommand, CreateAppointmentResult> createAppointmentHandler,
-    IQueryHandler<GetAppointmentDetailsQuery, AppointmentDetails?> getAppointmentDetailsHandler) : ControllerBase
+    IQueryHandler<GetAppointmentDetailsQuery, AppointmentDetails?> getAppointmentDetailsHandler,
+    IQueryHandler<ListAdminAppointmentsQuery, ListAdminAppointmentsResult> listAdminAppointmentsHandler) : ControllerBase
 {
+    [Authorize(Roles = "Admin")]
+    [HttpGet]
+    [ProducesResponseType<AppointmentSummaryResponse[]>(StatusCodes.Status200OK)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<IReadOnlyList<AppointmentSummaryResponse>>> ListAppointments(
+        [FromQuery] DateOnly? from,
+        [FromQuery] DateOnly? to,
+        [FromQuery] Guid? staffMemberId,
+        [FromQuery] Guid? serviceId,
+        [FromQuery] string? status,
+        CancellationToken cancellationToken)
+    {
+        if (!TryGetAdminBusinessId(out var businessId))
+        {
+            return Forbid();
+        }
+
+        if (!from.HasValue || !to.HasValue)
+        {
+            return BadRequest(CreateMissingDateRangeProblemDetails());
+        }
+
+        if (!TryParseStatus(status, out var appointmentStatus))
+        {
+            return BadRequest(CreateInvalidStatusProblemDetails());
+        }
+
+        var result = await listAdminAppointmentsHandler.HandleAsync(
+            new ListAdminAppointmentsQuery(businessId, from.Value, to.Value, staffMemberId, serviceId, appointmentStatus),
+            cancellationToken);
+
+        if (!result.Succeeded)
+        {
+            return ToActionResult(result.Error!.Value);
+        }
+
+        return Ok(result.Appointments.Select(MapAppointmentSummary).ToList());
+    }
+
     [Authorize(Roles = "Customer,Admin")]
     [HttpGet("{appointmentId:guid}")]
     [ProducesResponseType<AppointmentDetailsResponse>(StatusCodes.Status200OK)]
@@ -101,6 +146,23 @@ public sealed class AppointmentsController(
         return false;
     }
 
+    private static bool TryParseStatus(string? value, out AppointmentStatus? status)
+    {
+        status = null;
+        if (string.IsNullOrWhiteSpace(value))
+        {
+            return true;
+        }
+
+        if (!Enum.TryParse<AppointmentStatus>(value, ignoreCase: true, out var parsedStatus))
+        {
+            return false;
+        }
+
+        status = parsedStatus;
+        return true;
+    }
+
     private ActionResult ToActionResult(CreateAppointmentError error) => error switch
     {
         CreateAppointmentError.BusinessNotFound => NotFound(CreateBusinessNotFoundProblemDetails()),
@@ -113,6 +175,15 @@ public sealed class AppointmentsController(
         CreateAppointmentError.InvalidTimeRange => BadRequest(CreateInvalidTimeRangeProblemDetails()),
         CreateAppointmentError.OutsideBookingWindow => BadRequest(CreateOutsideBookingWindowProblemDetails()),
         CreateAppointmentError.OutsideAvailability => BadRequest(CreateOutsideAvailabilityProblemDetails()),
+        _ => BadRequest()
+    };
+
+    private ActionResult ToActionResult(ListAdminAppointmentsError error) => error switch
+    {
+        ListAdminAppointmentsError.BusinessNotFound => NotFound(CreateBusinessNotFoundProblemDetails()),
+        ListAdminAppointmentsError.InvalidBusinessTimeZone => BadRequest(CreateInvalidBusinessTimeZoneProblemDetails()),
+        ListAdminAppointmentsError.InvalidDateRange => BadRequest(CreateInvalidDateRangeProblemDetails()),
+        ListAdminAppointmentsError.DateRangeTooLarge => BadRequest(CreateDateRangeTooLargeProblemDetails()),
         _ => BadRequest()
     };
 
@@ -129,6 +200,38 @@ public sealed class AppointmentsController(
         Status = StatusCodes.Status404NotFound,
         Title = "Appointment not found.",
         Detail = "The appointment was not found.",
+        Instance = HttpContext.Request.Path
+    };
+
+    private ProblemDetails CreateMissingDateRangeProblemDetails() => new()
+    {
+        Status = StatusCodes.Status400BadRequest,
+        Title = "Appointment date range is required.",
+        Detail = "The from and to query parameters are required and must be local dates.",
+        Instance = HttpContext.Request.Path
+    };
+
+    private ProblemDetails CreateInvalidStatusProblemDetails() => new()
+    {
+        Status = StatusCodes.Status400BadRequest,
+        Title = "Invalid appointment status.",
+        Detail = "The status filter must be a valid appointment status.",
+        Instance = HttpContext.Request.Path
+    };
+
+    private ProblemDetails CreateInvalidDateRangeProblemDetails() => new()
+    {
+        Status = StatusCodes.Status400BadRequest,
+        Title = "Invalid appointment date range.",
+        Detail = "The to date must be on or after the from date.",
+        Instance = HttpContext.Request.Path
+    };
+
+    private ProblemDetails CreateDateRangeTooLargeProblemDetails() => new()
+    {
+        Status = StatusCodes.Status400BadRequest,
+        Title = "Appointment date range is too large.",
+        Detail = "The appointment date range must be 90 days or fewer.",
         Instance = HttpContext.Request.Path
     };
 
@@ -213,6 +316,38 @@ public sealed class AppointmentsController(
         result.CreatedAtUtc!.Value);
 
     private static AppointmentDetailsResponse MapAppointmentDetails(AppointmentDetails details) => new(
+        details.Id,
+        new AppointmentBusinessResponse(
+            details.Business.Id,
+            details.Business.Name,
+            details.Business.Slug,
+            details.Business.TimeZoneId),
+        new AppointmentServiceResponse(
+            details.Service.Id,
+            details.Service.NameSnapshot,
+            details.Service.DurationMinutesSnapshot,
+            details.Service.PriceAmountSnapshot,
+            details.Service.CurrencyCodeSnapshot),
+        new AppointmentStaffMemberResponse(
+            details.StaffMember.Id,
+            details.StaffMember.DisplayName),
+        new AppointmentCustomerResponse(
+            details.Customer.Id,
+            details.Customer.FirstName,
+            details.Customer.LastName,
+            details.Customer.Email),
+        details.StartAtUtc,
+        details.EndAtUtc,
+        details.LocalDate,
+        details.StartTime,
+        details.EndTime,
+        details.Status,
+        details.CustomerNotes,
+        details.CancelledAtUtc,
+        details.CancellationReason,
+        details.CreatedAtUtc);
+
+    private static AppointmentSummaryResponse MapAppointmentSummary(AppointmentDetails details) => new(
         details.Id,
         new AppointmentBusinessResponse(
             details.Business.Id,

@@ -15,6 +15,15 @@ public interface IAppointmentRepository
         AppointmentStatus? status,
         CancellationToken cancellationToken);
 
+    Task<IReadOnlyList<Appointment>> ListByBusinessIdWithDetailsAsync(
+        Guid businessId,
+        DateTimeOffset fromUtc,
+        DateTimeOffset toUtc,
+        Guid? staffMemberId,
+        Guid? serviceId,
+        AppointmentStatus? status,
+        CancellationToken cancellationToken);
+
     Task<IReadOnlyList<Appointment>> ListBlockingAppointmentsAsync(
         Guid businessId,
         IReadOnlyCollection<Guid> staffMemberIds,

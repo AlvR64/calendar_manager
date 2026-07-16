@@ -4,6 +4,8 @@
 
 Appointments MVP.
 
+Estado: done.
+
 ## IDs De Capacidad
 
 - `6.5`
@@ -14,9 +16,9 @@ Appointments MVP.
 
 | ID | Backend | Frontend | Diseno | Postpuesto |
 | --- | --- | --- | --- | --- |
-| `6.5` | [ ] | [ ] | [ ] | [ ] |
-| `6.6` | [ ] | [ ] | [ ] | [ ] |
-| `6.7` | [ ] | [ ] | [ ] | [ ] |
+| `6.5` | [x] | [x] | [ ] | [ ] |
+| `6.6` | [x] | [x] | [ ] | [ ] |
+| `6.7` | [x] | [x] | [ ] | [ ] |
 
 ## Objetivo
 
@@ -97,13 +99,13 @@ Permitir que el admin vea appointments del business en una vista operativa por r
 
 ## Criterios De Aceptacion
 
-- [ ] Admin ve appointments de su business.
-- [ ] Admin no ve appointments de otro business.
-- [ ] Filtros por rango y staff funcionan.
-- [ ] UI muestra appointments agrupados por dia.
-- [ ] Estados empty/error estan cubiertos.
-- [ ] Roadmap actualizado.
+- [x] Admin ve appointments de su business.
+- [x] Admin no ve appointments de otro business.
+- [x] Filtros por rango y staff funcionan.
+- [x] UI muestra appointments agrupados por dia.
+- [x] Estados empty/error estan cubiertos.
+- [x] Roadmap actualizado.
 
 ## Preguntas Abiertas
 
-- Decidir si el primer UI debe ser lista agrupada solamente o lista + calendario semanal simple.
+- Resuelto para MVP: primera UI como lista agrupada por dia; calendario semanal visual queda como mejora posterior.

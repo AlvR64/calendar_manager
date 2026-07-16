@@ -323,6 +323,8 @@ public sealed class ListAvailableSlotsQueryHandlerTests
 
         public Task<IReadOnlyList<Appointment>> ListByCustomerIdWithDetailsAsync(Guid customerId, DateTimeOffset? fromUtc, DateTimeOffset? toUtc, AppointmentStatus? status, CancellationToken cancellationToken) => throw new NotSupportedException();
 
+        public Task<IReadOnlyList<Appointment>> ListByBusinessIdWithDetailsAsync(Guid businessId, DateTimeOffset fromUtc, DateTimeOffset toUtc, Guid? staffMemberId, Guid? serviceId, AppointmentStatus? status, CancellationToken cancellationToken) => throw new NotSupportedException();
+
         public Task<IReadOnlyList<Appointment>> ListBlockingAppointmentsAsync(
             Guid businessId,
             IReadOnlyCollection<Guid> staffMemberIds,
