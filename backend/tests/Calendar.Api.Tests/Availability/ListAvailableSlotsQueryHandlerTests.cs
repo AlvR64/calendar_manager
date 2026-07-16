@@ -317,6 +317,8 @@ public sealed class ListAvailableSlotsQueryHandlerTests
     {
         public List<Appointment> Appointments { get; } = [];
 
+        public Task<Appointment?> GetByIdWithDetailsAsync(Guid id, CancellationToken cancellationToken) => throw new NotSupportedException();
+
         public Task<IReadOnlyList<Appointment>> ListBlockingAppointmentsAsync(
             Guid businessId,
             IReadOnlyCollection<Guid> staffMemberIds,

@@ -56,7 +56,7 @@ Notas de sincronizacion:
 | Slice | Estado | Spec | IDs de capacidad | Notas |
 | --- | --- | --- | --- | --- |
 | Crear appointment como customer | Hecho | `docs/task-specs/appointments-mvp/01-customer-appointment-creation.md` | `6.1`, `6.14`, `5.12`, `6.13` | Crea appointments reales despues de seleccionar slot; diseno especifico queda pendiente. |
-| Confirmacion y detalle de appointment | Planificado | `docs/task-specs/appointments-mvp/02-appointment-detail.md` | `6.3` | Pantalla de confirmacion y consulta de appointment. |
+| Confirmacion y detalle de appointment | Hecho | `docs/task-specs/appointments-mvp/02-appointment-detail.md` | `6.3` | Detalle recargable protegido para customer propietario o admin del business; diseno especifico queda pendiente. |
 | Lista de appointments del customer | Planificado | `docs/task-specs/appointments-mvp/03-customer-appointment-list-and-cancellation.md` | `6.4`, `6.8` | Customer ve y cancela sus appointments. |
 | Gestion admin de appointments | Planificado | `docs/task-specs/appointments-mvp/04-admin-appointment-calendar-and-list.md`, `docs/task-specs/appointments-mvp/05-admin-appointment-actions.md` | `6.5`, `6.6`, `6.7`, `6.9`, `6.11`, `6.12` | Admin lista, calendario, cancelacion, estados y notas internas. |
 | Dashboard basico | Mas adelante | `docs/task-specs/appointments-mvp/06-dashboard-basics.md` | `10.1` | Depende de tener appointments reales. |
@@ -171,7 +171,7 @@ Las siguientes secciones contienen los IDs de capacidad estables usados por incr
 | --- | --- | --- | --- | --- | --- |
 | 6.1 | Crear appointment como customer. | [x] | [x] | [ ] | [ ] |
 | 6.2 | Crear appointment como admin. | [ ] | [ ] | [ ] | [ ] |
-| 6.3 | Obtener appointment por id. | [ ] | [ ] | [ ] | [ ] |
+| 6.3 | Obtener appointment por id. | [x] | [x] | [ ] | [ ] |
 | 6.4 | Listar appointments del customer autenticado. | [ ] | [ ] | [ ] | [ ] |
 | 6.5 | Listar appointments del business para admin. | [ ] | [ ] | [ ] | [ ] |
 | 6.6 | Listar appointments por staff member y rango de fechas. | [ ] | [ ] | [ ] | [ ] |

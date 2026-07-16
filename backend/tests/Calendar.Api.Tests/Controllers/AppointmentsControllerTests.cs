@@ -3,6 +3,7 @@ using Calendar.Api.Contracts.Appointments;
 using Calendar.Api.Controllers;
 using Calendar.Application.Abstractions.Messaging;
 using Calendar.Application.Appointments.CreateAppointment;
+using Calendar.Application.Appointments.GetAppointmentDetails;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -126,6 +127,87 @@ public sealed class AppointmentsControllerTests
         problemDetails.Instance.Should().Be("/api/appointments");
     }
 
+    [Fact]
+    public async Task GetAppointment_WhenCustomerOwnsAppointment_ReturnsDetails()
+    {
+        var customerId = Guid.NewGuid();
+        var details = CreateDetails(customerId: customerId);
+        var queryHandler = new StubGetAppointmentDetailsHandler(details);
+        var controller = CreateController(CreateDefaultCreateHandler(), queryHandler, customerId.ToString(), role: "Customer", businessIdClaimValue: null);
+
+        var result = await controller.GetAppointment(details.Id, CancellationToken.None);
+
+        var okResult = result.Result.Should().BeOfType<OkObjectResult>().Subject;
+        var response = okResult.Value.Should().BeOfType<AppointmentDetailsResponse>().Subject;
+        response.Id.Should().Be(details.Id);
+        response.Business.Id.Should().Be(details.Business.Id);
+        response.Business.Name.Should().Be(details.Business.Name);
+        response.Business.Slug.Should().Be(details.Business.Slug);
+        response.Business.TimeZoneId.Should().Be(details.Business.TimeZoneId);
+        response.Service.Id.Should().Be(details.Service.Id);
+        response.Service.NameSnapshot.Should().Be(details.Service.NameSnapshot);
+        response.StaffMember.DisplayName.Should().Be(details.StaffMember.DisplayName);
+        response.Customer.Id.Should().Be(customerId);
+        response.LocalDate.Should().Be(details.LocalDate);
+        response.StartTime.Should().Be(details.StartTime);
+        response.EndTime.Should().Be(details.EndTime);
+        response.Status.Should().Be("Scheduled");
+        response.CustomerNotes.Should().Be("Notas");
+    }
+
+    [Fact]
+    public async Task GetAppointment_WhenAdminBusinessMatches_ReturnsDetails()
+    {
+        var businessId = Guid.NewGuid();
+        var details = CreateDetails(businessId: businessId);
+        var queryHandler = new StubGetAppointmentDetailsHandler(details);
+        var controller = CreateController(CreateDefaultCreateHandler(), queryHandler, Guid.NewGuid().ToString(), role: "Admin", businessId.ToString());
+
+        var result = await controller.GetAppointment(details.Id, CancellationToken.None);
+
+        result.Result.Should().BeOfType<OkObjectResult>();
+        queryHandler.Query.Should().Be(new GetAppointmentDetailsQuery(details.Id));
+    }
+
+    [Fact]
+    public async Task GetAppointment_WhenAppointmentDoesNotExist_ReturnsNotFoundProblemDetails()
+    {
+        var queryHandler = new StubGetAppointmentDetailsHandler(null);
+        var controller = CreateController(CreateDefaultCreateHandler(), queryHandler, Guid.NewGuid().ToString(), role: "Customer", businessIdClaimValue: null);
+
+        var result = await controller.GetAppointment(Guid.NewGuid(), CancellationToken.None);
+
+        var notFoundResult = result.Result.Should().BeOfType<NotFoundObjectResult>().Subject;
+        var problemDetails = notFoundResult.Value.Should().BeOfType<ProblemDetails>().Subject;
+        problemDetails.Status.Should().Be(StatusCodes.Status404NotFound);
+        problemDetails.Title.Should().Be("Appointment not found.");
+        problemDetails.Instance.Should().Be("/api/appointments/appointment-1");
+    }
+
+    [Fact]
+    public async Task GetAppointment_WhenCustomerDoesNotOwnAppointment_ReturnsForbid()
+    {
+        var details = CreateDetails(customerId: Guid.NewGuid());
+        var queryHandler = new StubGetAppointmentDetailsHandler(details);
+        var controller = CreateController(CreateDefaultCreateHandler(), queryHandler, Guid.NewGuid().ToString(), role: "Customer", businessIdClaimValue: null);
+
+        var result = await controller.GetAppointment(details.Id, CancellationToken.None);
+
+        result.Result.Should().BeOfType<ForbidResult>();
+    }
+
+    [Fact]
+    public async Task GetAppointment_WhenAdminBusinessDoesNotMatch_ReturnsForbid()
+    {
+        var details = CreateDetails(businessId: Guid.NewGuid());
+        var queryHandler = new StubGetAppointmentDetailsHandler(details);
+        var controller = CreateController(CreateDefaultCreateHandler(), queryHandler, Guid.NewGuid().ToString(), role: "Admin", businessIdClaimValue: Guid.NewGuid().ToString());
+
+        var result = await controller.GetAppointment(details.Id, CancellationToken.None);
+
+        result.Result.Should().BeOfType<ForbidResult>();
+    }
+
     private static CreateAppointmentRequest CreateRequest(Guid businessId, Guid serviceId, Guid staffMemberId, DateTimeOffset startAtUtc) => new()
     {
         BusinessId = businessId,
@@ -152,9 +234,48 @@ public sealed class AppointmentsControllerTests
             "EUR",
             DateTimeOffset.UtcNow);
 
+    private static AppointmentDetails CreateDetails(Guid? customerId = null, Guid? businessId = null)
+    {
+        var startAtUtc = new DateTimeOffset(2026, 7, 20, 8, 0, 0, TimeSpan.Zero);
+        var endAtUtc = startAtUtc.AddMinutes(30);
+
+        return new AppointmentDetails(
+            Guid.NewGuid(),
+            new AppointmentBusinessDetails(businessId ?? Guid.NewGuid(), "Barberia Centro", "barberia-centro", "Europe/Madrid"),
+            new AppointmentServiceDetails(Guid.NewGuid(), "Corte", 30, 18m, "EUR"),
+            new AppointmentStaffMemberDetails(Guid.NewGuid(), "Ana"),
+            new AppointmentCustomerDetails(customerId ?? Guid.NewGuid(), "Clara", "Diaz", "clara@example.test"),
+            startAtUtc,
+            endAtUtc,
+            new DateOnly(2026, 7, 20),
+            new TimeOnly(10, 0),
+            new TimeOnly(10, 30),
+            "Scheduled",
+            "Notas",
+            null,
+            null,
+            DateTimeOffset.UtcNow);
+    }
+
+    private static StubCreateAppointmentHandler CreateDefaultCreateHandler() =>
+        new(CreateSuccessResult(Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid(), Guid.NewGuid(), DateTimeOffset.UtcNow));
+
     private static AppointmentsController CreateController(StubCreateAppointmentHandler handler, string? customerIdClaimValue)
     {
-        var controller = new AppointmentsController(handler)
+        var controller = CreateController(handler, new StubGetAppointmentDetailsHandler(null), customerIdClaimValue, role: "Customer", businessIdClaimValue: null);
+        controller.ControllerContext.HttpContext.Request.Path = "/api/appointments";
+
+        return controller;
+    }
+
+    private static AppointmentsController CreateController(
+        StubCreateAppointmentHandler createHandler,
+        StubGetAppointmentDetailsHandler getHandler,
+        string? customerIdClaimValue,
+        string role,
+        string? businessIdClaimValue)
+    {
+        var controller = new AppointmentsController(createHandler, getHandler)
         {
             ControllerContext = new ControllerContext
             {
@@ -168,8 +289,14 @@ public sealed class AppointmentsControllerTests
             claims.Add(new Claim(ClaimTypes.NameIdentifier, customerIdClaimValue));
         }
 
+        claims.Add(new Claim(ClaimTypes.Role, role));
+        if (businessIdClaimValue is not null)
+        {
+            claims.Add(new Claim("business_id", businessIdClaimValue));
+        }
+
         controller.ControllerContext.HttpContext.User = new ClaimsPrincipal(new ClaimsIdentity(claims, "Test"));
-        controller.ControllerContext.HttpContext.Request.Path = "/api/appointments";
+        controller.ControllerContext.HttpContext.Request.Path = "/api/appointments/appointment-1";
 
         return controller;
     }
@@ -183,6 +310,20 @@ public sealed class AppointmentsControllerTests
         public Task<CreateAppointmentResult> HandleAsync(CreateAppointmentCommand command, CancellationToken cancellationToken)
         {
             Command = command;
+            CancellationToken = cancellationToken;
+            return Task.FromResult(result);
+        }
+    }
+
+    private sealed class StubGetAppointmentDetailsHandler(AppointmentDetails? result) : IQueryHandler<GetAppointmentDetailsQuery, AppointmentDetails?>
+    {
+        public GetAppointmentDetailsQuery? Query { get; private set; }
+
+        public CancellationToken CancellationToken { get; private set; }
+
+        public Task<AppointmentDetails?> HandleAsync(GetAppointmentDetailsQuery query, CancellationToken cancellationToken)
+        {
+            Query = query;
             CancellationToken = cancellationToken;
             return Task.FromResult(result);
         }

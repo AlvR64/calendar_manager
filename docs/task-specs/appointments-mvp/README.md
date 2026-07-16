@@ -46,7 +46,7 @@ Estas specs convierten el flujo publico actual de seleccion de slot en un flujo 
 | Spec | Estado | IDs de capacidad | Notas |
 | --- | --- | --- | --- |
 | `01-customer-appointment-creation.md` | Hecha | `6.1`, `6.14`, `5.12`, `6.13` | Appointment real creado desde slot seleccionado; diseno especifico pendiente. |
-| `02-appointment-detail.md` | Planificada | `6.3` | Confirmacion/detalle recargable y protegido. |
+| `02-appointment-detail.md` | Hecha | `6.3` | Detalle recargable protegido para customer propietario o admin del business. |
 | `03-customer-appointment-list-and-cancellation.md` | Planificada | `6.4`, `6.8` | Customer ve y cancela sus appointments. |
 | `04-admin-appointment-calendar-and-list.md` | Planificada | `6.5`, `6.6`, `6.7` | Admin lista/calendario con filtros por rango y staff. |
 | `05-admin-appointment-actions.md` | Planificada | `6.9`, `6.11`, `6.12` | Admin cancela, cambia estado y guarda notas internas. |

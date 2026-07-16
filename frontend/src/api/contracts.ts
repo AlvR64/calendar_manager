@@ -275,3 +275,48 @@ export type AppointmentResponse = {
   startAtUtc: string;
   status: string;
 };
+
+export type AppointmentDetailsResponse = {
+  business: AppointmentBusinessResponse;
+  cancelledAtUtc?: string | null;
+  cancellationReason?: string | null;
+  createdAtUtc: string;
+  customer: AppointmentCustomerResponse;
+  customerNotes?: string | null;
+  endAtUtc: string;
+  endTime: string;
+  id: string;
+  localDate: string;
+  service: AppointmentServiceResponse;
+  staffMember: AppointmentStaffMemberResponse;
+  startAtUtc: string;
+  startTime: string;
+  status: string;
+};
+
+export type AppointmentBusinessResponse = {
+  id: string;
+  name: string;
+  slug: string;
+  timeZoneId: string;
+};
+
+export type AppointmentServiceResponse = {
+  currencyCodeSnapshot: string;
+  durationMinutesSnapshot: number;
+  id: string;
+  nameSnapshot: string;
+  priceAmountSnapshot: number;
+};
+
+export type AppointmentStaffMemberResponse = {
+  displayName: string;
+  id: string;
+};
+
+export type AppointmentCustomerResponse = {
+  email: string;
+  firstName: string;
+  id: string;
+  lastName?: string | null;
+};

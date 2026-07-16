@@ -4,6 +4,8 @@ namespace Calendar.Domain.Abstractions;
 
 public interface IAppointmentRepository
 {
+    Task<Appointment?> GetByIdWithDetailsAsync(Guid id, CancellationToken cancellationToken);
+
     Task<IReadOnlyList<Appointment>> ListBlockingAppointmentsAsync(
         Guid businessId,
         IReadOnlyCollection<Guid> staffMemberIds,

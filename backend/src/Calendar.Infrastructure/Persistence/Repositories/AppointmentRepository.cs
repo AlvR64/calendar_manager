@@ -6,6 +6,15 @@ namespace Calendar.Infrastructure.Persistence.Repositories;
 
 public sealed class AppointmentRepository(CalendarDbContext dbContext) : IAppointmentRepository
 {
+    public async Task<Appointment?> GetByIdWithDetailsAsync(Guid id, CancellationToken cancellationToken) =>
+        await dbContext.Appointments
+            .AsNoTracking()
+            .Include(appointment => appointment.Business)
+            .Include(appointment => appointment.Service)
+            .Include(appointment => appointment.StaffMember)
+            .Include(appointment => appointment.Customer)
+            .FirstOrDefaultAsync(appointment => appointment.Id == id, cancellationToken);
+
     public async Task<IReadOnlyList<Appointment>> ListBlockingAppointmentsAsync(
         Guid businessId,
         IReadOnlyCollection<Guid> staffMemberIds,

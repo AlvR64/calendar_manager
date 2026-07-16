@@ -2,6 +2,7 @@ using System.Security.Claims;
 using Calendar.Api.Contracts.Appointments;
 using Calendar.Application.Abstractions.Messaging;
 using Calendar.Application.Appointments.CreateAppointment;
+using Calendar.Application.Appointments.GetAppointmentDetails;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -10,8 +11,33 @@ namespace Calendar.Api.Controllers;
 [ApiController]
 [Route("api/appointments")]
 public sealed class AppointmentsController(
-    ICommandHandler<CreateAppointmentCommand, CreateAppointmentResult> createAppointmentHandler) : ControllerBase
+    ICommandHandler<CreateAppointmentCommand, CreateAppointmentResult> createAppointmentHandler,
+    IQueryHandler<GetAppointmentDetailsQuery, AppointmentDetails?> getAppointmentDetailsHandler) : ControllerBase
 {
+    [Authorize(Roles = "Customer,Admin")]
+    [HttpGet("{appointmentId:guid}")]
+    [ProducesResponseType<AppointmentDetailsResponse>(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+    [ProducesResponseType(StatusCodes.Status403Forbidden)]
+    [ProducesResponseType<ProblemDetails>(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<AppointmentDetailsResponse>> GetAppointment(
+        Guid appointmentId,
+        CancellationToken cancellationToken)
+    {
+        var details = await getAppointmentDetailsHandler.HandleAsync(new GetAppointmentDetailsQuery(appointmentId), cancellationToken);
+        if (details is null)
+        {
+            return NotFound(CreateAppointmentNotFoundProblemDetails());
+        }
+
+        if (!CanAccess(details))
+        {
+            return Forbid();
+        }
+
+        return Ok(MapAppointmentDetails(details));
+    }
+
     [Authorize(Roles = "Customer")]
     [HttpPost]
     [ProducesResponseType<AppointmentResponse>(StatusCodes.Status201Created)]
@@ -54,6 +80,27 @@ public sealed class AppointmentsController(
         return Guid.TryParse(customerIdValue, out customerId);
     }
 
+    private bool TryGetAdminBusinessId(out Guid businessId)
+    {
+        var businessIdValue = User.FindFirstValue("business_id");
+        return Guid.TryParse(businessIdValue, out businessId);
+    }
+
+    private bool CanAccess(AppointmentDetails details)
+    {
+        if (User.IsInRole("Customer") && TryGetCustomerId(out var customerId))
+        {
+            return details.Customer.Id == customerId;
+        }
+
+        if (User.IsInRole("Admin") && TryGetAdminBusinessId(out var businessId))
+        {
+            return details.Business.Id == businessId;
+        }
+
+        return false;
+    }
+
     private ActionResult ToActionResult(CreateAppointmentError error) => error switch
     {
         CreateAppointmentError.BusinessNotFound => NotFound(CreateBusinessNotFoundProblemDetails()),
@@ -74,6 +121,14 @@ public sealed class AppointmentsController(
         Status = StatusCodes.Status404NotFound,
         Title = "Business not found.",
         Detail = "The business was not found or is not active.",
+        Instance = HttpContext.Request.Path
+    };
+
+    private ProblemDetails CreateAppointmentNotFoundProblemDetails() => new()
+    {
+        Status = StatusCodes.Status404NotFound,
+        Title = "Appointment not found.",
+        Detail = "The appointment was not found.",
         Instance = HttpContext.Request.Path
     };
 
@@ -156,4 +211,36 @@ public sealed class AppointmentsController(
         result.PriceAmountSnapshot!.Value,
         result.CurrencyCodeSnapshot!,
         result.CreatedAtUtc!.Value);
+
+    private static AppointmentDetailsResponse MapAppointmentDetails(AppointmentDetails details) => new(
+        details.Id,
+        new AppointmentBusinessResponse(
+            details.Business.Id,
+            details.Business.Name,
+            details.Business.Slug,
+            details.Business.TimeZoneId),
+        new AppointmentServiceResponse(
+            details.Service.Id,
+            details.Service.NameSnapshot,
+            details.Service.DurationMinutesSnapshot,
+            details.Service.PriceAmountSnapshot,
+            details.Service.CurrencyCodeSnapshot),
+        new AppointmentStaffMemberResponse(
+            details.StaffMember.Id,
+            details.StaffMember.DisplayName),
+        new AppointmentCustomerResponse(
+            details.Customer.Id,
+            details.Customer.FirstName,
+            details.Customer.LastName,
+            details.Customer.Email),
+        details.StartAtUtc,
+        details.EndAtUtc,
+        details.LocalDate,
+        details.StartTime,
+        details.EndTime,
+        details.Status,
+        details.CustomerNotes,
+        details.CancelledAtUtc,
+        details.CancellationReason,
+        details.CreatedAtUtc);
 }

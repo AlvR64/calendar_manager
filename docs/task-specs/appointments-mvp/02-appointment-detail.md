@@ -1,5 +1,7 @@
 # Appointment Detail
 
+Estado: done.
+
 ## Incremento
 
 Appointments MVP.
@@ -12,7 +14,7 @@ Appointments MVP.
 
 | ID | Backend | Frontend | Diseno | Postpuesto |
 | --- | --- | --- | --- | --- |
-| `6.3` | [ ] | [ ] | [ ] | [ ] |
+| `6.3` | [x] | [x] | [ ] | [ ] |
 
 ## Objetivo
 
@@ -103,12 +105,12 @@ Proveer una pagina recargable de confirmacion/detalle para appointments creados.
 
 ## Criterios De Aceptacion
 
-- [ ] Appointment creado puede abrirse por URL.
-- [ ] Customer no puede ver appointments de otros customers.
-- [ ] Admin no puede ver appointments de otro business.
-- [ ] Fecha/hora se muestran en timezone del business.
-- [ ] Estados de loading/error/not-found estan cubiertos.
-- [ ] Roadmap actualizado.
+- [x] Appointment creado puede abrirse por URL.
+- [x] Customer no puede ver appointments de otros customers.
+- [x] Admin no puede ver appointments de otro business.
+- [x] Fecha/hora se muestran en timezone del business.
+- [x] Estados de loading/error/not-found estan cubiertos.
+- [x] Roadmap actualizado.
 
 ## Preguntas Abiertas
 

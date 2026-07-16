@@ -13,6 +13,7 @@ import { BusinessAdminLoginPage } from '@/pages/auth/BusinessAdminLoginPage';
 import { BusinessAdminRegisterPage } from '@/pages/auth/BusinessAdminRegisterPage';
 import { CustomerLoginPage } from '@/pages/auth/CustomerLoginPage';
 import { CustomerRegisterPage } from '@/pages/auth/CustomerRegisterPage';
+import { AppointmentDetailsPage } from '@/pages/public/AppointmentDetailsPage';
 import { AppointmentSlotFlowPage } from '@/pages/public/AppointmentSlotFlowPage';
 import { BusinessProfilePage } from '@/pages/public/BusinessProfilePage';
 import { HomePage } from '@/pages/public/HomePage';
@@ -22,6 +23,7 @@ export const router = createBrowserRouter([
     element: <PublicLayout />,
     children: [
       { path: '/', element: <HomePage /> },
+      { path: '/appointments/:appointmentId', element: <AppointmentDetailsPage /> },
       { path: '/b/:slug', element: <BusinessProfilePage /> },
       { path: '/b/:slug/appointment', element: <AppointmentSlotFlowPage /> },
     ],

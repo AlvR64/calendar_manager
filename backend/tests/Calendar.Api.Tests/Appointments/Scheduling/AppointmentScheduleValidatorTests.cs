@@ -584,6 +584,8 @@ public sealed class AppointmentScheduleValidatorTests
     {
         public List<Appointment> Appointments { get; } = [];
 
+        public Task<Appointment?> GetByIdWithDetailsAsync(Guid id, CancellationToken cancellationToken) => throw new NotSupportedException();
+
         public Task<bool> HasBlockingOverlapAsync(
             Guid businessId,
             Guid staffMemberId,

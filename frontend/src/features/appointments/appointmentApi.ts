@@ -1,4 +1,4 @@
-import type { AppointmentResponse, CreateAppointmentRequest } from '@/api/contracts';
+import type { AppointmentDetailsResponse, AppointmentResponse, CreateAppointmentRequest } from '@/api/contracts';
 import { apiRequest } from '@/api/httpClient';
 
 export function createAppointment(request: CreateAppointmentRequest, token: string) {
@@ -7,4 +7,8 @@ export function createAppointment(request: CreateAppointmentRequest, token: stri
     method: 'POST',
     token,
   });
+}
+
+export function getAppointmentDetails(appointmentId: string, token: string) {
+  return apiRequest<AppointmentDetailsResponse>(`/api/appointments/${appointmentId}`, { token });
 }
