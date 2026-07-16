@@ -1,10 +1,12 @@
 # First MVP Task Specs
 
-The first MVP specs exist to remove backend/frontend/design desynchronization.
+Status: completed baseline.
 
-The immediate goal is to complete frontend features for the backend capabilities already implemented and the OpenPencil designs already created. New backend capabilities should wait until the first MVP frontend gap is closed, unless explicitly reprioritized.
+The first MVP specs exist to document how backend, frontend, and design were synchronized for the initial usable product baseline.
 
 `../../../task-groups-roadmap.md` remains the source of truth for status. Specs in this folder are implementation guides only.
+
+Completed specs are retained as implementation records and regression references. Do not delete them unless their historical context is migrated elsewhere.
 
 ## Scope
 
@@ -41,13 +43,13 @@ This table is a quick execution index. `../../../task-groups-roadmap.md` remains
 | `03-services.md` | Done | `2.1`-`2.5` | Frontend implemented and roadmap updated. |
 | `04-staff-members.md` | Done | `3.1`-`3.5` | Frontend implemented and roadmap updated. |
 | `05-staff-service-assignments.md` | Done | `4.1`-`4.6` | Frontend implemented; admin assignment listing endpoints added and roadmap updated. |
-| `06-availability.md` | Done | `5.1`-`5.8` | Frontend implemented and roadmap updated; `5.11`/`5.12` remain for scheduling flows. |
+| `06-availability.md` | Done | `5.1`-`5.8` | Frontend implemented and roadmap updated; `5.12` remains for appointment creation. |
 | `07-public-business-profile.md` | Done | `0.10`, `11.1`-`11.7` | Frontend implemented and roadmap updated. |
 | `08-public-slot-flow.md` | Done | `0.12`, `5.9`, `5.10`, `5.11`, `11.3`, `11.4`, `11.6` | Frontend implemented; stops before appointment creation. |
 
-Update each spec as needed before implementing that slice. Create additional specs from `../TEMPLATE.md` only when new first MVP slices are added.
+These specs are not the active work queue anymore. Create additional specs from `../TEMPLATE.md` for new slices, preferably in a new folder such as `../appointments-mvp/` when appointment creation work starts.
 
-## Completion Rule
+## Historical Completion Rule
 
 A first MVP slice is complete only when:
 

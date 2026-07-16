@@ -203,94 +203,45 @@ Nota para 6.14: para MVP se prefiere lock transaccional tipo SQL Server `sp_geta
 
 ## Primer MVP
 
-Este apartado lista el subconjunto inicial que debe quedar completo en backend, frontend y diseno antes de empezar a implementar nuevos casos en paralelo. La prioridad actual es completar la columna `Frontend` para los casos donde `Backend` ya esta hecho y existe `Diseno`, manteniendo fuera la creacion/listado/cancelacion de appointments hasta que el backend exponga esos casos de uso.
+Primer MVP baseline completada. Las tablas principales anteriores siguen siendo la fuente de verdad para el estado detallado por caso de uso.
 
-| ID | Caso de uso | Backend | Frontend | Diseno | Postpuesto |
-| --- | --- | --- | --- | --- | --- |
-| 0.1 | Inicializar Vite React SPA con TypeScript. | [ ] | [x] | [ ] | [ ] |
-| 0.2 | Configurar npm scripts para dev, build, lint, typecheck, test y preview. | [ ] | [x] | [ ] | [ ] |
-| 0.3 | Configurar React Router con rutas publicas, auth y admin del MVP. | [ ] | [x] | [ ] | [ ] |
-| 0.4 | Configurar TanStack Query como provider de server state. | [ ] | [x] | [ ] | [ ] |
-| 0.5 | Configurar Tailwind CSS y base compatible con shadcn/ui. | [ ] | [x] | [ ] | [ ] |
-| 0.6 | Configurar aliases `@/*`, tsconfig, ESLint y Vitest. | [ ] | [x] | [ ] | [ ] |
-| 0.7 | Crear cliente HTTP base con API URL desde `VITE_API_BASE_URL`. | [ ] | [x] | [ ] | [ ] |
-| 0.8 | Crear storage de auth MVP y guard de rutas admin. | [ ] | [x] | [ ] | [ ] |
-| 0.9 | Anadir test smoke del shell frontend. | [ ] | [x] | [ ] | [ ] |
-| 0.10 | Implementar pagina principal publica tipo marketplace. | [ ] | [x] | [x] | [ ] |
-| 0.11 | Implementar business admin shell/layout base. | [ ] | [x] | [x] | [ ] |
-| 0.12 | Implementar flujo publico de seleccion de appointment hasta elegir slot. | [ ] | [x] | [x] | [ ] |
-| 1.1 | Registrar business con su admin inicial. | [x] | [x] | [x] | [ ] |
-| 1.2 | Actualizar datos publicos del business: nombre, descripcion, contacto, web, direccion, timezone, moneda. | [x] | [x] | [x] | [ ] |
-| 1.6 | Configurar ventana maxima de reserva: por ejemplo hasta 30/60/90 dias. | [x] | [x] | [x] | [ ] |
-| 2.1 | Crear service para el business del admin autenticado. | [x] | [x] | [x] | [ ] |
-| 2.2 | Listar services del business para admin, incluyendo inactivos. | [x] | [x] | [x] | [ ] |
-| 2.3 | Obtener service por id para admin, incluyendo inactivos. | [x] | [x] | [x] | [ ] |
-| 2.4 | Actualizar service: nombre, descripcion, duracion, precio, orden. | [x] | [x] | [x] | [ ] |
-| 2.5 | Desactivar/eliminar service. | [x] | [x] | [x] | [ ] |
-| 3.1 | Crear staff member para el business del admin autenticado. | [x] | [x] | [x] | [ ] |
-| 3.2 | Listar staff members del business para admin, incluyendo inactivos. | [x] | [x] | [x] | [ ] |
-| 3.3 | Obtener staff member por id para admin, incluyendo inactivos. | [x] | [x] | [x] | [ ] |
-| 3.4 | Actualizar staff member: nombre, email, telefono, bio, orden. | [x] | [x] | [x] | [ ] |
-| 3.5 | Desactivar/eliminar staff member. | [x] | [x] | [x] | [ ] |
-| 4.1 | Asignar service a staff member desde la ruta de staff. | [x] | [x] | [x] | [ ] |
-| 4.2 | Asignar staff member a service desde la ruta de service. | [x] | [x] | [x] | [ ] |
-| 4.3 | Desasignar service de staff member. | [x] | [x] | [x] | [ ] |
-| 4.4 | Activar/desactivar una asignacion staff-service sin borrarla. | [x] | [x] | [x] | [ ] |
-| 4.5 | Listar services asignados a un staff member. | [x] | [x] | [x] | [ ] |
-| 4.6 | Listar staff members asignados a un service. | [x] | [x] | [x] | [ ] |
-| 5.1 | Crear disponibilidad semanal de un staff member. | [x] | [x] | [x] | [ ] |
-| 5.2 | Listar disponibilidad semanal de un staff member. | [x] | [x] | [x] | [ ] |
-| 5.3 | Actualizar disponibilidad semanal de un staff member. | [x] | [x] | [x] | [ ] |
-| 5.4 | Eliminar bloque de disponibilidad semanal. | [x] | [x] | [x] | [ ] |
-| 5.5 | Crear excepcion de disponibilidad por fecha concreta: vacaciones, ausencia, horario especial. | [x] | [x] | [x] | [ ] |
-| 5.6 | Listar excepciones de disponibilidad de un staff member. | [x] | [x] | [x] | [ ] |
-| 5.7 | Actualizar excepcion de disponibilidad. | [x] | [x] | [x] | [ ] |
-| 5.8 | Eliminar excepcion de disponibilidad. | [x] | [x] | [x] | [ ] |
-| 5.9 | Calcular slots disponibles para business + service + fecha. | [x] | [x] | [x] | [ ] |
-| 5.10 | Calcular slots disponibles para business + service + staff member + fecha. | [x] | [x] | [x] | [ ] |
-| 5.11 | Validar que un appointment caiga dentro de disponibilidad y fuera de excepciones. | [x] | [x] | [x] | [ ] |
-| 5.12 | Validar que un appointment no solape con otro appointment activo. | [x] | [ ] | [ ] | [ ] |
-| 7.1 | Registrar customer. | [x] | [x] | [x] | [ ] |
-| 7.2 | Login de customer con JWT. | [x] | [x] | [x] | [ ] |
-| 8.1 | Login de admin con JWT. | [x] | [x] | [x] | [ ] |
-| 11.1 | Obtener business publico por businessId. | [x] | [x] | [x] | [ ] |
-| 11.2 | Obtener profile publico de business por businessId. | [x] | [x] | [x] | [ ] |
-| 11.3 | Obtener profile publico de business por slug. | [x] | [x] | [x] | [ ] |
-| 11.4 | Listar services activos de un business. | [x] | [x] | [x] | [ ] |
-| 11.5 | Obtener un service activo concreto de un business. | [x] | [x] | [x] | [ ] |
-| 11.6 | Listar staff members activos de un business. | [x] | [x] | [x] | [ ] |
-| 11.7 | Obtener un staff member activo concreto de un business. | [x] | [x] | [x] | [ ] |
-| 13.1 | Health check simple. | [x] | [ ] | [ ] | [ ] |
+Alcance incluido:
 
-## Suggested First MVP Frontend Order
+- Shell frontend, landing publica y layout admin.
+- Registro/login de admin y customer para el MVP.
+- Registro y settings de business.
+- CRUD admin de services y staff members.
+- Asignaciones staff-service.
+- Disponibilidad semanal y excepciones por staff member.
+- Perfil publico de business.
+- Flujo publico hasta seleccion local de slot de appointment.
+- Health check backend simple.
 
-| Orden | Area | Backend | Frontend | Diseno |
-| --- | --- | --- | --- | --- |
-| 1 | Frontend Shell Y Public Landing | [ ] | [x] | [x] |
-| 2 | Customer Account y Admin Account Y Auth | [x] | [x] | [x] |
-| 3 | Gestion Del Business Por Admin | [x] | [x] | [x] |
-| 4 | Services | [x] | [x] | [x] |
-| 5 | Staff Members | [x] | [x] | [x] |
-| 6 | Asignaciones Staff-Service | [x] | [x] | [x] |
-| 7 | Disponibilidad Y Horarios | [x] | [x] | [x] |
-| 8 | Business Publico Y Descubrimiento | [x] | [x] | [x] |
-| 9 | Flujo publico de slots hasta seleccion de appointment | [x] | [x] | [x] |
+Alcance excluido del primer MVP:
 
-## Suggested Implementation Order
+- Creacion real de appointments.
+- Listado, detalle, cancelacion y reprogramacion de appointments.
+- Dashboard/reporting.
+- Notificaciones.
+- Media uploads.
+- Integraciones externas de calendario.
+- Multi-sede.
 
-1. Frontend Shell Y Public Landing
-2. Gestion Del Business Por Admin
-3. Services
-4. Staff Members
-5. Asignaciones Staff-Service
-6. Disponibilidad Y Horarios
-7. Business Publico Y Descubrimiento
-8. Customer Account
-9. Admin Account Y Auth
-10. Appointments / Reservas
-11. Notificaciones
-12. Dashboard Y Reporting
-13. Media / Assets
-14. Seguridad, Operacion Y Plataforma
-15. Integraciones
-16. Multi-Sede / Escalado Del Modelo
+Notas de sincronizacion:
+
+- `13.1` es backend-only; no requiere frontend ni diseno.
+- `5.12` queda pendiente para frontend/diseno hasta que exista el flujo real de creacion de appointments.
+- Las specs completadas del primer MVP se conservan en `docs/task-specs/first-mvp/` como registro historico y referencia de regresion.
+
+## Next Implementation Focus
+
+1. `6.1` Crear appointment como customer.
+2. `6.14` Proteger creacion de appointment contra doble reserva concurrente.
+3. `5.12` Validar solapes contra appointments activos dentro del flujo real de creacion.
+4. `6.3` Obtener appointment por id.
+5. `6.4` Listar appointments del customer autenticado.
+6. `6.5` Listar appointments del business para admin.
+7. `6.8` Cancelar appointment como customer.
+8. `6.9` Cancelar appointment como admin.
+9. `6.7` Listar appointments por fecha/rango para calendario admin.
+10. `10.1` Anadir resumen dashboard admin cuando existan appointments reales.
