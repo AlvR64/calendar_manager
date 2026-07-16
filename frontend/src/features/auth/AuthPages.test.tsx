@@ -62,6 +62,36 @@ describe('auth pages', () => {
     expect(getAuthSession('Customer')).toBeNull();
   });
 
+  it('navigates admin to safe returnTo after login', async () => {
+    vi.mocked(authApi.loginAdmin).mockResolvedValue({
+      accessToken: 'admin-token',
+      expiresAtUtc: '2026-07-15T18:00:00Z',
+      tokenType: 'Bearer',
+      user: {
+        businessId: 'business-1',
+        displayName: 'Admin One',
+        email: 'admin@example.com',
+        id: 'admin-1',
+        type: 'Admin',
+      },
+    });
+
+    renderWithProviders(
+      <Routes>
+        <Route element={<BusinessAdminLoginPage />} path="/auth/admin/login" />
+        <Route element={<div>Appointment detail after admin login</div>} path="/appointments/:appointmentId" />
+      </Routes>,
+      '/auth/admin/login?returnTo=%2Fappointments%2Fappointment-1',
+    );
+
+    const user = userEvent.setup();
+    await user.type(screen.getByLabelText(/email admin/i), 'admin@example.com');
+    await user.type(screen.getByLabelText(/password/i), 'password123');
+    await user.click(screen.getByRole('button', { name: /entrar al panel/i }));
+
+    expect(await screen.findByText('Appointment detail after admin login')).toBeInTheDocument();
+  });
+
   it('shows backend auth errors on customer login', async () => {
     vi.mocked(authApi.loginCustomer).mockRejectedValue(
       new ApiError('Unauthorized', 401, { detail: 'Invalid customer credentials.' }),

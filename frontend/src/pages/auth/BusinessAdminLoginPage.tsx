@@ -13,6 +13,8 @@ import { routes } from '@/lib/routes';
 export function BusinessAdminLoginPage() {
   const navigate = useNavigate();
   const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const returnTo = getSafeReturnTo(searchParams.get('returnTo'));
   const registrationMessage = (location.state as { message?: string } | null)?.message;
   const {
     formState: { errors },
@@ -36,7 +38,7 @@ export function BusinessAdminLoginPage() {
         token: response.accessToken,
         tokenType: response.tokenType,
       });
-      navigate(routes.adminDashboard, { replace: true });
+      navigate(returnTo ?? routes.adminDashboard, { replace: true });
     },
   });
 
@@ -82,4 +84,8 @@ export function BusinessAdminLoginPage() {
       </p>
     </AuthShell>
   );
+}
+
+function getSafeReturnTo(value: string | null) {
+  return value?.startsWith('/') && !value.startsWith('//') ? value : null;
 }

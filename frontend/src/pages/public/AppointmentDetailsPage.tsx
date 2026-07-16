@@ -14,7 +14,9 @@ const appointmentDetailsQueryKey = (appointmentId: string, token: string) => ['a
 
 export function AppointmentDetailsPage() {
   const { appointmentId } = useParams();
-  const session = getAuthSession();
+  const customerSession = getAuthSession('Customer');
+  const adminSession = getAuthSession('Admin');
+  const session = customerSession ?? adminSession;
 
   const appointmentQuery = useQuery({
     enabled: Boolean(appointmentId && session?.token),
@@ -37,7 +39,7 @@ export function AppointmentDetailsPage() {
           <p className="mx-auto mt-3 max-w-xl text-sm font-semibold leading-6 text-slate-500">Customers pueden ver sus propios appointments y admins los appointments de su business.</p>
           <div className="mt-6 flex flex-col justify-center gap-3 sm:flex-row">
             <Link className="rounded-2xl bg-indigo-600 px-5 py-3 text-sm font-black text-white hover:bg-indigo-700" to={`${routes.customerLogin}?returnTo=${encodeURIComponent(returnTo)}`}>Entrar como customer</Link>
-            <Link className="rounded-2xl border border-slate-200 bg-white px-5 py-3 text-sm font-black text-slate-700 hover:border-indigo-300" to={routes.adminLogin}>Entrar como admin</Link>
+            <Link className="rounded-2xl border border-slate-200 bg-white px-5 py-3 text-sm font-black text-slate-700 hover:border-indigo-300" to={`${routes.adminLogin}?returnTo=${encodeURIComponent(returnTo)}`}>Entrar como admin</Link>
           </div>
         </div>
       </AppointmentShell>

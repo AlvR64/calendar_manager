@@ -62,6 +62,7 @@ describe('appointment details page', () => {
 
     expect(screen.getByText(/entra para ver el appointment/i)).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /entrar como customer/i })).toHaveAttribute('href', expect.stringContaining('/auth/customer/login?returnTo='));
+    expect(screen.getByRole('link', { name: /entrar como admin/i })).toHaveAttribute('href', expect.stringContaining('/auth/admin/login?returnTo='));
     expect(appointmentApi.getAppointmentDetails).not.toHaveBeenCalled();
   });
 
@@ -77,6 +78,17 @@ describe('appointment details page', () => {
     expect(screen.getByText('Ana')).toBeInTheDocument();
     expect(screen.getByText('Clara Diaz')).toBeInTheDocument();
     expect(screen.getByText('Notas del customer')).toBeInTheDocument();
+    expect(appointmentApi.getAppointmentDetails).toHaveBeenCalledWith('appointment-1', 'customer-token');
+  });
+
+  it('prefers the customer token when customer and admin sessions both exist', async () => {
+    setCustomerSession();
+    setAdminSession();
+    vi.mocked(appointmentApi.getAppointmentDetails).mockResolvedValue(appointment);
+
+    renderWithProviders(<AppointmentDetailsPage />);
+
+    expect(await screen.findAllByText('Corte')).not.toHaveLength(0);
     expect(appointmentApi.getAppointmentDetails).toHaveBeenCalledWith('appointment-1', 'customer-token');
   });
 
@@ -117,6 +129,19 @@ function setCustomerSession() {
     id: 'customer-1',
     lastName: 'Diaz',
     token: 'customer-token',
+    tokenType: 'Bearer',
+  });
+}
+
+function setAdminSession() {
+  setAuthSession({
+    accountType: 'Admin',
+    businessId: 'business-1',
+    displayName: 'Admin One',
+    email: 'admin@example.test',
+    expiresAtUtc: '2026-07-20T00:00:00Z',
+    id: 'admin-1',
+    token: 'admin-token',
     tokenType: 'Bearer',
   });
 }
