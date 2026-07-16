@@ -76,8 +76,9 @@ bash ./frontend/start-dev.sh
 7. Configure staff availability.
 8. Open `/b/{slug}` to review the public business profile.
 9. Open `/b/{slug}/appointment` to select a service, optional staff member, date, and slot.
+10. Log in or register as a customer to confirm the selected slot as a real appointment.
 
-Appointment creation is intentionally outside the current first MVP slice; the public flow stops after local slot selection.
+Appointment detail, customer appointment lists, cancellation, and admin appointment management continue in the Appointments MVP specs.
 
 ## Notes
 

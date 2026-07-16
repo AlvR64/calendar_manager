@@ -40,4 +40,6 @@ public sealed class AppointmentRepository(CalendarDbContext dbContext) : IAppoin
                 && appointment.StartAtUtc < endAtUtc
                 && startAtUtc < appointment.EndAtUtc,
                 cancellationToken);
+
+    public void Add(Appointment appointment) => dbContext.Appointments.Add(appointment);
 }

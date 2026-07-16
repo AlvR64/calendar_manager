@@ -55,7 +55,7 @@ Notas de sincronizacion:
 
 | Slice | Estado | Spec | IDs de capacidad | Notas |
 | --- | --- | --- | --- | --- |
-| Crear appointment como customer | Siguiente | `docs/task-specs/appointments-mvp/01-customer-appointment-creation.md` | `6.1`, `6.14`, `5.12`, `6.13` | Crea appointments reales despues de seleccionar slot. |
+| Crear appointment como customer | Hecho | `docs/task-specs/appointments-mvp/01-customer-appointment-creation.md` | `6.1`, `6.14`, `5.12`, `6.13` | Crea appointments reales despues de seleccionar slot; diseno especifico queda pendiente. |
 | Confirmacion y detalle de appointment | Planificado | `docs/task-specs/appointments-mvp/02-appointment-detail.md` | `6.3` | Pantalla de confirmacion y consulta de appointment. |
 | Lista de appointments del customer | Planificado | `docs/task-specs/appointments-mvp/03-customer-appointment-list-and-cancellation.md` | `6.4`, `6.8` | Customer ve y cancela sus appointments. |
 | Gestion admin de appointments | Planificado | `docs/task-specs/appointments-mvp/04-admin-appointment-calendar-and-list.md`, `docs/task-specs/appointments-mvp/05-admin-appointment-actions.md` | `6.5`, `6.6`, `6.7`, `6.9`, `6.11`, `6.12` | Admin lista, calendario, cancelacion, estados y notas internas. |
@@ -163,13 +163,13 @@ Las siguientes secciones contienen los IDs de capacidad estables usados por incr
 | 5.9 | Calcular slots disponibles para business + service + fecha. | [x] | [x] | [x] | [ ] |
 | 5.10 | Calcular slots disponibles para business + service + staff member + fecha. | [x] | [x] | [x] | [ ] |
 | 5.11 | Validar que un appointment caiga dentro de disponibilidad y fuera de excepciones. | [x] | [x] | [x] | [ ] |
-| 5.12 | Validar que un appointment no solape con otro appointment activo. | [x] | [ ] | [ ] | [ ] |
+| 5.12 | Validar que un appointment no solape con otro appointment activo. | [x] | [x] | [ ] | [ ] |
 
 ### 6. Appointments / Reservas
 
 | ID | Caso de uso | Backend | Frontend | Diseno | Postpuesto |
 | --- | --- | --- | --- | --- | --- |
-| 6.1 | Crear appointment como customer. | [ ] | [ ] | [ ] | [ ] |
+| 6.1 | Crear appointment como customer. | [x] | [x] | [ ] | [ ] |
 | 6.2 | Crear appointment como admin. | [ ] | [ ] | [ ] | [ ] |
 | 6.3 | Obtener appointment por id. | [ ] | [ ] | [ ] | [ ] |
 | 6.4 | Listar appointments del customer autenticado. | [ ] | [ ] | [ ] | [ ] |
@@ -181,8 +181,8 @@ Las siguientes secciones contienen los IDs de capacidad estables usados por incr
 | 6.10 | Reprogramar appointment. | [ ] | [ ] | [ ] | [ ] |
 | 6.11 | Cambiar estado operativo de appointment: scheduled, completed, no-show. Las cancelaciones se gestionan con 6.8 y 6.9. | [ ] | [ ] | [ ] | [ ] |
 | 6.12 | Guardar notas internas del appointment para admin/staff. | [ ] | [ ] | [ ] | [ ] |
-| 6.13 | Guardar notas visibles del customer en el appointment. | [ ] | [ ] | [ ] | [ ] |
-| 6.14 | Proteger creacion de appointment contra doble reserva concurrente: tomar lock transaccional, validar disponibilidad/solapes dentro de la transaccion e insertar appointment atomicamente. | [ ] | [ ] | [ ] | [ ] |
+| 6.13 | Guardar notas visibles del customer en el appointment. | [x] | [x] | [ ] | [ ] |
+| 6.14 | Proteger creacion de appointment contra doble reserva concurrente: tomar lock transaccional, validar disponibilidad/solapes dentro de la transaccion e insertar appointment atomicamente. | [x] | [x] | [ ] | [ ] |
 
 Nota para 6.14: para MVP se prefiere lock transaccional tipo SQL Server `sp_getapplock` por `businessId` + `staffMemberId` + `localDate`. `SlotHold` temporal queda fuera del MVP salvo que se necesite reservar provisionalmente mientras el customer completa registro/pago.
 

@@ -1,4 +1,5 @@
 using Calendar.Domain.Abstractions;
+using Calendar.Application.Appointments.CreateAppointment;
 using Calendar.Infrastructure.Persistence;
 using Calendar.Infrastructure.Persistence.Repositories;
 using Calendar.Infrastructure.Security;
@@ -36,6 +37,7 @@ public static class DependencyInjection
         services.AddScoped<IStaffMemberAvailabilityRepository, StaffMemberAvailabilityRepository>();
         services.AddScoped<IStaffMemberAvailabilityExceptionRepository, StaffMemberAvailabilityExceptionRepository>();
         services.AddScoped<IStaffMemberServiceRepository, StaffMemberServiceRepository>();
+        services.AddScoped<IAppointmentCreationConcurrencyGuard, AppointmentCreationConcurrencyGuard>();
         services.AddScoped<IUnitOfWork, UnitOfWork>();
         services.AddSingleton<IAccessTokenService, JwtAccessTokenService>();
         services.AddSingleton<IPasswordHashingService, Pbkdf2PasswordHashingService>();

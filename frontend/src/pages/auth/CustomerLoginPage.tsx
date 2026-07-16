@@ -13,6 +13,8 @@ import { routes } from '@/lib/routes';
 export function CustomerLoginPage() {
   const navigate = useNavigate();
   const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const returnTo = getSafeReturnTo(searchParams.get('returnTo'));
   const registrationMessage = (location.state as { message?: string } | null)?.message;
   const {
     formState: { errors },
@@ -36,7 +38,7 @@ export function CustomerLoginPage() {
         token: response.accessToken,
         tokenType: response.tokenType,
       });
-      navigate(routes.home, { replace: true });
+      navigate(returnTo ?? routes.home, { replace: true });
     },
   });
 
@@ -76,10 +78,18 @@ export function CustomerLoginPage() {
 
       <p className="mt-6 text-center text-sm font-semibold text-slate-500">
         No tienes cuenta?{' '}
-        <Link className="font-black text-indigo-600" to={routes.customerRegister}>
+        <Link className="font-black text-indigo-600" to={withReturnTo(routes.customerRegister, returnTo)}>
           Registrate
         </Link>
       </p>
     </AuthShell>
   );
+}
+
+function getSafeReturnTo(value: string | null) {
+  return value?.startsWith('/') && !value.startsWith('//') ? value : null;
+}
+
+function withReturnTo(path: string, returnTo: string | null) {
+  return returnTo ? `${path}?returnTo=${encodeURIComponent(returnTo)}` : path;
 }

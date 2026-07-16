@@ -605,5 +605,7 @@ public sealed class AppointmentScheduleValidatorTests
             DateTimeOffset rangeStartUtc,
             DateTimeOffset rangeEndUtc,
             CancellationToken cancellationToken) => throw new NotSupportedException();
+
+        public void Add(Appointment appointment) => Appointments.Add(appointment);
     }
 }

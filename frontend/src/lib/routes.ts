@@ -2,6 +2,7 @@ export const routes = {
   home: '/',
   businessProfile: (slug: string) => `/b/${slug}`,
   appointmentSlotFlow: (slug: string) => `/b/${slug}/appointment`,
+  appointmentDetail: (appointmentId: string) => `/appointments/${appointmentId}`,
   customerLogin: '/auth/customer/login',
   customerRegister: '/auth/customer/register',
   adminLogin: '/auth/admin/login',

@@ -1,12 +1,14 @@
-import { useQuery } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 import type { ReactNode } from 'react';
 import { useState } from 'react';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
 
 import type { AvailableSlotResponse, BusinessProfileResponse, BusinessServiceResponse, BusinessStaffMemberResponse } from '@/api/contracts';
 import { getApiErrorMessage } from '@/api/apiErrors';
 import { ApiError } from '@/api/httpClient';
-import { ApiErrorAlert, inputClassName, labelClassName } from '@/features/auth/authUi';
+import { getAuthSession } from '@/auth/authStorage';
+import { createAppointment } from '@/features/appointments/appointmentApi';
+import { ApiErrorAlert, inputClassName, labelClassName, primaryButtonClassName } from '@/features/auth/authUi';
 import { getPublicBusinessProfileBySlug, listPublicAvailableSlots } from '@/features/publicBusiness/publicBusinessApi';
 import { routes } from '@/lib/routes';
 
@@ -22,10 +24,13 @@ const availableSlotsQueryKey = (businessId: string, serviceId: string, date: str
 
 export function AppointmentSlotFlowPage() {
   const { slug } = useParams();
-  const [selectedServiceId, setSelectedServiceId] = useState('');
-  const [selectedStaffMemberId, setSelectedStaffMemberId] = useState('any');
-  const [selectedDate, setSelectedDate] = useState('');
-  const [selectedSlotKey, setSelectedSlotKey] = useState('');
+  const [searchParams] = useSearchParams();
+  const [selectedServiceId, setSelectedServiceId] = useState(() => searchParams.get('serviceId') ?? '');
+  const [selectedStaffMemberId, setSelectedStaffMemberId] = useState(() => searchParams.get('staffMemberId') ?? 'any');
+  const [selectedDate, setSelectedDate] = useState(() => searchParams.get('date') ?? '');
+  const [selectedSlotStartAtUtc, setSelectedSlotStartAtUtc] = useState(() => searchParams.get('startAtUtc') ?? '');
+  const [customerNotes, setCustomerNotes] = useState('');
+  const customerSession = getAuthSession('Customer');
 
   const profileQuery = useQuery({
     enabled: Boolean(slug),
@@ -56,7 +61,18 @@ export function AppointmentSlotFlowPage() {
   });
 
   const slots = slotsQuery.data ?? [];
-  const selectedSlot = slots.find((slot) => slotKey(slot) === selectedSlotKey) ?? null;
+  const selectedSlot = slots.find((slot) => slot.startAtUtc === selectedSlotStartAtUtc) ?? null;
+  const selectedSlotStaffMember = staffMembers.find((staffMember) => staffMember.id === selectedSlot?.staffMemberId) ?? null;
+
+  const createAppointmentMutation = useMutation({
+    mutationFn: (slot: AvailableSlotResponse) => createAppointment({
+      businessId: business!.id,
+      customerNotes: normalizeOptionalText(customerNotes),
+      serviceId: activeServiceId,
+      staffMemberId: slot.staffMemberId,
+      startAtUtc: slot.startAtUtc,
+    }, customerSession!.token),
+  });
 
   if (!slug) {
     return <SlotFlowNotFound />;
@@ -85,17 +101,31 @@ export function AppointmentSlotFlowPage() {
   function handleServiceChange(serviceId: string) {
     setSelectedServiceId(serviceId);
     setSelectedStaffMemberId('any');
-    setSelectedSlotKey('');
+    setSelectedSlotStartAtUtc('');
+    createAppointmentMutation.reset();
   }
 
   function handleStaffMemberChange(staffMemberId: string) {
     setSelectedStaffMemberId(staffMemberId);
-    setSelectedSlotKey('');
+    setSelectedSlotStartAtUtc('');
+    createAppointmentMutation.reset();
   }
 
   function handleDateChange(date: string) {
     setSelectedDate(date);
-    setSelectedSlotKey('');
+    setSelectedSlotStartAtUtc('');
+    createAppointmentMutation.reset();
+  }
+
+  function handleSelectSlot(slot: AvailableSlotResponse) {
+    setSelectedSlotStartAtUtc(slot.startAtUtc);
+    createAppointmentMutation.reset();
+  }
+
+  function handleCreateAppointment() {
+    if (selectedSlot && customerSession) {
+      createAppointmentMutation.mutate(selectedSlot);
+    }
   }
 
   return (
@@ -107,7 +137,7 @@ export function AppointmentSlotFlowPage() {
         <p className="mt-10 text-sm font-black uppercase tracking-[0.25em] text-indigo-600">Public appointment</p>
         <h1 className="mt-4 text-5xl font-black leading-[0.95] tracking-tight text-slate-950 md:text-6xl">Elige un slot disponible</h1>
         <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
-          Selecciona service, staff member opcional y fecha. El flujo se detiene en la seleccion local del slot hasta que exista creacion de appointment.
+          Selecciona service, staff member opcional y fecha. Para confirmar el appointment necesitas entrar como customer.
         </p>
       </header>
 
@@ -150,7 +180,7 @@ export function AppointmentSlotFlowPage() {
 
           <section className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm md:p-7">
             <SectionHeader description="Slots calculados por backend con disponibilidad, excepciones y appointments existentes." eyebrow="Paso 2" title="Slots disponibles" />
-            <SelectionSummary date={activeDate} service={activeService} slot={selectedSlot} staffMember={selectedStaffMember} />
+            <SelectionSummary date={activeDate} service={activeService} slot={selectedSlot} staffMember={selectedSlotStaffMember ?? selectedStaffMember} />
 
             {!isDateWithinWindow ? (
               <EmptyPanel description={`Selecciona una fecha entre ${today} y ${maxDate}.`} title="Fecha fuera de ventana" />
@@ -169,13 +199,13 @@ export function AppointmentSlotFlowPage() {
                 {slots.map((slot) => {
                   const key = slotKey(slot);
                   const staffMember = staffMembers.find((item) => item.id === slot.staffMemberId);
-                  const isSelected = key === selectedSlotKey;
+                  const isSelected = slot.startAtUtc === selectedSlotStartAtUtc;
 
                   return (
                     <button
                       className={isSelected ? 'rounded-2xl border-2 border-indigo-600 bg-indigo-50 px-4 py-4 text-left shadow-sm' : 'rounded-2xl border border-slate-200 bg-slate-50 px-4 py-4 text-left shadow-sm transition hover:border-indigo-200 hover:bg-indigo-50'}
                       key={key}
-                      onClick={() => setSelectedSlotKey(key)}
+                      onClick={() => handleSelectSlot(slot)}
                       type="button"
                     >
                       <span className="text-xl font-black text-slate-950">{formatTime(slot.startTime)} - {formatTime(slot.endTime)}</span>
@@ -186,6 +216,21 @@ export function AppointmentSlotFlowPage() {
                 })}
               </div>
             )}
+
+            <div className="mt-8">
+              <AppointmentConfirmationPanel
+                createError={createAppointmentMutation.error}
+                createdAppointmentId={createAppointmentMutation.data?.id}
+                isCreating={createAppointmentMutation.isPending}
+                loginPath={withReturnTo(routes.customerLogin, buildAppointmentReturnTo(slug, activeServiceId, activeDate, selectedSlot))}
+                notes={customerNotes}
+                onConfirm={handleCreateAppointment}
+                onNotesChange={setCustomerNotes}
+                registerPath={withReturnTo(routes.customerRegister, buildAppointmentReturnTo(slug, activeServiceId, activeDate, selectedSlot))}
+                selectedSlot={selectedSlot}
+                sessionFirstName={customerSession?.firstName}
+              />
+            </div>
           </section>
         </div>
       )}
@@ -230,7 +275,79 @@ function SelectionSummary({ date, service, slot, staffMember }: { date: string; 
       <p>Service: {service?.name ?? 'Sin service'}</p>
       <p className="mt-1">Staff: {staffMember?.displayName ?? 'Cualquier staff member'}</p>
       <p className="mt-1">Fecha: {date}</p>
-      {slot ? <p className="mt-3 rounded-2xl bg-white px-4 py-3 text-indigo-700">Slot seleccionado: {formatTime(slot.startTime)} - {formatTime(slot.endTime)}. No se crea appointment todavia.</p> : null}
+      {slot ? <p className="mt-3 rounded-2xl bg-white px-4 py-3 text-indigo-700">Slot seleccionado: {formatTime(slot.startTime)} - {formatTime(slot.endTime)}. Ya puedes confirmar el appointment.</p> : null}
+    </div>
+  );
+}
+
+function AppointmentConfirmationPanel({
+  createError,
+  createdAppointmentId,
+  isCreating,
+  loginPath,
+  notes,
+  onConfirm,
+  onNotesChange,
+  registerPath,
+  selectedSlot,
+  sessionFirstName,
+}: {
+  createError: Error | null;
+  createdAppointmentId?: string;
+  isCreating: boolean;
+  loginPath: string;
+  notes: string;
+  onConfirm: () => void;
+  onNotesChange: (value: string) => void;
+  registerPath: string;
+  selectedSlot: AvailableSlotResponse | null;
+  sessionFirstName?: string;
+}) {
+  if (!selectedSlot) {
+    return <EmptyPanel description="Selecciona un slot disponible para continuar con la confirmacion." title="Elige un slot" />;
+  }
+
+  if (createdAppointmentId) {
+    return (
+      <div className="rounded-[1.5rem] border border-emerald-200 bg-emerald-50 p-6">
+        <p className="text-sm font-black uppercase tracking-[0.2em] text-emerald-700">Appointment creado</p>
+        <h3 className="mt-2 text-2xl font-black text-emerald-950">Tu appointment esta scheduled</h3>
+        <p className="mt-2 text-sm font-bold text-emerald-800">Guardamos el slot {formatTime(selectedSlot.startTime)} - {formatTime(selectedSlot.endTime)}.</p>
+        <Link className="mt-5 inline-flex rounded-2xl bg-emerald-700 px-5 py-3 text-sm font-black text-white hover:bg-emerald-800" to={routes.appointmentDetail(createdAppointmentId)}>
+          Ver detalle del appointment
+        </Link>
+      </div>
+    );
+  }
+
+  if (!sessionFirstName) {
+    return (
+      <div className="rounded-[1.5rem] border border-indigo-100 bg-indigo-50 p-6">
+        <p className="text-sm font-black uppercase tracking-[0.2em] text-indigo-700">Confirmacion</p>
+        <h3 className="mt-2 text-2xl font-black text-indigo-950">Entra como customer para confirmar</h3>
+        <p className="mt-2 text-sm font-bold text-indigo-800">Mantendremos service, staff, fecha y slot seleccionados al volver.</p>
+        <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+          <Link className="rounded-2xl bg-indigo-600 px-5 py-3 text-center text-sm font-black text-white hover:bg-indigo-700" to={loginPath}>Entrar y confirmar</Link>
+          <Link className="rounded-2xl border border-indigo-200 bg-white px-5 py-3 text-center text-sm font-black text-indigo-700 hover:border-indigo-400" to={registerPath}>Crear cuenta customer</Link>
+        </div>
+      </div>
+    );
+  }
+
+  return (
+    <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 p-6">
+      <p className="text-sm font-black uppercase tracking-[0.2em] text-indigo-700">Confirmacion</p>
+      <h3 className="mt-2 text-2xl font-black text-slate-950">Confirmar como {sessionFirstName}</h3>
+      <label className={`${labelClassName} mt-5`}>
+        Notas para el business
+        <textarea className={`${inputClassName} min-h-28`} maxLength={1000} onChange={(event) => onNotesChange(event.target.value)} value={notes} />
+      </label>
+      <div className="mt-4">
+        <ApiErrorAlert message={createError ? getApiErrorMessage(createError) : undefined} />
+      </div>
+      <button className={`${primaryButtonClassName} mt-5`} disabled={isCreating} onClick={onConfirm} type="button">
+        {isCreating ? 'Confirmando...' : 'Confirmar appointment'}
+      </button>
     </div>
   );
 }
@@ -291,4 +408,28 @@ function formatTime(value: string) {
 
 function formatUtc(value: string) {
   return new Date(value).toISOString().slice(11, 16);
+}
+
+function normalizeOptionalText(value: string) {
+  const trimmed = value.trim();
+  return trimmed.length > 0 ? trimmed : null;
+}
+
+function buildAppointmentReturnTo(slug: string | undefined, serviceId: string, date: string, slot: AvailableSlotResponse | null) {
+  if (!slug || !slot) {
+    return null;
+  }
+
+  const params = new URLSearchParams({
+    date,
+    serviceId,
+    staffMemberId: slot.staffMemberId,
+    startAtUtc: slot.startAtUtc,
+  });
+
+  return `${routes.appointmentSlotFlow(slug)}?${params.toString()}`;
+}
+
+function withReturnTo(path: string, returnTo: string | null) {
+  return returnTo ? `${path}?returnTo=${encodeURIComponent(returnTo)}` : path;
 }

@@ -1,6 +1,6 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useMutation } from '@tanstack/react-query';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 
 import { registerCustomer } from '@/features/auth/authApi';
@@ -11,6 +11,9 @@ import { routes } from '@/lib/routes';
 
 export function CustomerRegisterPage() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const returnTo = getSafeReturnTo(searchParams.get('returnTo'));
   const {
     formState: { errors },
     handleSubmit,
@@ -23,7 +26,7 @@ export function CustomerRegisterPage() {
   const registerMutation = useMutation({
     mutationFn: registerCustomer,
     onSuccess: () => {
-      navigate(routes.customerLogin, {
+      navigate(withReturnTo(routes.customerLogin, returnTo), {
         replace: true,
         state: { message: 'Cuenta customer creada. Entra para continuar.' },
       });
@@ -93,10 +96,18 @@ export function CustomerRegisterPage() {
 
       <p className="mt-6 text-center text-sm font-semibold text-slate-500">
         Ya tienes cuenta?{' '}
-        <Link className="font-black text-indigo-600" to={routes.customerLogin}>
+        <Link className="font-black text-indigo-600" to={withReturnTo(routes.customerLogin, returnTo)}>
           Entra aqui
         </Link>
       </p>
     </AuthShell>
   );
+}
+
+function getSafeReturnTo(value: string | null) {
+  return value?.startsWith('/') && !value.startsWith('//') ? value : null;
+}
+
+function withReturnTo(path: string, returnTo: string | null) {
+  return returnTo ? `${path}?returnTo=${encodeURIComponent(returnTo)}` : path;
 }

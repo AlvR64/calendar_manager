@@ -250,3 +250,28 @@ export type AvailableSlotResponse = {
   startAtUtc: string;
   endAtUtc: string;
 };
+
+export type CreateAppointmentRequest = {
+  businessId: string;
+  customerNotes?: string | null;
+  serviceId: string;
+  staffMemberId: string;
+  startAtUtc: string;
+};
+
+export type AppointmentResponse = {
+  businessId: string;
+  createdAtUtc: string;
+  currencyCodeSnapshot: string;
+  customerId: string;
+  customerNotes?: string | null;
+  endAtUtc: string;
+  id: string;
+  priceAmountSnapshot: number;
+  serviceDurationMinutesSnapshot: number;
+  serviceId: string;
+  serviceNameSnapshot: string;
+  staffMemberId: string;
+  startAtUtc: string;
+  status: string;
+};

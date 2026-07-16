@@ -1,5 +1,7 @@
 # Customer Appointment Creation
 
+Estado: done.
+
 ## Incremento
 
 Appointments MVP.
@@ -17,10 +19,10 @@ Mirror de `../../../task-groups-roadmap.md` al crear la spec. El roadmap sigue s
 
 | ID | Backend | Frontend | Diseno | Postpuesto |
 | --- | --- | --- | --- | --- |
-| `6.1` | [ ] | [ ] | [ ] | [ ] |
-| `6.14` | [ ] | [ ] | [ ] | [ ] |
-| `5.12` | [x] | [ ] | [ ] | [ ] |
-| `6.13` | [ ] | [ ] | [ ] | [ ] |
+| `6.1` | [x] | [x] | [ ] | [ ] |
+| `6.14` | [x] | [x] | [ ] | [ ] |
+| `5.12` | [x] | [x] | [ ] | [ ] |
+| `6.13` | [x] | [x] | [ ] | [ ] |
 
 ## Objetivo
 
@@ -160,15 +162,15 @@ El backend calcula `endAtUtc` desde la duracion actual del service activo. No se
 
 ## Criterios De Aceptacion
 
-- [ ] Customer autenticado puede crear appointment real desde un slot.
-- [ ] Customer no autenticado no puede confirmar y recibe CTA a login/register.
-- [ ] La seleccion sobrevive login/register.
-- [ ] Backend calcula `endAtUtc` y snapshots.
-- [ ] Doble reserva concurrente devuelve `409` y no crea dos appointments.
-- [ ] Solapes con appointments activos se bloquean.
-- [ ] Appointments cancelados no bloquean slots.
-- [ ] UI muestra success y link al detalle.
-- [ ] Roadmap actualizado.
+- [x] Customer autenticado puede crear appointment real desde un slot.
+- [x] Customer no autenticado no puede confirmar y recibe CTA a login/register.
+- [x] La seleccion sobrevive login/register.
+- [x] Backend calcula `endAtUtc` y snapshots.
+- [x] Doble reserva concurrente devuelve `409` y no crea dos appointments.
+- [x] Solapes con appointments activos se bloquean.
+- [x] Appointments cancelados no bloquean slots.
+- [x] UI muestra success y link al detalle.
+- [x] Roadmap actualizado.
 
 ## Preguntas Abiertas
 

@@ -7,8 +7,14 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import type { AvailableSlotResponse, BusinessProfileResponse } from '@/api/contracts';
 import { ApiError } from '@/api/httpClient';
+import { setAuthSession } from '@/auth/authStorage';
+import * as appointmentApi from '@/features/appointments/appointmentApi';
 import * as publicBusinessApi from '@/features/publicBusiness/publicBusinessApi';
 import { AppointmentSlotFlowPage } from '@/pages/public/AppointmentSlotFlowPage';
+
+vi.mock('@/features/appointments/appointmentApi', () => ({
+  createAppointment: vi.fn(),
+}));
 
 vi.mock('@/features/publicBusiness/publicBusinessApi', () => ({
   getPublicBusinessById: vi.fn(),
@@ -98,12 +104,30 @@ const slots: AvailableSlotResponse[] = [
 
 describe('appointment slot flow page', () => {
   beforeEach(() => {
+    window.localStorage.clear();
     vi.mocked(publicBusinessApi.getPublicBusinessProfileBySlug).mockResolvedValue(profile);
     vi.mocked(publicBusinessApi.listPublicAvailableSlots).mockResolvedValue(slots);
+    vi.mocked(appointmentApi.createAppointment).mockResolvedValue({
+      businessId: 'business-1',
+      createdAtUtc: '2026-07-16T10:00:00Z',
+      currencyCodeSnapshot: 'EUR',
+      customerId: 'customer-1',
+      customerNotes: 'Notas del customer',
+      endAtUtc: '2026-07-20T08:45:00Z',
+      id: 'appointment-1',
+      priceAmountSnapshot: 25,
+      serviceDurationMinutesSnapshot: 45,
+      serviceId: 'service-1',
+      serviceNameSnapshot: 'Corte clasico',
+      staffMemberId: 'staff-1',
+      startAtUtc: '2026-07-20T08:00:00Z',
+      status: 'Scheduled',
+    });
   });
 
   afterEach(() => {
     vi.clearAllMocks();
+    window.localStorage.clear();
   });
 
   it('loads profile context and renders available slots', async () => {
@@ -133,7 +157,51 @@ describe('appointment slot flow page', () => {
 
     await user.click(screen.getByRole('button', { name: /10:00 - 10:45/i }));
     expect(screen.getByText(/Slot seleccionado: 10:00 - 10:45/i)).toBeInTheDocument();
-    expect(screen.getByText(/No se crea appointment todavia/i)).toBeInTheDocument();
+    expect(screen.getByText(/Entra como customer para confirmar/i)).toBeInTheDocument();
+  });
+
+  it('shows customer auth links with selected slot preserved', async () => {
+    renderWithProviders(<AppointmentSlotFlowPage />);
+
+    const user = userEvent.setup();
+    await user.click(await screen.findByRole('button', { name: /10:00 - 10:45/i }));
+
+    const loginLink = screen.getByRole('link', { name: /entrar y confirmar/i });
+    expect(loginLink).toHaveAttribute('href', expect.stringContaining('/auth/customer/login?returnTo='));
+    expect(decodeURIComponent(loginLink.getAttribute('href') ?? '')).toContain('serviceId=service-1');
+    expect(decodeURIComponent(loginLink.getAttribute('href') ?? '')).toContain('staffMemberId=staff-1');
+    expect(decodeURIComponent(loginLink.getAttribute('href') ?? '')).toContain('startAtUtc=2026-07-20T08%3A00%3A00Z');
+  });
+
+  it('creates appointment when a customer session confirms a selected slot', async () => {
+    setAuthSession({
+      accountType: 'Customer',
+      email: 'customer@demo.test',
+      expiresAtUtc: '2026-07-20T00:00:00Z',
+      firstName: 'Clara',
+      id: 'customer-1',
+      lastName: null,
+      token: 'customer-token',
+      tokenType: 'Bearer',
+    });
+    renderWithProviders(<AppointmentSlotFlowPage />);
+
+    const user = userEvent.setup();
+    await user.click(await screen.findByRole('button', { name: /10:00 - 10:45/i }));
+    await user.type(screen.getByLabelText(/notas para el business/i), 'Notas del customer');
+    await user.click(screen.getByRole('button', { name: /confirmar appointment/i }));
+
+    await waitFor(() => {
+      expect(appointmentApi.createAppointment).toHaveBeenCalledWith({
+        businessId: 'business-1',
+        customerNotes: 'Notas del customer',
+        serviceId: 'service-1',
+        staffMemberId: 'staff-1',
+        startAtUtc: '2026-07-20T08:00:00Z',
+      }, 'customer-token');
+    });
+    expect(await screen.findByText(/Tu appointment esta scheduled/i)).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /ver detalle del appointment/i })).toHaveAttribute('href', '/appointments/appointment-1');
   });
 
   it('shows outside-window state without fetching that date', async () => {

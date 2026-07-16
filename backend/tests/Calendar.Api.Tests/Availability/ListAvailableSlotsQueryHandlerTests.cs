@@ -339,5 +339,7 @@ public sealed class ListAvailableSlotsQueryHandlerTests
             DateTimeOffset endAtUtc,
             Guid? excludedAppointmentId,
             CancellationToken cancellationToken) => throw new NotSupportedException();
+
+        public void Add(Appointment appointment) => Appointments.Add(appointment);
     }
 }

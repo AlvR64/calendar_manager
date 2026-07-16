@@ -18,4 +18,6 @@ public interface IAppointmentRepository
         DateTimeOffset endAtUtc,
         Guid? excludedAppointmentId,
         CancellationToken cancellationToken);
+
+    void Add(Appointment appointment);
 }
