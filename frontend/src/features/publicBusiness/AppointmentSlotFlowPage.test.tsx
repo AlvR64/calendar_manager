@@ -156,8 +156,12 @@ describe('appointment slot flow page', () => {
     });
 
     await user.click(screen.getByRole('button', { name: /10:00 - 10:45/i }));
+    const confirmationHeading = screen.getByText(/Entra como customer para confirmar/i);
+    const selectedSlotButton = screen.getByRole('button', { name: /10:00 - 10:45/i });
+
     expect(screen.getByText(/Slot seleccionado: 10:00 - 10:45/i)).toBeInTheDocument();
-    expect(screen.getByText(/Entra como customer para confirmar/i)).toBeInTheDocument();
+    expect(confirmationHeading).toBeInTheDocument();
+    expect(confirmationHeading.compareDocumentPosition(selectedSlotButton) & Node.DOCUMENT_POSITION_FOLLOWING).toBeTruthy();
   });
 
   it('shows customer auth links with selected slot preserved', async () => {

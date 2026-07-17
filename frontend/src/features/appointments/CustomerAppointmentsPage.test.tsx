@@ -72,6 +72,8 @@ describe('customer appointments page', () => {
 
     renderWithProviders(<CustomerAppointmentsPage />);
 
+    expect(await screen.findByText('Clara')).toBeInTheDocument();
+    expect(screen.getByText('customer@example.test')).toBeInTheDocument();
     expect(await screen.findAllByText('Barberia Centro · Ana')).not.toHaveLength(0);
     expect(screen.getAllByText('2026-07-20 · 10:00 - 10:30')).not.toHaveLength(0);
     expect(screen.getByText('No puedo ir')).toBeInTheDocument();

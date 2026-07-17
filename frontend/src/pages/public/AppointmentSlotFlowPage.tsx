@@ -182,6 +182,23 @@ export function AppointmentSlotFlowPage() {
             <SectionHeader description="Slots calculados por backend con disponibilidad, excepciones y appointments existentes." eyebrow="Paso 2" title="Slots disponibles" />
             <SelectionSummary date={activeDate} service={activeService} slot={selectedSlot} staffMember={selectedSlotStaffMember ?? selectedStaffMember} />
 
+            {selectedSlot ? (
+              <div className="mt-5">
+                <AppointmentConfirmationPanel
+                  createError={createAppointmentMutation.error}
+                  createdAppointmentId={createAppointmentMutation.data?.id}
+                  isCreating={createAppointmentMutation.isPending}
+                  loginPath={withReturnTo(routes.customerLogin, buildAppointmentReturnTo(slug, activeServiceId, activeDate, selectedSlot))}
+                  notes={customerNotes}
+                  onConfirm={handleCreateAppointment}
+                  onNotesChange={setCustomerNotes}
+                  registerPath={withReturnTo(routes.customerRegister, buildAppointmentReturnTo(slug, activeServiceId, activeDate, selectedSlot))}
+                  selectedSlot={selectedSlot}
+                  sessionFirstName={customerSession?.firstName}
+                />
+              </div>
+            ) : null}
+
             {!isDateWithinWindow ? (
               <EmptyPanel description={`Selecciona una fecha entre ${today} y ${maxDate}.`} title="Fecha fuera de ventana" />
             ) : slotsQuery.isPending ? (
@@ -217,7 +234,7 @@ export function AppointmentSlotFlowPage() {
               </div>
             )}
 
-            <div className="mt-8">
+            {!selectedSlot ? <div className="mt-8">
               <AppointmentConfirmationPanel
                 createError={createAppointmentMutation.error}
                 createdAppointmentId={createAppointmentMutation.data?.id}
@@ -230,7 +247,7 @@ export function AppointmentSlotFlowPage() {
                 selectedSlot={selectedSlot}
                 sessionFirstName={customerSession?.firstName}
               />
-            </div>
+            </div> : null}
           </section>
         </div>
       )}

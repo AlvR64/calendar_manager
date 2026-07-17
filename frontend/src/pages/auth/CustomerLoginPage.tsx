@@ -38,7 +38,7 @@ export function CustomerLoginPage() {
         token: response.accessToken,
         tokenType: response.tokenType,
       });
-      navigate(returnTo ?? routes.home, { replace: true });
+      navigate(returnTo ?? routes.customerAppointments, { replace: true });
     },
   });
 

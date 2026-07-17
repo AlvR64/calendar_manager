@@ -7,6 +7,7 @@ import type { AppointmentSummaryResponse } from '@/api/contracts';
 import { getApiErrorMessage } from '@/api/apiErrors';
 import { getAuthSession } from '@/auth/authStorage';
 import { cancelCustomerAppointment, listCustomerAppointments } from '@/features/appointments/appointmentApi';
+import { CustomerSessionBadge } from '@/features/auth/CustomerSessionBadge';
 import { ApiErrorAlert, inputClassName, labelClassName, primaryButtonClassName } from '@/features/auth/authUi';
 import { routes } from '@/lib/routes';
 
@@ -50,7 +51,10 @@ export function CustomerAppointmentsPage() {
   return (
     <CustomerAppointmentsShell>
       <header className="rounded-[2rem] border border-white/80 bg-white/90 p-6 shadow-2xl shadow-indigo-100/70 backdrop-blur md:p-8">
-        <Link className="text-sm font-black text-indigo-700 hover:text-indigo-900" to={routes.home}>Calendar Manager</Link>
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+          <Link className="text-sm font-black text-indigo-700 hover:text-indigo-900" to={routes.home}>Calendar Manager</Link>
+          {session ? <CustomerSessionBadge session={session} /> : null}
+        </div>
         <p className="mt-10 text-sm font-black uppercase tracking-[0.25em] text-indigo-600">Customer appointments</p>
         <h1 className="mt-4 text-5xl font-black leading-[0.95] tracking-tight text-slate-950 md:text-6xl">Tus appointments</h1>
         <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">Consulta tus appointments proximos, pasados y cancelados. Puedes cancelar appointments scheduled futuros.</p>

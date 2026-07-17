@@ -112,6 +112,41 @@ describe('auth pages', () => {
     expect(await screen.findByRole('alert')).toHaveTextContent('Invalid customer credentials.');
   });
 
+  it('stores a customer session and navigates to customer appointments after login', async () => {
+    vi.mocked(authApi.loginCustomer).mockResolvedValue({
+      accessToken: 'customer-token',
+      expiresAtUtc: '2026-07-15T18:00:00Z',
+      tokenType: 'Bearer',
+      user: {
+        email: 'customer@example.com',
+        firstName: 'Clara',
+        id: 'customer-1',
+        lastName: 'Diaz',
+        type: 'Customer',
+      },
+    });
+
+    renderWithProviders(
+      <Routes>
+        <Route element={<CustomerLoginPage />} path="/auth/customer/login" />
+        <Route element={<div>Customer appointments area</div>} path="/customer/appointments" />
+      </Routes>,
+      '/auth/customer/login',
+    );
+
+    const user = userEvent.setup();
+    await user.type(screen.getByLabelText(/^email$/i), 'customer@example.com');
+    await user.type(screen.getByLabelText(/password/i), 'password123');
+    await user.click(screen.getByRole('button', { name: /entrar como customer/i }));
+
+    expect(await screen.findByText('Customer appointments area')).toBeInTheDocument();
+    expect(getAuthSession('Customer')).toMatchObject({
+      accountType: 'Customer',
+      firstName: 'Clara',
+      token: 'customer-token',
+    });
+  });
+
   it('validates required customer registration fields', async () => {
     renderWithProviders(
       <Routes>
