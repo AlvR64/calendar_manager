@@ -130,6 +130,35 @@ export type BusinessServiceResponse = {
   sortOrder: number;
 };
 
+export type PublicBusinessFeaturedServiceResponse = {
+  id: string;
+  name: string;
+  durationMinutes: number;
+  priceAmount: number;
+};
+
+export type PublicBusinessCardResponse = {
+  id: string;
+  slug: string;
+  name: string;
+  description?: string | null;
+  city?: string | null;
+  countryCode?: string | null;
+  category?: string | null;
+  timeZoneId: string;
+  currencyCode: string;
+  featuredServices: PublicBusinessFeaturedServiceResponse[];
+  startingPriceAmount?: number | null;
+};
+
+export type PublicBusinessSearchResponse = {
+  items: PublicBusinessCardResponse[];
+  page: number;
+  pageSize: number;
+  totalCount: number;
+  hasNextPage: boolean;
+};
+
 export type BusinessStaffMemberResponse = {
   id: string;
   displayName: string;

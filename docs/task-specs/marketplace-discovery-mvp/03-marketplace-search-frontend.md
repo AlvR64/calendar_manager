@@ -16,9 +16,9 @@ Mirror del estado actual de `../../../task-groups-roadmap.md` para contexto rapi
 
 | ID | Backend | Frontend | Diseno | Postpuesto |
 | --- | --- | --- | --- | --- |
-| `11.13` | [ ] | [ ] | [ ] | [ ] |
-| `11.14` | [ ] | [ ] | [ ] | [ ] |
-| `11.15` | [ ] | [ ] | [ ] | [ ] |
+| `11.13` | [ ] | [x] | [ ] | [ ] |
+| `11.14` | [ ] | [x] | [ ] | [ ] |
+| `11.15` | [ ] | [x] | [ ] | [ ] |
 
 ## Objetivo
 
@@ -53,7 +53,7 @@ Depende de `GET /api/public/businesses` definido en `02-public-business-search-a
 ## Referencias De Diseno
 
 - `designs/homepage.op` como base visual.
-- Nuevo diseno recomendado: `designs/marketplace-search.op`.
+- No existe `designs/marketplace-search.op`; se reutiliza la visual de `designs/homepage.op` y del perfil publico.
 
 ## Rutas Y Pantallas Frontend
 
@@ -68,7 +68,7 @@ Depende de `GET /api/public/businesses` definido en `02-public-business-search-a
 - Empty con sugerencias para ampliar busqueda.
 - Error API.
 - Filtros activos.
-- Paginacion o cargar mas si hay `hasNextPage`.
+- Paginacion por botones `Anterior` / `Siguiente` si hay `hasNextPage`.
 
 ## Reglas De Datos Y Validacion
 
@@ -96,13 +96,13 @@ Depende de `GET /api/public/businesses` definido en `02-public-business-search-a
 
 ## Criterios De Aceptacion
 
-- [ ] Home permite iniciar una busqueda real.
-- [ ] `/search` muestra resultados desde API real.
-- [ ] Cards navegan a perfil y appointment del business.
-- [ ] Loading, empty y error estan manejados.
-- [ ] Los tests/checks relevantes pasan.
-- [ ] `../../../task-groups-roadmap.md` esta actualizado tras completar.
+- [x] Home permite iniciar una busqueda real.
+- [x] `/search` muestra resultados desde API real.
+- [x] Cards navegan a perfil y appointment del business.
+- [x] Loading, empty y error estan manejados.
+- [x] Los tests/checks relevantes pasan.
+- [x] `../../../task-groups-roadmap.md` esta actualizado tras completar.
 
-## Preguntas Abiertas
+## Decisiones
 
-- Si la paginacion UI sera por botones de pagina o `Cargar mas`.
+- La paginacion UI usa botones `Anterior` / `Siguiente` y mantiene `page` en query params.

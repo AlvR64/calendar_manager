@@ -1,5 +1,6 @@
 export const routes = {
   home: '/',
+  search: '/search',
   businessProfile: (slug: string) => `/b/${slug}`,
   appointmentSlotFlow: (slug: string) => `/b/${slug}/appointment`,
   appointmentDetail: (appointmentId: string) => `/appointments/${appointmentId}`,

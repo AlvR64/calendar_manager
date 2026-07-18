@@ -1,11 +1,22 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import { getAuthSession } from '@/auth/authStorage';
 import { CustomerSessionBadge } from '@/features/auth/CustomerSessionBadge';
+import {
+  buildMarketplaceSearchPath,
+  marketplaceCategoryOptions,
+  type MarketplaceSearchFilters,
+} from '@/features/publicBusiness/marketplaceSearch';
+import { BusinessSearchForm } from '@/features/publicBusiness/marketplaceSearchUi';
 import { routes } from '@/lib/routes';
 
 export function HomePage() {
   const customerSession = getAuthSession('Customer');
+  const navigate = useNavigate();
+
+  function handleSearch(filters: MarketplaceSearchFilters) {
+    navigate(buildMarketplaceSearchPath(filters));
+  }
 
   return (
     <main className="min-h-screen overflow-hidden bg-[radial-gradient(circle_at_12%_12%,#e0e7ff,transparent_30%),linear-gradient(135deg,#ffffff_0%,#f8fafc_45%,#eef2ff_100%)] text-slate-950">
@@ -35,7 +46,18 @@ export function HomePage() {
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
             Encuentra el business, revisa services activos, conoce el staff y salta al flujo de appointment cuando estes listo para elegir slot.
           </p>
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+          <BusinessSearchForm onSubmit={handleSearch} submitLabel="Buscar" variant="hero" />
+          <div className="mt-5 flex flex-wrap gap-2">
+            {marketplaceCategoryOptions.filter((option) => option.value).map((option) => (
+              <Link className="rounded-full bg-white/80 px-4 py-2 text-sm font-black text-slate-700 shadow-sm transition hover:bg-indigo-50 hover:text-indigo-700" key={option.value} to={buildMarketplaceSearchPath({ category: option.value, city: '', query: '', service: '' })}>
+                {option.label}
+              </Link>
+            ))}
+          </div>
+          <div className="mt-7 flex flex-col gap-3 sm:flex-row">
+            <Link className="rounded-2xl border border-slate-200 bg-white/80 px-6 py-4 text-center text-base font-black text-slate-800 shadow-sm transition hover:bg-white" to={routes.search}>
+              Explorar todos
+            </Link>
             <Link className="rounded-2xl bg-indigo-600 px-6 py-4 text-center text-base font-black text-white shadow-xl shadow-indigo-200 transition hover:bg-indigo-700" to="/b/demo-barber">
               Ver perfil demo
             </Link>

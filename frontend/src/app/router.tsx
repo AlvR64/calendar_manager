@@ -19,12 +19,14 @@ import { AppointmentDetailsPage } from '@/pages/public/AppointmentDetailsPage';
 import { AppointmentSlotFlowPage } from '@/pages/public/AppointmentSlotFlowPage';
 import { BusinessProfilePage } from '@/pages/public/BusinessProfilePage';
 import { HomePage } from '@/pages/public/HomePage';
+import { MarketplaceSearchPage } from '@/pages/public/MarketplaceSearchPage';
 
 export const router = createBrowserRouter([
   {
     element: <PublicLayout />,
     children: [
       { path: '/', element: <HomePage /> },
+      { path: '/search', element: <MarketplaceSearchPage /> },
       { path: '/appointments/:appointmentId', element: <AppointmentDetailsPage /> },
       { path: '/b/:slug', element: <BusinessProfilePage /> },
       { path: '/b/:slug/appointment', element: <AppointmentSlotFlowPage /> },
