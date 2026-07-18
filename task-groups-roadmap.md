@@ -61,7 +61,7 @@ Notas de sincronizacion:
 | Gestion admin de appointments | Hecho | `docs/task-specs/appointments-mvp/04-admin-appointment-calendar-and-list.md`, `docs/task-specs/appointments-mvp/05-admin-appointment-actions.md` | `6.5`, `6.6`, `6.7`, `6.9`, `6.11`, `6.12` | Admin lista por rango/filtros, cancela, cambia estado operativo y guarda notas internas; diseno especifico queda pendiente. |
 | Dashboard basico | Hecho | `docs/task-specs/appointments-mvp/06-dashboard-basics.md` | `10.1` | Dashboard admin basico usa appointments reales; diseno especifico queda pendiente. |
 
-## Siguiente Incremento: Marketplace Discovery MVP
+## Incremento Completado: Marketplace Discovery MVP
 
 Objetivo: convertir la landing publica en un hub real de descubrimiento donde customers buscan businesses por texto, ciudad, categoria o service, comparan resultados y llegan al perfil publico o al flujo de appointment.
 
@@ -77,7 +77,7 @@ Objetivo: convertir la landing publica en un hub real de descubrimiento donde cu
 | --- | --- | --- | --- |
 | First MVP | Hecho | `docs/task-specs/first-mvp/` | Baseline usable completada. |
 | Appointments MVP | Hecho | `docs/task-specs/appointments-mvp/` | Creacion, gestion y dashboard basico de appointments reales. |
-| Marketplace Discovery MVP | Siguiente | `docs/task-specs/marketplace-discovery-mvp/` | Hub publico de descubrimiento, categorias, busqueda y resultados de businesses. |
+| Marketplace Discovery MVP | Hecho | `docs/task-specs/marketplace-discovery-mvp/` | Hub publico de descubrimiento, categorias, busqueda y resultados de businesses. |
 | Operacion MVP | Mas adelante | Pendiente | Dashboard avanzado, notificaciones y flujos operativos. |
 | Hardening De Plataforma | Mas adelante | Pendiente | Rate limiting, readiness checks, auditoria y paginacion. |
 
