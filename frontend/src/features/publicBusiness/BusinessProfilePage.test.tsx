@@ -24,10 +24,11 @@ const profile: BusinessProfileResponse = {
     { serviceId: 'service-1', staffMemberId: 'staff-1' },
     { serviceId: 'service-2', staffMemberId: 'staff-2' },
   ],
-  business: {
-    addressLine1: 'Calle Mayor 1',
-    addressLine2: null,
-    city: 'Madrid',
+    business: {
+      addressLine1: 'Calle Mayor 1',
+      addressLine2: null,
+      category: 'Barberia',
+      city: 'Madrid',
     contactEmail: 'hola@barberia.test',
     contactPhoneNumber: '+34910000000',
     countryCode: 'ES',
@@ -90,6 +91,7 @@ describe('business profile page', () => {
     expect(await screen.findByRole('heading', { name: 'Barberia Centro' })).toBeInTheDocument();
     expect(screen.getByText('Corte clasico')).toBeInTheDocument();
     expect(screen.getByText('Ana Ruiz')).toBeInTheDocument();
+    expect(screen.getAllByText('Barberia')).not.toHaveLength(0);
     expect(screen.getByText(/Staff: Ana Ruiz/i)).toBeInTheDocument();
     expect(screen.getByText('Europe/Madrid')).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /elegir appointment/i })).toHaveAttribute('href', '/b/barberia-centro/appointment');

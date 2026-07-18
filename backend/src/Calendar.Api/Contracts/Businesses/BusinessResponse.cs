@@ -5,6 +5,7 @@ public sealed record BusinessResponse(
     Guid Id,
     string Name,
     string Slug,
+    string? Category,
     string? Description,
     string? ContactEmail,
     string? ContactPhoneNumber,

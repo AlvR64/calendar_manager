@@ -25,6 +25,7 @@ public sealed class UpdateBusinessDetailsCommandHandler(
         }
 
         business.Name = command.Name.Trim();
+        business.Category = NormalizeOptionalText(command.Category);
         business.Description = NormalizeOptionalText(command.Description);
         business.ContactEmail = NormalizeOptionalText(command.ContactEmail);
         business.ContactPhoneNumber = NormalizeOptionalText(command.ContactPhoneNumber);
@@ -44,6 +45,7 @@ public sealed class UpdateBusinessDetailsCommandHandler(
             business.Id,
             business.Name,
             business.Slug,
+            business.Category,
             business.Description,
             business.ContactEmail,
             business.ContactPhoneNumber,

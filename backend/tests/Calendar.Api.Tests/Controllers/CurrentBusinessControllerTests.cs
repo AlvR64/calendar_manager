@@ -19,6 +19,7 @@ public sealed class CurrentBusinessControllerTests
             businessId,
             "Barberia Centro",
             "barberia-centro-madrid",
+            "Barberia",
             "Barberia de barrio",
             "contacto@barberia.test",
             "+34910000000",
@@ -40,6 +41,7 @@ public sealed class CurrentBusinessControllerTests
         response.Id.Should().Be(businessId);
         response.Name.Should().Be("Barberia Centro");
         response.Slug.Should().Be("barberia-centro-madrid");
+        response.Category.Should().Be("Barberia");
         response.CountryCode.Should().Be("ES");
         response.CurrencyCode.Should().Be("EUR");
         response.MaxAdvanceBookingDays.Should().Be(60);
@@ -59,6 +61,7 @@ public sealed class CurrentBusinessControllerTests
         handler.Command.Should().NotBeNull();
         handler.Command!.BusinessId.Should().Be(businessId);
         handler.Command.Name.Should().Be(request.Name);
+        handler.Command.Category.Should().Be(request.Category);
         handler.Command.CountryCode.Should().Be(request.CountryCode);
         handler.Command.CurrencyCode.Should().Be(request.CurrencyCode);
         handler.CancellationToken.Should().Be(cancellationTokenSource.Token);
@@ -233,6 +236,7 @@ public sealed class CurrentBusinessControllerTests
     private static UpdateBusinessDetailsRequest CreateUpdateBusinessDetailsRequest() => new()
     {
         Name = "Barberia Centro",
+        Category = "Barberia",
         Description = "Barberia de barrio",
         ContactEmail = "contacto@barberia.test",
         ContactPhoneNumber = "+34910000000",
@@ -251,6 +255,7 @@ public sealed class CurrentBusinessControllerTests
             businessId,
             "Barberia Centro",
             "barberia-centro-madrid",
+            "Barberia",
             "Barberia de barrio",
             "contacto@barberia.test",
             "+34910000000",

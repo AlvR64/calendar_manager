@@ -18,6 +18,15 @@ import { ApiErrorAlert, FieldError, inputClassName, labelClassName, primaryButto
 
 const businessQueryKey = ['admin', 'business'] as const;
 
+const businessCategoryOptions = [
+  { label: 'Sin categoria', value: '' },
+  { label: 'Barberia', value: 'Barberia' },
+  { label: 'Estetica', value: 'Estetica' },
+  { label: 'Fisioterapia', value: 'Fisioterapia' },
+  { label: 'Clases', value: 'Clases' },
+  { label: 'Consultas', value: 'Consultas' },
+];
+
 export function BusinessSettingsPage() {
   const session = getAuthSession('Admin');
   const queryClient = useQueryClient();
@@ -54,6 +63,7 @@ export function BusinessSettingsPage() {
         {
           addressLine1: emptyToNull(values.addressLine1),
           addressLine2: emptyToNull(values.addressLine2),
+          category: emptyToNull(values.category),
           city: emptyToNull(values.city),
           contactEmail: emptyToNull(values.contactEmail),
           contactPhoneNumber: emptyToNull(values.contactPhoneNumber),
@@ -123,6 +133,15 @@ export function BusinessSettingsPage() {
               Business name
               <input className={inputClassName} {...detailsForm.register('name')} />
               <FieldError message={detailsForm.formState.errors.name?.message} />
+            </label>
+            <label className={labelClassName}>
+              Categoria marketplace
+              <select className={inputClassName} {...detailsForm.register('category')}>
+                {businessCategoryOptions.map((option) => (
+                  <option key={option.value} value={option.value}>{option.label}</option>
+                ))}
+              </select>
+              <FieldError message={detailsForm.formState.errors.category?.message} />
             </label>
             <label className={labelClassName}>
               Contact email
@@ -215,6 +234,7 @@ export function BusinessSettingsPage() {
             <div className="mt-4 grid gap-3 font-bold">
               <div>Business id: {businessQuery.data.id}</div>
               <div>Slug: {businessQuery.data.slug}</div>
+              <div>Categoria: {businessQuery.data.category ?? 'Sin categoria'}</div>
               <div>Timezone: {businessQuery.data.timeZoneId}</div>
               <div>Currency: {businessQuery.data.currencyCode}</div>
             </div>
@@ -257,6 +277,7 @@ function toDetailsFormValues(business?: BusinessResponse): BusinessDetailsFormVa
   return {
     addressLine1: business?.addressLine1 ?? '',
     addressLine2: business?.addressLine2 ?? '',
+    category: business?.category ?? '',
     city: business?.city ?? '',
     contactEmail: business?.contactEmail ?? '',
     contactPhoneNumber: business?.contactPhoneNumber ?? '',

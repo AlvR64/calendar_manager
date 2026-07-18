@@ -15,8 +15,8 @@ Mirror del estado actual de `../../../task-groups-roadmap.md` para contexto rapi
 
 | ID | Backend | Frontend | Diseno | Postpuesto |
 | --- | --- | --- | --- | --- |
-| `1.8` | [ ] | [ ] | [ ] | [ ] |
-| `11.11` | [ ] | [ ] | [ ] | [ ] |
+| `1.8` | [x] | [x] | [ ] | [ ] |
+| `11.11` | [x] | [x] | [ ] | [ ] |
 
 ## Objetivo
 
@@ -84,12 +84,12 @@ Permitir clasificar businesses por sector para que la busqueda marketplace pueda
 
 ## Criterios De Aceptacion
 
-- [ ] Admin puede ver/editar categoria del business.
-- [ ] Profile publico expone y muestra categoria.
-- [ ] Seed demo contiene varios businesses categorizados.
-- [ ] Los tests/checks relevantes pasan.
-- [ ] `../../../task-groups-roadmap.md` esta actualizado tras completar.
+- [x] Admin puede ver/editar categoria del business.
+- [x] Profile publico expone y muestra categoria.
+- [x] Seed demo contiene varios businesses categorizados.
+- [x] Los tests/checks relevantes pasan.
+- [x] `../../../task-groups-roadmap.md` esta actualizado tras completar.
 
 ## Preguntas Abiertas
 
-- Lista inicial exacta de categorias controladas.
+- Lista inicial usada en UI: `Barberia`, `Estetica`, `Fisioterapia`, `Clases`, `Consultas`.

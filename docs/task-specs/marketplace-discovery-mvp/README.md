@@ -39,7 +39,7 @@ Estas specs convierten la landing publica en un hub real de descubrimiento para 
 
 | Spec | Estado | IDs de capacidad | Notas |
 | --- | --- | --- | --- |
-| `01-business-category-and-demo-marketplace-seed.md` | Planificada | `1.8`, `11.11` | Categoria simple y datos demo para mostrar varios businesses. |
+| `01-business-category-and-demo-marketplace-seed.md` | Hecha | `1.8`, `11.11` | Categoria simple y datos demo para mostrar varios businesses. |
 | `02-public-business-search-api.md` | Planificada | `11.9`, `11.10` | API publica para buscar/listar businesses activos y cards ligeras. |
 | `03-marketplace-search-frontend.md` | Planificada | `11.13`, `11.14`, `11.15` | Home con buscador, `/search`, cards y navegacion a perfil/appointment. |
 

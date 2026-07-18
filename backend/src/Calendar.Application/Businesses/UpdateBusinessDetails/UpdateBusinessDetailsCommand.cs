@@ -5,6 +5,7 @@ namespace Calendar.Application.Businesses.UpdateBusinessDetails;
 public sealed record UpdateBusinessDetailsCommand(
     Guid BusinessId,
     string Name,
+    string? Category,
     string? Description,
     string? ContactEmail,
     string? ContactPhoneNumber,

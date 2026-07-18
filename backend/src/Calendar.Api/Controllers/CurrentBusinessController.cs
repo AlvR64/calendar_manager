@@ -33,6 +33,7 @@ public sealed class CurrentBusinessController(
         var command = new UpdateBusinessDetailsCommand(
             businessId,
             request.Name,
+            request.Category,
             request.Description,
             request.ContactEmail,
             request.ContactPhoneNumber,
@@ -60,6 +61,7 @@ public sealed class CurrentBusinessController(
             result.BusinessId!.Value,
             result.Name!,
             result.Slug!,
+            result.Category,
             result.Description,
             result.ContactEmail,
             result.ContactPhoneNumber,

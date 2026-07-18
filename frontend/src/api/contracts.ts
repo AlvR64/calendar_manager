@@ -75,6 +75,7 @@ export type BusinessResponse = {
   id: string;
   name: string;
   slug: string;
+  category?: string | null;
   description?: string | null;
   contactEmail?: string | null;
   contactPhoneNumber?: string | null;
@@ -91,6 +92,7 @@ export type BusinessResponse = {
 
 export type UpdateBusinessDetailsRequest = {
   name: string;
+  category?: string | null;
   description?: string | null;
   contactEmail?: string | null;
   contactPhoneNumber?: string | null;

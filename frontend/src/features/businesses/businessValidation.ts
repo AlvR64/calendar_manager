@@ -6,6 +6,7 @@ const optionalUrl = z.union([z.literal(''), z.string().trim().url('Introduce una
 export const businessDetailsSchema = z.object({
   addressLine1: z.string().trim().max(200, 'La direccion es demasiado larga.').optional(),
   addressLine2: z.string().trim().max(200, 'La direccion es demasiado larga.').optional(),
+  category: z.string().trim().max(80, 'La categoria es demasiado larga.').optional(),
   city: z.string().trim().max(100, 'La ciudad es demasiado larga.').optional(),
   contactEmail: optionalEmail.optional(),
   contactPhoneNumber: z.string().trim().max(30, 'El telefono es demasiado largo.').optional(),

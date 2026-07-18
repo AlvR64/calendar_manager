@@ -17,6 +17,7 @@ public sealed class BusinessConfiguration : IEntityTypeConfiguration<Business>
 
         builder.Property(business => business.Name).HasMaxLength(150).IsRequired();
         builder.Property(business => business.Slug).HasMaxLength(120).IsRequired();
+        builder.Property(business => business.Category).HasMaxLength(80);
         builder.Property(business => business.Description).HasMaxLength(1000);
         builder.Property(business => business.ContactEmail).HasMaxLength(255);
         builder.Property(business => business.ContactPhoneNumber).HasMaxLength(30);

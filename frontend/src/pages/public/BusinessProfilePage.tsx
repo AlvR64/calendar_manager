@@ -53,7 +53,10 @@ function BusinessProfile({ profile, slug }: { profile: BusinessProfileResponse; 
           <Link className="text-sm font-black text-indigo-700 hover:text-indigo-900" to={routes.home}>
             Calendar Manager
           </Link>
-          <p className="mt-12 text-sm font-black uppercase tracking-[0.25em] text-indigo-600">Public business</p>
+          <div className="mt-12 flex flex-wrap items-center gap-3">
+            <p className="text-sm font-black uppercase tracking-[0.25em] text-indigo-600">Public business</p>
+            {business.category ? <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-black text-indigo-700">{business.category}</span> : null}
+          </div>
           <h1 className="mt-4 text-5xl font-black leading-[0.95] tracking-tight text-slate-950 md:text-6xl">{business.name}</h1>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
             {business.description || 'Consulta services activos, staff members disponibles y prepara tu proximo appointment.'}
@@ -74,6 +77,7 @@ function BusinessProfile({ profile, slug }: { profile: BusinessProfileResponse; 
           <p className="text-sm font-black uppercase tracking-[0.2em] text-indigo-200">Info</p>
           <dl className="mt-5 grid gap-4 text-sm">
             <InfoRow label="Timezone" value={business.timeZoneId} />
+            {business.category ? <InfoRow label="Categoria" value={business.category} /> : null}
             <InfoRow label="Booking window" value={`${business.maxAdvanceBookingDays} dias`} />
             <InfoRow label="Currency" value={business.currencyCode} />
             {address ? <InfoRow label="Direccion" value={address} /> : null}

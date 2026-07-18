@@ -10,6 +10,10 @@ public sealed record UpdateBusinessDetailsRequest
     [MaxLength(150)]
     public required string Name { get; init; }
 
+    /// <summary>The public marketplace category for the business.</summary>
+    [MaxLength(80)]
+    public string? Category { get; init; }
+
     /// <summary>The public business description.</summary>
     [MaxLength(1000)]
     public string? Description { get; init; }

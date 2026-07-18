@@ -218,6 +218,7 @@ public sealed class BusinessesController(
         business.Id,
         business.Name,
         business.Slug,
+        business.Category,
         business.Description,
         business.ContactEmail,
         business.ContactPhoneNumber,
