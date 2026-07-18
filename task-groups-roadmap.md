@@ -51,7 +51,7 @@ Notas de sincronizacion:
 - `5.12` queda pendiente para frontend/diseno hasta que exista el flujo real de creacion de appointments.
 - Las specs completadas del primer MVP se conservan como registro historico y referencia de regresion.
 
-## Incremento Activo: Appointments MVP
+## Ultimo Incremento Completado: Appointments MVP
 
 | Slice | Estado | Spec | IDs de capacidad | Notas |
 | --- | --- | --- | --- | --- |
@@ -61,14 +61,24 @@ Notas de sincronizacion:
 | Gestion admin de appointments | Hecho | `docs/task-specs/appointments-mvp/04-admin-appointment-calendar-and-list.md`, `docs/task-specs/appointments-mvp/05-admin-appointment-actions.md` | `6.5`, `6.6`, `6.7`, `6.9`, `6.11`, `6.12` | Admin lista por rango/filtros, cancela, cambia estado operativo y guarda notas internas; diseno especifico queda pendiente. |
 | Dashboard basico | Hecho | `docs/task-specs/appointments-mvp/06-dashboard-basics.md` | `10.1` | Dashboard admin basico usa appointments reales; diseno especifico queda pendiente. |
 
+## Siguiente Incremento: Marketplace Discovery MVP
+
+Objetivo: convertir la landing publica en un hub real de descubrimiento donde customers buscan businesses por texto, ciudad, categoria o service, comparan resultados y llegan al perfil publico o al flujo de appointment.
+
+| Slice | Estado | Spec | IDs de capacidad | Notas |
+| --- | --- | --- | --- | --- |
+| Categorias y seed marketplace | Planificado | `docs/task-specs/marketplace-discovery-mvp/01-business-category-and-demo-marketplace-seed.md` | `1.8`, `11.11` | Categoria simple de business y varios businesses demo para validar descubrimiento. |
+| Search API publica | Planificado | `docs/task-specs/marketplace-discovery-mvp/02-public-business-search-api.md` | `11.9`, `11.10` | Endpoint publico para buscar/listar businesses activos con datos ligeros de card. |
+| Search frontend marketplace | Planificado | `docs/task-specs/marketplace-discovery-mvp/03-marketplace-search-frontend.md` | `11.13`, `11.14`, `11.15` | Home con buscador real, pagina `/search`, cards y navegacion a perfil/appointment. |
+
 ## Incrementos De Producto
 
 | Incremento | Estado | Specs | Notas |
 | --- | --- | --- | --- |
 | First MVP | Hecho | `docs/task-specs/first-mvp/` | Baseline usable completada. |
 | Appointments MVP | Hecho | `docs/task-specs/appointments-mvp/` | Creacion, gestion y dashboard basico de appointments reales. |
-| Operacion MVP | Mas adelante | Pendiente | Dashboard, notificaciones y flujos operativos. |
-| Growth/Search MVP | Mas adelante | Pendiente | Descubrimiento publico, categorias y busqueda. |
+| Marketplace Discovery MVP | Siguiente | `docs/task-specs/marketplace-discovery-mvp/` | Hub publico de descubrimiento, categorias, busqueda y resultados de businesses. |
+| Operacion MVP | Mas adelante | Pendiente | Dashboard avanzado, notificaciones y flujos operativos. |
 | Hardening De Plataforma | Mas adelante | Pendiente | Rate limiting, readiness checks, auditoria y paginacion. |
 
 ## Reglas Para Specs De Entrega
@@ -97,7 +107,7 @@ Las siguientes secciones contienen los IDs de capacidad estables usados por incr
 | 0.7 | Crear cliente HTTP base con API URL desde `VITE_API_BASE_URL`. | [ ] | [x] | [ ] | [ ] |
 | 0.8 | Crear storage de auth MVP y guard de rutas admin. | [ ] | [x] | [ ] | [ ] |
 | 0.9 | Anadir test smoke del shell frontend. | [ ] | [x] | [ ] | [ ] |
-| 0.10 | Implementar pagina principal publica tipo marketplace. | [ ] | [x] | [x] | [ ] |
+| 0.10 | Implementar landing publica base tipo marketplace. | [ ] | [x] | [x] | [ ] |
 | 0.11 | Implementar business admin shell/layout base. | [ ] | [x] | [x] | [ ] |
 | 0.12 | Implementar flujo publico de seleccion de appointment hasta elegir slot. | [ ] | [x] | [x] | [ ] |
 
@@ -112,6 +122,7 @@ Las siguientes secciones contienen los IDs de capacidad estables usados por incr
 | 1.5 | Configurar antelacion minima para reservar. | [ ] | [ ] | [ ] | [x] |
 | 1.6 | Configurar ventana maxima de reserva: por ejemplo hasta 30/60/90 dias. | [x] | [x] | [x] | [ ] |
 | 1.7 | Configurar buffer antes/despues de appointments. | [ ] | [ ] | [ ] | [x] |
+| 1.8 | Configurar categoria/tipo publico del business para descubrimiento marketplace. | [ ] | [ ] | [ ] | [ ] |
 
 ### 2. Services
 
@@ -237,10 +248,13 @@ Nota para 6.14: para MVP se prefiere lock transaccional tipo SQL Server `sp_geta
 | 11.6 | Listar staff members activos de un business. | [x] | [x] | [x] | [ ] |
 | 11.7 | Obtener un staff member activo concreto de un business. | [x] | [x] | [x] | [ ] |
 | 11.8 | Validar disponibilidad de slug y sugerir alternativas si ya esta ocupado. | [ ] | [ ] | [ ] | [ ] |
-| 11.9 | Buscar businesses publicos por texto, ciudad o categoria. | [ ] | [ ] | [ ] | [ ] |
+| 11.9 | Buscar businesses publicos por texto, ciudad, service o categoria. | [ ] | [ ] | [ ] | [ ] |
 | 11.10 | Listar businesses publicos destacados o activos para landing/search. | [ ] | [ ] | [ ] | [ ] |
-| 11.11 | Anadir categoria/tipo de business si se quiere busqueda por sector. | [ ] | [ ] | [ ] | [ ] |
+| 11.11 | Anadir categoria/tipo de business para busqueda por sector. | [ ] | [ ] | [ ] | [ ] |
 | 11.12 | Anadir cache/ETag al endpoint publico de business profile by slug si crece el trafico. | [ ] | [ ] | [ ] | [x] |
+| 11.13 | Crear pagina publica de resultados de busqueda `/search`. | [ ] | [ ] | [ ] | [ ] |
+| 11.14 | Mostrar cards publicas de business con ciudad, categoria y services destacados. | [ ] | [ ] | [ ] | [ ] |
+| 11.15 | Navegar desde resultado de busqueda a perfil publico y flujo de appointment. | [ ] | [ ] | [ ] | [ ] |
 
 ### 12. Media / Assets
 

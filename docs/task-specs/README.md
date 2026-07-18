@@ -20,4 +20,5 @@ Las specs de entrega describen como implementar slices de producto sin convertir
 ## Incrementos Actuales
 
 - `first-mvp/`: baseline completada del primer MVP.
-- `appointments-mvp/`: incremento activo para creacion y gestion real de appointments.
+- `appointments-mvp/`: creacion y gestion real de appointments completada.
+- `marketplace-discovery-mvp/`: siguiente incremento para descubrimiento publico, categorias y busqueda de businesses.
