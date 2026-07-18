@@ -68,7 +68,7 @@ Objetivo: convertir la landing publica en un hub real de descubrimiento donde cu
 | Slice | Estado | Spec | IDs de capacidad | Notas |
 | --- | --- | --- | --- | --- |
 | Categorias y seed marketplace | Hecho | `docs/task-specs/marketplace-discovery-mvp/01-business-category-and-demo-marketplace-seed.md` | `1.8`, `11.11` | Categoria simple de business expuesta en settings/perfil; seed local ignorado actualizado con varios businesses demo. |
-| Search API publica | Planificado | `docs/task-specs/marketplace-discovery-mvp/02-public-business-search-api.md` | `11.9`, `11.10` | Endpoint publico para buscar/listar businesses activos con datos ligeros de card. |
+| Search API publica | Hecho | `docs/task-specs/marketplace-discovery-mvp/02-public-business-search-api.md` | `11.9`, `11.10` | Endpoint publico para buscar/listar businesses activos con datos ligeros de card. |
 | Search frontend marketplace | Planificado | `docs/task-specs/marketplace-discovery-mvp/03-marketplace-search-frontend.md` | `11.13`, `11.14`, `11.15` | Home con buscador real, pagina `/search`, cards y navegacion a perfil/appointment. |
 
 ## Incrementos De Producto
@@ -248,8 +248,8 @@ Nota para 6.14: para MVP se prefiere lock transaccional tipo SQL Server `sp_geta
 | 11.6 | Listar staff members activos de un business. | [x] | [x] | [x] | [ ] |
 | 11.7 | Obtener un staff member activo concreto de un business. | [x] | [x] | [x] | [ ] |
 | 11.8 | Validar disponibilidad de slug y sugerir alternativas si ya esta ocupado. | [ ] | [ ] | [ ] | [ ] |
-| 11.9 | Buscar businesses publicos por texto, ciudad, service o categoria. | [ ] | [ ] | [ ] | [ ] |
-| 11.10 | Listar businesses publicos destacados o activos para landing/search. | [ ] | [ ] | [ ] | [ ] |
+| 11.9 | Buscar businesses publicos por texto, ciudad, service o categoria. | [x] | [ ] | [ ] | [ ] |
+| 11.10 | Listar businesses publicos destacados o activos para landing/search. | [x] | [ ] | [ ] | [ ] |
 | 11.11 | Anadir categoria/tipo de business para busqueda por sector. | [x] | [x] | [ ] | [ ] |
 | 11.12 | Anadir cache/ETag al endpoint publico de business profile by slug si crece el trafico. | [ ] | [ ] | [ ] | [x] |
 | 11.13 | Crear pagina publica de resultados de busqueda `/search`. | [ ] | [ ] | [ ] | [ ] |

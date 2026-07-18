@@ -90,6 +90,7 @@ public static class DependencyInjection
         services.AddScoped<IQueryHandler<GetBusinessByIdQuery, BusinessDetails?>, PublicBusinessQueryHandler>();
         services.AddScoped<IQueryHandler<GetBusinessProfileByIdQuery, BusinessProfileDetails?>, PublicBusinessQueryHandler>();
         services.AddScoped<IQueryHandler<GetBusinessProfileBySlugQuery, BusinessProfileDetails?>, PublicBusinessQueryHandler>();
+        services.AddScoped<IQueryHandler<SearchPublicBusinessesQuery, PublicBusinessSearchResult>, PublicBusinessSearchQueryHandler>();
         services.AddScoped<IQueryHandler<ListBusinessServicesQuery, ListBusinessServicesResult>, PublicBusinessQueryHandler>();
         services.AddScoped<IQueryHandler<GetBusinessServiceQuery, BusinessServiceDetails?>, PublicBusinessQueryHandler>();
         services.AddScoped<IQueryHandler<ListBusinessStaffMembersQuery, ListBusinessStaffMembersResult>, PublicBusinessQueryHandler>();

@@ -15,8 +15,8 @@ Mirror del estado actual de `../../../task-groups-roadmap.md` para contexto rapi
 
 | ID | Backend | Frontend | Diseno | Postpuesto |
 | --- | --- | --- | --- | --- |
-| `11.9` | [ ] | [ ] | [ ] | [ ] |
-| `11.10` | [ ] | [ ] | [ ] | [ ] |
+| `11.9` | [x] | [ ] | [ ] | [ ] |
+| `11.10` | [x] | [ ] | [ ] | [ ] |
 
 ## Objetivo
 
@@ -87,12 +87,13 @@ Ofrecer un endpoint publico para que customers descubran businesses activos por 
 
 ## Criterios De Aceptacion
 
-- [ ] El endpoint devuelve businesses activos paginados.
-- [ ] Los filtros principales funcionan de forma combinable.
-- [ ] La response contiene datos suficientes para cards marketplace.
-- [ ] Los tests/checks relevantes pasan.
-- [ ] `../../../task-groups-roadmap.md` esta actualizado tras completar.
+- [x] El endpoint devuelve businesses activos paginados.
+- [x] Los filtros principales funcionan de forma combinable.
+- [x] La response contiene datos suficientes para cards marketplace.
+- [x] Los tests/checks relevantes pasan.
+- [x] `../../../task-groups-roadmap.md` esta actualizado tras completar.
 
-## Preguntas Abiertas
+## Decisiones
 
-- Orden exacto de resultados hasta que exista ranking real.
+- Sin filtros, la API ordena por `CreatedAtUtc` descendente y despues por `name` para soportar recientes/destacados simples.
+- Con filtros, la API ordena por `name` y `slug` para resultados estables hasta que exista ranking real.

@@ -18,6 +18,62 @@ public sealed record ListBusinessStaffMembersQuery(Guid BusinessId) : IQuery<Lis
 
 public sealed record GetBusinessStaffMemberQuery(Guid BusinessId, Guid StaffMemberId) : IQuery<BusinessStaffMemberDetails?>;
 
+public sealed record SearchPublicBusinessesQuery(
+    string? Query,
+    string? City,
+    string? Category,
+    string? Service,
+    int Page,
+    int PageSize) : IQuery<PublicBusinessSearchResult>;
+
+public sealed class PublicBusinessSearchQueryHandler(IPublicBusinessSearchRepository searchRepository)
+    : IQueryHandler<SearchPublicBusinessesQuery, PublicBusinessSearchResult>
+{
+    public const int DefaultPage = 1;
+    public const int DefaultPageSize = 12;
+    public const int MaxPageSize = 50;
+
+    public async Task<PublicBusinessSearchResult> HandleAsync(SearchPublicBusinessesQuery query, CancellationToken cancellationToken)
+    {
+        if (query.Page < 1 || query.PageSize < 1 || query.PageSize > MaxPageSize)
+        {
+            return PublicBusinessSearchResult.Failure(PublicBusinessSearchError.InvalidPagination);
+        }
+
+        if ((long)(query.Page - 1) * query.PageSize > int.MaxValue)
+        {
+            return PublicBusinessSearchResult.Failure(PublicBusinessSearchError.InvalidPagination);
+        }
+
+        var searchTerm = NormalizeFilter(query.Query);
+        var city = NormalizeFilter(query.City);
+        var category = NormalizeFilter(query.Category);
+        var service = NormalizeFilter(query.Service);
+
+        if (IsInvalidFilter(searchTerm, 200)
+            || IsInvalidFilter(city, 100)
+            || IsInvalidFilter(category, 80)
+            || IsInvalidFilter(service, 200))
+        {
+            return PublicBusinessSearchResult.Failure(PublicBusinessSearchError.InvalidFilter);
+        }
+
+        var page = await searchRepository.SearchAsync(
+            new PublicBusinessSearchCriteria(searchTerm, city, category, service, query.Page, query.PageSize),
+            cancellationToken);
+
+        return PublicBusinessSearchResult.Success(page);
+    }
+
+    private static string? NormalizeFilter(string? value)
+    {
+        var trimmed = value?.Trim();
+        return string.IsNullOrEmpty(trimmed) ? null : trimmed;
+    }
+
+    private static bool IsInvalidFilter(string? value, int maxLength) => value is not null && value.Length > maxLength;
+}
+
 public sealed class PublicBusinessQueryHandler(
     IBusinessRepository businessRepository,
     IServiceRepository serviceRepository,

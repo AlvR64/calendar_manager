@@ -59,3 +59,45 @@ public sealed record ListBusinessStaffMembersResult(
 
     public static ListBusinessStaffMembersResult NotFound() => new(false, []);
 }
+
+public sealed record PublicBusinessFeaturedServiceDetails(
+    Guid Id,
+    string Name,
+    int DurationMinutes,
+    decimal PriceAmount);
+
+public sealed record PublicBusinessCardDetails(
+    Guid Id,
+    string Slug,
+    string Name,
+    string? Description,
+    string? City,
+    string? CountryCode,
+    string? Category,
+    string TimeZoneId,
+    string CurrencyCode,
+    IReadOnlyList<PublicBusinessFeaturedServiceDetails> FeaturedServices,
+    decimal? StartingPriceAmount);
+
+public sealed record PublicBusinessSearchPage(
+    IReadOnlyList<PublicBusinessCardDetails> Items,
+    int Page,
+    int PageSize,
+    int TotalCount,
+    bool HasNextPage);
+
+public enum PublicBusinessSearchError
+{
+    InvalidPagination,
+    InvalidFilter
+}
+
+public sealed record PublicBusinessSearchResult(
+    bool Succeeded,
+    PublicBusinessSearchPage? Page,
+    PublicBusinessSearchError? Error)
+{
+    public static PublicBusinessSearchResult Success(PublicBusinessSearchPage page) => new(true, page, null);
+
+    public static PublicBusinessSearchResult Failure(PublicBusinessSearchError error) => new(false, null, error);
+}

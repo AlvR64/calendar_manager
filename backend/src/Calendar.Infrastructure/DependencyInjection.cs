@@ -1,5 +1,6 @@
 using Calendar.Domain.Abstractions;
 using Calendar.Application.Appointments.CreateAppointment;
+using Calendar.Application.Businesses;
 using Calendar.Infrastructure.Persistence;
 using Calendar.Infrastructure.Persistence.Repositories;
 using Calendar.Infrastructure.Security;
@@ -32,6 +33,7 @@ public static class DependencyInjection
         services.AddScoped<IAppointmentRepository, AppointmentRepository>();
         services.AddScoped<IBusinessRepository, BusinessRepository>();
         services.AddScoped<ICustomerRepository, CustomerRepository>();
+        services.AddScoped<IPublicBusinessSearchRepository, PublicBusinessSearchRepository>();
         services.AddScoped<IServiceRepository, ServiceRepository>();
         services.AddScoped<IStaffMemberRepository, StaffMemberRepository>();
         services.AddScoped<IStaffMemberAvailabilityRepository, StaffMemberAvailabilityRepository>();
