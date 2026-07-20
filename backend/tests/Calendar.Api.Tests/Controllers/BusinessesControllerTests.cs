@@ -24,7 +24,7 @@ public sealed class BusinessesControllerTests
         response.Id.Should().Be(businessId);
         response.Name.Should().Be("Barberia Centro");
         response.Slug.Should().Be("barberia-centro-madrid");
-        response.Category.Should().Be("Barberia");
+        response.Category.Should().Be("barber");
         response.TimeZoneId.Should().Be("Europe/Madrid");
         response.CurrencyCode.Should().Be("EUR");
         response.MaxAdvanceBookingDays.Should().Be(60);
@@ -58,7 +58,7 @@ public sealed class BusinessesControllerTests
         var okResult = result.Result.Should().BeOfType<OkObjectResult>().Subject;
         var response = okResult.Value.Should().BeOfType<BusinessProfileResponse>().Subject;
         response.Business.Id.Should().Be(profile.Business.Id);
-        response.Business.Category.Should().Be("Barberia");
+        response.Business.Category.Should().Be("barber");
         response.Services.Should().ContainSingle();
         response.StaffMembers.Should().ContainSingle();
         response.Assignments.Should().ContainSingle();
@@ -319,7 +319,7 @@ public sealed class BusinessesControllerTests
         businessId,
         "Barberia Centro",
         "barberia-centro-madrid",
-        "Barberia",
+        "barber",
         "Barberia de barrio",
         "contacto@barberia-centro.test",
         "+34910000000",

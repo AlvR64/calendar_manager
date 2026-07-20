@@ -31,7 +31,7 @@ public sealed class PublicBusinessSearchQueryHandlerTests
             CancellationToken.None);
 
         result.Succeeded.Should().BeTrue();
-        repository.Criteria.Should().Be(new PublicBusinessSearchCriteria("barber", null, "Barberia", "corte", 1, 12));
+        repository.Criteria.Should().Be(new PublicBusinessSearchCriteria("barber", null, "barber", "corte", 1, 12));
     }
 
     private sealed class FakePublicBusinessSearchRepository : IPublicBusinessSearchRepository

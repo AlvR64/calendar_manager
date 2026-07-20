@@ -15,17 +15,13 @@ import {
   emptyToNull,
 } from '@/features/businesses/businessValidation';
 import { ApiErrorAlert, FieldError, inputClassName, labelClassName, primaryButtonClassName } from '@/features/auth/authUi';
+import {
+  businessCategoryOptions,
+  getMarketplaceCategoryLabel,
+  normalizeMarketplaceCategoryValue,
+} from '@/features/publicBusiness/marketplaceSearch';
 
 const businessQueryKey = ['admin', 'business'] as const;
-
-const businessCategoryOptions = [
-  { label: 'Sin categoria', value: '' },
-  { label: 'Barberia', value: 'Barberia' },
-  { label: 'Estetica', value: 'Estetica' },
-  { label: 'Fisioterapia', value: 'Fisioterapia' },
-  { label: 'Clases', value: 'Clases' },
-  { label: 'Consultas', value: 'Consultas' },
-];
 
 export function BusinessSettingsPage() {
   const session = getAuthSession('Admin');
@@ -234,7 +230,7 @@ export function BusinessSettingsPage() {
             <div className="mt-4 grid gap-3 font-bold">
               <div>Business id: {businessQuery.data.id}</div>
               <div>Slug: {businessQuery.data.slug}</div>
-              <div>Categoria: {businessQuery.data.category ?? 'Sin categoria'}</div>
+              <div>Categoria: {getMarketplaceCategoryLabel(businessQuery.data.category) || 'Sin categoria'}</div>
               <div>Timezone: {businessQuery.data.timeZoneId}</div>
               <div>Currency: {businessQuery.data.currencyCode}</div>
             </div>
@@ -277,7 +273,7 @@ function toDetailsFormValues(business?: BusinessResponse): BusinessDetailsFormVa
   return {
     addressLine1: business?.addressLine1 ?? '',
     addressLine2: business?.addressLine2 ?? '',
-    category: business?.category ?? '',
+    category: business?.category ? normalizeMarketplaceCategoryValue(business.category) : '',
     city: business?.city ?? '',
     contactEmail: business?.contactEmail ?? '',
     contactPhoneNumber: business?.contactPhoneNumber ?? '',

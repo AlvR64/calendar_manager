@@ -20,7 +20,7 @@ vi.mock('@/features/businesses/businessApi', () => ({
 const business: BusinessResponse = {
   addressLine1: 'Main street 1',
   addressLine2: null,
-  category: 'Estetica',
+  category: 'beauty',
   city: 'Madrid',
   contactEmail: 'hello@studio.test',
   contactPhoneNumber: '+34123456789',
@@ -50,12 +50,13 @@ describe('business settings', () => {
     renderWithProviders(<BusinessSettingsPage />);
 
     expect(await screen.findByDisplayValue('Studio Centro')).toBeInTheDocument();
-    expect(screen.getByDisplayValue('Estetica')).toBeInTheDocument();
+    expect(screen.getByLabelText(/categoria marketplace/i)).toHaveValue('beauty');
+    expect(screen.getByText('Categoria: Estetica')).toBeInTheDocument();
 
     const user = userEvent.setup();
     await user.clear(screen.getByLabelText(/business name/i));
     await user.type(screen.getByLabelText(/business name/i), 'Studio Norte');
-    await user.selectOptions(screen.getByLabelText(/categoria marketplace/i), 'Fisioterapia');
+    await user.selectOptions(screen.getByLabelText(/categoria marketplace/i), 'physiotherapy');
     await user.clear(screen.getByLabelText(/country code/i));
     await user.type(screen.getByLabelText(/country code/i), 'es');
     await user.click(screen.getByRole('button', { name: /guardar details/i }));
@@ -64,7 +65,7 @@ describe('business settings', () => {
       expect(businessApi.updateCurrentBusinessDetails).toHaveBeenCalled();
     });
     expect(vi.mocked(businessApi.updateCurrentBusinessDetails).mock.calls[0]?.[0]).toEqual(
-      expect.objectContaining({ category: 'Fisioterapia', countryCode: 'ES', name: 'Studio Norte' }),
+      expect.objectContaining({ category: 'physiotherapy', countryCode: 'ES', name: 'Studio Norte' }),
     );
     expect(vi.mocked(businessApi.updateCurrentBusinessDetails).mock.calls[0]?.[1]).toBe('admin-token');
   });

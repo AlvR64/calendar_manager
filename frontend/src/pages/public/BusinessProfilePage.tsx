@@ -6,6 +6,7 @@ import type { BusinessProfileResponse, BusinessServiceResponse, BusinessStaffMem
 import { getApiErrorMessage } from '@/api/apiErrors';
 import { ApiError } from '@/api/httpClient';
 import { ApiErrorAlert } from '@/features/auth/authUi';
+import { getMarketplaceCategoryLabel } from '@/features/publicBusiness/marketplaceSearch';
 import { getPublicBusinessProfileBySlug } from '@/features/publicBusiness/publicBusinessApi';
 import { routes } from '@/lib/routes';
 
@@ -45,6 +46,7 @@ export function BusinessProfilePage() {
 function BusinessProfile({ profile, slug }: { profile: BusinessProfileResponse; slug: string }) {
   const { assignments, business, services, staffMembers } = profile;
   const address = formatAddress(business);
+  const categoryLabel = getMarketplaceCategoryLabel(business.category);
 
   return (
     <PublicProfileShell>
@@ -55,7 +57,7 @@ function BusinessProfile({ profile, slug }: { profile: BusinessProfileResponse; 
           </Link>
           <div className="mt-12 flex flex-wrap items-center gap-3">
             <p className="text-sm font-black uppercase tracking-[0.25em] text-indigo-600">Public business</p>
-            {business.category ? <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-black text-indigo-700">{business.category}</span> : null}
+            {categoryLabel ? <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-black text-indigo-700">{categoryLabel}</span> : null}
           </div>
           <h1 className="mt-4 text-5xl font-black leading-[0.95] tracking-tight text-slate-950 md:text-6xl">{business.name}</h1>
           <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-600">
@@ -77,7 +79,7 @@ function BusinessProfile({ profile, slug }: { profile: BusinessProfileResponse; 
           <p className="text-sm font-black uppercase tracking-[0.2em] text-indigo-200">Info</p>
           <dl className="mt-5 grid gap-4 text-sm">
             <InfoRow label="Timezone" value={business.timeZoneId} />
-            {business.category ? <InfoRow label="Categoria" value={business.category} /> : null}
+            {categoryLabel ? <InfoRow label="Categoria" value={categoryLabel} /> : null}
             <InfoRow label="Booking window" value={`${business.maxAdvanceBookingDays} dias`} />
             <InfoRow label="Currency" value={business.currencyCode} />
             {address ? <InfoRow label="Direccion" value={address} /> : null}

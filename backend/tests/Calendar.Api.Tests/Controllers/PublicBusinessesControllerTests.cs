@@ -20,7 +20,7 @@ public sealed class PublicBusinessesControllerTests
             "Barberia de barrio",
             "Madrid",
             "ES",
-            "Barberia",
+            "barber",
             "Europe/Madrid",
             "EUR",
             [service],
@@ -29,7 +29,7 @@ public sealed class PublicBusinessesControllerTests
         var handler = new StubQueryHandler(PublicBusinessSearchResult.Success(page));
         var controller = CreateController(handler);
 
-        var result = await controller.SearchPublicBusinesses("barber", "Madrid", "Barberia", "Corte", 2, 5, CancellationToken.None);
+        var result = await controller.SearchPublicBusinesses("barber", "Madrid", "barber", "Corte", 2, 5, CancellationToken.None);
 
         var okResult = result.Result.Should().BeOfType<OkObjectResult>().Subject;
         var response = okResult.Value.Should().BeOfType<PublicBusinessSearchResponse>().Subject;
@@ -41,7 +41,7 @@ public sealed class PublicBusinessesControllerTests
         response.PageSize.Should().Be(5);
         response.TotalCount.Should().Be(8);
         response.HasNextPage.Should().BeTrue();
-        handler.Query.Should().Be(new SearchPublicBusinessesQuery("barber", "Madrid", "Barberia", "Corte", 2, 5));
+        handler.Query.Should().Be(new SearchPublicBusinessesQuery("barber", "Madrid", "barber", "Corte", 2, 5));
     }
 
     [Fact]

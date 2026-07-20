@@ -27,7 +27,7 @@ const profile: BusinessProfileResponse = {
     business: {
       addressLine1: 'Calle Mayor 1',
       addressLine2: null,
-      category: 'Barberia',
+      category: 'barber',
       city: 'Madrid',
     contactEmail: 'hola@barberia.test',
     contactPhoneNumber: '+34910000000',

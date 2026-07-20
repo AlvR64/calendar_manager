@@ -1,4 +1,5 @@
 using Calendar.Application.Abstractions.Messaging;
+using Calendar.Application.Businesses;
 using Calendar.Domain.Abstractions;
 
 namespace Calendar.Application.Businesses.UpdateBusinessDetails;
@@ -25,7 +26,7 @@ public sealed class UpdateBusinessDetailsCommandHandler(
         }
 
         business.Name = command.Name.Trim();
-        business.Category = NormalizeOptionalText(command.Category);
+        business.Category = BusinessCategoryNormalizer.Normalize(NormalizeOptionalText(command.Category));
         business.Description = NormalizeOptionalText(command.Description);
         business.ContactEmail = NormalizeOptionalText(command.ContactEmail);
         business.ContactPhoneNumber = NormalizeOptionalText(command.ContactPhoneNumber);

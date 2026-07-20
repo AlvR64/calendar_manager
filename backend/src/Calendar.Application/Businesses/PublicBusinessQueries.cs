@@ -47,7 +47,7 @@ public sealed class PublicBusinessSearchQueryHandler(IPublicBusinessSearchReposi
 
         var searchTerm = NormalizeFilter(query.Query);
         var city = NormalizeFilter(query.City);
-        var category = NormalizeFilter(query.Category);
+        var category = BusinessCategoryNormalizer.Normalize(NormalizeFilter(query.Category));
         var service = NormalizeFilter(query.Service);
 
         if (IsInvalidFilter(searchTerm, 200)

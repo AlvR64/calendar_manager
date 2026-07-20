@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom';
 import type { PublicBusinessCardResponse } from '@/api/contracts';
 import {
   emptyMarketplaceSearchFilters,
+  getMarketplaceCategoryLabel,
   marketplaceCategoryOptions,
   normalizeSearchFilters,
+  spanishCityOptions,
   type MarketplaceSearchFilters,
 } from '@/features/publicBusiness/marketplaceSearch';
 import { routes } from '@/lib/routes';
@@ -59,10 +61,16 @@ export function BusinessSearchForm({
           Ciudad
           <input
             className={inputClassName}
+            list="marketplace-city-options"
             onChange={(event) => setFilters((current) => ({ ...current, city: event.target.value }))}
             placeholder="Madrid"
             value={filters.city}
           />
+          <datalist id="marketplace-city-options">
+            {spanishCityOptions.map((city) => (
+              <option key={city} value={city} />
+            ))}
+          </datalist>
         </label>
         <label className={labelClassName}>
           Categoria
@@ -95,13 +103,14 @@ export function BusinessSearchForm({
 
 export function PublicBusinessCard({ business }: { business: PublicBusinessCardResponse }) {
   const location = [business.city, business.countryCode].filter(Boolean).join(', ');
+  const categoryLabel = getMarketplaceCategoryLabel(business.category);
 
   return (
     <article className="group rounded-[2rem] border border-slate-200 bg-white p-5 shadow-sm transition hover:-translate-y-1 hover:border-indigo-200 hover:shadow-2xl hover:shadow-indigo-100/70 md:p-6">
       <div className="flex h-full flex-col gap-5">
         <div>
           <div className="flex flex-wrap items-center gap-2">
-            {business.category ? <span className="rounded-full border border-indigo-100 bg-indigo-50 px-3 py-1.5 text-xs font-black text-indigo-800">{business.category}</span> : null}
+            {categoryLabel ? <span className="rounded-full border border-indigo-100 bg-indigo-50 px-3 py-1.5 text-xs font-black text-indigo-800">{categoryLabel}</span> : null}
             {location ? <span className="rounded-full border border-slate-200 bg-slate-100 px-3 py-1.5 text-xs font-black text-slate-600">{location}</span> : null}
           </div>
           <h2 className="mt-5 text-3xl font-black leading-[1.05] tracking-tight text-slate-950">{business.name}</h2>

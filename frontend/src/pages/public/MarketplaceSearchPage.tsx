@@ -6,6 +6,8 @@ import { searchPublicBusinesses } from '@/features/publicBusiness/publicBusiness
 import {
   buildMarketplaceSearchPath,
   emptyMarketplaceSearchFilters,
+  getMarketplaceCategoryLabel,
+  normalizeMarketplaceCategoryValue,
   type MarketplaceSearchFilters,
 } from '@/features/publicBusiness/marketplaceSearch';
 import {
@@ -112,7 +114,7 @@ function ActiveFilters({ filters }: { filters: MarketplaceSearchFilters }) {
   const activeFilters = [
     ['Texto', filters.query],
     ['Ciudad', filters.city],
-    ['Categoria', filters.category],
+    ['Categoria', getMarketplaceCategoryLabel(filters.category)],
     ['Service', filters.service],
   ].filter(([, value]) => value);
 
@@ -197,7 +199,7 @@ function SearchErrorState({ message }: { message: string }) {
 
 function filtersFromSearchParams(searchParams: URLSearchParams): MarketplaceSearchFilters {
   return {
-    category: searchParams.get('category') ?? emptyMarketplaceSearchFilters.category,
+    category: normalizeMarketplaceCategoryValue(searchParams.get('category') ?? emptyMarketplaceSearchFilters.category),
     city: searchParams.get('city') ?? emptyMarketplaceSearchFilters.city,
     query: searchParams.get('query') ?? emptyMarketplaceSearchFilters.query,
     service: searchParams.get('service') ?? emptyMarketplaceSearchFilters.service,

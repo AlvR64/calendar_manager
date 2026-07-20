@@ -19,7 +19,7 @@ Mirror del estado actual de `../../../task-groups-roadmap.md` para contexto rapi
 | ID | Backend | Frontend | Diseno | Postpuesto |
 | --- | --- | --- | --- | --- |
 | `1.2` | [x] | [x] | [x] | [ ] |
-| `11.9` | [x] | [ ] | [ ] | [ ] |
+| `11.9` | [x] | [x] | [ ] | [ ] |
 | `11.11` | [x] | [x] | [ ] | [ ] |
 | `11.13` | [ ] | [x] | [x] | [ ] |
 | `11.14` | [ ] | [x] | [x] | [ ] |
@@ -116,14 +116,14 @@ El endpoint publico se mantiene, pero el valor semantico de `category` pasa a se
 
 ## Criterios De Aceptacion
 
-- [ ] Categorias se guardan y filtran con codigos canonicos en ingles.
-- [ ] La UI muestra labels de categorias en espanol.
-- [ ] URLs de search usan valores canonicos.
-- [ ] El selector de ciudades permite buscar ciudades espanolas.
-- [ ] No se introduce tabla maestra de ciudades.
-- [ ] Search, Home, perfil publico y admin settings quedan sincronizados.
-- [ ] Los tests/checks relevantes pasan.
-- [ ] `../../../task-groups-roadmap.md` esta actualizado tras completar.
+- [x] Categorias se guardan y filtran con codigos canonicos en ingles.
+- [x] La UI muestra labels de categorias en espanol.
+- [x] URLs de search usan valores canonicos.
+- [x] El selector de ciudades permite buscar ciudades espanolas.
+- [x] No se introduce tabla maestra de ciudades.
+- [x] Search, Home, perfil publico y admin settings quedan sincronizados.
+- [x] Los tests/checks relevantes pasan.
+- [x] `../../../task-groups-roadmap.md` esta actualizado tras completar.
 
 ## Preguntas Abiertas
 

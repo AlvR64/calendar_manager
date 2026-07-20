@@ -16,12 +16,89 @@ export const emptyMarketplaceSearchFilters: MarketplaceSearchFilters = {
 
 export const marketplaceCategoryOptions = [
   { label: 'Todas', value: '' },
-  { label: 'Barberia', value: 'Barberia' },
-  { label: 'Estetica', value: 'Estetica' },
-  { label: 'Fisioterapia', value: 'Fisioterapia' },
-  { label: 'Clases', value: 'Clases' },
-  { label: 'Consultas', value: 'Consultas' },
+  { label: 'Barberia', value: 'barber' },
+  { label: 'Estetica', value: 'beauty' },
+  { label: 'Fisioterapia', value: 'physiotherapy' },
+  { label: 'Clases', value: 'classes' },
+  { label: 'Consultas', value: 'consulting' },
 ];
+
+export const businessCategoryOptions = [
+  { label: 'Sin categoria', value: '' },
+  ...marketplaceCategoryOptions.filter((option) => option.value),
+];
+
+export const spanishCityOptions = [
+  'A Coruna',
+  'Albacete',
+  'Alcala de Henares',
+  'Alcobendas',
+  'Alicante',
+  'Almeria',
+  'Avila',
+  'Badajoz',
+  'Barcelona',
+  'Bilbao',
+  'Burgos',
+  'Caceres',
+  'Cadiz',
+  'Cartagena',
+  'Castellon de la Plana',
+  'Ceuta',
+  'Cordoba',
+  'Cuenca',
+  'Donostia-San Sebastian',
+  'Elche',
+  'Getafe',
+  'Girona',
+  'Gijon',
+  'Granada',
+  'Guadalajara',
+  'Huelva',
+  'Huesca',
+  'Jaen',
+  'Las Palmas de Gran Canaria',
+  'Leganes',
+  'Leon',
+  'Lleida',
+  'Logrono',
+  'Lugo',
+  'Madrid',
+  'Malaga',
+  'Marbella',
+  'Melilla',
+  'Murcia',
+  'Ourense',
+  'Oviedo',
+  'Palencia',
+  'Palma',
+  'Pamplona',
+  'Pontevedra',
+  'Sabadell',
+  'Salamanca',
+  'Santa Cruz de Tenerife',
+  'Santander',
+  'Santiago de Compostela',
+  'Segovia',
+  'Sevilla',
+  'Tarragona',
+  'Terrassa',
+  'Toledo',
+  'Valencia',
+  'Valladolid',
+  'Vigo',
+  'Vitoria-Gasteiz',
+  'Zamora',
+  'Zaragoza',
+];
+
+const legacyCategoryValues: Record<string, string> = {
+  Barberia: 'barber',
+  Clases: 'classes',
+  Consultas: 'consulting',
+  Estetica: 'beauty',
+  Fisioterapia: 'physiotherapy',
+};
 
 export function buildMarketplaceSearchPath(filters: MarketplaceSearchFilters, page = 1) {
   const searchParams = new URLSearchParams();
@@ -42,11 +119,21 @@ export function buildMarketplaceSearchPath(filters: MarketplaceSearchFilters, pa
 
 export function normalizeSearchFilters(filters: MarketplaceSearchFilters): MarketplaceSearchFilters {
   return {
-    category: filters.category.trim(),
+    category: normalizeMarketplaceCategoryValue(filters.category),
     city: filters.city.trim(),
     query: filters.query.trim(),
     service: filters.service.trim(),
   };
+}
+
+export function getMarketplaceCategoryLabel(value?: string | null) {
+  const normalizedValue = normalizeMarketplaceCategoryValue(value ?? '');
+  return marketplaceCategoryOptions.find((option) => option.value === normalizedValue)?.label ?? value ?? '';
+}
+
+export function normalizeMarketplaceCategoryValue(value: string) {
+  const trimmedValue = value.trim();
+  return legacyCategoryValues[trimmedValue] ?? trimmedValue;
 }
 
 function appendOptionalParam(searchParams: URLSearchParams, key: string, value: string) {

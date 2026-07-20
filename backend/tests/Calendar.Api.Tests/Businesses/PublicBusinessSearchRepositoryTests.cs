@@ -15,21 +15,21 @@ public sealed class PublicBusinessSearchRepositoryTests
         var olderBusiness = CreateBusiness(
             "barberia-centro",
             "Barberia Centro",
-            "Barberia",
+            "barber",
             "Madrid",
             new DateTimeOffset(2026, 1, 1, 0, 0, 0, TimeSpan.Zero),
             [CreateServiceSeed("Corte", 18m, isActive: true), CreateServiceSeed("Afeitado", 12m, isActive: true)]);
         var newerBusiness = CreateBusiness(
             "yoga-norte",
             "Yoga Norte",
-            "Clases",
+            "classes",
             "Madrid",
             new DateTimeOffset(2026, 2, 1, 0, 0, 0, TimeSpan.Zero),
             [CreateServiceSeed("Clase suelta", 25m, isActive: true)]);
         var inactiveBusiness = CreateBusiness(
             "fisioterapia-inactiva",
             "Fisioterapia Inactiva",
-            "Fisioterapia",
+            "physiotherapy",
             "Valencia",
             new DateTimeOffset(2026, 3, 1, 0, 0, 0, TimeSpan.Zero),
             [CreateServiceSeed("Sesion", 40m, isActive: true)],
@@ -51,7 +51,7 @@ public sealed class PublicBusinessSearchRepositoryTests
     [InlineData("Barberia Centro")]
     [InlineData("barrio")]
     [InlineData("Madrid")]
-    [InlineData("Barberia")]
+    [InlineData("barber")]
     [InlineData("Corte")]
     [InlineData("clasico")]
     public async Task SearchAsync_QueryFilter_MatchesBusinessAndActiveServiceFields(string query)
@@ -60,7 +60,7 @@ public sealed class PublicBusinessSearchRepositoryTests
         var matchingBusiness = CreateBusiness(
             "barberia-centro",
             "Barberia Centro",
-            "Barberia",
+            "barber",
             "Madrid",
             new DateTimeOffset(2026, 1, 1, 0, 0, 0, TimeSpan.Zero),
             [CreateServiceSeed("Corte", 18m, "Corte clasico", isActive: true)],
@@ -68,7 +68,7 @@ public sealed class PublicBusinessSearchRepositoryTests
         var otherBusiness = CreateBusiness(
             "estetica-sur",
             "Estetica Sur",
-            "Estetica",
+            "beauty",
             "Sevilla",
             new DateTimeOffset(2026, 1, 2, 0, 0, 0, TimeSpan.Zero),
             [CreateServiceSeed("Manicura", 20m, isActive: true)]);
@@ -89,21 +89,21 @@ public sealed class PublicBusinessSearchRepositoryTests
             CreateBusiness(
                 "barberia-madrid",
                 "Barberia Madrid",
-                "Barberia",
+                "barber",
                 "Madrid",
                 new DateTimeOffset(2026, 1, 1, 0, 0, 0, TimeSpan.Zero),
                 [CreateServiceSeed("Corte", 18m, isActive: true)]),
             CreateBusiness(
                 "barberia-valencia",
                 "Barberia Valencia",
-                "Barberia",
+                "barber",
                 "Valencia",
                 new DateTimeOffset(2026, 1, 2, 0, 0, 0, TimeSpan.Zero),
                 [CreateServiceSeed("Corte", 18m, isActive: true)]),
             CreateBusiness(
                 "estetica-madrid",
                 "Estetica Madrid",
-                "Estetica",
+                "beauty",
                 "Madrid",
                 new DateTimeOffset(2026, 1, 3, 0, 0, 0, TimeSpan.Zero),
                 [CreateServiceSeed("Corte", 18m, isActive: true)]));
@@ -111,7 +111,7 @@ public sealed class PublicBusinessSearchRepositoryTests
         var repository = new PublicBusinessSearchRepository(dbContext);
 
         var result = await repository.SearchAsync(
-            CreateCriteria(city: "Madrid", category: "Barberia", service: "Corte"),
+            CreateCriteria(city: "Madrid", category: "barber", service: "Corte"),
             CancellationToken.None);
 
         result.Items.Should().ContainSingle(item => item.Slug == "barberia-madrid");
@@ -125,14 +125,14 @@ public sealed class PublicBusinessSearchRepositoryTests
             CreateBusiness(
                 "inactive-service-only",
                 "Inactive Service Only",
-                "Estetica",
+                "beauty",
                 "Madrid",
                 new DateTimeOffset(2026, 1, 1, 0, 0, 0, TimeSpan.Zero),
                 [CreateServiceSeed("Masaje", 10m, isActive: false)]),
             CreateBusiness(
                 "active-service",
                 "Active Service",
-                "Estetica",
+                "beauty",
                 "Madrid",
                 new DateTimeOffset(2026, 1, 2, 0, 0, 0, TimeSpan.Zero),
                 [CreateServiceSeed("Masaje", 35m, isActive: true), CreateServiceSeed("Servicio oculto", 5m, isActive: false)]));
@@ -151,9 +151,9 @@ public sealed class PublicBusinessSearchRepositoryTests
     {
         using var dbContext = CreateDbContext();
         dbContext.Businesses.AddRange(
-            CreateBusiness("business-1", "Business 1", "Consultas", "Madrid", new DateTimeOffset(2026, 1, 1, 0, 0, 0, TimeSpan.Zero)),
-            CreateBusiness("business-2", "Business 2", "Consultas", "Madrid", new DateTimeOffset(2026, 1, 2, 0, 0, 0, TimeSpan.Zero)),
-            CreateBusiness("business-3", "Business 3", "Consultas", "Madrid", new DateTimeOffset(2026, 1, 3, 0, 0, 0, TimeSpan.Zero)));
+            CreateBusiness("business-1", "Business 1", "consulting", "Madrid", new DateTimeOffset(2026, 1, 1, 0, 0, 0, TimeSpan.Zero)),
+            CreateBusiness("business-2", "Business 2", "consulting", "Madrid", new DateTimeOffset(2026, 1, 2, 0, 0, 0, TimeSpan.Zero)),
+            CreateBusiness("business-3", "Business 3", "consulting", "Madrid", new DateTimeOffset(2026, 1, 3, 0, 0, 0, TimeSpan.Zero)));
         await dbContext.SaveChangesAsync();
         var repository = new PublicBusinessSearchRepository(dbContext);
 

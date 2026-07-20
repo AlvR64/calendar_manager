@@ -17,7 +17,7 @@ const searchResponse: PublicBusinessSearchResponse = {
   hasNextPage: true,
   items: [
     {
-      category: 'Barberia',
+      category: 'barber',
       city: 'Madrid',
       countryCode: 'ES',
       currencyCode: 'EUR',
@@ -48,11 +48,11 @@ describe('marketplace search page', () => {
   });
 
   it('loads results from URL filters and renders marketplace cards', async () => {
-    renderWithProviders(<MarketplaceSearchPage />, '/search?query=barber&city=Madrid&category=Barberia&service=Corte&page=2');
+    renderWithProviders(<MarketplaceSearchPage />, '/search?query=barber&city=Madrid&category=barber&service=Corte&page=2');
 
     expect(await screen.findByRole('heading', { name: 'Barberia Centro' })).toBeInTheDocument();
     expect(publicBusinessApi.searchPublicBusinesses).toHaveBeenCalledWith({
-      category: 'Barberia',
+      category: 'barber',
       city: 'Madrid',
       page: 2,
       pageSize: 9,
@@ -60,6 +60,8 @@ describe('marketplace search page', () => {
       service: 'Corte',
     });
     expect(screen.getByText('Corte clasico')).toBeInTheDocument();
+    expect(screen.getAllByText('Barberia')).not.toHaveLength(0);
+    expect(screen.getByText('Categoria: Barberia')).toBeInTheDocument();
     expect(screen.getByText(/desde 18/i)).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /ver perfil/i })).toHaveAttribute('href', '/b/barberia-centro');
     expect(screen.getByRole('link', { name: /reservar appointment/i })).toHaveAttribute('href', '/b/barberia-centro/appointment');

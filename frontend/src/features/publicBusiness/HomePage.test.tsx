@@ -23,10 +23,10 @@ describe('home page marketplace search', () => {
     const user = userEvent.setup();
     await user.type(screen.getByLabelText(/que necesitas/i), 'fisio');
     await user.type(screen.getByLabelText(/ciudad/i), 'Madrid');
-    await user.selectOptions(screen.getByLabelText(/categoria/i), 'Fisioterapia');
+    await user.selectOptions(screen.getByLabelText(/categoria/i), 'physiotherapy');
     await user.click(screen.getByRole('button', { name: /^buscar$/i }));
 
-    expect(await screen.findByTestId('location')).toHaveTextContent('/search?query=fisio&city=Madrid&category=Fisioterapia');
+    expect(await screen.findByTestId('location')).toHaveTextContent('/search?query=fisio&city=Madrid&category=physiotherapy');
   });
 });
 
