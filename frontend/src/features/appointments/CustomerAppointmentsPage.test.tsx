@@ -32,10 +32,10 @@ const scheduledAppointment: AppointmentSummaryResponse = {
     lastName: null,
   },
   customerNotes: 'Notas',
-  endAtUtc: '2026-07-20T08:30:00Z',
+  endAtUtc: '2099-07-20T08:30:00Z',
   endTime: '10:30:00',
   id: 'appointment-1',
-  localDate: '2026-07-20',
+  localDate: '2099-07-20',
   service: {
     currencyCodeSnapshot: 'EUR',
     durationMinutesSnapshot: 30,
@@ -47,7 +47,7 @@ const scheduledAppointment: AppointmentSummaryResponse = {
     displayName: 'Ana',
     id: 'staff-1',
   },
-  startAtUtc: '2026-07-20T08:00:00Z',
+  startAtUtc: '2099-07-20T08:00:00Z',
   startTime: '10:00:00',
   status: 'Scheduled',
 };
@@ -75,7 +75,7 @@ describe('customer appointments page', () => {
     expect(await screen.findByText('Clara')).toBeInTheDocument();
     expect(screen.getByText('customer@example.test')).toBeInTheDocument();
     expect(await screen.findAllByText('Barberia Centro · Ana')).not.toHaveLength(0);
-    expect(screen.getAllByText('2026-07-20 · 10:00 - 10:30')).not.toHaveLength(0);
+    expect(screen.getAllByText('2099-07-20 · 10:00 - 10:30')).not.toHaveLength(0);
     expect(screen.getByText('No puedo ir')).toBeInTheDocument();
     expect(screen.getAllByRole('link', { name: /ver detalle/i })[0]).toHaveAttribute('href', '/appointments/appointment-1');
     expect(appointmentApi.listCustomerAppointments).toHaveBeenCalledWith('customer-token', { from: undefined, status: undefined, to: undefined });
@@ -124,7 +124,7 @@ function setCustomerSession() {
   setAuthSession({
     accountType: 'Customer',
     email: 'customer@example.test',
-    expiresAtUtc: '2026-07-20T00:00:00Z',
+    expiresAtUtc: '2099-07-20T00:00:00Z',
     firstName: 'Clara',
     id: 'customer-1',
     lastName: null,

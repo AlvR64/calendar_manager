@@ -2,7 +2,6 @@ import { useQuery } from '@tanstack/react-query';
 import { Link, useNavigate, useSearchParams } from 'react-router-dom';
 
 import { getApiErrorMessage } from '@/api/apiErrors';
-import { ApiErrorAlert } from '@/features/auth/authUi';
 import { searchPublicBusinesses } from '@/features/publicBusiness/publicBusinessApi';
 import {
   buildMarketplaceSearchPath,
@@ -34,43 +33,64 @@ export function MarketplaceSearchPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[radial-gradient(circle_at_top_left,#e0e7ff,transparent_32%),linear-gradient(135deg,#ffffff_0%,#f8fafc_55%,#eef2ff_100%)] px-6 py-8 text-slate-950">
-      <div className="mx-auto max-w-6xl">
-        <header className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-          <Link className="text-2xl font-black tracking-tight" to={routes.home}>Calendar Manager</Link>
-          <Link className="rounded-full bg-slate-950 px-5 py-2.5 text-center text-sm font-black text-white shadow-lg shadow-slate-300/60 transition hover:bg-indigo-700" to={routes.businessRegister}>
-            Publicar mi business
-          </Link>
+    <main className="min-h-screen bg-slate-50 text-slate-950">
+      <div className="border-b border-slate-200 bg-white">
+        <header className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-8 lg:px-10">
+          <Link className="text-xl font-black tracking-tight sm:text-2xl" to={routes.home}>Calendar Manager</Link>
+          <div className="flex items-center gap-3">
+            <Link className="hidden text-sm font-black text-slate-600 transition hover:text-indigo-700 sm:inline-flex" to={routes.customerLogin}>Customer login</Link>
+            <Link className="rounded-full bg-slate-950 px-4 py-2.5 text-center text-sm font-black text-white shadow-lg shadow-slate-300/60 transition hover:bg-indigo-700 sm:px-5" to={routes.businessRegister}>
+              Publicar business
+            </Link>
+          </div>
         </header>
+      </div>
 
-        <section className="mt-12 grid gap-8 lg:grid-cols-[0.85fr_1.15fr] lg:items-end">
-          <div>
-            <p className="text-sm font-black uppercase tracking-[0.25em] text-indigo-600">Marketplace</p>
-            <h1 className="mt-4 text-5xl font-black leading-[0.95] tracking-tight md:text-6xl">Encuentra el business adecuado para tu proximo appointment.</h1>
-            <p className="mt-5 text-lg leading-8 text-slate-600">
-              Filtra por texto, ciudad, categoria o service. Los resultados muestran solo businesses activos con datos ligeros para decidir rapido.
+      <div className="mx-auto max-w-7xl px-6 py-10 md:px-8 lg:px-10">
+        <section className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_24rem] lg:items-start">
+          <div className="max-w-3xl">
+            <p className="text-xs font-black uppercase tracking-[0.28em] text-indigo-600">Marketplace</p>
+            <h1 className="mt-4 text-5xl font-black leading-[0.95] tracking-tight md:text-6xl">
+              Encuentra el business adecuado para tu proximo appointment.
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+              Filtra por ciudad, categoria o service y entra directo al perfil publico o al flujo de reserva.
             </p>
           </div>
+          <aside className="rounded-[1.875rem] border border-indigo-200 bg-white p-6 shadow-xl shadow-indigo-100/60">
+            <p className="text-xs font-black uppercase tracking-[0.18em] text-indigo-600">Busqueda publica</p>
+            <h2 className="mt-3 text-2xl font-black leading-tight tracking-tight">Resultados activos, ligeros y listos para reservar.</h2>
+            <p className="mt-4 text-sm font-medium leading-6 text-slate-600">
+              Cada card muestra categoria, ciudad, services destacados, precio desde y acciones claras.
+            </p>
+            <div className="mt-5 flex flex-wrap gap-2">
+              <span className="rounded-full border border-indigo-100 bg-indigo-50 px-3 py-1.5 text-xs font-black text-indigo-800">4 filtros</span>
+              <span className="rounded-full border border-slate-200 bg-slate-100 px-3 py-1.5 text-xs font-black text-slate-600">sin login</span>
+            </div>
+          </aside>
+        </section>
+
+        <section className="mt-8" aria-label="Filtros de marketplace">
           <BusinessSearchForm initialFilters={filters} key={buildMarketplaceSearchPath(filters)} onSubmit={handleSubmit} submitLabel="Aplicar filtros" />
         </section>
 
-        <section className="mt-8 rounded-[2rem] border border-white/80 bg-white/80 p-5 shadow-sm backdrop-blur md:p-6">
-          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+        <section className="mt-10 rounded-[1.875rem] border border-slate-200 bg-white p-5 shadow-sm md:p-6">
+          <div className="flex flex-col gap-5 md:flex-row md:items-center md:justify-between">
             <div>
-              <p className="text-sm font-black uppercase tracking-[0.2em] text-indigo-600">
+              <p className="text-xs font-black uppercase tracking-[0.18em] text-indigo-600">
                 {hasFilters ? 'Resultados de busqueda' : 'Businesses recientes'}
               </p>
               <h2 className="mt-2 text-2xl font-black tracking-tight">
                 {businessSearchQuery.data ? `${businessSearchQuery.data.totalCount} businesses encontrados` : 'Buscando businesses'}
               </h2>
             </div>
-            {hasFilters ? <ActiveFilters filters={filters} /> : <p className="text-sm font-bold text-slate-500">Sin filtros activos</p>}
+            {hasFilters ? <ActiveFilters filters={filters} /> : <p className="rounded-full bg-slate-100 px-4 py-2 text-sm font-black text-slate-600">Sin filtros activos</p>}
           </div>
         </section>
 
         <section className="mt-8">
           {businessSearchQuery.isPending ? <SearchSkeleton /> : null}
-          {businessSearchQuery.isError ? <ApiErrorAlert message={getApiErrorMessage(businessSearchQuery.error)} /> : null}
+          {businessSearchQuery.isError ? <SearchErrorState message={getApiErrorMessage(businessSearchQuery.error)} /> : null}
           {businessSearchQuery.isSuccess && businessSearchQuery.data.items.length === 0 ? <EmptySearchState hasFilters={hasFilters} /> : null}
           {businessSearchQuery.isSuccess && businessSearchQuery.data.items.length > 0 ? (
             <>
@@ -97,32 +117,32 @@ function ActiveFilters({ filters }: { filters: MarketplaceSearchFilters }) {
   ].filter(([, value]) => value);
 
   return (
-    <div className="flex flex-wrap gap-2">
+    <div className="flex flex-wrap gap-2 md:justify-end">
       {activeFilters.map(([label, value]) => (
-        <span className="rounded-full bg-indigo-50 px-3 py-1 text-xs font-black text-indigo-700" key={label}>{label}: {value}</span>
+        <span className="rounded-full border border-indigo-100 bg-indigo-50 px-3 py-1.5 text-xs font-black text-indigo-800" key={label}>{label}: {value}</span>
       ))}
-      <Link className="rounded-full bg-slate-100 px-3 py-1 text-xs font-black text-slate-600 hover:bg-slate-200" to={routes.search}>Limpiar</Link>
+      <Link className="rounded-full border border-slate-200 bg-slate-100 px-3 py-1.5 text-xs font-black text-slate-600 transition hover:bg-slate-200" to={routes.search}>Limpiar</Link>
     </div>
   );
 }
 
 function SearchPagination({ filters, hasNextPage, page }: { filters: MarketplaceSearchFilters; hasNextPage: boolean; page: number }) {
   return (
-    <nav aria-label="Paginacion de resultados" className="mt-8 flex items-center justify-between gap-4 rounded-[2rem] border border-slate-200 bg-white p-4 shadow-sm">
+    <nav aria-label="Paginacion de resultados" className="mt-8 flex items-center justify-between gap-4 rounded-[1.75rem] border border-slate-200 bg-white p-3 shadow-sm sm:p-4">
       {page > 1 ? (
-        <Link className="rounded-2xl border border-slate-200 px-5 py-3 text-sm font-black text-slate-800 hover:bg-slate-50" to={buildMarketplaceSearchPath(filters, page - 1)}>
+        <Link className="rounded-2xl border border-slate-200 px-4 py-3 text-sm font-black text-slate-900 transition hover:bg-slate-50 sm:px-5" to={buildMarketplaceSearchPath(filters, page - 1)}>
           Anterior
         </Link>
       ) : (
-        <span className="rounded-2xl border border-slate-100 px-5 py-3 text-sm font-black text-slate-300">Anterior</span>
+        <span className="rounded-2xl border border-slate-100 px-4 py-3 text-sm font-black text-slate-500 sm:px-5">Anterior</span>
       )}
       <span className="text-sm font-black text-slate-600">Pagina {page}</span>
       {hasNextPage ? (
-        <Link className="rounded-2xl bg-slate-950 px-5 py-3 text-sm font-black text-white hover:bg-indigo-700" to={buildMarketplaceSearchPath(filters, page + 1)}>
+        <Link className="rounded-2xl bg-slate-950 px-4 py-3 text-sm font-black text-white transition hover:bg-indigo-700 sm:px-5" to={buildMarketplaceSearchPath(filters, page + 1)}>
           Siguiente
         </Link>
       ) : (
-        <span className="rounded-2xl bg-slate-100 px-5 py-3 text-sm font-black text-slate-300">Siguiente</span>
+        <span className="rounded-2xl bg-slate-100 px-4 py-3 text-sm font-black text-slate-500 sm:px-5">Siguiente</span>
       )}
     </nav>
   );
@@ -132,7 +152,17 @@ function SearchSkeleton() {
   return (
     <div className="grid gap-5 lg:grid-cols-3">
       {[0, 1, 2].map((item) => (
-        <div className="h-80 animate-pulse rounded-[2rem] bg-slate-200" key={item} />
+        <div className="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm" key={item}>
+          <div className="h-8 w-44 animate-pulse rounded-full bg-slate-200" />
+          <div className="mt-6 h-8 w-3/4 animate-pulse rounded-full bg-slate-200" />
+          <div className="mt-4 h-4 w-full animate-pulse rounded-full bg-slate-100" />
+          <div className="mt-2 h-4 w-5/6 animate-pulse rounded-full bg-slate-100" />
+          <div className="mt-6 h-32 animate-pulse rounded-[1.5rem] bg-slate-100" />
+          <div className="mt-6 flex items-center justify-between">
+            <div className="h-4 w-24 animate-pulse rounded-full bg-slate-200" />
+            <div className="h-11 w-32 animate-pulse rounded-2xl bg-slate-200" />
+          </div>
+        </div>
       ))}
     </div>
   );
@@ -140,17 +170,27 @@ function SearchSkeleton() {
 
 function EmptySearchState({ hasFilters }: { hasFilters: boolean }) {
   return (
-    <div className="rounded-[2rem] border border-dashed border-slate-300 bg-white/85 p-10 text-center shadow-sm">
-      <p className="text-sm font-black uppercase tracking-[0.25em] text-indigo-600">Sin resultados</p>
+    <div className="rounded-[2rem] border border-dashed border-slate-300 bg-white p-10 text-center shadow-sm">
+      <p className="text-xs font-black uppercase tracking-[0.25em] text-indigo-600">Sin resultados</p>
       <h2 className="mt-4 text-3xl font-black tracking-tight text-slate-950">No encontramos businesses para esta busqueda</h2>
       <p className="mx-auto mt-4 max-w-xl text-slate-600">
         {hasFilters ? 'Prueba con menos filtros, otra ciudad o una categoria distinta.' : 'Todavia no hay businesses activos publicados para marketplace.'}
       </p>
       {hasFilters ? (
-        <Link className="mt-7 inline-flex rounded-2xl bg-slate-950 px-6 py-3.5 text-base font-black text-white hover:bg-indigo-700" to={routes.search}>
+        <Link className="mt-7 inline-flex rounded-2xl bg-slate-950 px-6 py-3.5 text-base font-black text-white transition hover:bg-indigo-700" to={routes.search}>
           Ver todos
         </Link>
       ) : null}
+    </div>
+  );
+}
+
+function SearchErrorState({ message }: { message: string }) {
+  return (
+    <div className="rounded-[2rem] border border-red-200 bg-red-50 p-8 shadow-sm" role="alert">
+      <p className="text-xs font-black uppercase tracking-[0.22em] text-red-700">Error API</p>
+      <h2 className="mt-3 text-2xl font-black tracking-tight text-red-950">No pudimos cargar la busqueda</h2>
+      <p className="mt-3 max-w-2xl text-sm font-bold leading-6 text-red-700">{message}</p>
     </div>
   );
 }

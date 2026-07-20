@@ -43,6 +43,7 @@ Estas specs convierten la landing publica en un hub real de descubrimiento para 
 | `02-public-business-search-api.md` | Hecha | `11.9`, `11.10` | API publica para buscar/listar businesses activos y cards ligeras. |
 | `03-marketplace-search-frontend.md` | Hecha | `11.13`, `11.14`, `11.15` | Home con buscador, `/search`, cards y navegacion a perfil/appointment. |
 | `04-marketplace-search-design-alignment.md` | Hecha | `11.13`, `11.14`, `11.15` | Diseno OpenPencil oficial para `/search`; aplicacion frontend queda para futura slice. |
+| `05-marketplace-search-frontend-design-alignment.md` | Hecha | `11.13`, `11.14`, `11.15` | `/search` alineada visualmente con el diseno OpenPencil refinado. |
 
 ## Orden Recomendado
 
@@ -50,6 +51,7 @@ Estas specs convierten la landing publica en un hub real de descubrimiento para 
 2. `02-public-business-search-api.md`
 3. `03-marketplace-search-frontend.md`
 4. `04-marketplace-search-design-alignment.md`
+5. `05-marketplace-search-frontend-design-alignment.md`
 
 ## Regla De Finalizacion
 

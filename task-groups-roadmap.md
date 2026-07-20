@@ -71,6 +71,7 @@ Objetivo: convertir la landing publica en un hub real de descubrimiento donde cu
 | Search API publica | Hecho | `docs/task-specs/marketplace-discovery-mvp/02-public-business-search-api.md` | `11.9`, `11.10` | Endpoint publico para buscar/listar businesses activos con datos ligeros de card. |
 | Search frontend marketplace | Hecho | `docs/task-specs/marketplace-discovery-mvp/03-marketplace-search-frontend.md` | `11.13`, `11.14`, `11.15` | Home con buscador real, pagina `/search`, cards y navegacion a perfil/appointment. |
 | Search marketplace design | Hecho | `docs/task-specs/marketplace-discovery-mvp/04-marketplace-search-design-alignment.md` | `11.13`, `11.14`, `11.15` | Diseno OpenPencil oficial de `/search`; aplicacion frontend queda para una futura slice. |
+| Search frontend design alignment | Hecho | `docs/task-specs/marketplace-discovery-mvp/05-marketplace-search-frontend-design-alignment.md` | `11.13`, `11.14`, `11.15` | `/search` alineada visualmente con el diseno OpenPencil refinado. |
 
 ## Incrementos De Producto
 

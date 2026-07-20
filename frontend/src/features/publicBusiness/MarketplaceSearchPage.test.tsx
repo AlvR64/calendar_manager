@@ -60,9 +60,9 @@ describe('marketplace search page', () => {
       service: 'Corte',
     });
     expect(screen.getByText('Corte clasico')).toBeInTheDocument();
-    expect(screen.getByText(/desde/i)).toBeInTheDocument();
+    expect(screen.getByText(/desde 18/i)).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /ver perfil/i })).toHaveAttribute('href', '/b/barberia-centro');
-    expect(screen.getByRole('link', { name: /elegir appointment/i })).toHaveAttribute('href', '/b/barberia-centro/appointment');
+    expect(screen.getByRole('link', { name: /reservar appointment/i })).toHaveAttribute('href', '/b/barberia-centro/appointment');
   });
 
   it('updates the page query param with next pagination', async () => {
