@@ -1,6 +1,6 @@
 # Specs De Entrega Del Marketplace Discovery MVP
 
-Estado: planificado.
+Estado: hecho.
 
 Incremento: Marketplace Discovery MVP.
 
@@ -40,14 +40,16 @@ Estas specs convierten la landing publica en un hub real de descubrimiento para 
 | Spec | Estado | IDs de capacidad | Notas |
 | --- | --- | --- | --- |
 | `01-business-category-and-demo-marketplace-seed.md` | Hecha | `1.8`, `11.11` | Categoria simple y datos demo para mostrar varios businesses. |
-| `02-public-business-search-api.md` | Planificada | `11.9`, `11.10` | API publica para buscar/listar businesses activos y cards ligeras. |
-| `03-marketplace-search-frontend.md` | Planificada | `11.13`, `11.14`, `11.15` | Home con buscador, `/search`, cards y navegacion a perfil/appointment. |
+| `02-public-business-search-api.md` | Hecha | `11.9`, `11.10` | API publica para buscar/listar businesses activos y cards ligeras. |
+| `03-marketplace-search-frontend.md` | Hecha | `11.13`, `11.14`, `11.15` | Home con buscador, `/search`, cards y navegacion a perfil/appointment. |
+| `04-marketplace-search-design-alignment.md` | Hecha | `11.13`, `11.14`, `11.15` | Diseno OpenPencil oficial para `/search`; aplicacion frontend queda para futura slice. |
 
 ## Orden Recomendado
 
 1. `01-business-category-and-demo-marketplace-seed.md`
 2. `02-public-business-search-api.md`
 3. `03-marketplace-search-frontend.md`
+4. `04-marketplace-search-design-alignment.md`
 
 ## Regla De Finalizacion
 

@@ -16,9 +16,9 @@ Mirror del estado actual de `../../../task-groups-roadmap.md` para contexto rapi
 
 | ID | Backend | Frontend | Diseno | Postpuesto |
 | --- | --- | --- | --- | --- |
-| `11.13` | [ ] | [x] | [ ] | [ ] |
-| `11.14` | [ ] | [x] | [ ] | [ ] |
-| `11.15` | [ ] | [x] | [ ] | [ ] |
+| `11.13` | [ ] | [x] | [x] | [ ] |
+| `11.14` | [ ] | [x] | [x] | [ ] |
+| `11.15` | [ ] | [x] | [x] | [ ] |
 
 ## Objetivo
 
@@ -52,8 +52,8 @@ Depende de `GET /api/public/businesses` definido en `02-public-business-search-a
 
 ## Referencias De Diseno
 
-- `designs/homepage.op` como base visual.
-- No existe `designs/marketplace-search.op`; se reutiliza la visual de `designs/homepage.op` y del perfil publico.
+- `designs/marketplace-search.op` como diseno oficial de `/search`.
+- `designs/homepage.op` y `designs/business-public-profile.op` como referencias de lenguaje visual.
 
 ## Rutas Y Pantallas Frontend
 
