@@ -72,6 +72,8 @@ Objetivo: convertir la landing publica en un hub real de descubrimiento donde cu
 | Search frontend marketplace | Hecho | `docs/task-specs/marketplace-discovery-mvp/03-marketplace-search-frontend.md` | `11.13`, `11.14`, `11.15` | Home con buscador real, pagina `/search`, cards y navegacion a perfil/appointment. |
 | Search marketplace design | Hecho | `docs/task-specs/marketplace-discovery-mvp/04-marketplace-search-design-alignment.md` | `11.13`, `11.14`, `11.15` | Diseno OpenPencil oficial de `/search`; aplicacion frontend queda para una futura slice. |
 | Search frontend design alignment | Hecho | `docs/task-specs/marketplace-discovery-mvp/05-marketplace-search-frontend-design-alignment.md` | `11.13`, `11.14`, `11.15` | `/search` alineada visualmente con el diseno OpenPencil refinado. |
+| Marketplace filter catalogs | Pendiente | `docs/task-specs/marketplace-discovery-mvp/06-marketplace-filter-catalogs.md` | `1.2`, `11.9`, `11.11`, `11.13`, `11.14` | Categorias canonicas en ingles con labels ES y selector buscable de ciudades espanolas. |
+| Public session header and auth boundaries | Pendiente | `docs/task-specs/marketplace-discovery-mvp/07-public-session-header-and-auth-boundaries.md` | `0.8`, `0.10`, `0.12`, `6.1`, `7.2`, `8.1`, `11.13`, `11.14`, `11.15` | Header publico unificado, single active session y admin read-only en flujos publicos. |
 
 ## Incrementos De Producto
 
