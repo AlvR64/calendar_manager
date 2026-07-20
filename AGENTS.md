@@ -5,6 +5,7 @@
 - Backend work lives under `backend/`; backend-specific instructions live in `backend/AGENTS.md`.
 - Frontend work lives under `frontend/`; frontend-specific instructions live in `frontend/AGENTS.md`.
 - Repo-local OpenCode skills live in `.agents/skills` and are wired by `opencode.json`.
+- OpenPencil MCP setup and troubleshooting are documented in `docs/openpencil-mcp.md`.
 - Use `domain-modeling` for domain terminology changes, `find-skills` to search for additional repo-local skills, and area-specific skills from the nearest scoped `AGENTS.md`.
 
 ## Product Context

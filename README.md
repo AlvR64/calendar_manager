@@ -65,6 +65,22 @@ bash ./frontend/start-dev.sh
 - API: `http://localhost:5167`
 - API health check: `http://localhost:5167/health`
 
+## OpenPencil MCP
+
+OpenCode is configured to use OpenPencil through `http://127.0.0.1:3100/mcp` for design work. If the `openpencil_*` tools are missing or the MCP server is not running, follow `docs/openpencil-mcp.md`.
+
+Common Windows start command:
+
+```powershell
+& "C:\Program Files\OpenPencil\op.exe" start --headless --file "designs/marketplace-search.op" --port 3100
+```
+
+Quick status check:
+
+```powershell
+& "C:\Program Files\OpenPencil\op.exe" status --port 3100
+```
+
 ## MVP Manual Flow
 
 1. Register a business and initial admin from the public UI.

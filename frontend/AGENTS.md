@@ -134,6 +134,7 @@
   - `business-public-profile.op`
   - `public-appointment-slot-flow.op`
   - `customer-register.op`
+  - `marketplace-search.op`
 - If behavior cannot be represented interactively in OpenPencil, implement it normally in React while preserving the designed state.
 
 ## Commands
