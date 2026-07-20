@@ -6,7 +6,7 @@ import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import { ApiError } from '@/api/httpClient';
-import { getAuthSession } from '@/auth/authStorage';
+import { getAuthSession, setAuthSession } from '@/auth/authStorage';
 import * as authApi from '@/features/auth/authApi';
 import { BusinessAdminLoginPage } from '@/pages/auth/BusinessAdminLoginPage';
 import { BusinessAdminRegisterPage } from '@/pages/auth/BusinessAdminRegisterPage';
@@ -27,6 +27,16 @@ describe('auth pages', () => {
   });
 
   it('stores an admin session and navigates to admin after login', async () => {
+    setAuthSession({
+      accountType: 'Customer',
+      email: 'customer@example.com',
+      expiresAtUtc: '2026-07-15T18:00:00Z',
+      firstName: 'Clara',
+      id: 'customer-1',
+      lastName: null,
+      token: 'customer-token',
+      tokenType: 'Bearer',
+    });
     vi.mocked(authApi.loginAdmin).mockResolvedValue({
       accessToken: 'admin-token',
       expiresAtUtc: '2026-07-15T18:00:00Z',
@@ -113,6 +123,16 @@ describe('auth pages', () => {
   });
 
   it('stores a customer session and navigates to customer appointments after login', async () => {
+    setAuthSession({
+      accountType: 'Admin',
+      businessId: 'business-1',
+      displayName: 'Admin One',
+      email: 'admin@example.com',
+      expiresAtUtc: '2026-07-15T18:00:00Z',
+      id: 'admin-1',
+      token: 'admin-token',
+      tokenType: 'Bearer',
+    });
     vi.mocked(authApi.loginCustomer).mockResolvedValue({
       accessToken: 'customer-token',
       expiresAtUtc: '2026-07-15T18:00:00Z',
@@ -145,6 +165,7 @@ describe('auth pages', () => {
       firstName: 'Clara',
       token: 'customer-token',
     });
+    expect(getAuthSession('Admin')).toBeNull();
   });
 
   it('validates required customer registration fields', async () => {

@@ -76,12 +76,12 @@ describe('appointment details page', () => {
     expect(screen.getByText('10:00 - 10:30')).toBeInTheDocument();
     expect(screen.getByText('2026-07-20 · Europe/Madrid')).toBeInTheDocument();
     expect(screen.getByText('Ana')).toBeInTheDocument();
-    expect(screen.getByText('Clara Diaz')).toBeInTheDocument();
+    expect(screen.getAllByText('Clara Diaz')).not.toHaveLength(0);
     expect(screen.getByText('Notas del customer')).toBeInTheDocument();
     expect(appointmentApi.getAppointmentDetails).toHaveBeenCalledWith('appointment-1', 'customer-token');
   });
 
-  it('prefers the customer token when customer and admin sessions both exist', async () => {
+  it('uses the only active session after admin login clears customer session', async () => {
     setCustomerSession();
     setAdminSession();
     vi.mocked(appointmentApi.getAppointmentDetails).mockResolvedValue(appointment);
@@ -89,7 +89,7 @@ describe('appointment details page', () => {
     renderWithProviders(<AppointmentDetailsPage />);
 
     expect(await screen.findAllByText('Corte')).not.toHaveLength(0);
-    expect(appointmentApi.getAppointmentDetails).toHaveBeenCalledWith('appointment-1', 'customer-token');
+    expect(appointmentApi.getAppointmentDetails).toHaveBeenCalledWith('appointment-1', 'admin-token');
   });
 
   it('shows a loading state while details are loading', () => {

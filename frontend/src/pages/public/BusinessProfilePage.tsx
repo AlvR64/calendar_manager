@@ -8,6 +8,7 @@ import { ApiError } from '@/api/httpClient';
 import { ApiErrorAlert } from '@/features/auth/authUi';
 import { getMarketplaceCategoryLabel } from '@/features/publicBusiness/marketplaceSearch';
 import { getPublicBusinessProfileBySlug } from '@/features/publicBusiness/publicBusinessApi';
+import { PublicHeader } from '@/layouts/PublicHeader';
 import { routes } from '@/lib/routes';
 
 const businessProfileQueryKey = (slug: string) => ['public', 'business-profile', slug] as const;
@@ -53,7 +54,7 @@ function BusinessProfile({ profile, slug }: { profile: BusinessProfileResponse; 
       <section className="grid gap-8 lg:grid-cols-[1fr_360px] lg:items-start">
         <div className="rounded-[2rem] border border-white/80 bg-white/90 p-6 shadow-2xl shadow-indigo-100/70 backdrop-blur md:p-8">
           <Link className="text-sm font-black text-indigo-700 hover:text-indigo-900" to={routes.home}>
-            Calendar Manager
+            Volver al inicio
           </Link>
           <div className="mt-12 flex flex-wrap items-center gap-3">
             <p className="text-sm font-black uppercase tracking-[0.25em] text-indigo-600">Public business</p>
@@ -121,7 +122,7 @@ function BusinessProfile({ profile, slug }: { profile: BusinessProfileResponse; 
 }
 
 function PublicProfileShell({ children }: { children: ReactNode }) {
-  return <main className="min-h-screen bg-[radial-gradient(circle_at_top_left,#e0e7ff,transparent_32%),linear-gradient(135deg,#ffffff_0%,#f8fafc_55%,#eef2ff_100%)] px-6 py-8 text-slate-950"><div className="mx-auto max-w-6xl">{children}</div></main>;
+  return <main className="min-h-screen bg-[radial-gradient(circle_at_top_left,#e0e7ff,transparent_32%),linear-gradient(135deg,#ffffff_0%,#f8fafc_55%,#eef2ff_100%)] text-slate-950"><PublicHeader /><div className="mx-auto max-w-6xl px-6 pb-8">{children}</div></main>;
 }
 
 function ProfileSkeleton() {

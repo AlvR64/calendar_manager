@@ -8,15 +8,14 @@ import { ApiError } from '@/api/httpClient';
 import { getAuthSession } from '@/auth/authStorage';
 import { getAppointmentDetails } from '@/features/appointments/appointmentApi';
 import { ApiErrorAlert } from '@/features/auth/authUi';
+import { PublicHeader } from '@/layouts/PublicHeader';
 import { routes } from '@/lib/routes';
 
 const appointmentDetailsQueryKey = (appointmentId: string, token: string) => ['appointment-details', appointmentId, token] as const;
 
 export function AppointmentDetailsPage() {
   const { appointmentId } = useParams();
-  const customerSession = getAuthSession('Customer');
-  const adminSession = getAuthSession('Admin');
-  const session = customerSession ?? adminSession;
+  const session = getAuthSession();
 
   const appointmentQuery = useQuery({
     enabled: Boolean(appointmentId && session?.token),
@@ -165,7 +164,7 @@ function AppointmentState({ description, title }: { description: string; title: 
 }
 
 function AppointmentShell({ children }: { children: ReactNode }) {
-  return <main className="min-h-screen bg-[radial-gradient(circle_at_top_left,#e0e7ff,transparent_32%),linear-gradient(135deg,#ffffff_0%,#f8fafc_55%,#eef2ff_100%)] px-6 py-8 text-slate-950"><div className="mx-auto max-w-6xl">{children}</div></main>;
+  return <main className="min-h-screen bg-[radial-gradient(circle_at_top_left,#e0e7ff,transparent_32%),linear-gradient(135deg,#ffffff_0%,#f8fafc_55%,#eef2ff_100%)] text-slate-950"><PublicHeader /><div className="mx-auto max-w-6xl px-6 pb-8">{children}</div></main>;
 }
 
 function formatTime(value: string) {

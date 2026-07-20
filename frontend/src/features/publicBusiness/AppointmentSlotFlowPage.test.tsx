@@ -208,6 +208,28 @@ describe('appointment slot flow page', () => {
     expect(screen.getByRole('link', { name: /ver detalle del appointment/i })).toHaveAttribute('href', '/appointments/appointment-1');
   });
 
+  it('lets admin view slots without confirming appointments', async () => {
+    setAuthSession({
+      accountType: 'Admin',
+      businessId: 'business-1',
+      displayName: 'Admin One',
+      email: 'admin@example.test',
+      expiresAtUtc: '2026-07-20T00:00:00Z',
+      id: 'admin-1',
+      token: 'admin-token',
+      tokenType: 'Bearer',
+    });
+    renderWithProviders(<AppointmentSlotFlowPage />);
+
+    const user = userEvent.setup();
+    await user.click(await screen.findByRole('button', { name: /10:00 - 10:45/i }));
+
+    expect(screen.getByText(/no puedes confirmar como admin/i)).toBeInTheDocument();
+    expect(screen.getByText(/estas navegando como admin one/i)).toBeInTheDocument();
+    expect(screen.queryByRole('button', { name: /confirmar appointment/i })).not.toBeInTheDocument();
+    expect(appointmentApi.createAppointment).not.toHaveBeenCalled();
+  });
+
   it('shows outside-window state without fetching that date', async () => {
     renderWithProviders(<AppointmentSlotFlowPage />);
 

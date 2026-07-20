@@ -42,6 +42,8 @@ export function getAuthSession(accountType?: AccountType): AuthSession | null {
 }
 
 export function setAuthSession(session: AuthSession): void {
+  const otherAccountType = session.accountType === 'Admin' ? 'Customer' : 'Admin';
+  window.localStorage.removeItem(sessionKeyByAccountType[otherAccountType]);
   window.localStorage.setItem(sessionKeyByAccountType[session.accountType], JSON.stringify(session));
 }
 

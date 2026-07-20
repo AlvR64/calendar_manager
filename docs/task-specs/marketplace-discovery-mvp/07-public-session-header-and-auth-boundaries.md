@@ -130,14 +130,14 @@ No cambia. La separacion de responsabilidades de esta slice es frontend/session 
 
 ## Criterios De Aceptacion
 
-- [ ] Header publico unificado en pantallas publicas.
-- [ ] La UI deja claro el tipo de sesion activa.
-- [ ] No pueden coexistir sesiones Admin y Customer.
-- [ ] Admin puede navegar partes publicas pero no confirmar appointments.
-- [ ] Customer conserva el flujo de appointment.
-- [ ] Mobile no oculta el acceso customer.
-- [ ] Los tests/checks relevantes pasan.
-- [ ] `../../../task-groups-roadmap.md` esta actualizado tras completar.
+- [x] Header publico unificado en pantallas publicas.
+- [x] La UI deja claro el tipo de sesion activa.
+- [x] No pueden coexistir sesiones Admin y Customer.
+- [x] Admin puede navegar partes publicas pero no confirmar appointments.
+- [x] Customer conserva el flujo de appointment.
+- [x] Mobile no oculta el acceso customer.
+- [x] Los tests/checks relevantes pasan.
+- [x] `../../../task-groups-roadmap.md` esta actualizado tras completar.
 
 ## Preguntas Abiertas
 

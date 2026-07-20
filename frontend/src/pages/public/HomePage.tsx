@@ -1,17 +1,19 @@
 import { Link, useNavigate } from 'react-router-dom';
 
 import { getAuthSession } from '@/auth/authStorage';
-import { CustomerSessionBadge } from '@/features/auth/CustomerSessionBadge';
 import {
   buildMarketplaceSearchPath,
   marketplaceCategoryOptions,
   type MarketplaceSearchFilters,
 } from '@/features/publicBusiness/marketplaceSearch';
 import { BusinessSearchForm } from '@/features/publicBusiness/marketplaceSearchUi';
+import { PublicHeader } from '@/layouts/PublicHeader';
 import { routes } from '@/lib/routes';
 
 export function HomePage() {
-  const customerSession = getAuthSession('Customer');
+  const activeSession = getAuthSession();
+  const customerSession = activeSession?.accountType === 'Customer' ? activeSession : null;
+  const adminSession = activeSession?.accountType === 'Admin' ? activeSession : null;
   const navigate = useNavigate();
 
   function handleSearch(filters: MarketplaceSearchFilters) {
@@ -20,25 +22,7 @@ export function HomePage() {
 
   return (
     <main className="min-h-screen overflow-hidden bg-[radial-gradient(circle_at_12%_12%,#e0e7ff,transparent_30%),linear-gradient(135deg,#ffffff_0%,#f8fafc_45%,#eef2ff_100%)] text-slate-950">
-      <header className="mx-auto flex max-w-6xl items-center justify-between px-6 py-8">
-        <Link className="text-2xl font-black tracking-tight" to="/">
-          Calendar Manager
-        </Link>
-        <nav className="flex items-center gap-3">
-          {customerSession ? (
-            <CustomerSessionBadge session={customerSession} />
-          ) : (
-            <>
-              <Link className="hidden rounded-full px-5 py-2 text-sm font-black text-slate-700 hover:bg-white/70 sm:inline-flex" to={routes.customerLogin}>
-                Customer login
-              </Link>
-              <Link className="rounded-full bg-slate-950 px-5 py-2.5 text-sm font-black text-white shadow-lg shadow-slate-300/60 transition hover:bg-indigo-700" to={routes.businessRegister}>
-                Para negocios
-              </Link>
-            </>
-          )}
-        </nav>
-      </header>
+      <PublicHeader />
       <section className="mx-auto grid max-w-6xl gap-12 px-6 py-14 lg:grid-cols-[1.02fr_0.98fr] lg:items-center lg:py-20">
         <div>
           <p className="text-sm font-black uppercase tracking-[0.25em] text-indigo-600">Marketplace de appointments</p>
@@ -64,6 +48,10 @@ export function HomePage() {
             {customerSession ? (
               <Link className="rounded-2xl border border-slate-200 bg-white/80 px-6 py-4 text-center text-base font-black text-slate-800 shadow-sm transition hover:bg-white" to={routes.customerAppointments}>
                 Mis appointments
+              </Link>
+            ) : adminSession ? (
+              <Link className="rounded-2xl border border-slate-200 bg-white/80 px-6 py-4 text-center text-base font-black text-slate-800 shadow-sm transition hover:bg-white" to={routes.adminDashboard}>
+                Panel admin
               </Link>
             ) : (
               <Link className="rounded-2xl border border-slate-200 bg-white/80 px-6 py-4 text-center text-base font-black text-slate-800 shadow-sm transition hover:bg-white" to={routes.businessRegister}>

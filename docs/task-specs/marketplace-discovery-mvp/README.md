@@ -45,7 +45,7 @@ Estas specs convierten la landing publica en un hub real de descubrimiento para 
 | `04-marketplace-search-design-alignment.md` | Hecha | `11.13`, `11.14`, `11.15` | Diseno OpenPencil oficial para `/search`; aplicacion frontend queda para futura slice. |
 | `05-marketplace-search-frontend-design-alignment.md` | Hecha | `11.13`, `11.14`, `11.15` | `/search` alineada visualmente con el diseno OpenPencil refinado. |
 | `06-marketplace-filter-catalogs.md` | Hecha | `1.2`, `11.9`, `11.11`, `11.13`, `11.14` | Categorias canonicas en ingles con labels ES y selector buscable de ciudades espanolas. |
-| `07-public-session-header-and-auth-boundaries.md` | Planificada | `0.8`, `0.10`, `0.12`, `6.1`, `7.2`, `8.1`, `11.13`, `11.14`, `11.15` | Header publico unificado, single active session y admin read-only en flujos publicos. |
+| `07-public-session-header-and-auth-boundaries.md` | Hecha | `0.8`, `0.10`, `0.12`, `6.1`, `7.2`, `8.1`, `11.13`, `11.14`, `11.15` | Header publico unificado, single active session y admin read-only en flujos publicos. |
 
 ## Orden Recomendado
 

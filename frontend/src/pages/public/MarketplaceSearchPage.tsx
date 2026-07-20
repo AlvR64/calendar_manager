@@ -14,6 +14,7 @@ import {
   BusinessSearchForm,
   PublicBusinessCard,
 } from '@/features/publicBusiness/marketplaceSearchUi';
+import { PublicHeader } from '@/layouts/PublicHeader';
 import { routes } from '@/lib/routes';
 
 const pageSize = 9;
@@ -36,17 +37,7 @@ export function MarketplaceSearchPage() {
 
   return (
     <main className="min-h-screen bg-slate-50 text-slate-950">
-      <div className="border-b border-slate-200 bg-white">
-        <header className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 md:px-8 lg:px-10">
-          <Link className="text-xl font-black tracking-tight sm:text-2xl" to={routes.home}>Calendar Manager</Link>
-          <div className="flex items-center gap-3">
-            <Link className="hidden text-sm font-black text-slate-600 transition hover:text-indigo-700 sm:inline-flex" to={routes.customerLogin}>Customer login</Link>
-            <Link className="rounded-full bg-slate-950 px-4 py-2.5 text-center text-sm font-black text-white shadow-lg shadow-slate-300/60 transition hover:bg-indigo-700 sm:px-5" to={routes.businessRegister}>
-              Publicar business
-            </Link>
-          </div>
-        </header>
-      </div>
+      <PublicHeader className="border-b border-slate-200 bg-white" maxWidthClassName="max-w-7xl" />
 
       <div className="mx-auto max-w-7xl px-6 py-10 md:px-8 lg:px-10">
         <section className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_24rem] lg:items-start">

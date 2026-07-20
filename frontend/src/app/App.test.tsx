@@ -58,10 +58,42 @@ describe('frontend shell', () => {
     );
 
     expect(screen.getByText('Clara Diaz')).toBeInTheDocument();
-    expect(screen.getByText('customer@demo.calendar.test')).toBeInTheDocument();
+    expect(screen.getByText(/customer@demo.calendar.test/i)).toBeInTheDocument();
     expect(screen.getAllByRole('link', { name: /mis appointments/i })[0]).toHaveAttribute('href', '/customer/appointments');
     expect(screen.queryByRole('link', { name: /customer login/i })).not.toBeInTheDocument();
     expect(screen.queryByRole('link', { name: /para negocios/i })).not.toBeInTheDocument();
     expect(screen.queryByRole('link', { name: /publicar mi business/i })).not.toBeInTheDocument();
+  });
+
+  it('shows admin session actions on the public home in read-only mode', () => {
+    setAuthSession({
+      accountType: 'Admin',
+      businessId: 'business-1',
+      displayName: 'Admin One',
+      email: 'admin@demo.calendar.test',
+      expiresAtUtc: '2026-07-20T00:00:00Z',
+      id: 'admin-1',
+      token: 'admin-token',
+      tokenType: 'Bearer',
+    });
+
+    const queryClient = new QueryClient();
+    const router = createMemoryRouter([
+      {
+        element: <PublicLayout />,
+        children: [{ path: '/', element: <HomePage /> }],
+      },
+    ]);
+
+    render(
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>,
+    );
+
+    expect(screen.getByText('Admin One')).toBeInTheDocument();
+    expect(screen.getByText('Admin · admin@demo.calendar.test')).toBeInTheDocument();
+    expect(screen.getAllByRole('link', { name: /panel admin/i })[0]).toHaveAttribute('href', '/admin');
+    expect(screen.queryByRole('link', { name: /customer login/i })).not.toBeInTheDocument();
   });
 });

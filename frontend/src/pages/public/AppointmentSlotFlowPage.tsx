@@ -10,6 +10,7 @@ import { getAuthSession } from '@/auth/authStorage';
 import { createAppointment } from '@/features/appointments/appointmentApi';
 import { ApiErrorAlert, inputClassName, labelClassName, primaryButtonClassName } from '@/features/auth/authUi';
 import { getPublicBusinessProfileBySlug, listPublicAvailableSlots } from '@/features/publicBusiness/publicBusinessApi';
+import { PublicHeader } from '@/layouts/PublicHeader';
 import { routes } from '@/lib/routes';
 
 const businessProfileQueryKey = (slug: string) => ['public', 'business-profile', slug] as const;
@@ -30,7 +31,9 @@ export function AppointmentSlotFlowPage() {
   const [selectedDate, setSelectedDate] = useState(() => searchParams.get('date') ?? '');
   const [selectedSlotStartAtUtc, setSelectedSlotStartAtUtc] = useState(() => searchParams.get('startAtUtc') ?? '');
   const [customerNotes, setCustomerNotes] = useState('');
-  const customerSession = getAuthSession('Customer');
+  const activeSession = getAuthSession();
+  const customerSession = activeSession?.accountType === 'Customer' ? activeSession : null;
+  const adminSession = activeSession?.accountType === 'Admin' ? activeSession : null;
 
   const profileQuery = useQuery({
     enabled: Boolean(slug),
@@ -194,6 +197,8 @@ export function AppointmentSlotFlowPage() {
                   onNotesChange={setCustomerNotes}
                   registerPath={withReturnTo(routes.customerRegister, buildAppointmentReturnTo(slug, activeServiceId, activeDate, selectedSlot))}
                   selectedSlot={selectedSlot}
+                  sessionAccountType={activeSession?.accountType}
+                  sessionDisplayName={adminSession?.displayName ?? customerSession?.firstName}
                   sessionFirstName={customerSession?.firstName}
                 />
               </div>
@@ -245,6 +250,8 @@ export function AppointmentSlotFlowPage() {
                 onNotesChange={setCustomerNotes}
                 registerPath={withReturnTo(routes.customerRegister, buildAppointmentReturnTo(slug, activeServiceId, activeDate, selectedSlot))}
                 selectedSlot={selectedSlot}
+                sessionAccountType={activeSession?.accountType}
+                sessionDisplayName={adminSession?.displayName ?? customerSession?.firstName}
                 sessionFirstName={customerSession?.firstName}
               />
             </div> : null}
@@ -256,7 +263,7 @@ export function AppointmentSlotFlowPage() {
 }
 
 function SlotFlowShell({ children }: { children: ReactNode }) {
-  return <main className="min-h-screen bg-[radial-gradient(circle_at_top_left,#e0e7ff,transparent_32%),linear-gradient(135deg,#ffffff_0%,#f8fafc_55%,#eef2ff_100%)] px-6 py-8 text-slate-950"><div className="mx-auto max-w-6xl">{children}</div></main>;
+  return <main className="min-h-screen bg-[radial-gradient(circle_at_top_left,#e0e7ff,transparent_32%),linear-gradient(135deg,#ffffff_0%,#f8fafc_55%,#eef2ff_100%)] text-slate-950"><PublicHeader /><div className="mx-auto max-w-6xl px-6 pb-8">{children}</div></main>;
 }
 
 function SlotFlowSkeleton() {
@@ -307,6 +314,8 @@ function AppointmentConfirmationPanel({
   onNotesChange,
   registerPath,
   selectedSlot,
+  sessionAccountType,
+  sessionDisplayName,
   sessionFirstName,
 }: {
   createError: Error | null;
@@ -318,6 +327,8 @@ function AppointmentConfirmationPanel({
   onNotesChange: (value: string) => void;
   registerPath: string;
   selectedSlot: AvailableSlotResponse | null;
+  sessionAccountType?: 'Admin' | 'Customer';
+  sessionDisplayName?: string;
   sessionFirstName?: string;
 }) {
   if (!selectedSlot) {
@@ -338,6 +349,22 @@ function AppointmentConfirmationPanel({
   }
 
   if (!sessionFirstName) {
+    if (sessionAccountType === 'Admin') {
+      return (
+        <div className="rounded-[1.5rem] border border-amber-200 bg-amber-50 p-6">
+          <p className="text-sm font-black uppercase tracking-[0.2em] text-amber-700">Modo lectura admin</p>
+          <h3 className="mt-2 text-2xl font-black text-amber-950">No puedes confirmar como Admin</h3>
+          <p className="mt-2 text-sm font-bold text-amber-800">
+            Estas navegando como {sessionDisplayName ?? 'Admin'}. Puedes revisar slots publicos, pero para crear un appointment debes entrar con una cuenta Customer.
+          </p>
+          <div className="mt-5 flex flex-col gap-3 sm:flex-row">
+            <Link className="rounded-2xl bg-amber-700 px-5 py-3 text-center text-sm font-black text-white hover:bg-amber-800" to={loginPath}>Entrar como customer</Link>
+            <Link className="rounded-2xl border border-amber-200 bg-white px-5 py-3 text-center text-sm font-black text-amber-800 hover:border-amber-400" to={routes.adminDashboard}>Volver al panel admin</Link>
+          </div>
+        </div>
+      );
+    }
+
     return (
       <div className="rounded-[1.5rem] border border-indigo-100 bg-indigo-50 p-6">
         <p className="text-sm font-black uppercase tracking-[0.2em] text-indigo-700">Confirmacion</p>
