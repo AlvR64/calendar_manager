@@ -4,96 +4,137 @@
   "children": [
     {
       "type": "frame",
-      "id": "ms-desktop",
+      "id": "n1",
       "name": "Marketplace Search Desktop",
       "x": 0,
       "y": 0,
       "width": 1440,
-      "height": 1720,
+      "height": 1680,
       "layout": "vertical",
       "gap": 0,
       "padding": 0,
-      "fill": [{ "type": "solid", "color": "#F8FAFC" }],
+      "fill": [
+        {
+          "type": "solid",
+          "color": "#F8FAFC"
+        }
+      ],
       "children": [
         {
           "type": "frame",
-          "id": "ms-d-header",
+          "id": "n2",
           "name": "Desktop Header",
           "width": "fill_container",
-          "height": 78,
+          "height": 80,
           "layout": "horizontal",
           "gap": 24,
-          "padding": [0, 80],
+          "padding": [
+            0,
+            80
+          ],
           "justifyContent": "space_between",
           "alignItems": "center",
-          "fill": [{ "type": "solid", "color": "#FFFFFF" }],
-          "stroke": { "thickness": { "bottom": 1 }, "fill": [{ "type": "solid", "color": "#E5E7EB" }] },
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#FFFFFF"
+            }
+          ],
+          "stroke": {
+            "thickness": {
+              "bottom": 1
+            },
+            "fill": [
+              {
+                "type": "solid",
+                "color": "#E5E7EB"
+              }
+            ]
+          },
           "children": [
             {
               "type": "text",
-              "id": "ms-d-logo",
+              "id": "n3",
               "name": "Logo",
               "width": 260,
-              "height": 32,
+              "height": "fit_content",
               "content": "Calendar Manager",
               "fontFamily": "Inter",
               "fontSize": 22,
               "fontWeight": 900,
               "lineHeight": 1.2,
-              "textAlign": "left",
-              "fill": [{ "type": "solid", "color": "#111827" }]
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#111827"
+                }
+              ]
             },
             {
               "type": "frame",
-              "id": "ms-d-header-actions",
+              "id": "n4",
               "name": "Header Actions",
-              "width": 360,
-              "height": 46,
+              "width": 380,
+              "height": 48,
               "layout": "horizontal",
-              "gap": 12,
+              "gap": 14,
               "justifyContent": "end",
               "alignItems": "center",
-              "fill": [{ "type": "solid", "color": "#FFFFFF" }],
               "children": [
                 {
                   "type": "text",
-                  "id": "ms-d-login",
+                  "id": "n5",
                   "name": "Customer Login Link",
                   "width": 150,
-                  "height": 22,
+                  "height": "fit_content",
                   "content": "Customer login",
                   "fontFamily": "Inter",
                   "fontSize": 14,
-                  "fontWeight": 800,
+                  "fontWeight": 900,
                   "lineHeight": 1.2,
                   "textAlign": "right",
-                  "fill": [{ "type": "solid", "color": "#334155" }]
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#475569"
+                    }
+                  ]
                 },
                 {
                   "type": "frame",
-                  "id": "ms-d-business-cta",
+                  "id": "n6",
                   "name": "Business CTA",
-                  "width": 150,
+                  "width": 160,
                   "height": 46,
                   "layout": "horizontal",
                   "justifyContent": "center",
                   "alignItems": "center",
-                  "cornerRadius": 999,
-                  "fill": [{ "type": "solid", "color": "#111827" }],
+                  "cornerRadius": 18,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#0F172A"
+                    }
+                  ],
                   "children": [
                     {
                       "type": "text",
-                      "id": "ms-d-business-cta-text",
-                      "name": "Business CTA Text",
-                      "width": 120,
-                      "height": 20,
-                      "content": "Para negocios",
+                      "id": "n7",
+                      "name": "Business CTA Label",
+                      "width": "fill_container",
+                      "height": "fit_content",
+                      "content": "Publicar business",
                       "fontFamily": "Inter",
                       "fontSize": 14,
                       "fontWeight": 900,
                       "lineHeight": 1.2,
                       "textAlign": "center",
-                      "fill": [{ "type": "solid", "color": "#FFFFFF" }]
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ]
                     }
                   ]
                 }
@@ -103,136 +144,282 @@
         },
         {
           "type": "frame",
-          "id": "ms-d-hero",
+          "id": "n8",
           "name": "Desktop Hero And Search",
           "width": "fill_container",
-          "height": 430,
+          "height": 468,
           "layout": "vertical",
-          "gap": 28,
-          "padding": [56, 80],
-          "fill": [{ "type": "solid", "color": "#F8FAFC" }],
+          "gap": 30,
+          "padding": [
+            58,
+            80,
+            42,
+            80
+          ],
           "children": [
             {
               "type": "frame",
-              "id": "ms-d-hero-copy-row",
+              "id": "n9",
               "name": "Hero Copy Row",
               "width": "fill_container",
-              "height": 210,
+              "height": 220,
               "layout": "horizontal",
-              "gap": 60,
+              "gap": 70,
               "justifyContent": "space_between",
               "alignItems": "start",
-              "fill": [{ "type": "solid", "color": "#F8FAFC" }],
               "children": [
                 {
                   "type": "frame",
-                  "id": "ms-d-hero-copy",
+                  "id": "n10",
                   "name": "Hero Copy",
                   "width": 720,
-                  "height": 210,
+                  "height": 220,
                   "layout": "vertical",
-                  "gap": 16,
-                  "fill": [{ "type": "solid", "color": "#F8FAFC" }],
+                  "gap": 18,
                   "children": [
                     {
                       "type": "text",
-                      "id": "ms-d-eyebrow",
-                      "name": "Eyebrow",
-                      "width": 520,
-                      "height": 18,
-                      "content": "MARKETPLACE DE APPOINTMENTS",
+                      "id": "n11",
+                      "name": "Hero Eyebrow",
+                      "width": "fill_container",
+                      "height": "fit_content",
+                      "content": "MARKETPLACE",
                       "fontFamily": "Inter",
                       "fontSize": 13,
                       "fontWeight": 900,
                       "letterSpacing": 3.2,
                       "lineHeight": 1.2,
-                      "textAlign": "left",
-                      "fill": [{ "type": "solid", "color": "#4F46E5" }]
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#4F46E5"
+                        }
+                      ]
                     },
                     {
                       "type": "text",
-                      "id": "ms-d-title",
+                      "id": "n12",
                       "name": "Hero Title",
                       "width": 720,
-                      "height": 120,
+                      "height": "fit_content",
                       "content": "Encuentra el business adecuado para tu proximo appointment.",
                       "fontFamily": "Inter",
-                      "fontSize": 58,
+                      "fontSize": 60,
                       "fontWeight": 900,
-                      "lineHeight": 0.98,
-                      "textAlign": "left",
-                      "fill": [{ "type": "solid", "color": "#0F172A" }]
+                      "lineHeight": 0.96,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#0F172A"
+                        }
+                      ]
                     },
                     {
                       "type": "text",
-                      "id": "ms-d-subtitle",
+                      "id": "n13",
                       "name": "Hero Subtitle",
-                      "width": 640,
-                      "height": 56,
-                      "content": "Filtra por texto, ciudad, categoria o service. Compara resultados y salta al perfil publico o al flujo de appointment.",
+                      "width": 650,
+                      "height": "fit_content",
+                      "content": "Filtra por ciudad, categoria o service y entra directo al perfil publico o al flujo de reserva.",
                       "fontFamily": "Inter",
                       "fontSize": 18,
                       "fontWeight": 500,
-                      "lineHeight": 1.55,
-                      "textAlign": "left",
-                      "fill": [{ "type": "solid", "color": "#64748B" }]
+                      "lineHeight": 1.5,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#64748B"
+                        }
+                      ]
                     }
                   ]
                 },
                 {
                   "type": "frame",
-                  "id": "ms-d-hero-stats",
-                  "name": "Hero Stats Panel",
-                  "width": 360,
-                  "height": 194,
+                  "id": "n14",
+                  "name": "Hero Trust Panel",
+                  "width": 390,
+                  "height": 202,
                   "layout": "vertical",
-                  "gap": 16,
+                  "gap": 15,
                   "padding": 24,
-                  "cornerRadius": 28,
-                  "fill": [{ "type": "solid", "color": "#111827" }],
+                  "cornerRadius": 30,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#C7D2FE"
+                      }
+                    ]
+                  },
                   "children": [
                     {
                       "type": "text",
-                      "id": "ms-d-stats-eyebrow",
-                      "name": "Stats Eyebrow",
-                      "width": 290,
-                      "height": 18,
-                      "content": "RESULTADOS ACTIVOS",
+                      "id": "n15",
+                      "name": "Trust Eyebrow",
+                      "width": "fill_container",
+                      "height": "fit_content",
+                      "content": "BUSQUEDA PUBLICA",
                       "fontFamily": "Inter",
-                      "fontSize": 12,
+                      "fontSize": 11,
                       "fontWeight": 900,
-                      "letterSpacing": 2.4,
+                      "letterSpacing": 2.2,
                       "lineHeight": 1.2,
-                      "textAlign": "left",
-                      "fill": [{ "type": "solid", "color": "#C7D2FE" }]
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#4F46E5"
+                        }
+                      ]
                     },
                     {
                       "type": "text",
-                      "id": "ms-d-stats-title",
-                      "name": "Stats Title",
-                      "width": 300,
-                      "height": 54,
-                      "content": "12 businesses encontrados",
+                      "id": "n16",
+                      "name": "Trust Title",
+                      "width": "fill_container",
+                      "height": "fit_content",
+                      "content": "Resultados activos, ligeros y listos para reservar.",
                       "fontFamily": "Inter",
-                      "fontSize": 28,
+                      "fontSize": 26,
                       "fontWeight": 900,
                       "lineHeight": 1.05,
-                      "textAlign": "left",
-                      "fill": [{ "type": "solid", "color": "#FFFFFF" }]
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#0F172A"
+                        }
+                      ]
                     },
                     {
                       "type": "text",
-                      "id": "ms-d-stats-copy",
-                      "name": "Stats Copy",
-                      "width": 300,
-                      "height": 56,
-                      "content": "Cards ligeras con categoria, ciudad, services destacados y precio desde.",
+                      "id": "n17",
+                      "name": "Trust Copy",
+                      "width": "fill_container",
+                      "height": "fit_content",
+                      "content": "Cada card muestra categoria, ciudad, services destacados, precio desde y acciones claras.",
                       "fontFamily": "Inter",
                       "fontSize": 14,
-                      "fontWeight": 600,
+                      "fontWeight": 500,
                       "lineHeight": 1.45,
-                      "textAlign": "left",
-                      "fill": [{ "type": "solid", "color": "#CBD5E1" }]
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#64748B"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n18",
+                      "name": "Trust Metrics",
+                      "width": "fill_container",
+                      "height": 34,
+                      "layout": "horizontal",
+                      "gap": 10,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "n19",
+                          "name": "Metric Filter Chip",
+                          "width": 104,
+                          "height": 32,
+                          "layout": "horizontal",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "cornerRadius": 999,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#EEF2FF"
+                            }
+                          ],
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#C7D2FE"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n20",
+                              "name": "Metric Filter Chip Text",
+                              "width": "fill_container",
+                              "height": "fit_content",
+                              "content": "4 filtros",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 900,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#3730A3"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n21",
+                          "name": "Metric UTC Chip",
+                          "width": 104,
+                          "height": 32,
+                          "layout": "horizontal",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "cornerRadius": 999,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#F1F5F9"
+                            }
+                          ],
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#E2E8F0"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n22",
+                              "name": "Metric UTC Chip Text",
+                              "width": "fill_container",
+                              "height": "fit_content",
+                              "content": "sin login",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 900,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#475569"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
                     }
                   ]
                 }
@@ -240,263 +427,3756 @@
             },
             {
               "type": "frame",
-              "id": "ms-d-search-panel",
+              "id": "n23",
               "name": "Search Panel Desktop",
               "width": "fill_container",
-              "height": 112,
+              "height": 118,
               "layout": "horizontal",
               "gap": 14,
               "padding": 16,
               "alignItems": "center",
-              "cornerRadius": 32,
-              "fill": [{ "type": "solid", "color": "#FFFFFF" }],
-              "stroke": { "thickness": 1, "fill": [{ "type": "solid", "color": "#E0E7FF" }] },
+              "cornerRadius": 34,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "stroke": {
+                "thickness": 1,
+                "fill": [
+                  {
+                    "type": "solid",
+                    "color": "#C7D2FE"
+                  }
+                ]
+              },
               "children": [
-                { "type": "frame", "id": "ms-d-field-query", "name": "Field Que Necesitas", "width": 315, "height": 80, "layout": "vertical", "gap": 8, "padding": [12, 16], "cornerRadius": 22, "fill": [{ "type": "solid", "color": "#F8FAFC" }], "children": [
-                  { "type": "text", "id": "ms-d-field-query-label", "name": "Query Label", "width": 250, "height": 18, "content": "Que necesitas", "fontFamily": "Inter", "fontSize": 13, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#334155" }] },
-                  { "type": "text", "id": "ms-d-field-query-value", "name": "Query Value", "width": 260, "height": 24, "content": "barber, fisio, yoga...", "fontFamily": "Inter", "fontSize": 16, "fontWeight": 700, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#94A3B8" }] }
-                ] },
-                { "type": "frame", "id": "ms-d-field-city", "name": "Field Ciudad", "width": 220, "height": 80, "layout": "vertical", "gap": 8, "padding": [12, 16], "cornerRadius": 22, "fill": [{ "type": "solid", "color": "#F8FAFC" }], "children": [
-                  { "type": "text", "id": "ms-d-field-city-label", "name": "City Label", "width": 160, "height": 18, "content": "Ciudad", "fontFamily": "Inter", "fontSize": 13, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#334155" }] },
-                  { "type": "text", "id": "ms-d-field-city-value", "name": "City Value", "width": 160, "height": 24, "content": "Madrid", "fontFamily": "Inter", "fontSize": 16, "fontWeight": 700, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#94A3B8" }] }
-                ] },
-                { "type": "frame", "id": "ms-d-field-category", "name": "Field Categoria", "width": 230, "height": 80, "layout": "vertical", "gap": 8, "padding": [12, 16], "cornerRadius": 22, "fill": [{ "type": "solid", "color": "#F8FAFC" }], "children": [
-                  { "type": "text", "id": "ms-d-field-category-label", "name": "Category Label", "width": 170, "height": 18, "content": "Categoria", "fontFamily": "Inter", "fontSize": 13, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#334155" }] },
-                  { "type": "text", "id": "ms-d-field-category-value", "name": "Category Value", "width": 170, "height": 24, "content": "Barberia", "fontFamily": "Inter", "fontSize": 16, "fontWeight": 700, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#0F172A" }] }
-                ] },
-                { "type": "frame", "id": "ms-d-field-service", "name": "Field Service", "width": 230, "height": 80, "layout": "vertical", "gap": 8, "padding": [12, 16], "cornerRadius": 22, "fill": [{ "type": "solid", "color": "#F8FAFC" }], "children": [
-                  { "type": "text", "id": "ms-d-field-service-label", "name": "Service Label", "width": 170, "height": 18, "content": "Service", "fontFamily": "Inter", "fontSize": 13, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#334155" }] },
-                  { "type": "text", "id": "ms-d-field-service-value", "name": "Service Value", "width": 170, "height": 24, "content": "Corte", "fontFamily": "Inter", "fontSize": 16, "fontWeight": 700, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#94A3B8" }] }
-                ] },
-                { "type": "frame", "id": "ms-d-search-button", "name": "Apply Filters Button", "width": 190, "height": 80, "layout": "horizontal", "justifyContent": "center", "alignItems": "center", "cornerRadius": 22, "fill": [{ "type": "solid", "color": "#4F46E5" }], "children": [
-                  { "type": "text", "id": "ms-d-search-button-text", "name": "Apply Filters Text", "width": 150, "height": 22, "content": "Aplicar filtros", "fontFamily": "Inter", "fontSize": 15, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "center", "fill": [{ "type": "solid", "color": "#FFFFFF" }] }
-                ] }
+                {
+                  "type": "frame",
+                  "id": "n24",
+                  "name": "Field Que Necesitas",
+                  "width": 300,
+                  "height": 84,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": [
+                    13,
+                    16
+                  ],
+                  "cornerRadius": 22,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#F8FAFC"
+                    }
+                  ],
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E2E8F0"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n25",
+                      "name": "Field Que Necesitas Label",
+                      "width": "fill_container",
+                      "height": "fit_content",
+                      "content": "Que necesitas",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": 900,
+                      "letterSpacing": 0.4,
+                      "lineHeight": 1.2,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#334155"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n26",
+                      "name": "Field Que Necesitas Value",
+                      "width": "fill_container",
+                      "height": "fit_content",
+                      "content": "barber, fisio, yoga...",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#64748B"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n27",
+                  "name": "Field Ciudad",
+                  "width": 200,
+                  "height": 84,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": [
+                    13,
+                    16
+                  ],
+                  "cornerRadius": 22,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#F8FAFC"
+                    }
+                  ],
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#C7D2FE"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n28",
+                      "name": "Field Ciudad Label",
+                      "width": "fill_container",
+                      "height": "fit_content",
+                      "content": "Ciudad",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": 900,
+                      "letterSpacing": 0.4,
+                      "lineHeight": 1.2,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#334155"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n29",
+                      "name": "Field Ciudad Value",
+                      "width": "fill_container",
+                      "height": "fit_content",
+                      "content": "Madrid",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#0F172A"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n30",
+                  "name": "Field Categoria",
+                  "width": 210,
+                  "height": 84,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": [
+                    13,
+                    16
+                  ],
+                  "cornerRadius": 22,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#F8FAFC"
+                    }
+                  ],
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#C7D2FE"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n31",
+                      "name": "Field Categoria Label",
+                      "width": "fill_container",
+                      "height": "fit_content",
+                      "content": "Categoria",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": 900,
+                      "letterSpacing": 0.4,
+                      "lineHeight": 1.2,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#334155"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n32",
+                      "name": "Field Categoria Value",
+                      "width": "fill_container",
+                      "height": "fit_content",
+                      "content": "Barberia",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#0F172A"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n33",
+                  "name": "Field Service",
+                  "width": 210,
+                  "height": 84,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "padding": [
+                    13,
+                    16
+                  ],
+                  "cornerRadius": 22,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#F8FAFC"
+                    }
+                  ],
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#C7D2FE"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n34",
+                      "name": "Field Service Label",
+                      "width": "fill_container",
+                      "height": "fit_content",
+                      "content": "Service",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": 900,
+                      "letterSpacing": 0.4,
+                      "lineHeight": 1.2,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#334155"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n35",
+                      "name": "Field Service Value",
+                      "width": "fill_container",
+                      "height": "fit_content",
+                      "content": "Corte",
+                      "fontFamily": "Inter",
+                      "fontSize": 16,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#0F172A"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n36",
+                  "name": "Apply Filters Button",
+                  "width": 180,
+                  "height": 84,
+                  "layout": "horizontal",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "cornerRadius": 22,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#4F46E5"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n37",
+                      "name": "Apply Filters Button Label",
+                      "width": "fill_container",
+                      "height": "fit_content",
+                      "content": "Aplicar filtros",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 900,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ]
+                    }
+                  ]
+                }
               ]
             }
           ]
         },
         {
           "type": "frame",
-          "id": "ms-d-results-body",
+          "id": "n38",
           "name": "Desktop Results Body",
           "width": "fill_container",
-          "height": 850,
+          "height": 724,
           "layout": "vertical",
           "gap": 28,
-          "padding": [0, 80, 56, 80],
-          "fill": [{ "type": "solid", "color": "#F8FAFC" }],
+          "padding": [
+            0,
+            80,
+            50,
+            80
+          ],
           "children": [
             {
               "type": "frame",
-              "id": "ms-d-filter-summary",
+              "id": "n39",
               "name": "Filter Summary",
               "width": "fill_container",
-              "height": 102,
+              "height": 100,
               "layout": "horizontal",
               "gap": 24,
               "padding": 24,
               "justifyContent": "space_between",
               "alignItems": "center",
               "cornerRadius": 30,
-              "fill": [{ "type": "solid", "color": "#FFFFFF" }],
-              "stroke": { "thickness": 1, "fill": [{ "type": "solid", "color": "#E2E8F0" }] },
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "stroke": {
+                "thickness": 1,
+                "fill": [
+                  {
+                    "type": "solid",
+                    "color": "#E2E8F0"
+                  }
+                ]
+              },
               "children": [
-                { "type": "frame", "id": "ms-d-summary-copy", "name": "Summary Copy", "width": 420, "height": 54, "layout": "vertical", "gap": 8, "fill": [{ "type": "solid", "color": "#FFFFFF" }], "children": [
-                  { "type": "text", "id": "ms-d-summary-eyebrow", "name": "Summary Eyebrow", "width": 300, "height": 16, "content": "RESULTADOS DE BUSQUEDA", "fontFamily": "Inter", "fontSize": 12, "fontWeight": 900, "letterSpacing": 2.4, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#4F46E5" }] },
-                  { "type": "text", "id": "ms-d-summary-title", "name": "Summary Title", "width": 360, "height": 30, "content": "12 businesses encontrados", "fontFamily": "Inter", "fontSize": 26, "fontWeight": 900, "lineHeight": 1.1, "textAlign": "left", "fill": [{ "type": "solid", "color": "#0F172A" }] }
-                ] },
-                { "type": "frame", "id": "ms-d-active-chips", "name": "Active Filter Chips", "width": 620, "height": 40, "layout": "horizontal", "gap": 8, "justifyContent": "end", "alignItems": "center", "fill": [{ "type": "solid", "color": "#FFFFFF" }], "children": [
-                  { "type": "frame", "id": "ms-d-chip-query", "name": "Chip Query", "width": 118, "height": 36, "layout": "horizontal", "justifyContent": "center", "alignItems": "center", "cornerRadius": 999, "fill": [{ "type": "solid", "color": "#EEF2FF" }], "children": [{ "type": "text", "id": "ms-d-chip-query-text", "name": "Chip Query Text", "width": 96, "height": 16, "content": "Texto: barber", "fontFamily": "Inter", "fontSize": 12, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "center", "fill": [{ "type": "solid", "color": "#4338CA" }] }] },
-                  { "type": "frame", "id": "ms-d-chip-city", "name": "Chip City", "width": 112, "height": 36, "layout": "horizontal", "justifyContent": "center", "alignItems": "center", "cornerRadius": 999, "fill": [{ "type": "solid", "color": "#EEF2FF" }], "children": [{ "type": "text", "id": "ms-d-chip-city-text", "name": "Chip City Text", "width": 92, "height": 16, "content": "Ciudad: Madrid", "fontFamily": "Inter", "fontSize": 12, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "center", "fill": [{ "type": "solid", "color": "#4338CA" }] }] },
-                  { "type": "frame", "id": "ms-d-chip-category", "name": "Chip Category", "width": 128, "height": 36, "layout": "horizontal", "justifyContent": "center", "alignItems": "center", "cornerRadius": 999, "fill": [{ "type": "solid", "color": "#EEF2FF" }], "children": [{ "type": "text", "id": "ms-d-chip-category-text", "name": "Chip Category Text", "width": 110, "height": 16, "content": "Categoria: Barberia", "fontFamily": "Inter", "fontSize": 12, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "center", "fill": [{ "type": "solid", "color": "#4338CA" }] }] },
-                  { "type": "text", "id": "ms-d-clear-filters", "name": "Clear Filters", "width": 70, "height": 18, "content": "Limpiar", "fontFamily": "Inter", "fontSize": 13, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "right", "fill": [{ "type": "solid", "color": "#64748B" }] }
-                ] }
+                {
+                  "type": "frame",
+                  "id": "n40",
+                  "name": "Summary Copy",
+                  "width": 430,
+                  "height": 52,
+                  "layout": "vertical",
+                  "gap": 8,
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n41",
+                      "name": "Summary Eyebrow",
+                      "width": "fill_container",
+                      "height": "fit_content",
+                      "content": "RESULTADOS DE BUSQUEDA",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": 900,
+                      "letterSpacing": 2,
+                      "lineHeight": 1.2,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#4F46E5"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n42",
+                      "name": "Summary Title",
+                      "width": "fill_container",
+                      "height": "fit_content",
+                      "content": "12 businesses encontrados",
+                      "fontFamily": "Inter",
+                      "fontSize": 24,
+                      "fontWeight": 900,
+                      "lineHeight": 1.1,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#0F172A"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n43",
+                  "name": "Active Filter Chips",
+                  "width": 620,
+                  "height": 40,
+                  "layout": "horizontal",
+                  "gap": 10,
+                  "justifyContent": "end",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n44",
+                      "name": "Active Query Chip",
+                      "width": 104,
+                      "height": 32,
+                      "layout": "horizontal",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "cornerRadius": 999,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#EEF2FF"
+                        }
+                      ],
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#C7D2FE"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n45",
+                          "name": "Active Query Chip Text",
+                          "width": "fill_container",
+                          "height": "fit_content",
+                          "content": "barber",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 900,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#3730A3"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n46",
+                      "name": "Active City Chip",
+                      "width": 104,
+                      "height": 32,
+                      "layout": "horizontal",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "cornerRadius": 999,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#EEF2FF"
+                        }
+                      ],
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#C7D2FE"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n47",
+                          "name": "Active City Chip Text",
+                          "width": "fill_container",
+                          "height": "fit_content",
+                          "content": "Madrid",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 900,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#3730A3"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n48",
+                      "name": "Active Category Chip",
+                      "width": 104,
+                      "height": 32,
+                      "layout": "horizontal",
+                      "justifyContent": "center",
+                      "alignItems": "center",
+                      "cornerRadius": 999,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#EEF2FF"
+                        }
+                      ],
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#C7D2FE"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n49",
+                          "name": "Active Category Chip Text",
+                          "width": "fill_container",
+                          "height": "fit_content",
+                          "content": "Barberia",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 900,
+                          "lineHeight": 1.2,
+                          "textAlign": "center",
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#3730A3"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n50",
+                      "name": "Clear Filters Link",
+                      "width": 70,
+                      "height": "fit_content",
+                      "content": "Limpiar",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": 900,
+                      "lineHeight": 1.2,
+                      "textAlign": "right",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#475569"
+                        }
+                      ]
+                    }
+                  ]
+                }
               ]
             },
             {
               "type": "frame",
-              "id": "ms-d-results-grid",
+              "id": "n51",
               "name": "Results Grid",
               "width": "fill_container",
-              "height": 570,
+              "height": 500,
               "layout": "horizontal",
               "gap": 20,
               "alignItems": "start",
-              "fill": [{ "type": "solid", "color": "#F8FAFC" }],
               "children": [
-                { "type": "frame", "id": "ms-d-card-1", "name": "Business Card Demo Barber", "width": 413, "height": 540, "layout": "vertical", "gap": 20, "padding": 24, "cornerRadius": 32, "fill": [{ "type": "solid", "color": "#FFFFFF" }], "stroke": { "thickness": 1, "fill": [{ "type": "solid", "color": "#E2E8F0" }] }, "children": [
-                  { "type": "frame", "id": "ms-d-card-1-tags", "name": "Card Tags", "width": "fill_container", "height": 30, "layout": "horizontal", "gap": 8, "fill": [{ "type": "solid", "color": "#FFFFFF" }], "children": [
-                    { "type": "frame", "id": "ms-d-card-1-cat", "name": "Card Category", "width": 86, "height": 30, "layout": "horizontal", "justifyContent": "center", "alignItems": "center", "cornerRadius": 999, "fill": [{ "type": "solid", "color": "#EEF2FF" }], "children": [{ "type": "text", "id": "ms-d-card-1-cat-text", "name": "Card Category Text", "width": 66, "height": 16, "content": "Barberia", "fontFamily": "Inter", "fontSize": 12, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "center", "fill": [{ "type": "solid", "color": "#4338CA" }] }] },
-                    { "type": "frame", "id": "ms-d-card-1-city", "name": "Card City", "width": 86, "height": 30, "layout": "horizontal", "justifyContent": "center", "alignItems": "center", "cornerRadius": 999, "fill": [{ "type": "solid", "color": "#F1F5F9" }], "children": [{ "type": "text", "id": "ms-d-card-1-city-text", "name": "Card City Text", "width": 66, "height": 16, "content": "Madrid, ES", "fontFamily": "Inter", "fontSize": 12, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "center", "fill": [{ "type": "solid", "color": "#475569" }] }] }
-                  ] },
-                  { "type": "text", "id": "ms-d-card-1-title", "name": "Card Title", "width": 340, "height": 64, "content": "Demo Barber Shop", "fontFamily": "Inter", "fontSize": 30, "fontWeight": 900, "lineHeight": 1.05, "textAlign": "left", "fill": [{ "type": "solid", "color": "#0F172A" }] },
-                  { "type": "text", "id": "ms-d-card-1-desc", "name": "Card Description", "width": 350, "height": 72, "content": "Cortes, barba y styling con staff activo para appointments publicos.", "fontFamily": "Inter", "fontSize": 15, "fontWeight": 500, "lineHeight": 1.45, "textAlign": "left", "fill": [{ "type": "solid", "color": "#64748B" }] },
-                  { "type": "frame", "id": "ms-d-card-1-services", "name": "Featured Services", "width": "fill_container", "height": 150, "layout": "vertical", "gap": 10, "padding": 18, "cornerRadius": 24, "fill": [{ "type": "solid", "color": "#F8FAFC" }], "children": [
-                    { "type": "text", "id": "ms-d-card-1-services-label", "name": "Services Label", "width": 240, "height": 15, "content": "SERVICES DESTACADOS", "fontFamily": "Inter", "fontSize": 11, "fontWeight": 900, "letterSpacing": 1.8, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#64748B" }] },
-                    { "type": "text", "id": "ms-d-card-1-service-1", "name": "Service One", "width": 310, "height": 22, "content": "Corte clasico                         45 min", "fontFamily": "Inter", "fontSize": 14, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#334155" }] },
-                    { "type": "text", "id": "ms-d-card-1-service-2", "name": "Service Two", "width": 310, "height": 22, "content": "Barba premium                       30 min", "fontFamily": "Inter", "fontSize": 14, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#334155" }] }
-                  ] },
-                  { "type": "frame", "id": "ms-d-card-1-footer", "name": "Card Footer", "width": "fill_container", "height": 72, "layout": "horizontal", "gap": 12, "justifyContent": "space_between", "alignItems": "center", "fill": [{ "type": "solid", "color": "#FFFFFF" }], "children": [
-                    { "type": "text", "id": "ms-d-card-1-price", "name": "Price", "width": 95, "height": 20, "content": "Desde 18 EUR", "fontFamily": "Inter", "fontSize": 14, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#334155" }] },
-                    { "type": "frame", "id": "ms-d-card-1-actions", "name": "Actions", "width": 230, "height": 46, "layout": "horizontal", "gap": 8, "fill": [{ "type": "solid", "color": "#FFFFFF" }], "children": [
-                      { "type": "frame", "id": "ms-d-card-1-profile", "name": "Profile Button", "width": 104, "height": 46, "layout": "horizontal", "justifyContent": "center", "alignItems": "center", "cornerRadius": 16, "fill": [{ "type": "solid", "color": "#FFFFFF" }], "stroke": { "thickness": 1, "fill": [{ "type": "solid", "color": "#CBD5E1" }] }, "children": [{ "type": "text", "id": "ms-d-card-1-profile-text", "name": "Profile Text", "width": 76, "height": 18, "content": "Ver perfil", "fontFamily": "Inter", "fontSize": 13, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "center", "fill": [{ "type": "solid", "color": "#334155" }] }] },
-                      { "type": "frame", "id": "ms-d-card-1-appointment", "name": "Appointment Button", "width": 118, "height": 46, "layout": "horizontal", "justifyContent": "center", "alignItems": "center", "cornerRadius": 16, "fill": [{ "type": "solid", "color": "#111827" }], "children": [{ "type": "text", "id": "ms-d-card-1-appointment-text", "name": "Appointment Text", "width": 92, "height": 18, "content": "Appointment", "fontFamily": "Inter", "fontSize": 13, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "center", "fill": [{ "type": "solid", "color": "#FFFFFF" }] }] }
-                    ] }
-                  ] }
-                ] },
-                { "type": "frame", "id": "ms-d-card-2", "name": "Business Card Beauty", "width": 413, "height": 540, "layout": "vertical", "gap": 20, "padding": 24, "cornerRadius": 32, "fill": [{ "type": "solid", "color": "#FFFFFF" }], "stroke": { "thickness": 1, "fill": [{ "type": "solid", "color": "#E2E8F0" }] }, "children": [
-                  { "type": "text", "id": "ms-d-card-2-tags", "name": "Tags", "width": 240, "height": 30, "content": "Estetica        Madrid, ES", "fontFamily": "Inter", "fontSize": 12, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#4338CA" }] },
-                  { "type": "text", "id": "ms-d-card-2-title", "name": "Card Title", "width": 340, "height": 64, "content": "Studio Beauty Demo", "fontFamily": "Inter", "fontSize": 30, "fontWeight": 900, "lineHeight": 1.05, "textAlign": "left", "fill": [{ "type": "solid", "color": "#0F172A" }] },
-                  { "type": "text", "id": "ms-d-card-2-desc", "name": "Card Description", "width": 350, "height": 72, "content": "Estetica y tratamientos faciales en Madrid con agenda online.", "fontFamily": "Inter", "fontSize": 15, "fontWeight": 500, "lineHeight": 1.45, "textAlign": "left", "fill": [{ "type": "solid", "color": "#64748B" }] },
-                  { "type": "frame", "id": "ms-d-card-2-services", "name": "Featured Services", "width": "fill_container", "height": 150, "layout": "vertical", "gap": 10, "padding": 18, "cornerRadius": 24, "fill": [{ "type": "solid", "color": "#F8FAFC" }], "children": [
-                    { "type": "text", "id": "ms-d-card-2-services-label", "name": "Services Label", "width": 240, "height": 15, "content": "SERVICES DESTACADOS", "fontFamily": "Inter", "fontSize": 11, "fontWeight": 900, "letterSpacing": 1.8, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#64748B" }] },
-                    { "type": "text", "id": "ms-d-card-2-service-1", "name": "Service One", "width": 310, "height": 22, "content": "Limpieza facial                    50 min", "fontFamily": "Inter", "fontSize": 14, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#334155" }] }
-                  ] },
-                  { "type": "text", "id": "ms-d-card-2-price", "name": "Price", "width": 160, "height": 20, "content": "Desde 35 EUR", "fontFamily": "Inter", "fontSize": 14, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#334155" }] }
-                ] },
-                { "type": "frame", "id": "ms-d-card-3", "name": "Business Card Fisio", "width": 413, "height": 540, "layout": "vertical", "gap": 20, "padding": 24, "cornerRadius": 32, "fill": [{ "type": "solid", "color": "#FFFFFF" }], "stroke": { "thickness": 1, "fill": [{ "type": "solid", "color": "#E2E8F0" }] }, "children": [
-                  { "type": "text", "id": "ms-d-card-3-tags", "name": "Tags", "width": 260, "height": 30, "content": "Fisioterapia        Valencia, ES", "fontFamily": "Inter", "fontSize": 12, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#4338CA" }] },
-                  { "type": "text", "id": "ms-d-card-3-title", "name": "Card Title", "width": 340, "height": 64, "content": "Fisio Centro Demo", "fontFamily": "Inter", "fontSize": 30, "fontWeight": 900, "lineHeight": 1.05, "textAlign": "left", "fill": [{ "type": "solid", "color": "#0F172A" }] },
-                  { "type": "text", "id": "ms-d-card-3-desc", "name": "Card Description", "width": 350, "height": 72, "content": "Fisioterapia y recuperacion funcional con staff activo.", "fontFamily": "Inter", "fontSize": 15, "fontWeight": 500, "lineHeight": 1.45, "textAlign": "left", "fill": [{ "type": "solid", "color": "#64748B" }] },
-                  { "type": "frame", "id": "ms-d-card-3-services", "name": "Featured Services", "width": "fill_container", "height": 150, "layout": "vertical", "gap": 10, "padding": 18, "cornerRadius": 24, "fill": [{ "type": "solid", "color": "#F8FAFC" }], "children": [
-                    { "type": "text", "id": "ms-d-card-3-services-label", "name": "Services Label", "width": 240, "height": 15, "content": "SERVICES DESTACADOS", "fontFamily": "Inter", "fontSize": 11, "fontWeight": 900, "letterSpacing": 1.8, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#64748B" }] },
-                    { "type": "text", "id": "ms-d-card-3-service-1", "name": "Service One", "width": 310, "height": 22, "content": "Sesion de fisioterapia           60 min", "fontFamily": "Inter", "fontSize": 14, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#334155" }] }
-                  ] },
-                  { "type": "text", "id": "ms-d-card-3-price", "name": "Price", "width": 160, "height": 20, "content": "Desde 45 EUR", "fontFamily": "Inter", "fontSize": 14, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#334155" }] }
-                ] }
+                {
+                  "type": "frame",
+                  "id": "n52",
+                  "name": "Business Card Demo Barber",
+                  "width": 413,
+                  "height": 500,
+                  "layout": "vertical",
+                  "gap": 18,
+                  "padding": 24,
+                  "cornerRadius": 32,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E2E8F0"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n53",
+                      "name": "Business Card Demo Barber Tags",
+                      "width": "fill_container",
+                      "height": 32,
+                      "layout": "horizontal",
+                      "gap": 8,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "n54",
+                          "name": "Business Card Demo Barber Category",
+                          "width": 104,
+                          "height": 32,
+                          "layout": "horizontal",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "cornerRadius": 999,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#EEF2FF"
+                            }
+                          ],
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#C7D2FE"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n55",
+                              "name": "Business Card Demo Barber Category Text",
+                              "width": "fill_container",
+                              "height": "fit_content",
+                              "content": "Barberia",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 900,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#3730A3"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n56",
+                          "name": "Business Card Demo Barber City",
+                          "width": 104,
+                          "height": 32,
+                          "layout": "horizontal",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "cornerRadius": 999,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#F1F5F9"
+                            }
+                          ],
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#E2E8F0"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n57",
+                              "name": "Business Card Demo Barber City Text",
+                              "width": "fill_container",
+                              "height": "fit_content",
+                              "content": "Madrid, ES",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 900,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#475569"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n58",
+                      "name": "Business Card Demo Barber Title",
+                      "width": "fill_container",
+                      "height": "fit_content",
+                      "content": "Demo Barber Shop",
+                      "fontFamily": "Inter",
+                      "fontSize": 29,
+                      "fontWeight": 900,
+                      "lineHeight": 1.05,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#0F172A"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n59",
+                      "name": "Business Card Demo Barber Description",
+                      "width": "fill_container",
+                      "height": "fit_content",
+                      "content": "Cortes, barba y styling con staff activo para appointments publicos.",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": 500,
+                      "lineHeight": 1.45,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#64748B"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n60",
+                      "name": "Business Card Demo Barber Featured Services",
+                      "width": "fill_container",
+                      "height": 142,
+                      "layout": "vertical",
+                      "gap": 10,
+                      "padding": 18,
+                      "cornerRadius": 24,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#F8FAFC"
+                        }
+                      ],
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E2E8F0"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n61",
+                          "name": "Business Card Demo Barber Services Label",
+                          "width": "fill_container",
+                          "height": "fit_content",
+                          "content": "SERVICES DESTACADOS",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 900,
+                          "letterSpacing": 1.6,
+                          "lineHeight": 1.2,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#475569"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n62",
+                          "name": "Business Card Demo Barber Service One",
+                          "width": "fill_container",
+                          "height": 24,
+                          "layout": "horizontal",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n63",
+                              "name": "Business Card Demo Barber Service One Name",
+                              "width": 210,
+                              "height": "fit_content",
+                              "content": "Corte clasico",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": 900,
+                              "lineHeight": 1.2,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#334155"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "n64",
+                              "name": "Business Card Demo Barber Service One Duration",
+                              "width": 70,
+                              "height": "fit_content",
+                              "content": "45 min",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": 800,
+                              "lineHeight": 1.2,
+                              "textAlign": "right",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#64748B"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n65",
+                          "name": "Business Card Demo Barber Service Two",
+                          "width": "fill_container",
+                          "height": 24,
+                          "layout": "horizontal",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n66",
+                              "name": "Business Card Demo Barber Service Two Name",
+                              "width": 210,
+                              "height": "fit_content",
+                              "content": "Barba premium",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": 900,
+                              "lineHeight": 1.2,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#334155"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "n67",
+                              "name": "Business Card Demo Barber Service Two Duration",
+                              "width": 70,
+                              "height": "fit_content",
+                              "content": "30 min",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": 800,
+                              "lineHeight": 1.2,
+                              "textAlign": "right",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#64748B"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n68",
+                      "name": "Business Card Demo Barber Footer",
+                      "width": "fill_container",
+                      "height": 62,
+                      "layout": "horizontal",
+                      "gap": 12,
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n69",
+                          "name": "Business Card Demo Barber Price",
+                          "width": 112,
+                          "height": "fit_content",
+                          "content": "Desde 18 EUR",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": 900,
+                          "lineHeight": 1.2,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#334155"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n70",
+                          "name": "Business Card Demo Barber Actions",
+                          "width": 230,
+                          "height": 48,
+                          "layout": "horizontal",
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "n71",
+                              "name": "Business Card Demo Barber Profile Button",
+                              "width": 104,
+                              "height": 48,
+                              "layout": "horizontal",
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "cornerRadius": 18,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FFFFFF"
+                                }
+                              ],
+                              "stroke": {
+                                "thickness": 1,
+                                "fill": [
+                                  {
+                                    "type": "solid",
+                                    "color": "#E2E8F0"
+                                  }
+                                ]
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n72",
+                                  "name": "Business Card Demo Barber Profile Button Label",
+                                  "width": "fill_container",
+                                  "height": "fit_content",
+                                  "content": "Ver perfil",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": 900,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#0F172A"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n74",
+                              "name": "Business Card Demo Barber Appointment Button",
+                              "width": 110,
+                              "height": 48,
+                              "layout": "horizontal",
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "cornerRadius": 18,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#0F172A"
+                                }
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n75",
+                                  "name": "Business Card Demo Barber Appointment Button Label",
+                                  "width": "fill_container",
+                                  "height": "fit_content",
+                                  "content": "Reservar",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": 900,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#FFFFFF"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n76",
+                  "name": "Business Card Beauty",
+                  "width": 413,
+                  "height": 500,
+                  "layout": "vertical",
+                  "gap": 18,
+                  "padding": 24,
+                  "cornerRadius": 32,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E2E8F0"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n77",
+                      "name": "Business Card Beauty Tags",
+                      "width": "fill_container",
+                      "height": 32,
+                      "layout": "horizontal",
+                      "gap": 8,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "n78",
+                          "name": "Business Card Beauty Category",
+                          "width": 104,
+                          "height": 32,
+                          "layout": "horizontal",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "cornerRadius": 999,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#EEF2FF"
+                            }
+                          ],
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#C7D2FE"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n79",
+                              "name": "Business Card Beauty Category Text",
+                              "width": "fill_container",
+                              "height": "fit_content",
+                              "content": "Estetica",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 900,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#3730A3"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n80",
+                          "name": "Business Card Beauty City",
+                          "width": 104,
+                          "height": 32,
+                          "layout": "horizontal",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "cornerRadius": 999,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#F1F5F9"
+                            }
+                          ],
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#E2E8F0"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n81",
+                              "name": "Business Card Beauty City Text",
+                              "width": "fill_container",
+                              "height": "fit_content",
+                              "content": "Valencia, ES",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 900,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#475569"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n82",
+                      "name": "Business Card Beauty Title",
+                      "width": "fill_container",
+                      "height": "fit_content",
+                      "content": "Glow Beauty Studio",
+                      "fontFamily": "Inter",
+                      "fontSize": 29,
+                      "fontWeight": 900,
+                      "lineHeight": 1.05,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#0F172A"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n83",
+                      "name": "Business Card Beauty Description",
+                      "width": "fill_container",
+                      "height": "fit_content",
+                      "content": "Tratamientos faciales y beauty care con horarios visibles para clientes.",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": 500,
+                      "lineHeight": 1.45,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#64748B"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n84",
+                      "name": "Business Card Beauty Featured Services",
+                      "width": "fill_container",
+                      "height": 142,
+                      "layout": "vertical",
+                      "gap": 10,
+                      "padding": 18,
+                      "cornerRadius": 24,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#F8FAFC"
+                        }
+                      ],
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E2E8F0"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n85",
+                          "name": "Business Card Beauty Services Label",
+                          "width": "fill_container",
+                          "height": "fit_content",
+                          "content": "SERVICES DESTACADOS",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 900,
+                          "letterSpacing": 1.6,
+                          "lineHeight": 1.2,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#475569"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n86",
+                          "name": "Business Card Beauty Service One",
+                          "width": "fill_container",
+                          "height": 24,
+                          "layout": "horizontal",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n87",
+                              "name": "Business Card Beauty Service One Name",
+                              "width": 210,
+                              "height": "fit_content",
+                              "content": "Limpieza facial",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": 900,
+                              "lineHeight": 1.2,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#334155"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "n88",
+                              "name": "Business Card Beauty Service One Duration",
+                              "width": 70,
+                              "height": "fit_content",
+                              "content": "50 min",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": 800,
+                              "lineHeight": 1.2,
+                              "textAlign": "right",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#64748B"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n89",
+                          "name": "Business Card Beauty Service Two",
+                          "width": "fill_container",
+                          "height": 24,
+                          "layout": "horizontal",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n90",
+                              "name": "Business Card Beauty Service Two Name",
+                              "width": 210,
+                              "height": "fit_content",
+                              "content": "Manicura express",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": 900,
+                              "lineHeight": 1.2,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#334155"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "n91",
+                              "name": "Business Card Beauty Service Two Duration",
+                              "width": 70,
+                              "height": "fit_content",
+                              "content": "35 min",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": 800,
+                              "lineHeight": 1.2,
+                              "textAlign": "right",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#64748B"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n92",
+                      "name": "Business Card Beauty Footer",
+                      "width": "fill_container",
+                      "height": 62,
+                      "layout": "horizontal",
+                      "gap": 12,
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n93",
+                          "name": "Business Card Beauty Price",
+                          "width": 112,
+                          "height": "fit_content",
+                          "content": "Desde 25 EUR",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": 900,
+                          "lineHeight": 1.2,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#334155"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n94",
+                          "name": "Business Card Beauty Actions",
+                          "width": 230,
+                          "height": 48,
+                          "layout": "horizontal",
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "n95",
+                              "name": "Business Card Beauty Profile Button",
+                              "width": 104,
+                              "height": 48,
+                              "layout": "horizontal",
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "cornerRadius": 18,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FFFFFF"
+                                }
+                              ],
+                              "stroke": {
+                                "thickness": 1,
+                                "fill": [
+                                  {
+                                    "type": "solid",
+                                    "color": "#E2E8F0"
+                                  }
+                                ]
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n96",
+                                  "name": "Business Card Beauty Profile Button Label",
+                                  "width": "fill_container",
+                                  "height": "fit_content",
+                                  "content": "Ver perfil",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": 900,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#0F172A"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n98",
+                              "name": "Business Card Beauty Appointment Button",
+                              "width": 110,
+                              "height": 48,
+                              "layout": "horizontal",
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "cornerRadius": 18,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#0F172A"
+                                }
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n99",
+                                  "name": "Business Card Beauty Appointment Button Label",
+                                  "width": "fill_container",
+                                  "height": "fit_content",
+                                  "content": "Reservar",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": 900,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#FFFFFF"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n100",
+                  "name": "Business Card Fisio",
+                  "width": 413,
+                  "height": 500,
+                  "layout": "vertical",
+                  "gap": 18,
+                  "padding": 24,
+                  "cornerRadius": 32,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E2E8F0"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "frame",
+                      "id": "n101",
+                      "name": "Business Card Fisio Tags",
+                      "width": "fill_container",
+                      "height": 32,
+                      "layout": "horizontal",
+                      "gap": 8,
+                      "children": [
+                        {
+                          "type": "frame",
+                          "id": "n102",
+                          "name": "Business Card Fisio Category",
+                          "width": 104,
+                          "height": 32,
+                          "layout": "horizontal",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "cornerRadius": 999,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#EEF2FF"
+                            }
+                          ],
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#C7D2FE"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n103",
+                              "name": "Business Card Fisio Category Text",
+                              "width": "fill_container",
+                              "height": "fit_content",
+                              "content": "Fisioterapia",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 900,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#3730A3"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n104",
+                          "name": "Business Card Fisio City",
+                          "width": 104,
+                          "height": 32,
+                          "layout": "horizontal",
+                          "justifyContent": "center",
+                          "alignItems": "center",
+                          "cornerRadius": 999,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#F1F5F9"
+                            }
+                          ],
+                          "stroke": {
+                            "thickness": 1,
+                            "fill": [
+                              {
+                                "type": "solid",
+                                "color": "#E2E8F0"
+                              }
+                            ]
+                          },
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n105",
+                              "name": "Business Card Fisio City Text",
+                              "width": "fill_container",
+                              "height": "fit_content",
+                              "content": "Sevilla, ES",
+                              "fontFamily": "Inter",
+                              "fontSize": 12,
+                              "fontWeight": 900,
+                              "lineHeight": 1.2,
+                              "textAlign": "center",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#475569"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n106",
+                      "name": "Business Card Fisio Title",
+                      "width": "fill_container",
+                      "height": "fit_content",
+                      "content": "Move Fisio Clinic",
+                      "fontFamily": "Inter",
+                      "fontSize": 29,
+                      "fontWeight": 900,
+                      "lineHeight": 1.05,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#0F172A"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n107",
+                      "name": "Business Card Fisio Description",
+                      "width": "fill_container",
+                      "height": "fit_content",
+                      "content": "Sesiones de fisioterapia y recuperacion con staff especializado.",
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": 500,
+                      "lineHeight": 1.45,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#64748B"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n108",
+                      "name": "Business Card Fisio Featured Services",
+                      "width": "fill_container",
+                      "height": 142,
+                      "layout": "vertical",
+                      "gap": 10,
+                      "padding": 18,
+                      "cornerRadius": 24,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#F8FAFC"
+                        }
+                      ],
+                      "stroke": {
+                        "thickness": 1,
+                        "fill": [
+                          {
+                            "type": "solid",
+                            "color": "#E2E8F0"
+                          }
+                        ]
+                      },
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n109",
+                          "name": "Business Card Fisio Services Label",
+                          "width": "fill_container",
+                          "height": "fit_content",
+                          "content": "SERVICES DESTACADOS",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": 900,
+                          "letterSpacing": 1.6,
+                          "lineHeight": 1.2,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#475569"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n110",
+                          "name": "Business Card Fisio Service One",
+                          "width": "fill_container",
+                          "height": 24,
+                          "layout": "horizontal",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n111",
+                              "name": "Business Card Fisio Service One Name",
+                              "width": 210,
+                              "height": "fit_content",
+                              "content": "Fisio inicial",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": 900,
+                              "lineHeight": 1.2,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#334155"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "n112",
+                              "name": "Business Card Fisio Service One Duration",
+                              "width": 70,
+                              "height": "fit_content",
+                              "content": "60 min",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": 800,
+                              "lineHeight": 1.2,
+                              "textAlign": "right",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#64748B"
+                                }
+                              ]
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n113",
+                          "name": "Business Card Fisio Service Two",
+                          "width": "fill_container",
+                          "height": 24,
+                          "layout": "horizontal",
+                          "justifyContent": "space_between",
+                          "alignItems": "center",
+                          "children": [
+                            {
+                              "type": "text",
+                              "id": "n114",
+                              "name": "Business Card Fisio Service Two Name",
+                              "width": 210,
+                              "height": "fit_content",
+                              "content": "Masaje descarga",
+                              "fontFamily": "Inter",
+                              "fontSize": 14,
+                              "fontWeight": 900,
+                              "lineHeight": 1.2,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#334155"
+                                }
+                              ]
+                            },
+                            {
+                              "type": "text",
+                              "id": "n115",
+                              "name": "Business Card Fisio Service Two Duration",
+                              "width": 70,
+                              "height": "fit_content",
+                              "content": "45 min",
+                              "fontFamily": "Inter",
+                              "fontSize": 13,
+                              "fontWeight": 800,
+                              "lineHeight": 1.2,
+                              "textAlign": "right",
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#64748B"
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "frame",
+                      "id": "n116",
+                      "name": "Business Card Fisio Footer",
+                      "width": "fill_container",
+                      "height": 62,
+                      "layout": "horizontal",
+                      "gap": 12,
+                      "justifyContent": "space_between",
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "text",
+                          "id": "n117",
+                          "name": "Business Card Fisio Price",
+                          "width": 112,
+                          "height": "fit_content",
+                          "content": "Desde 35 EUR",
+                          "fontFamily": "Inter",
+                          "fontSize": 14,
+                          "fontWeight": 900,
+                          "lineHeight": 1.2,
+                          "fill": [
+                            {
+                              "type": "solid",
+                              "color": "#334155"
+                            }
+                          ]
+                        },
+                        {
+                          "type": "frame",
+                          "id": "n118",
+                          "name": "Business Card Fisio Actions",
+                          "width": 230,
+                          "height": 48,
+                          "layout": "horizontal",
+                          "gap": 8,
+                          "children": [
+                            {
+                              "type": "frame",
+                              "id": "n119",
+                              "name": "Business Card Fisio Profile Button",
+                              "width": 104,
+                              "height": 48,
+                              "layout": "horizontal",
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "cornerRadius": 18,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#FFFFFF"
+                                }
+                              ],
+                              "stroke": {
+                                "thickness": 1,
+                                "fill": [
+                                  {
+                                    "type": "solid",
+                                    "color": "#E2E8F0"
+                                  }
+                                ]
+                              },
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n120",
+                                  "name": "Business Card Fisio Profile Button Label",
+                                  "width": "fill_container",
+                                  "height": "fit_content",
+                                  "content": "Ver perfil",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": 900,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#0F172A"
+                                    }
+                                  ]
+                                }
+                              ]
+                            },
+                            {
+                              "type": "frame",
+                              "id": "n122",
+                              "name": "Business Card Fisio Appointment Button",
+                              "width": 110,
+                              "height": 48,
+                              "layout": "horizontal",
+                              "justifyContent": "center",
+                              "alignItems": "center",
+                              "cornerRadius": 18,
+                              "fill": [
+                                {
+                                  "type": "solid",
+                                  "color": "#0F172A"
+                                }
+                              ],
+                              "children": [
+                                {
+                                  "type": "text",
+                                  "id": "n123",
+                                  "name": "Business Card Fisio Appointment Button Label",
+                                  "width": "fill_container",
+                                  "height": "fit_content",
+                                  "content": "Reservar",
+                                  "fontFamily": "Inter",
+                                  "fontSize": 14,
+                                  "fontWeight": 900,
+                                  "lineHeight": 1.2,
+                                  "textAlign": "center",
+                                  "fill": [
+                                    {
+                                      "type": "solid",
+                                      "color": "#FFFFFF"
+                                    }
+                                  ]
+                                }
+                              ]
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ]
+                }
               ]
             },
             {
               "type": "frame",
-              "id": "ms-d-pagination",
+              "id": "n124",
               "name": "Pagination",
               "width": "fill_container",
-              "height": 74,
+              "height": 68,
               "layout": "horizontal",
+              "padding": 12,
               "justifyContent": "space_between",
               "alignItems": "center",
-              "padding": 14,
               "cornerRadius": 28,
-              "fill": [{ "type": "solid", "color": "#FFFFFF" }],
-              "stroke": { "thickness": 1, "fill": [{ "type": "solid", "color": "#E2E8F0" }] },
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "stroke": {
+                "thickness": 1,
+                "fill": [
+                  {
+                    "type": "solid",
+                    "color": "#E2E8F0"
+                  }
+                ]
+              },
               "children": [
-                { "type": "text", "id": "ms-d-prev", "name": "Previous", "width": 120, "height": 20, "content": "Anterior", "fontFamily": "Inter", "fontSize": 14, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "center", "fill": [{ "type": "solid", "color": "#CBD5E1" }] },
-                { "type": "text", "id": "ms-d-page", "name": "Current Page", "width": 120, "height": 20, "content": "Pagina 1", "fontFamily": "Inter", "fontSize": 14, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "center", "fill": [{ "type": "solid", "color": "#475569" }] },
-                { "type": "frame", "id": "ms-d-next-button", "name": "Next Button", "width": 120, "height": 46, "layout": "horizontal", "justifyContent": "center", "alignItems": "center", "cornerRadius": 16, "fill": [{ "type": "solid", "color": "#111827" }], "children": [{ "type": "text", "id": "ms-d-next-text", "name": "Next Text", "width": 90, "height": 18, "content": "Siguiente", "fontFamily": "Inter", "fontSize": 13, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "center", "fill": [{ "type": "solid", "color": "#FFFFFF" }] }] }
+                {
+                  "type": "text",
+                  "id": "n125",
+                  "name": "Previous Disabled",
+                  "width": 120,
+                  "height": "fit_content",
+                  "content": "Anterior",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": 900,
+                  "lineHeight": 1.2,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#64748B"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n126",
+                  "name": "Current Page",
+                  "width": 120,
+                  "height": "fit_content",
+                  "content": "Pagina 1",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": 900,
+                  "lineHeight": 1.2,
+                  "textAlign": "center",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#475569"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n127",
+                  "name": "Next Button",
+                  "width": 126,
+                  "height": 44,
+                  "layout": "horizontal",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "cornerRadius": 18,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#0F172A"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n128",
+                      "name": "Next Button Label",
+                      "width": "fill_container",
+                      "height": "fit_content",
+                      "content": "Siguiente",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 900,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ]
+                    }
+                  ]
+                }
               ]
             }
           ]
         },
         {
           "type": "frame",
-          "id": "ms-d-states",
+          "id": "n129",
           "name": "Desktop States Strip",
           "width": "fill_container",
-          "height": 360,
+          "height": 340,
           "layout": "horizontal",
           "gap": 20,
-          "padding": [24, 80, 60, 80],
-          "fill": [{ "type": "solid", "color": "#F8FAFC" }],
+          "padding": [
+            24,
+            80,
+            60,
+            80
+          ],
+          "alignItems": "start",
           "children": [
-            { "type": "frame", "id": "ms-d-loading-state", "name": "Loading State", "width": 410, "height": 260, "layout": "vertical", "gap": 16, "padding": 24, "cornerRadius": 30, "fill": [{ "type": "solid", "color": "#FFFFFF" }], "stroke": { "thickness": 1, "fill": [{ "type": "solid", "color": "#E2E8F0" }] }, "children": [
-              { "type": "text", "id": "ms-d-loading-title", "name": "Loading Title", "width": 220, "height": 24, "content": "Loading", "fontFamily": "Inter", "fontSize": 20, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#0F172A" }] },
-              { "type": "frame", "id": "ms-d-loading-line-1", "name": "Skeleton Line 1", "width": 320, "height": 24, "cornerRadius": 999, "fill": [{ "type": "solid", "color": "#E2E8F0" }] },
-              { "type": "frame", "id": "ms-d-loading-line-2", "name": "Skeleton Line 2", "width": 260, "height": 18, "cornerRadius": 999, "fill": [{ "type": "solid", "color": "#E2E8F0" }] },
-              { "type": "frame", "id": "ms-d-loading-block", "name": "Skeleton Block", "width": 340, "height": 90, "cornerRadius": 24, "fill": [{ "type": "solid", "color": "#E2E8F0" }] }
-            ] },
-            { "type": "frame", "id": "ms-d-empty-state", "name": "Empty State", "width": 410, "height": 260, "layout": "vertical", "gap": 16, "padding": 28, "cornerRadius": 30, "fill": [{ "type": "solid", "color": "#FFFFFF" }], "stroke": { "thickness": 1, "fill": [{ "type": "solid", "color": "#CBD5E1" }] }, "children": [
-              { "type": "text", "id": "ms-d-empty-eyebrow", "name": "Empty Eyebrow", "width": 170, "height": 16, "content": "SIN RESULTADOS", "fontFamily": "Inter", "fontSize": 12, "fontWeight": 900, "letterSpacing": 2.2, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#4F46E5" }] },
-              { "type": "text", "id": "ms-d-empty-title", "name": "Empty Title", "width": 330, "height": 62, "content": "No encontramos businesses para esta busqueda", "fontFamily": "Inter", "fontSize": 24, "fontWeight": 900, "lineHeight": 1.15, "textAlign": "left", "fill": [{ "type": "solid", "color": "#0F172A" }] },
-              { "type": "text", "id": "ms-d-empty-copy", "name": "Empty Copy", "width": 320, "height": 48, "content": "Prueba con menos filtros, otra ciudad o una categoria distinta.", "fontFamily": "Inter", "fontSize": 14, "fontWeight": 600, "lineHeight": 1.45, "textAlign": "left", "fill": [{ "type": "solid", "color": "#64748B" }] },
-              { "type": "frame", "id": "ms-d-empty-button", "name": "Empty CTA", "width": 112, "height": 42, "layout": "horizontal", "justifyContent": "center", "alignItems": "center", "cornerRadius": 16, "fill": [{ "type": "solid", "color": "#111827" }], "children": [{ "type": "text", "id": "ms-d-empty-button-text", "name": "Empty CTA Text", "width": 72, "height": 18, "content": "Ver todos", "fontFamily": "Inter", "fontSize": 13, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "center", "fill": [{ "type": "solid", "color": "#FFFFFF" }] }] }
-            ] },
-            { "type": "frame", "id": "ms-d-error-state", "name": "Error State", "width": 410, "height": 260, "layout": "vertical", "gap": 14, "padding": 28, "cornerRadius": 30, "fill": [{ "type": "solid", "color": "#FEF2F2" }], "stroke": { "thickness": 1, "fill": [{ "type": "solid", "color": "#FECACA" }] }, "children": [
-              { "type": "text", "id": "ms-d-error-title", "name": "Error Title", "width": 260, "height": 24, "content": "Error al cargar", "fontFamily": "Inter", "fontSize": 20, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#991B1B" }] },
-              { "type": "text", "id": "ms-d-error-copy", "name": "Error Copy", "width": 330, "height": 48, "content": "No se pudo completar la operacion. Intentalo de nuevo.", "fontFamily": "Inter", "fontSize": 14, "fontWeight": 700, "lineHeight": 1.45, "textAlign": "left", "fill": [{ "type": "solid", "color": "#B91C1C" }] },
-              { "type": "frame", "id": "ms-d-error-button", "name": "Retry CTA", "width": 132, "height": 42, "layout": "horizontal", "justifyContent": "center", "alignItems": "center", "cornerRadius": 16, "fill": [{ "type": "solid", "color": "#991B1B" }], "children": [{ "type": "text", "id": "ms-d-error-button-text", "name": "Retry CTA Text", "width": 90, "height": 18, "content": "Reintentar", "fontFamily": "Inter", "fontSize": 13, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "center", "fill": [{ "type": "solid", "color": "#FFFFFF" }] }] }
-            ] }
+            {
+              "type": "frame",
+              "id": "n130",
+              "name": "Loading State",
+              "width": 410,
+              "height": 240,
+              "layout": "vertical",
+              "gap": 14,
+              "padding": 28,
+              "cornerRadius": 30,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "stroke": {
+                "thickness": 1,
+                "fill": [
+                  {
+                    "type": "solid",
+                    "color": "#CBD5E1"
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n131",
+                  "name": "Loading State Eyebrow",
+                  "width": "fill_container",
+                  "height": "fit_content",
+                  "content": "CARGANDO",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": 900,
+                  "letterSpacing": 2,
+                  "lineHeight": 1.2,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#4F46E5"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n132",
+                  "name": "Loading State Title",
+                  "width": "fill_container",
+                  "height": "fit_content",
+                  "content": "Buscando businesses",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": 900,
+                  "lineHeight": 1.15,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#0F172A"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n133",
+                  "name": "Loading State Body",
+                  "width": "fill_container",
+                  "height": "fit_content",
+                  "content": "Skeleton cards para mantener contexto mientras responde la API.",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": 500,
+                  "lineHeight": 1.45,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#64748B"
+                    }
+                  ]
+                },
+                {
+                  "type": "rectangle",
+                  "id": "n209",
+                  "name": "Loading State Skeleton One",
+                  "width": 300,
+                  "height": 18,
+                  "cornerRadius": 999,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#E2E8F0"
+                    }
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "rectangle",
+                  "id": "n210",
+                  "name": "Loading State Skeleton Two",
+                  "width": 240,
+                  "height": 14,
+                  "cornerRadius": 999,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#EEF2F7"
+                    }
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n134",
+              "name": "Empty State",
+              "width": 410,
+              "height": 240,
+              "layout": "vertical",
+              "gap": 14,
+              "padding": 28,
+              "cornerRadius": 30,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "stroke": {
+                "thickness": 1,
+                "fill": [
+                  {
+                    "type": "solid",
+                    "color": "#CBD5E1"
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n135",
+                  "name": "Empty State Eyebrow",
+                  "width": "fill_container",
+                  "height": "fit_content",
+                  "content": "SIN RESULTADOS",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": 900,
+                  "letterSpacing": 2,
+                  "lineHeight": 1.2,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#4F46E5"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n136",
+                  "name": "Empty State Title",
+                  "width": "fill_container",
+                  "height": "fit_content",
+                  "content": "No encontramos businesses",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": 900,
+                  "lineHeight": 1.15,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#0F172A"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n137",
+                  "name": "Empty State Body",
+                  "width": "fill_container",
+                  "height": "fit_content",
+                  "content": "CTA para limpiar filtros y volver a ver todos los resultados publicados.",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": 500,
+                  "lineHeight": 1.45,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#64748B"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n138",
+                  "name": "Empty State CTA",
+                  "width": 112,
+                  "height": 44,
+                  "layout": "horizontal",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "cornerRadius": 18,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#0F172A"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n139",
+                      "name": "Empty State CTA Label",
+                      "width": "fill_container",
+                      "height": "fit_content",
+                      "content": "Ver todos",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 900,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n140",
+              "name": "Error State",
+              "width": 410,
+              "height": 240,
+              "layout": "vertical",
+              "gap": 14,
+              "padding": 28,
+              "cornerRadius": 30,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FEF2F2"
+                }
+              ],
+              "stroke": {
+                "thickness": 1,
+                "fill": [
+                  {
+                    "type": "solid",
+                    "color": "#FECACA"
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n141",
+                  "name": "Error State Eyebrow",
+                  "width": "fill_container",
+                  "height": "fit_content",
+                  "content": "ERROR API",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": 900,
+                  "letterSpacing": 2,
+                  "lineHeight": 1.2,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#B91C1C"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n142",
+                  "name": "Error State Title",
+                  "width": "fill_container",
+                  "height": "fit_content",
+                  "content": "No pudimos cargar la busqueda",
+                  "fontFamily": "Inter",
+                  "fontSize": 22,
+                  "fontWeight": 900,
+                  "lineHeight": 1.15,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#7F1D1D"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n143",
+                  "name": "Error State Body",
+                  "width": "fill_container",
+                  "height": "fit_content",
+                  "content": "Mensaje corto, accion de retry y sin perder los filtros activos.",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": 500,
+                  "lineHeight": 1.45,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#991B1B"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n144",
+                  "name": "Error State CTA",
+                  "width": 128,
+                  "height": 44,
+                  "layout": "horizontal",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "cornerRadius": 18,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#B91C1C"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n145",
+                      "name": "Error State CTA Label",
+                      "width": "fill_container",
+                      "height": "fit_content",
+                      "content": "Reintentar",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 900,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
           ]
         }
       ]
     },
     {
       "type": "frame",
-      "id": "ms-mobile",
+      "id": "n146",
       "name": "Marketplace Search Mobile",
       "x": 1480,
       "y": 0,
       "width": 390,
-      "height": 1700,
+      "height": 1780,
       "layout": "vertical",
-      "gap": 0,
+      "gap": 16,
       "padding": 0,
-      "fill": [{ "type": "solid", "color": "#F8FAFC" }],
+      "alignItems": "center",
+      "fill": [
+        {
+          "type": "solid",
+          "color": "#F8FAFC"
+        }
+      ],
       "children": [
-        { "type": "frame", "id": "ms-m-header", "name": "Mobile Header", "width": "fill_container", "height": 70, "layout": "horizontal", "justifyContent": "space_between", "alignItems": "center", "padding": [0, 22], "fill": [{ "type": "solid", "color": "#FFFFFF" }], "stroke": { "thickness": { "bottom": 1 }, "fill": [{ "type": "solid", "color": "#E5E7EB" }] }, "children": [
-          { "type": "text", "id": "ms-m-logo", "name": "Mobile Logo", "width": 210, "height": 28, "content": "Calendar Manager", "fontFamily": "Inter", "fontSize": 20, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#111827" }] },
-          { "type": "text", "id": "ms-m-business", "name": "Mobile Business Link", "width": 80, "height": 20, "content": "Business", "fontFamily": "Inter", "fontSize": 13, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "right", "fill": [{ "type": "solid", "color": "#4F46E5" }] }
-        ] },
-        { "type": "frame", "id": "ms-m-hero", "name": "Mobile Hero", "width": "fill_container", "height": 240, "layout": "vertical", "gap": 14, "padding": [30, 22, 22, 22], "fill": [{ "type": "solid", "color": "#F8FAFC" }], "children": [
-          { "type": "text", "id": "ms-m-eyebrow", "name": "Mobile Eyebrow", "width": 300, "height": 16, "content": "MARKETPLACE", "fontFamily": "Inter", "fontSize": 12, "fontWeight": 900, "letterSpacing": 2.6, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#4F46E5" }] },
-          { "type": "text", "id": "ms-m-title", "name": "Mobile Title", "width": 330, "height": 104, "content": "Encuentra tu proximo appointment.", "fontFamily": "Inter", "fontSize": 40, "fontWeight": 900, "lineHeight": 1.0, "textAlign": "left", "fill": [{ "type": "solid", "color": "#0F172A" }] },
-          { "type": "text", "id": "ms-m-copy", "name": "Mobile Copy", "width": 330, "height": 54, "content": "Busca por ciudad, categoria o service y entra directo al perfil o al flujo de reserva.", "fontFamily": "Inter", "fontSize": 15, "fontWeight": 500, "lineHeight": 1.45, "textAlign": "left", "fill": [{ "type": "solid", "color": "#64748B" }] }
-        ] },
-        { "type": "frame", "id": "ms-m-search-panel", "name": "Mobile Search Panel", "width": 346, "height": 360, "layout": "vertical", "gap": 12, "padding": 16, "cornerRadius": 28, "fill": [{ "type": "solid", "color": "#FFFFFF" }], "stroke": { "thickness": 1, "fill": [{ "type": "solid", "color": "#E0E7FF" }] }, "children": [
-          { "type": "frame", "id": "ms-m-field-query", "name": "Mobile Query Field", "width": "fill_container", "height": 62, "layout": "vertical", "gap": 5, "padding": [10, 14], "cornerRadius": 18, "fill": [{ "type": "solid", "color": "#F8FAFC" }], "children": [
-            { "type": "text", "id": "ms-m-field-query-label", "name": "Mobile Query Label", "width": 180, "height": 16, "content": "Que necesitas", "fontFamily": "Inter", "fontSize": 12, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#334155" }] },
-            { "type": "text", "id": "ms-m-field-query-value", "name": "Mobile Query Value", "width": 250, "height": 20, "content": "barber, fisio, yoga...", "fontFamily": "Inter", "fontSize": 15, "fontWeight": 700, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#94A3B8" }] }
-          ] },
-          { "type": "frame", "id": "ms-m-field-city", "name": "Mobile City Field", "width": "fill_container", "height": 62, "layout": "vertical", "gap": 5, "padding": [10, 14], "cornerRadius": 18, "fill": [{ "type": "solid", "color": "#F8FAFC" }], "children": [
-            { "type": "text", "id": "ms-m-field-city-label", "name": "Mobile City Label", "width": 180, "height": 16, "content": "Ciudad", "fontFamily": "Inter", "fontSize": 12, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#334155" }] },
-            { "type": "text", "id": "ms-m-field-city-value", "name": "Mobile City Value", "width": 250, "height": 20, "content": "Madrid", "fontFamily": "Inter", "fontSize": 15, "fontWeight": 700, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#94A3B8" }] }
-          ] },
-          { "type": "frame", "id": "ms-m-field-category", "name": "Mobile Category Field", "width": "fill_container", "height": 62, "layout": "vertical", "gap": 5, "padding": [10, 14], "cornerRadius": 18, "fill": [{ "type": "solid", "color": "#F8FAFC" }], "children": [
-            { "type": "text", "id": "ms-m-field-category-label", "name": "Mobile Category Label", "width": 180, "height": 16, "content": "Categoria", "fontFamily": "Inter", "fontSize": 12, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#334155" }] },
-            { "type": "text", "id": "ms-m-field-category-value", "name": "Mobile Category Value", "width": 250, "height": 20, "content": "Barberia", "fontFamily": "Inter", "fontSize": 15, "fontWeight": 700, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#0F172A" }] }
-          ] },
-          { "type": "frame", "id": "ms-m-button", "name": "Mobile Search Button", "width": "fill_container", "height": 58, "layout": "horizontal", "justifyContent": "center", "alignItems": "center", "cornerRadius": 18, "fill": [{ "type": "solid", "color": "#4F46E5" }], "children": [
-            { "type": "text", "id": "ms-m-button-text", "name": "Mobile Button Text", "width": 130, "height": 20, "content": "Aplicar filtros", "fontFamily": "Inter", "fontSize": 14, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "center", "fill": [{ "type": "solid", "color": "#FFFFFF" }] }
-          ] }
-        ] },
-        { "type": "frame", "id": "ms-m-results-header", "name": "Mobile Results Header", "width": 346, "height": 126, "layout": "vertical", "gap": 14, "padding": 20, "cornerRadius": 26, "fill": [{ "type": "solid", "color": "#FFFFFF" }], "stroke": { "thickness": 1, "fill": [{ "type": "solid", "color": "#E2E8F0" }] }, "children": [
-          { "type": "text", "id": "ms-m-results-eyebrow", "name": "Mobile Results Eyebrow", "width": 230, "height": 16, "content": "RESULTADOS DE BUSQUEDA", "fontFamily": "Inter", "fontSize": 11, "fontWeight": 900, "letterSpacing": 2.0, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#4F46E5" }] },
-          { "type": "text", "id": "ms-m-results-title", "name": "Mobile Results Title", "width": 260, "height": 30, "content": "12 businesses encontrados", "fontFamily": "Inter", "fontSize": 22, "fontWeight": 900, "lineHeight": 1.1, "textAlign": "left", "fill": [{ "type": "solid", "color": "#0F172A" }] },
-          { "type": "text", "id": "ms-m-results-chips", "name": "Mobile Filter Chips", "width": 300, "height": 20, "content": "barber  ·  Madrid  ·  Barberia", "fontFamily": "Inter", "fontSize": 12, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#4338CA" }] }
-        ] },
-        { "type": "frame", "id": "ms-m-card", "name": "Mobile Business Card", "width": 346, "height": 438, "layout": "vertical", "gap": 16, "padding": 20, "cornerRadius": 30, "fill": [{ "type": "solid", "color": "#FFFFFF" }], "stroke": { "thickness": 1, "fill": [{ "type": "solid", "color": "#E2E8F0" }] }, "children": [
-          { "type": "text", "id": "ms-m-card-tags", "name": "Mobile Card Tags", "width": 260, "height": 22, "content": "Barberia        Madrid, ES", "fontFamily": "Inter", "fontSize": 12, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#4338CA" }] },
-          { "type": "text", "id": "ms-m-card-title", "name": "Mobile Card Title", "width": 280, "height": 58, "content": "Demo Barber Shop", "fontFamily": "Inter", "fontSize": 28, "fontWeight": 900, "lineHeight": 1.05, "textAlign": "left", "fill": [{ "type": "solid", "color": "#0F172A" }] },
-          { "type": "text", "id": "ms-m-card-desc", "name": "Mobile Card Description", "width": 290, "height": 60, "content": "Cortes, barba y styling con staff activo para appointments publicos.", "fontFamily": "Inter", "fontSize": 14, "fontWeight": 500, "lineHeight": 1.45, "textAlign": "left", "fill": [{ "type": "solid", "color": "#64748B" }] },
-          { "type": "frame", "id": "ms-m-card-services", "name": "Mobile Card Services", "width": "fill_container", "height": 118, "layout": "vertical", "gap": 8, "padding": 16, "cornerRadius": 22, "fill": [{ "type": "solid", "color": "#F8FAFC" }], "children": [
-            { "type": "text", "id": "ms-m-card-services-label", "name": "Mobile Services Label", "width": 220, "height": 15, "content": "SERVICES DESTACADOS", "fontFamily": "Inter", "fontSize": 11, "fontWeight": 900, "letterSpacing": 1.8, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#64748B" }] },
-            { "type": "text", "id": "ms-m-card-service-1", "name": "Mobile Service One", "width": 260, "height": 20, "content": "Corte clasico                    45 min", "fontFamily": "Inter", "fontSize": 13, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#334155" }] },
-            { "type": "text", "id": "ms-m-card-service-2", "name": "Mobile Service Two", "width": 260, "height": 20, "content": "Barba premium                 30 min", "fontFamily": "Inter", "fontSize": 13, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#334155" }] }
-          ] },
-          { "type": "text", "id": "ms-m-card-price", "name": "Mobile Price", "width": 130, "height": 20, "content": "Desde 18 EUR", "fontFamily": "Inter", "fontSize": 14, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#334155" }] },
-          { "type": "frame", "id": "ms-m-card-actions", "name": "Mobile Card Actions", "width": "fill_container", "height": 50, "layout": "horizontal", "gap": 10, "fill": [{ "type": "solid", "color": "#FFFFFF" }], "children": [
-            { "type": "frame", "id": "ms-m-profile", "name": "Mobile Profile", "width": 142, "height": 50, "layout": "horizontal", "justifyContent": "center", "alignItems": "center", "cornerRadius": 17, "fill": [{ "type": "solid", "color": "#FFFFFF" }], "stroke": { "thickness": 1, "fill": [{ "type": "solid", "color": "#CBD5E1" }] }, "children": [{ "type": "text", "id": "ms-m-profile-text", "name": "Mobile Profile Text", "width": 80, "height": 18, "content": "Ver perfil", "fontFamily": "Inter", "fontSize": 13, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "center", "fill": [{ "type": "solid", "color": "#334155" }] }] },
-            { "type": "frame", "id": "ms-m-appointment", "name": "Mobile Appointment", "width": 150, "height": 50, "layout": "horizontal", "justifyContent": "center", "alignItems": "center", "cornerRadius": 17, "fill": [{ "type": "solid", "color": "#111827" }], "children": [{ "type": "text", "id": "ms-m-appointment-text", "name": "Mobile Appointment Text", "width": 98, "height": 18, "content": "Appointment", "fontFamily": "Inter", "fontSize": 13, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "center", "fill": [{ "type": "solid", "color": "#FFFFFF" }] }] }
-          ] }
-        ] },
-        { "type": "frame", "id": "ms-m-pagination", "name": "Mobile Pagination", "width": 346, "height": 68, "layout": "horizontal", "justifyContent": "space_between", "alignItems": "center", "padding": 12, "cornerRadius": 24, "fill": [{ "type": "solid", "color": "#FFFFFF" }], "stroke": { "thickness": 1, "fill": [{ "type": "solid", "color": "#E2E8F0" }] }, "children": [
-          { "type": "text", "id": "ms-m-prev", "name": "Mobile Previous", "width": 84, "height": 20, "content": "Anterior", "fontFamily": "Inter", "fontSize": 13, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "center", "fill": [{ "type": "solid", "color": "#CBD5E1" }] },
-          { "type": "text", "id": "ms-m-page", "name": "Mobile Page", "width": 82, "height": 20, "content": "Pagina 1", "fontFamily": "Inter", "fontSize": 13, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "center", "fill": [{ "type": "solid", "color": "#475569" }] },
-          { "type": "text", "id": "ms-m-next", "name": "Mobile Next", "width": 84, "height": 20, "content": "Siguiente", "fontFamily": "Inter", "fontSize": 13, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "center", "fill": [{ "type": "solid", "color": "#111827" }] }
-        ] },
-        { "type": "frame", "id": "ms-m-states", "name": "Mobile States", "width": 346, "height": 310, "layout": "vertical", "gap": 12, "padding": 0, "fill": [{ "type": "solid", "color": "#F8FAFC" }], "children": [
-          { "type": "frame", "id": "ms-m-loading", "name": "Mobile Loading", "width": "fill_container", "height": 86, "layout": "vertical", "gap": 10, "padding": 18, "cornerRadius": 24, "fill": [{ "type": "solid", "color": "#FFFFFF" }], "children": [
-            { "type": "frame", "id": "ms-m-loading-line-1", "name": "Loading Line", "width": 220, "height": 18, "cornerRadius": 999, "fill": [{ "type": "solid", "color": "#E2E8F0" }] },
-            { "type": "frame", "id": "ms-m-loading-line-2", "name": "Loading Line", "width": 160, "height": 14, "cornerRadius": 999, "fill": [{ "type": "solid", "color": "#E2E8F0" }] }
-          ] },
-          { "type": "frame", "id": "ms-m-empty", "name": "Mobile Empty", "width": "fill_container", "height": 96, "layout": "vertical", "gap": 8, "padding": 18, "cornerRadius": 24, "fill": [{ "type": "solid", "color": "#FFFFFF" }], "stroke": { "thickness": 1, "fill": [{ "type": "solid", "color": "#CBD5E1" }] }, "children": [
-            { "type": "text", "id": "ms-m-empty-title", "name": "Mobile Empty Title", "width": 250, "height": 22, "content": "Sin resultados", "fontFamily": "Inter", "fontSize": 18, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#0F172A" }] },
-            { "type": "text", "id": "ms-m-empty-copy", "name": "Mobile Empty Copy", "width": 285, "height": 34, "content": "Prueba con menos filtros o cambia de ciudad.", "fontFamily": "Inter", "fontSize": 13, "fontWeight": 600, "lineHeight": 1.35, "textAlign": "left", "fill": [{ "type": "solid", "color": "#64748B" }] }
-          ] },
-          { "type": "frame", "id": "ms-m-error", "name": "Mobile Error", "width": "fill_container", "height": 96, "layout": "vertical", "gap": 8, "padding": 18, "cornerRadius": 24, "fill": [{ "type": "solid", "color": "#FEF2F2" }], "stroke": { "thickness": 1, "fill": [{ "type": "solid", "color": "#FECACA" }] }, "children": [
-            { "type": "text", "id": "ms-m-error-title", "name": "Mobile Error Title", "width": 250, "height": 22, "content": "Error al cargar", "fontFamily": "Inter", "fontSize": 18, "fontWeight": 900, "lineHeight": 1.2, "textAlign": "left", "fill": [{ "type": "solid", "color": "#991B1B" }] },
-            { "type": "text", "id": "ms-m-error-copy", "name": "Mobile Error Copy", "width": 285, "height": 34, "content": "No se pudo completar la operacion.", "fontFamily": "Inter", "fontSize": 13, "fontWeight": 700, "lineHeight": 1.35, "textAlign": "left", "fill": [{ "type": "solid", "color": "#B91C1C" }] }
-          ] }
-        ] }
+        {
+          "type": "frame",
+          "id": "n147",
+          "name": "Mobile Header",
+          "width": "fill_container",
+          "height": 68,
+          "layout": "horizontal",
+          "padding": [
+            0,
+            22
+          ],
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#FFFFFF"
+            }
+          ],
+          "stroke": {
+            "thickness": {
+              "bottom": 1
+            },
+            "fill": [
+              {
+                "type": "solid",
+                "color": "#E5E7EB"
+              }
+            ]
+          },
+          "children": [
+            {
+              "type": "text",
+              "id": "n148",
+              "name": "Mobile Logo",
+              "width": 210,
+              "height": "fit_content",
+              "content": "Calendar Manager",
+              "fontFamily": "Inter",
+              "fontSize": 20,
+              "fontWeight": 900,
+              "lineHeight": 1.2,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#111827"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "n149",
+              "name": "Mobile Business Link",
+              "width": 82,
+              "height": "fit_content",
+              "content": "Business",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": 900,
+              "lineHeight": 1.2,
+              "textAlign": "right",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#4F46E5"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "n150",
+          "name": "Mobile Hero",
+          "width": "fill_container",
+          "height": 218,
+          "layout": "vertical",
+          "gap": 13,
+          "padding": [
+            26,
+            22,
+            18,
+            22
+          ],
+          "children": [
+            {
+              "type": "text",
+              "id": "n151",
+              "name": "Mobile Eyebrow",
+              "width": "fill_container",
+              "height": "fit_content",
+              "content": "MARKETPLACE",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": 900,
+              "letterSpacing": 2.6,
+              "lineHeight": 1.2,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#4F46E5"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "n152",
+              "name": "Mobile Title",
+              "width": 340,
+              "height": "fit_content",
+              "content": "Encuentra tu proximo appointment.",
+              "fontFamily": "Inter",
+              "fontSize": 39,
+              "fontWeight": 900,
+              "lineHeight": 1,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#0F172A"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "n153",
+              "name": "Mobile Copy",
+              "width": 335,
+              "height": "fit_content",
+              "content": "Busca por ciudad, categoria o service y entra directo al perfil o a reservar.",
+              "fontFamily": "Inter",
+              "fontSize": 15,
+              "fontWeight": 500,
+              "lineHeight": 1.42,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#64748B"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "n154",
+          "name": "Mobile Search Panel",
+          "width": 346,
+          "height": 380,
+          "layout": "vertical",
+          "gap": 10,
+          "padding": 16,
+          "cornerRadius": 28,
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#FFFFFF"
+            }
+          ],
+          "stroke": {
+            "thickness": 1,
+            "fill": [
+              {
+                "type": "solid",
+                "color": "#C7D2FE"
+              }
+            ]
+          },
+          "children": [
+            {
+              "type": "frame",
+              "id": "n155",
+              "name": "Mobile Query Field",
+              "width": "fill_container",
+              "height": 60,
+              "layout": "vertical",
+              "gap": 5,
+              "padding": [
+                10,
+                14
+              ],
+              "cornerRadius": 18,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#F8FAFC"
+                }
+              ],
+              "stroke": {
+                "thickness": 1,
+                "fill": [
+                  {
+                    "type": "solid",
+                    "color": "#E2E8F0"
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n156",
+                  "name": "Mobile Query Field Label",
+                  "width": "fill_container",
+                  "height": "fit_content",
+                  "content": "Que necesitas",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": 900,
+                  "letterSpacing": 0.4,
+                  "lineHeight": 1.2,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#334155"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n157",
+                  "name": "Mobile Query Field Value",
+                  "width": "fill_container",
+                  "height": "fit_content",
+                  "content": "barber, fisio, yoga...",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": 800,
+                  "lineHeight": 1.2,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#64748B"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n158",
+              "name": "Mobile City Field",
+              "width": "fill_container",
+              "height": 60,
+              "layout": "vertical",
+              "gap": 5,
+              "padding": [
+                10,
+                14
+              ],
+              "cornerRadius": 18,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#F8FAFC"
+                }
+              ],
+              "stroke": {
+                "thickness": 1,
+                "fill": [
+                  {
+                    "type": "solid",
+                    "color": "#C7D2FE"
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n159",
+                  "name": "Mobile City Field Label",
+                  "width": "fill_container",
+                  "height": "fit_content",
+                  "content": "Ciudad",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": 900,
+                  "letterSpacing": 0.4,
+                  "lineHeight": 1.2,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#334155"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n160",
+                  "name": "Mobile City Field Value",
+                  "width": "fill_container",
+                  "height": "fit_content",
+                  "content": "Madrid",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": 800,
+                  "lineHeight": 1.2,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#0F172A"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n161",
+              "name": "Mobile Category Field",
+              "width": "fill_container",
+              "height": 60,
+              "layout": "vertical",
+              "gap": 5,
+              "padding": [
+                10,
+                14
+              ],
+              "cornerRadius": 18,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#F8FAFC"
+                }
+              ],
+              "stroke": {
+                "thickness": 1,
+                "fill": [
+                  {
+                    "type": "solid",
+                    "color": "#C7D2FE"
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n162",
+                  "name": "Mobile Category Field Label",
+                  "width": "fill_container",
+                  "height": "fit_content",
+                  "content": "Categoria",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": 900,
+                  "letterSpacing": 0.4,
+                  "lineHeight": 1.2,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#334155"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n163",
+                  "name": "Mobile Category Field Value",
+                  "width": "fill_container",
+                  "height": "fit_content",
+                  "content": "Barberia",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": 800,
+                  "lineHeight": 1.2,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#0F172A"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n164",
+              "name": "Mobile Service Field",
+              "width": "fill_container",
+              "height": 60,
+              "layout": "vertical",
+              "gap": 5,
+              "padding": [
+                10,
+                14
+              ],
+              "cornerRadius": 18,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#F8FAFC"
+                }
+              ],
+              "stroke": {
+                "thickness": 1,
+                "fill": [
+                  {
+                    "type": "solid",
+                    "color": "#C7D2FE"
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n165",
+                  "name": "Mobile Service Field Label",
+                  "width": "fill_container",
+                  "height": "fit_content",
+                  "content": "Service",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": 900,
+                  "letterSpacing": 0.4,
+                  "lineHeight": 1.2,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#334155"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n166",
+                  "name": "Mobile Service Field Value",
+                  "width": "fill_container",
+                  "height": "fit_content",
+                  "content": "Corte",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": 800,
+                  "lineHeight": 1.2,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#0F172A"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n167",
+              "name": "Mobile Search Button",
+              "width": "fill_container",
+              "height": 60,
+              "layout": "horizontal",
+              "justifyContent": "center",
+              "alignItems": "center",
+              "cornerRadius": 18,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#4F46E5"
+                }
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n168",
+                  "name": "Mobile Search Button Label",
+                  "width": "fill_container",
+                  "height": "fit_content",
+                  "content": "Aplicar filtros",
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": 900,
+                  "lineHeight": 1.2,
+                  "textAlign": "center",
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "n169",
+          "name": "Mobile Results Header",
+          "width": 346,
+          "height": 130,
+          "layout": "vertical",
+          "gap": 13,
+          "padding": 20,
+          "cornerRadius": 26,
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#FFFFFF"
+            }
+          ],
+          "stroke": {
+            "thickness": 1,
+            "fill": [
+              {
+                "type": "solid",
+                "color": "#E2E8F0"
+              }
+            ]
+          },
+          "children": [
+            {
+              "type": "text",
+              "id": "n170",
+              "name": "Mobile Results Eyebrow",
+              "width": "fill_container",
+              "height": "fit_content",
+              "content": "RESULTADOS DE BUSQUEDA",
+              "fontFamily": "Inter",
+              "fontSize": 10,
+              "fontWeight": 900,
+              "letterSpacing": 1.9,
+              "lineHeight": 1.2,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#4F46E5"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "n171",
+              "name": "Mobile Results Title",
+              "width": "fill_container",
+              "height": "fit_content",
+              "content": "12 businesses encontrados",
+              "fontFamily": "Inter",
+              "fontSize": 22,
+              "fontWeight": 900,
+              "lineHeight": 1.1,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#0F172A"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "n172",
+              "name": "Mobile Filter Chips",
+              "width": "fill_container",
+              "height": "fit_content",
+              "content": "barber  ·  Madrid  ·  Barberia",
+              "fontFamily": "Inter",
+              "fontSize": 12,
+              "fontWeight": 900,
+              "lineHeight": 1.2,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#3730A3"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "n173",
+          "name": "Mobile Business Card",
+          "width": 346,
+          "height": 454,
+          "layout": "vertical",
+          "gap": 15,
+          "padding": 20,
+          "cornerRadius": 30,
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#FFFFFF"
+            }
+          ],
+          "stroke": {
+            "thickness": 1,
+            "fill": [
+              {
+                "type": "solid",
+                "color": "#E2E8F0"
+              }
+            ]
+          },
+          "children": [
+            {
+              "type": "frame",
+              "id": "n174",
+              "name": "Mobile Card Tags",
+              "width": "fill_container",
+              "height": 32,
+              "layout": "horizontal",
+              "gap": 8,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "n175",
+                  "name": "Mobile Card Category",
+                  "width": 104,
+                  "height": 32,
+                  "layout": "horizontal",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "cornerRadius": 999,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#EEF2FF"
+                    }
+                  ],
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#C7D2FE"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n176",
+                      "name": "Mobile Card Category Text",
+                      "width": "fill_container",
+                      "height": "fit_content",
+                      "content": "Barberia",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": 900,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#3730A3"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n177",
+                  "name": "Mobile Card City",
+                  "width": 104,
+                  "height": 32,
+                  "layout": "horizontal",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "cornerRadius": 999,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#F1F5F9"
+                    }
+                  ],
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E2E8F0"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n178",
+                      "name": "Mobile Card City Text",
+                      "width": "fill_container",
+                      "height": "fit_content",
+                      "content": "Madrid, ES",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": 900,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#475569"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "n179",
+              "name": "Mobile Card Title",
+              "width": "fill_container",
+              "height": "fit_content",
+              "content": "Demo Barber Shop",
+              "fontFamily": "Inter",
+              "fontSize": 28,
+              "fontWeight": 900,
+              "lineHeight": 1.05,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#0F172A"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "n180",
+              "name": "Mobile Card Description",
+              "width": "fill_container",
+              "height": "fit_content",
+              "content": "Cortes, barba y styling con staff activo para appointments publicos.",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": 500,
+              "lineHeight": 1.42,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#64748B"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n181",
+              "name": "Mobile Card Services",
+              "width": "fill_container",
+              "height": 116,
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 16,
+              "cornerRadius": 22,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#F8FAFC"
+                }
+              ],
+              "stroke": {
+                "thickness": 1,
+                "fill": [
+                  {
+                    "type": "solid",
+                    "color": "#E2E8F0"
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n182",
+                  "name": "Mobile Services Label",
+                  "width": "fill_container",
+                  "height": "fit_content",
+                  "content": "SERVICES DESTACADOS",
+                  "fontFamily": "Inter",
+                  "fontSize": 11,
+                  "fontWeight": 900,
+                  "letterSpacing": 1.5,
+                  "lineHeight": 1.2,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#475569"
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n183",
+                  "name": "Mobile Service One",
+                  "width": "fill_container",
+                  "height": 24,
+                  "layout": "horizontal",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n184",
+                      "name": "Mobile Service One Name",
+                      "width": 210,
+                      "height": "fit_content",
+                      "content": "Corte clasico",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 900,
+                      "lineHeight": 1.2,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#334155"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n185",
+                      "name": "Mobile Service One Duration",
+                      "width": 70,
+                      "height": "fit_content",
+                      "content": "45 min",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "textAlign": "right",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#64748B"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n186",
+                  "name": "Mobile Service Two",
+                  "width": "fill_container",
+                  "height": 24,
+                  "layout": "horizontal",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n187",
+                      "name": "Mobile Service Two Name",
+                      "width": 210,
+                      "height": "fit_content",
+                      "content": "Barba premium",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 900,
+                      "lineHeight": 1.2,
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#334155"
+                        }
+                      ]
+                    },
+                    {
+                      "type": "text",
+                      "id": "n188",
+                      "name": "Mobile Service Two Duration",
+                      "width": 70,
+                      "height": "fit_content",
+                      "content": "30 min",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": 800,
+                      "lineHeight": 1.2,
+                      "textAlign": "right",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#64748B"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "n189",
+              "name": "Mobile Price",
+              "width": "fill_container",
+              "height": "fit_content",
+              "content": "Desde 18 EUR",
+              "fontFamily": "Inter",
+              "fontSize": 14,
+              "fontWeight": 900,
+              "lineHeight": 1.2,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#334155"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n190",
+              "name": "Mobile Card Actions",
+              "width": "fill_container",
+              "height": 50,
+              "layout": "horizontal",
+              "gap": 10,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "n191",
+                  "name": "Mobile Profile Button",
+                  "width": 142,
+                  "height": 50,
+                  "layout": "horizontal",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "cornerRadius": 18,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#FFFFFF"
+                    }
+                  ],
+                  "stroke": {
+                    "thickness": 1,
+                    "fill": [
+                      {
+                        "type": "solid",
+                        "color": "#E2E8F0"
+                      }
+                    ]
+                  },
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n192",
+                      "name": "Mobile Profile Button Label",
+                      "width": "fill_container",
+                      "height": "fit_content",
+                      "content": "Ver perfil",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 900,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#0F172A"
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "type": "frame",
+                  "id": "n193",
+                  "name": "Mobile Appointment Button",
+                  "width": 154,
+                  "height": 50,
+                  "layout": "horizontal",
+                  "justifyContent": "center",
+                  "alignItems": "center",
+                  "cornerRadius": 18,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#0F172A"
+                    }
+                  ],
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "n194",
+                      "name": "Mobile Appointment Button Label",
+                      "width": "fill_container",
+                      "height": "fit_content",
+                      "content": "Reservar",
+                      "fontFamily": "Inter",
+                      "fontSize": 14,
+                      "fontWeight": 900,
+                      "lineHeight": 1.2,
+                      "textAlign": "center",
+                      "fill": [
+                        {
+                          "type": "solid",
+                          "color": "#FFFFFF"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "n195",
+          "name": "Mobile Pagination",
+          "width": 346,
+          "height": 68,
+          "layout": "horizontal",
+          "padding": 12,
+          "justifyContent": "space_between",
+          "alignItems": "center",
+          "cornerRadius": 24,
+          "fill": [
+            {
+              "type": "solid",
+              "color": "#FFFFFF"
+            }
+          ],
+          "stroke": {
+            "thickness": 1,
+            "fill": [
+              {
+                "type": "solid",
+                "color": "#E2E8F0"
+              }
+            ]
+          },
+          "children": [
+            {
+              "type": "text",
+              "id": "n196",
+              "name": "Mobile Previous",
+              "width": 84,
+              "height": "fit_content",
+              "content": "Anterior",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": 900,
+              "lineHeight": 1.2,
+              "textAlign": "center",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#64748B"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "n197",
+              "name": "Mobile Page",
+              "width": 82,
+              "height": "fit_content",
+              "content": "Pagina 1",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": 900,
+              "lineHeight": 1.2,
+              "textAlign": "center",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#475569"
+                }
+              ]
+            },
+            {
+              "type": "text",
+              "id": "n198",
+              "name": "Mobile Next",
+              "width": 84,
+              "height": "fit_content",
+              "content": "Siguiente",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": 900,
+              "lineHeight": 1.2,
+              "textAlign": "center",
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#0F172A"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "n199",
+          "name": "Mobile States",
+          "width": 346,
+          "height": 326,
+          "layout": "vertical",
+          "gap": 12,
+          "children": [
+            {
+              "type": "frame",
+              "id": "n200",
+              "name": "Mobile Loading",
+              "width": "fill_container",
+              "height": 98,
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 18,
+              "cornerRadius": 24,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "stroke": {
+                "thickness": 1,
+                "fill": [
+                  {
+                    "type": "solid",
+                    "color": "#E2E8F0"
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n201",
+                  "name": "Mobile Loading Title",
+                  "width": "fill_container",
+                  "height": "fit_content",
+                  "content": "Buscando businesses",
+                  "fontFamily": "Inter",
+                  "fontSize": 17,
+                  "fontWeight": 900,
+                  "lineHeight": 1.15,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#0F172A"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n202",
+                  "name": "Mobile Loading Copy",
+                  "width": "fill_container",
+                  "height": "fit_content",
+                  "content": "Skeleton compacto mientras carga la API.",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": 500,
+                  "lineHeight": 1.35,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#64748B"
+                    }
+                  ]
+                },
+                {
+                  "type": "rectangle",
+                  "id": "n211",
+                  "name": "Mobile Loading Skeleton One",
+                  "width": 220,
+                  "height": 16,
+                  "cornerRadius": 999,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#E2E8F0"
+                    }
+                  ],
+                  "children": []
+                },
+                {
+                  "type": "rectangle",
+                  "id": "n212",
+                  "name": "Mobile Loading Skeleton Two",
+                  "width": 170,
+                  "height": 12,
+                  "cornerRadius": 999,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#EEF2F7"
+                    }
+                  ],
+                  "children": []
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n203",
+              "name": "Mobile Empty",
+              "width": "fill_container",
+              "height": 98,
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 18,
+              "cornerRadius": 24,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FFFFFF"
+                }
+              ],
+              "stroke": {
+                "thickness": 1,
+                "fill": [
+                  {
+                    "type": "solid",
+                    "color": "#E2E8F0"
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n204",
+                  "name": "Mobile Empty Title",
+                  "width": "fill_container",
+                  "height": "fit_content",
+                  "content": "Sin resultados",
+                  "fontFamily": "Inter",
+                  "fontSize": 17,
+                  "fontWeight": 900,
+                  "lineHeight": 1.15,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#0F172A"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n205",
+                  "name": "Mobile Empty Copy",
+                  "width": "fill_container",
+                  "height": "fit_content",
+                  "content": "Limpiar filtros para ver todos.",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": 500,
+                  "lineHeight": 1.35,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#64748B"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "n206",
+              "name": "Mobile Error",
+              "width": "fill_container",
+              "height": 98,
+              "layout": "vertical",
+              "gap": 8,
+              "padding": 18,
+              "cornerRadius": 24,
+              "fill": [
+                {
+                  "type": "solid",
+                  "color": "#FEF2F2"
+                }
+              ],
+              "stroke": {
+                "thickness": 1,
+                "fill": [
+                  {
+                    "type": "solid",
+                    "color": "#FECACA"
+                  }
+                ]
+              },
+              "children": [
+                {
+                  "type": "text",
+                  "id": "n207",
+                  "name": "Mobile Error Title",
+                  "width": "fill_container",
+                  "height": "fit_content",
+                  "content": "Error al cargar",
+                  "fontFamily": "Inter",
+                  "fontSize": 17,
+                  "fontWeight": 900,
+                  "lineHeight": 1.15,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#7F1D1D"
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "n208",
+                  "name": "Mobile Error Copy",
+                  "width": "fill_container",
+                  "height": "fit_content",
+                  "content": "Retry sin perder filtros activos.",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": 500,
+                  "lineHeight": 1.35,
+                  "fill": [
+                    {
+                      "type": "solid",
+                      "color": "#991B1B"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
       ]
     }
   ]
