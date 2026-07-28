@@ -62,6 +62,7 @@ describe('marketplace search page', () => {
     expect(screen.getByText('Corte clasico')).toBeInTheDocument();
     expect(screen.getAllByText('Barberia')).not.toHaveLength(0);
     expect(screen.getByText('Categoria: Barberia')).toBeInTheDocument();
+    expect(screen.getByRole('link', { name: /limpiar filtros/i })).toHaveAttribute('href', '/search');
     expect(screen.getByText(/desde 18/i)).toBeInTheDocument();
     expect(screen.getByRole('link', { name: /ver perfil/i })).toHaveAttribute('href', '/b/barberia-centro');
     expect(screen.getByRole('link', { name: /reservar appointment/i })).toHaveAttribute('href', '/b/barberia-centro/appointment');

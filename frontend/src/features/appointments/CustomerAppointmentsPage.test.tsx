@@ -6,7 +6,7 @@ import { MemoryRouter, Route, Routes } from 'react-router-dom';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
 import type { AppointmentDetailsResponse, AppointmentSummaryResponse } from '@/api/contracts';
-import { setAuthSession } from '@/auth/authStorage';
+import { getAuthSession, setAuthSession } from '@/auth/authStorage';
 import * as appointmentApi from '@/features/appointments/appointmentApi';
 import { CustomerAppointmentsPage } from '@/pages/customer/CustomerAppointmentsPage';
 
@@ -118,6 +118,18 @@ describe('customer appointments page', () => {
     expect(await screen.findByText('CancelledByCustomer')).toBeInTheDocument();
     expect(screen.getByText('No puedo ir')).toBeInTheDocument();
   });
+
+  it('logs out the customer session and navigates to customer login', async () => {
+    setCustomerSession();
+    vi.mocked(appointmentApi.listCustomerAppointments).mockResolvedValue([]);
+
+    renderWithProviders(<CustomerAppointmentsPage />);
+
+    await userEvent.click(await screen.findByRole('button', { name: /logout/i }));
+
+    expect(getAuthSession('Customer')).toBeNull();
+    expect(await screen.findByText('Customer login route')).toBeInTheDocument();
+  });
 });
 
 function setCustomerSession() {
@@ -145,6 +157,7 @@ function renderWithProviders(children: ReactNode) {
       <MemoryRouter initialEntries={['/customer/appointments']}>
         <Routes>
           <Route element={children} path="/customer/appointments" />
+          <Route element={<div>Customer login route</div>} path="/auth/customer/login" />
         </Routes>
       </MemoryRouter>
     </QueryClientProvider>,

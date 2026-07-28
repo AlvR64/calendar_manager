@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import type { CustomerAuthSession } from '@/auth/authStorage';
 import { routes } from '@/lib/routes';
 
-export function CustomerSessionBadge({ session }: { session: CustomerAuthSession }) {
+export function CustomerSessionBadge({ onLogout, session }: { onLogout?: () => void; session: CustomerAuthSession }) {
   const displayName = [session.firstName, session.lastName].filter(Boolean).join(' ') || session.email;
 
   return (
@@ -18,6 +18,11 @@ export function CustomerSessionBadge({ session }: { session: CustomerAuthSession
       <Link className="hidden rounded-full bg-slate-950 px-3 py-2 text-xs font-black text-white transition hover:bg-indigo-700 sm:inline-flex" to={routes.customerAppointments}>
         Mis appointments
       </Link>
+      {onLogout ? (
+        <button className="rounded-full border border-red-200 bg-white px-3 py-2 text-xs font-black text-red-700 transition hover:bg-red-50" onClick={onLogout} type="button">
+          Logout
+        </button>
+      ) : null}
     </div>
   );
 }

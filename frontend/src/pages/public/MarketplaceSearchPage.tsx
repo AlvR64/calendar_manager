@@ -114,7 +114,7 @@ function ActiveFilters({ filters }: { filters: MarketplaceSearchFilters }) {
       {activeFilters.map(([label, value]) => (
         <span className="rounded-full border border-indigo-100 bg-indigo-50 px-3 py-1.5 text-xs font-black text-indigo-800" key={label}>{label}: {value}</span>
       ))}
-      <Link className="rounded-2xl bg-slate-950 px-4 py-2 text-xs font-black text-white shadow-sm transition hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-100" to={routes.search}>Limpiar filtros</Link>
+      <Link className="rounded-2xl bg-indigo-600 px-4 py-2 text-xs font-black text-white shadow-sm transition hover:bg-indigo-700 focus:outline-none focus:ring-4 focus:ring-indigo-200" to={routes.search}>Limpiar filtros</Link>
     </div>
   );
 }

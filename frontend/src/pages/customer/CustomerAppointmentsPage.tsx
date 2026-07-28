@@ -1,11 +1,11 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import type { ReactNode } from 'react';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import type { AppointmentSummaryResponse } from '@/api/contracts';
 import { getApiErrorMessage } from '@/api/apiErrors';
-import { getAuthSession } from '@/auth/authStorage';
+import { clearAuthSession, getAuthSession } from '@/auth/authStorage';
 import { cancelCustomerAppointment, listCustomerAppointments } from '@/features/appointments/appointmentApi';
 import { CustomerSessionBadge } from '@/features/auth/CustomerSessionBadge';
 import { ApiErrorAlert, inputClassName, labelClassName, primaryButtonClassName } from '@/features/auth/authUi';
@@ -15,6 +15,7 @@ const customerAppointmentsQueryKey = (token: string, from: string, to: string, s
 
 export function CustomerAppointmentsPage() {
   const session = getAuthSession('Customer');
+  const navigate = useNavigate();
   const queryClient = useQueryClient();
   const [fromDate, setFromDate] = useState('');
   const [toDate, setToDate] = useState('');
@@ -48,12 +49,17 @@ export function CustomerAppointmentsPage() {
   const past = appointments.filter((appointment) => !isScheduledFuture(appointment) && !isCancelled(appointment));
   const hasFilters = Boolean(fromDate || toDate || status);
 
+  function handleLogout() {
+    clearAuthSession('Customer');
+    navigate(routes.customerLogin, { replace: true });
+  }
+
   return (
     <CustomerAppointmentsShell>
       <header className="rounded-[2rem] border border-white/80 bg-white/90 p-6 shadow-2xl shadow-indigo-100/70 backdrop-blur md:p-8">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
           <Link className="text-sm font-black text-indigo-700 hover:text-indigo-900" to={routes.home}>Calendar Manager</Link>
-          {session ? <CustomerSessionBadge session={session} /> : null}
+          {session ? <CustomerSessionBadge onLogout={handleLogout} session={session} /> : null}
         </div>
         <p className="mt-10 text-sm font-black uppercase tracking-[0.25em] text-indigo-600">Customer appointments</p>
         <h1 className="mt-4 text-5xl font-black leading-[0.95] tracking-tight text-slate-950 md:text-6xl">Tus appointments</h1>
