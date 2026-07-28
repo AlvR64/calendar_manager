@@ -245,7 +245,7 @@ function setAdminSession() {
     businessId: 'business-1',
     displayName: 'Admin One',
     email: 'admin@example.com',
-    expiresAtUtc: '2026-07-15T18:00:00Z',
+    expiresAtUtc: '2099-07-15T18:00:00Z',
     id: 'admin-1',
     token: 'admin-token',
     tokenType: 'Bearer',

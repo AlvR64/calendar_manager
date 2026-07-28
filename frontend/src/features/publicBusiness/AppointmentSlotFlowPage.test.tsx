@@ -181,7 +181,7 @@ describe('appointment slot flow page', () => {
     setAuthSession({
       accountType: 'Customer',
       email: 'customer@demo.test',
-      expiresAtUtc: '2026-07-20T00:00:00Z',
+      expiresAtUtc: '2099-07-20T00:00:00Z',
       firstName: 'Clara',
       id: 'customer-1',
       lastName: null,
@@ -214,7 +214,7 @@ describe('appointment slot flow page', () => {
       businessId: 'business-1',
       displayName: 'Admin One',
       email: 'admin@example.test',
-      expiresAtUtc: '2026-07-20T00:00:00Z',
+      expiresAtUtc: '2099-07-20T00:00:00Z',
       id: 'admin-1',
       token: 'admin-token',
       tokenType: 'Bearer',

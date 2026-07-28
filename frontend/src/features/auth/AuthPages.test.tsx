@@ -30,7 +30,7 @@ describe('auth pages', () => {
     setAuthSession({
       accountType: 'Customer',
       email: 'customer@example.com',
-      expiresAtUtc: '2026-07-15T18:00:00Z',
+      expiresAtUtc: '2099-07-15T18:00:00Z',
       firstName: 'Clara',
       id: 'customer-1',
       lastName: null,
@@ -39,7 +39,7 @@ describe('auth pages', () => {
     });
     vi.mocked(authApi.loginAdmin).mockResolvedValue({
       accessToken: 'admin-token',
-      expiresAtUtc: '2026-07-15T18:00:00Z',
+      expiresAtUtc: '2099-07-15T18:00:00Z',
       tokenType: 'Bearer',
       user: {
         businessId: 'business-1',
@@ -75,7 +75,7 @@ describe('auth pages', () => {
   it('navigates admin to safe returnTo after login', async () => {
     vi.mocked(authApi.loginAdmin).mockResolvedValue({
       accessToken: 'admin-token',
-      expiresAtUtc: '2026-07-15T18:00:00Z',
+      expiresAtUtc: '2099-07-15T18:00:00Z',
       tokenType: 'Bearer',
       user: {
         businessId: 'business-1',
@@ -128,14 +128,14 @@ describe('auth pages', () => {
       businessId: 'business-1',
       displayName: 'Admin One',
       email: 'admin@example.com',
-      expiresAtUtc: '2026-07-15T18:00:00Z',
+      expiresAtUtc: '2099-07-15T18:00:00Z',
       id: 'admin-1',
       token: 'admin-token',
       tokenType: 'Bearer',
     });
     vi.mocked(authApi.loginCustomer).mockResolvedValue({
       accessToken: 'customer-token',
-      expiresAtUtc: '2026-07-15T18:00:00Z',
+      expiresAtUtc: '2099-07-15T18:00:00Z',
       tokenType: 'Bearer',
       user: {
         email: 'customer@example.com',

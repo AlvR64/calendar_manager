@@ -1,6 +1,7 @@
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
-import { getAuthSession, type AuthSession } from '@/auth/authStorage';
+import { clearAuthSession, getAuthSession, type AuthSession } from '@/auth/authStorage';
 import { routes } from '@/lib/routes';
 
 type PublicHeaderProps = {
@@ -9,7 +10,19 @@ type PublicHeaderProps = {
 };
 
 export function PublicHeader({ className = '', maxWidthClassName = 'max-w-6xl' }: PublicHeaderProps) {
-  const session = getAuthSession();
+  const [session, setSession] = useState(() => getAuthSession());
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  function handleLogout() {
+    if (!session) {
+      return;
+    }
+
+    clearAuthSession(session.accountType);
+    setSession(null);
+    navigate(`${location.pathname}${location.search}`, { replace: true, state: { loggedOutAt: Date.now() } });
+  }
 
   return (
     <header className={className}>
@@ -18,7 +31,7 @@ export function PublicHeader({ className = '', maxWidthClassName = 'max-w-6xl' }
           Calendar Manager
         </Link>
         <nav className="flex flex-wrap items-center gap-2 sm:justify-end" aria-label="Navegacion publica">
-          {session ? <SessionSummary session={session} /> : <AnonymousActions />}
+          {session ? <SessionSummary onLogout={handleLogout} session={session} /> : <AnonymousActions />}
         </nav>
       </div>
     </header>
@@ -38,7 +51,7 @@ function AnonymousActions() {
   );
 }
 
-function SessionSummary({ session }: { session: AuthSession }) {
+function SessionSummary({ onLogout, session }: { onLogout: () => void; session: AuthSession }) {
   const displayName = session.accountType === 'Admin'
     ? session.displayName
     : [session.firstName, session.lastName].filter(Boolean).join(' ') || session.email;
@@ -57,6 +70,9 @@ function SessionSummary({ session }: { session: AuthSession }) {
       <Link className="rounded-full bg-slate-950 px-3 py-2 text-xs font-black text-white transition hover:bg-indigo-700" to={destination}>
         {actionLabel}
       </Link>
+      <button className="rounded-full border border-red-200 bg-white px-3 py-2 text-xs font-black text-red-700 transition hover:bg-red-50" onClick={onLogout} type="button">
+        Logout
+      </button>
     </div>
   );
 }

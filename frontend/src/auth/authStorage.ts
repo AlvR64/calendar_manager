@@ -66,9 +66,19 @@ function readSession(accountType: AccountType): AuthSession | null {
 
   try {
     const session = JSON.parse(value) as AuthSession;
-    return session.accountType === accountType && session.token ? session : null;
+    if (session.accountType !== accountType || !session.token || isExpired(session.expiresAtUtc)) {
+      window.localStorage.removeItem(sessionKeyByAccountType[accountType]);
+      return null;
+    }
+
+    return session;
   } catch {
     window.localStorage.removeItem(sessionKeyByAccountType[accountType]);
     return null;
   }
+}
+
+function isExpired(expiresAtUtc: string) {
+  const expiresAt = Date.parse(expiresAtUtc);
+  return Number.isNaN(expiresAt) || expiresAt <= Date.now();
 }
