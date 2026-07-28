@@ -4,21 +4,27 @@ using Calendar.Infrastructure;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 
-const string DevelopmentCorsPolicy = "DevelopmentCors";
+const string ConfiguredCorsPolicy = "ConfiguredCors";
 
 var builder = WebApplication.CreateBuilder(args);
 var jwtSection = builder.Configuration.GetSection("Jwt");
 var jwtSigningKey = jwtSection["SigningKey"]
     ?? throw new InvalidOperationException("JWT signing key was not found.");
+var allowedOrigins = builder.Configuration.GetSection("Cors:AllowedOrigins").Get<string[]>() ?? [];
+
+if (builder.Environment.IsDevelopment() && allowedOrigins.Length == 0)
+{
+    allowedOrigins = ["http://localhost:5173", "http://127.0.0.1:5173"];
+}
 
 builder.Services.AddProblemDetails();
 builder.Services.AddControllers();
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy(DevelopmentCorsPolicy, policy =>
+    options.AddPolicy(ConfiguredCorsPolicy, policy =>
     {
         policy
-            .WithOrigins("http://localhost:5173", "http://127.0.0.1:5173")
+            .WithOrigins(allowedOrigins)
             .AllowAnyHeader()
             .AllowAnyMethod();
     });
@@ -48,9 +54,9 @@ app.UseExceptionHandler();
 app.UseStatusCodePages();
 app.UseHttpsRedirection();
 
-if (app.Environment.IsDevelopment())
+if (allowedOrigins.Length > 0)
 {
-    app.UseCors(DevelopmentCorsPolicy);
+    app.UseCors(ConfiguredCorsPolicy);
 }
 
 app.UseAuthentication();
