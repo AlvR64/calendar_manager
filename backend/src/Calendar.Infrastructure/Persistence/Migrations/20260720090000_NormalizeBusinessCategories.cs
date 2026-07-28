@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace Calendar.Infrastructure.Persistence.Migrations
 {
     /// <inheritdoc />
-    [Migration("20260720090000_NormalizeBusinessCategories")]
     public partial class NormalizeBusinessCategories : Migration
     {
         /// <inheritdoc />
