@@ -4,6 +4,8 @@ This folder contains implementation specs for the isolated `frontend2/` redesign
 
 Start from `PAGES.md` to select the next business concept, page, or subflow to design.
 
+The visual rules for all frontend2 OpenPencil work are in `../../designs/frontend2/README.md`.
+
 ## Boundaries
 
 - `../task-specs/` remains the canonical source for product use cases, backend behavior, and API contracts.

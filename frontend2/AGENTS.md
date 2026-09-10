@@ -28,6 +28,12 @@
 - Every implemented screen must handle applicable loading, empty, error, validation, and success states and work on desktop and mobile.
 - Prefer accessible native semantics and accessible primitives when components are introduced.
 
+## Design Direction
+
+- The master visual guide is `../designs/frontend2/README.md`.
+- Create or update frontend2 OpenPencil designs only under `../designs/frontend2/`; designs directly under `../designs/` are existing frontend references and must remain unchanged.
+- During a design-only request, use OpenPencil MCP and do not implement React, change backend behavior, or alter business rules unless explicitly requested.
+
 ## Specs And Status
 
 - Redesign specs live in `../docs/task-specs-frontend2/`; use its `TEMPLATE.md` for new slices.
