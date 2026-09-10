@@ -3,12 +3,12 @@
   "default_agent": "plan",
   "agent": {
     "plan": {
-      "model": "openai/gpt-5.5",
+      "model": "openai/gpt-5.6-sol",
       "reasoningEffort": "high",
       "textVerbosity": "medium"
     },
     "build": {
-      "model": "openai/gpt-5.5",
+      "model": "openai/gpt-5.6-terra",
       "reasoningEffort": "medium",
       "textVerbosity": "low"
     }
