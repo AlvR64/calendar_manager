@@ -23,6 +23,12 @@ Install frontend dependencies:
 npm install --prefix frontend
 ```
 
+Install the isolated redesign frontend dependencies when working on it:
+
+```bash
+npm install --prefix frontend2
+```
+
 Apply database migrations after creating a fresh database, pulling new migrations, or resetting SQL Server data:
 
 ```bash
@@ -59,9 +65,16 @@ Start only frontend:
 bash ./frontend/start-dev.sh
 ```
 
+Start the redesign frontend alongside the current frontend:
+
+```bash
+bash ./frontend2/start-dev.sh
+```
+
 ## Local URLs
 
 - Frontend: `http://localhost:5173`
+- Frontend 2 redesign candidate: `http://localhost:5174`
 - API: `http://localhost:5167`
 - API health check: `http://localhost:5167/health`
 
@@ -102,4 +115,5 @@ Admin appointment actions continue in the Appointments MVP specs.
 
 - `backend/start-dev.sh` starts SQL Server through Docker Compose and then runs the API.
 - `backend/update-db.sh` is intentionally separate so migrations run only when explicitly requested.
-- Development CORS allows the Vite dev server origins `http://localhost:5173` and `http://127.0.0.1:5173`.
+- Development CORS allows the Vite dev server origins on ports `5173` and `5174` for both `localhost` and `127.0.0.1`.
+- `frontend2/` is an isolated redesign candidate. Its specs live in `docs/task-specs-frontend2/`; the current frontend and canonical product specs remain unchanged.

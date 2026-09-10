@@ -3,7 +3,8 @@
 ## Repository Scope
 - The GitHub repo is named `calendar_manager`. If the local folder still appears as `calendar_manager_dotnet`, that is only a local directory name; Git remote/tracking is already updated.
 - Backend work lives under `backend/`; backend-specific instructions live in `backend/AGENTS.md`.
-- Frontend work lives under `frontend/`; frontend-specific instructions live in `frontend/AGENTS.md`.
+- The current frontend lives under `frontend/`; frontend-specific instructions live in `frontend/AGENTS.md`.
+- The isolated redesign candidate lives under `frontend2/`; its instructions live in `frontend2/AGENTS.md`. Do not create source imports between the two applications.
 - Repo-local OpenCode skills live in `.agents/skills` and are wired by `opencode.json`.
 - OpenPencil MCP setup and troubleshooting are documented in `docs/openpencil-mcp.md`.
 - Use `domain-modeling` for domain terminology changes, `find-skills` to search for additional repo-local skills, and area-specific skills from the nearest scoped `AGENTS.md`.
@@ -21,6 +22,7 @@
 
 ## Task Specs
 - Product/use-case specs live under `docs/task-specs/`.
+- Frontend2 redesign specs live under `docs/task-specs-frontend2/`; canonical product behavior and backend contracts remain in `docs/task-specs/`.
 - Specs describe scope, backend contracts, design references, implementation plans, tests, and acceptance criteria.
 - Specs do not replace `task-groups-roadmap.md`; the roadmap remains the source of truth for status.
 - Before implementing a roadmap item, read the matching spec when it exists.

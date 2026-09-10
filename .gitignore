@@ -2,3 +2,6 @@ seed-dev-data.txt
 frontend/.env
 frontend/.env.local
 frontend/.env.*.local
+frontend2/.env
+frontend2/.env.local
+frontend2/.env.*.local

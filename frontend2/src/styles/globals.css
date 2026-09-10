@@ -1,0 +1,74 @@
+:root {
+  color: #e5e7eb;
+  background: #111827;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-synthesis: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  min-width: 320px;
+  margin: 0;
+}
+
+.site-shell {
+  min-height: 100vh;
+  background: radial-gradient(circle at top right, #1f3a5f, transparent 38rem), #111827;
+}
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 1.5rem;
+}
+
+.brand {
+  color: inherit;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+}
+
+.environment-label,
+.eyebrow {
+  color: #93c5fd;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.redesign-intro {
+  max-width: 52rem;
+  margin: 10vh auto 0;
+  padding: 2rem 1.5rem;
+}
+
+.redesign-intro h1 {
+  max-width: 13ch;
+  margin: 0.75rem 0 1rem;
+  color: #fff;
+  font-size: clamp(2.75rem, 8vw, 6rem);
+  line-height: 0.94;
+  letter-spacing: -0.065em;
+}
+
+.redesign-intro p:not(.eyebrow) {
+  max-width: 42rem;
+  color: #cbd5e1;
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 36rem) {
+  .site-header {
+    align-items: flex-start;
+    gap: 1rem;
+  }
+}
