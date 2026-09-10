@@ -2,6 +2,8 @@
 
 This folder contains implementation specs for the isolated `frontend2/` redesign candidate.
 
+Start from `PAGES.md` to select the next business concept, page, or subflow to design.
+
 ## Boundaries
 
 - `../task-specs/` remains the canonical source for product use cases, backend behavior, and API contracts.
