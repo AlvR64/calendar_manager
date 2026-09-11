@@ -4,7 +4,7 @@ This folder contains implementation specs for the isolated `frontend2/` redesign
 
 Start from `PAGES.md` to select the next business concept, page, or subflow to design.
 
-The visual rules for all frontend2 OpenPencil work are in `../../designs/frontend2/README.md`.
+The active visual workflow uses Impeccable from `frontend2/`. `../../designs/frontend2/README.md` preserves historical OpenPencil explorations only.
 
 ## Boundaries
 
@@ -19,7 +19,8 @@ The visual rules for all frontend2 OpenPencil work are in `../../designs/fronten
 1. Start a redesign slice from `TEMPLATE.md`.
 2. Link the relevant canonical product spec and roadmap IDs.
 3. Specify the behavior that must remain compatible with the current frontend.
-4. Implement and verify the route in `frontend2/`.
-5. Record the implementation state in the redesign spec.
+4. Use Impeccable `shape` to confirm a direction before implementation and record the approved page-specific direction in this spec.
+5. Implement and verify the route in `frontend2/`.
+6. Run the applicable Impeccable review and detector passes, then record the implementation state in the redesign spec.
 
 The current frontend in `../../frontend/` remains independent and is not changed by these specs.

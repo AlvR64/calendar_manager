@@ -35,3 +35,64 @@ export type LoginCustomerResponse = {
     lastName?: string | null;
   };
 };
+
+export type AppointmentBusinessResponse = {
+  id: string;
+  name: string;
+  slug: string;
+  timeZoneId: string;
+};
+
+export type AppointmentCustomerResponse = {
+  email: string;
+  firstName: string;
+  id: string;
+  lastName?: string | null;
+};
+
+export type AppointmentServiceResponse = {
+  currencyCodeSnapshot: string;
+  durationMinutesSnapshot: number;
+  id: string;
+  nameSnapshot: string;
+  priceAmountSnapshot: number;
+};
+
+export type AppointmentStaffMemberResponse = {
+  displayName: string;
+  id: string;
+};
+
+export type AppointmentSummaryResponse = {
+  business: AppointmentBusinessResponse;
+  cancelledAtUtc?: string | null;
+  cancellationReason?: string | null;
+  createdAtUtc: string;
+  customer: AppointmentCustomerResponse;
+  customerNotes?: string | null;
+  endAtUtc: string;
+  endTime: string;
+  id: string;
+  internalNotes?: string | null;
+  localDate: string;
+  service: AppointmentServiceResponse;
+  staffMember: AppointmentStaffMemberResponse;
+  startAtUtc: string;
+  startTime: string;
+  status: string;
+};
+
+export type AdminDashboardStatusCountResponse = {
+  count: number;
+  status: string;
+};
+
+export type AdminDashboardSummaryResponse = {
+  currencyCode: string;
+  estimatedRevenueAmount: number;
+  rangeEndLocalDate: string;
+  rangeStartLocalDate: string;
+  statusCounts: AdminDashboardStatusCountResponse[];
+  todayAppointmentCount: number;
+  upcomingAppointments: AppointmentSummaryResponse[];
+};

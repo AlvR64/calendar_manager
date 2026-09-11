@@ -80,7 +80,7 @@ bash ./frontend2/start-dev.sh
 
 ## OpenPencil MCP
 
-OpenCode is configured to use OpenPencil through `http://127.0.0.1:3100/mcp` for design work. If the `openpencil_*` tools are missing or the MCP server is not running, follow `docs/openpencil-mcp.md`.
+OpenPencil is preserved for historical design work but is paused by default in OpenCode. Its files and setup guide remain available at `docs/openpencil-mcp.md`; re-enable the `openpencil` MCP entry in `opencode.json` only for an explicit OpenPencil task.
 
 Common Windows start command:
 

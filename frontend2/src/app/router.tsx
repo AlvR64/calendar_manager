@@ -1,6 +1,8 @@
 import { createBrowserRouter } from 'react-router-dom';
 
 import { ProtectedRoute } from '@/auth/ProtectedRoute';
+import { AdminDashboardPage } from '@/features/dashboard/AdminDashboardPage';
+import { AdminShell } from '@/layouts/AdminShell';
 import { RedesignLayout } from '@/layouts/RedesignLayout';
 import { RedesignPlaceholderPage } from '@/pages/RedesignPlaceholderPage';
 
@@ -10,12 +12,6 @@ const customerPage = (title: string) => (
     <RedesignPlaceholderPage area="Customer" title={title} />
   </ProtectedRoute>
 );
-const adminPage = (title: string) => (
-  <ProtectedRoute accountType="Admin">
-    <RedesignPlaceholderPage area="Admin" title={title} />
-  </ProtectedRoute>
-);
-
 export const router = createBrowserRouter([
   {
     element: <RedesignLayout />,
@@ -30,12 +26,17 @@ export const router = createBrowserRouter([
       { path: '/auth/admin/login', element: publicPage('Admin sign in') },
       { path: '/auth/business/register', element: publicPage('Business registration') },
       { path: '/customer/appointments', element: customerPage('Your appointments') },
-      { path: '/admin', element: adminPage('Business overview') },
-      { path: '/admin/business-settings', element: adminPage('Business settings') },
-      { path: '/admin/services', element: adminPage('Services') },
-      { path: '/admin/staff-members', element: adminPage('Staff members') },
-      { path: '/admin/availability', element: adminPage('Availability') },
-      { path: '/admin/appointments', element: adminPage('Appointments') },
+      {
+        element: <ProtectedRoute accountType="Admin"><AdminShell /></ProtectedRoute>,
+        children: [
+          { path: '/admin', element: <AdminDashboardPage /> },
+          { path: '/admin/business-settings', element: <RedesignPlaceholderPage area="Admin" title="Business settings" /> },
+          { path: '/admin/services', element: <RedesignPlaceholderPage area="Admin" title="Services" /> },
+          { path: '/admin/staff-members', element: <RedesignPlaceholderPage area="Admin" title="Staff members" /> },
+          { path: '/admin/availability', element: <RedesignPlaceholderPage area="Admin" title="Availability" /> },
+          { path: '/admin/appointments', element: <RedesignPlaceholderPage area="Admin" title="Appointments" /> },
+        ],
+      },
     ],
   },
 ]);

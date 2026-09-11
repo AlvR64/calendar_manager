@@ -1,12 +1,12 @@
 # OpenPencil MCP
 
-This repo configures OpenCode to use OpenPencil through the MCP HTTP endpoint in `opencode.json`:
+This repo retains an OpenPencil MCP configuration for historical design work. It is paused by default; enable it only for an explicit OpenPencil task:
 
 ```json
 "openpencil": {
   "type": "remote",
   "url": "http://127.0.0.1:3100/mcp",
-  "enabled": true,
+  "enabled": false,
   "timeout": 30000
 }
 ```

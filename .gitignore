@@ -5,3 +5,5 @@ frontend/.env.*.local
 frontend2/.env
 frontend2/.env.local
 frontend2/.env.*.local
+**/.impeccable/config.local.json
+.opencode/skills/impeccable/scripts/bin/

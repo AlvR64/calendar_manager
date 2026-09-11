@@ -30,12 +30,15 @@
 
 ## Design Direction
 
-- The master visual guide is `../designs/frontend2/README.md`.
-- Create or update frontend2 OpenPencil designs only under `../designs/frontend2/`; designs directly under `../designs/` are existing frontend references and must remain unchanged.
-- During a design-only request, use OpenPencil MCP and do not implement React, change backend behavior, or alter business rules unless explicitly requested.
+- Use Impeccable as the frontend2 design workflow. Run its commands from `frontend2/` so `PRODUCT.md`, `DESIGN.md`, and `.impeccable/` remain exclusive to this application.
+- `../designs/frontend2/` and its OpenPencil files are historical exploration context only. Do not treat them as an approved visual authority or modify them unless explicitly asked.
+- `../frontend/` and `../backend/` are read-only references during frontend2 design and implementation work.
+- Start a new screen with Impeccable `shape`; present and obtain approval for its direction before modifying `src/`. Use `critique`, `polish`, `detect`, and `live` after implementation.
+- Preserve the confirmed dark-first operational direction recorded in frontend2 context. Do not introduce a visual system from frontend or its OpenPencil designs.
 
 ## Specs And Status
 
 - Redesign specs live in `../docs/task-specs-frontend2/`; use its `TEMPLATE.md` for new slices.
+- Record approved page-specific direction in the relevant frontend2 spec and Impeccable surface brief.
 - Canonical product behavior and backend contracts remain in `../docs/task-specs/`.
 - `../task-groups-roadmap.md` remains authoritative for product status. Do not mark frontend work complete for scaffold or placeholders.

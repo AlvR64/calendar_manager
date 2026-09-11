@@ -1,11 +1,11 @@
-# Frontend 2 Design Guide
+# Frontend 2 OpenPencil Archive
 
-This is the master design guide for the isolated `frontend2/` redesign. Apply it to every new OpenPencil design in this folder before implementing any React UI.
+This folder preserves the historical OpenPencil exploration work for the isolated `frontend2/` redesign. It is not the active visual authority. The active Impeccable context lives in `frontend2/PRODUCT.md`, `frontend2/DESIGN.md`, and `frontend2/.impeccable/`.
 
-## Scope And Separation
+## Historical Scope And Separation
 
 - Files in `../` are existing frontend references. Treat them as read-only.
-- Create and update frontend2 designs only in `designs/frontend2/`.
+- Do not update these OpenPencil designs unless a task explicitly reactivates OpenPencil.
 - Do not overwrite, rename, or use an existing frontend design as the destination for frontend2 work.
 - Use one `.op` file per page or flow, for example `homepage-explorations.op`.
 - Keep competing visual directions in the same exploration file until one is approved.
@@ -95,20 +95,20 @@ Build screens from a small, consistent set of patterns:
 - Split-panel layouts and grouped data blocks.
 - Form sections and accessible destructive-action dialogs.
 
-## Design Workflow
+## Previous Design Workflow
 
 When designing a screen or flow:
 
 1. Read the relevant entry in `docs/task-specs-frontend2/PAGES.md`.
 2. Read the linked canonical product spec in `docs/task-specs/` and inspect existing behavior when needed.
 3. Check whether a related frontend2 `.op` file already exists.
-4. Use OpenPencil MCP to create or update the frontend2 design file.
+4. This previous workflow used OpenPencil MCP to create or update frontend2 design files.
 5. Preserve existing functionality; do not invent product features except obvious minor UX improvements.
 6. Improve information hierarchy and presentation when useful without changing product behavior unnecessarily.
 7. Keep desktop and mobile behavior intentional.
 8. Identify loading, empty, error, validation, success, unauthorized, and destructive-action states where applicable.
 9. If designs conflict, propose a reasonable normalization based on this guide.
-10. After approval, record the decision in the relevant frontend2 spec before implementation.
+10. The active workflow records approved decisions in frontend2 Impeccable context and the relevant frontend2 spec before implementation.
 
 ## Acceptance Criteria
 
