@@ -42,6 +42,7 @@ Discovering businesses and moving from a search result to a public business prof
 - Important states: anonymous, Customer session, Admin session, logout, and mobile search.
 - Existing reference: `designs/homepage.op`.
 - Canonical references: Marketplace Discovery specs, especially `03-marketplace-search-frontend.md` and `07-public-session-header-and-auth-boundaries.md`.
+- Frontend2 spec: `marketplace/01-homepage.md`.
 
 ### `F2-MKT-02` Marketplace Search
 
